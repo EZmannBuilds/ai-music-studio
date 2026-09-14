@@ -1,0 +1,9 @@
+# user profiles and anything local never leave the machine
+profiles/local/
+*.local.yaml
+*.local.json
+
+# OS and editor clutter
+.DS_Store
+Thumbs.db
+*.swp

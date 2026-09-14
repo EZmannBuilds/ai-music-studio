@@ -1,0 +1,125 @@
+{
+  "schema": "daw_agent_capability_matrix_v1",
+  "as_of": "2026-09",
+  "daws": {
+    "ableton_live": {
+      "official_layers": [
+        {
+          "name": "Extensions SDK",
+          "language": "JavaScript/Node.js",
+          "status": "Live 12 Suite public beta",
+          "best_for": [
+            "one-shot set analysis",
+            "track/clip/MIDI transformations",
+            "project utilities",
+            "generative actions"
+          ]
+        },
+        {
+          "name": "Max for Live Live API / LOM",
+          "language": "Max/JavaScript",
+          "status": "mature",
+          "best_for": [
+            "persistent in-DAW control",
+            "state observation",
+            "custom devices",
+            "MIDI generation"
+          ]
+        },
+        {
+          "name": "Live 12 MIDI Tools",
+          "language": "native + Max for Live",
+          "status": "shipping",
+          "best_for": [
+            "note generation",
+            "note transformation",
+            "scale-aware clip operations"
+          ]
+        }
+      ],
+      "agent_ready_third_party": [
+        "AbletonOSC",
+        "Ableton MCP projects"
+      ],
+      "note_level_generation": "strong",
+      "continuous_external_control": "best through LOM/OSC/Remote Script bridge; Extensions are discrete actions",
+      "recommended_agent_workflow": "Session View divergent clips/scenes -> Arrangement View final chronology -> render/analyze"
+    },
+    "fl_studio": {
+      "official_layers": [
+        {
+          "name": "MIDI Scripting API",
+          "language": "Python",
+          "status": "shipping",
+          "best_for": [
+            "controller/event scripting",
+            "DAW state/actions across channels/mixer/patterns/playlist/transport"
+          ]
+        },
+        {
+          "name": "Piano Roll Scripting API",
+          "language": "Python",
+          "status": "shipping",
+          "best_for": [
+            "create/modify/delete notes",
+            "markers",
+            "per-note expressive properties"
+          ]
+        }
+      ],
+      "agent_ready_third_party": [
+        "flstudio-mcp and other MCP bridges"
+      ],
+      "note_level_generation": "strong through Piano Roll scripting",
+      "critical_modeling_note": "Playlist lanes are not Mixer tracks by default",
+      "recommended_agent_workflow": "Instrument Track/Track Mode -> Patterns/Piano Roll -> Playlist -> Automation Clips -> Mixer -> render/analyze"
+    },
+    "pro_tools": {
+      "official_layers": [
+        {
+          "name": "Pro Tools Scripting SDK / PTSL",
+          "language": "gRPC/Protocol Buffers; language independent",
+          "status": "shipping",
+          "best_for": [
+            "session/track/timeline/import/export/bounce automation"
+          ]
+        },
+        {
+          "name": "Pro Tools Sketch",
+          "language": "native workflow",
+          "status": "shipping",
+          "best_for": [
+            "nonlinear audio/MIDI clip ideation",
+            "Scenes",
+            "Arrangements"
+          ]
+        },
+        {
+          "name": "AAX MIDI Effects",
+          "language": "plugin ecosystem",
+          "status": "shipping",
+          "best_for": [
+            "MIDI generation/manipulation inside tracks"
+          ]
+        },
+        {
+          "name": "SoundFlow / SFX",
+          "language": "automation platform",
+          "status": "integrated with Pro Tools 2025.10+",
+          "best_for": [
+            "macro/UI automation",
+            "built-in command surface",
+            "conversational Session Assistant"
+          ]
+        }
+      ],
+      "agent_ready_third_party": [
+        "py-ptsl",
+        "experimental PTSL MCP servers"
+      ],
+      "note_level_generation": "use MIDI Builder/import, Sketch, or MIDI effects; do not assume public PTSL note API",
+      "deployment_constraint": "PTSL SDK use is local-computer only under Avid license; certificate required for licensed products",
+      "recommended_agent_workflow": "Sketch/external MIDI -> Edit timeline -> routing/folders/playlists -> commit/freeze -> bounce/analyze"
+    }
+  }
+}

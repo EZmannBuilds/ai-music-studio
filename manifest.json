@@ -1,0 +1,75 @@
+{
+  "name": "AI Music Studio",
+  "version": "1.0",
+  "license": "MIT",
+  "entry_skill": "music-director/SKILL.md",
+  "skills": [
+    "music-director/SKILL.md",
+    "composer/SKILL.md",
+    "arranger/SKILL.md",
+    "producer/SKILL.md",
+    "lyric-generator/SKILL.md",
+    "mix-engineer/SKILL.md",
+    "reference-analyst/SKILL.md",
+    "music-critics/SKILL.md",
+    "listener-model/SKILL.md",
+    "midi-builder/SKILL.md",
+    "plugin-auditor/SKILL.md",
+    "music-research/SKILL.md"
+  ],
+  "shared": [
+    "shared/TRACK_STATE_SCHEMA.md",
+    "shared/SPECIALIST_HANDOFF_SCHEMA.md",
+    "shared/QUALITY_GATE.md",
+    "shared/LISTENER_STATE_SCHEMA.md",
+    "shared/MUSICAL_MEMORY_SCHEMA.md",
+    "shared/RESEARCH_RULES.md",
+    "shared/GENERALIZATION_RULES.md",
+    "shared/REFERENCE_TRANSLATION_SCHEMA.md",
+    "shared/MIDI_EXPORT_SCHEMA.md",
+    "shared/MIX_FEEDBACK_PROTOCOL.md",
+    "shared/DAW_ADAPTER_CONTRACT.md",
+    "shared/LYRIC_ALIGNMENT_SCHEMA.md",
+    "shared/PLUGIN_CALIBRATION_SCHEMA.md",
+    "shared/RENDER_VERIFICATION.md",
+    "shared/FILE_NAMING.md",
+    "shared/USER_PROFILE_SCHEMA.md",
+    "shared/FREE_INSTRUMENTS.md"
+  ],
+  "research": [
+    "research/PERCEPTION_AND_PRODUCTION.md",
+    "research/GENERALIZATION.md",
+    "research/REFERENCES_AND_MIDI.md",
+    "research/DAW_AGENT_INTEGRATION.md",
+    "research/LYRICS_AND_PROSODY.md"
+  ],
+  "benchmark": [
+    "research/BENCHMARK.md"
+  ],
+  "adapters": [
+    "daw-adapters/ABLETON_LIVE.md",
+    "daw-adapters/FL_STUDIO.md",
+    "daw-adapters/PRO_TOOLS.md",
+    "daw-adapters/DAW_CAPABILITY_MATRIX.json"
+  ],
+  "examples": [
+    "examples/Lyric_Alignment_Example.mid",
+    "examples/Lyric_Alignment_Example.json",
+    "examples/Lyric_Alignment_Example.txt"
+  ],
+  "profiles": [
+    "profiles/README.md",
+    "profiles/user-profile.example.yaml"
+  ],
+  "tools": [
+    "tools/privacy_check.py"
+  ],
+  "meta": [
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "manifest.json",
+    ".gitignore"
+  ],
+  "user_specific_content": "none; it lives in the user profile (shared/USER_PROFILE_SCHEMA.md)"
+}

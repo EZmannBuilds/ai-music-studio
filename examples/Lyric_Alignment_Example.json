@@ -1,0 +1,209 @@
+{
+  "schema": "lyric_alignment_example_v1",
+  "song": {
+    "title": "Lyric Alignment Example",
+    "tempo_bpm": 96,
+    "meter": "4/4",
+    "key": "A minor"
+  },
+  "midi_track": "Lead Vocal + Lyrics",
+  "lyric": "Light is late but I still wait / for your voice to cross the dark",
+  "syllable_count": 14,
+  "note_onset_count": 16,
+  "mapping_note": "The final syllable 'dark' spans three notes. Only the first note carries a new lyric meta-event.",
+  "syllables": [
+    {
+      "text": "Light",
+      "lexical_stress": 1,
+      "note_indices": [
+        0
+      ],
+      "note_pitches": [
+        69
+      ],
+      "start_beat": 0.0,
+      "duration_beats": 0.75,
+      "melisma": false
+    },
+    {
+      "text": "is",
+      "lexical_stress": 0,
+      "note_indices": [
+        1
+      ],
+      "note_pitches": [
+        69
+      ],
+      "start_beat": 1.0,
+      "duration_beats": 0.5,
+      "melisma": false
+    },
+    {
+      "text": "late",
+      "lexical_stress": 1,
+      "note_indices": [
+        2
+      ],
+      "note_pitches": [
+        72
+      ],
+      "start_beat": 2.0,
+      "duration_beats": 1.0,
+      "melisma": false
+    },
+    {
+      "text": "but",
+      "lexical_stress": 0,
+      "note_indices": [
+        3
+      ],
+      "note_pitches": [
+        71
+      ],
+      "start_beat": 3.25,
+      "duration_beats": 0.5,
+      "melisma": false
+    },
+    {
+      "text": "I",
+      "lexical_stress": 1,
+      "note_indices": [
+        4
+      ],
+      "note_pitches": [
+        69
+      ],
+      "start_beat": 4.0,
+      "duration_beats": 0.5,
+      "melisma": false
+    },
+    {
+      "text": "still",
+      "lexical_stress": 1,
+      "note_indices": [
+        5
+      ],
+      "note_pitches": [
+        67
+      ],
+      "start_beat": 5.0,
+      "duration_beats": 0.75,
+      "melisma": false
+    },
+    {
+      "text": "wait",
+      "lexical_stress": 1,
+      "note_indices": [
+        6
+      ],
+      "note_pitches": [
+        69
+      ],
+      "start_beat": 6.0,
+      "duration_beats": 1.5,
+      "melisma": false
+    },
+    {
+      "text": "for",
+      "lexical_stress": 0,
+      "note_indices": [
+        7
+      ],
+      "note_pitches": [
+        64
+      ],
+      "start_beat": 8.5,
+      "duration_beats": 0.5,
+      "melisma": false
+    },
+    {
+      "text": "your",
+      "lexical_stress": 0,
+      "note_indices": [
+        8
+      ],
+      "note_pitches": [
+        67
+      ],
+      "start_beat": 9.0,
+      "duration_beats": 0.75,
+      "melisma": false
+    },
+    {
+      "text": "voice",
+      "lexical_stress": 1,
+      "note_indices": [
+        9
+      ],
+      "note_pitches": [
+        69
+      ],
+      "start_beat": 10.0,
+      "duration_beats": 1.0,
+      "melisma": false
+    },
+    {
+      "text": "to",
+      "lexical_stress": 0,
+      "note_indices": [
+        10
+      ],
+      "note_pitches": [
+        67
+      ],
+      "start_beat": 11.25,
+      "duration_beats": 0.5,
+      "melisma": false
+    },
+    {
+      "text": "cross",
+      "lexical_stress": 1,
+      "note_indices": [
+        11
+      ],
+      "note_pitches": [
+        64
+      ],
+      "start_beat": 12.0,
+      "duration_beats": 0.75,
+      "melisma": false
+    },
+    {
+      "text": "the",
+      "lexical_stress": 0,
+      "note_indices": [
+        12
+      ],
+      "note_pitches": [
+        62
+      ],
+      "start_beat": 13.0,
+      "duration_beats": 0.5,
+      "melisma": false
+    },
+    {
+      "text": "dark",
+      "lexical_stress": 1,
+      "note_indices": [
+        13,
+        14,
+        15
+      ],
+      "note_pitches": [
+        64,
+        67,
+        69
+      ],
+      "start_beat": 14.0,
+      "duration_beats": 2.75,
+      "melisma": true
+    }
+  ],
+  "verification": {
+    "exact_syllable_fit": true,
+    "melisma_count": 1,
+    "unresolved_pronunciations": [],
+    "stress_conflicts": [],
+    "gm_percussion_collision": false
+  }
+}

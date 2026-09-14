@@ -1,0 +1,3 @@
+Lyric: Light is late but I still wait / for your voice to cross the dark
+14 lyric syllables. The final word 'dark' is a three-note melisma.
+The MIDI contains lyric meta-events at syllable onsets plus a sidecar JSON with exact mapping.
