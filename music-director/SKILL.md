@@ -329,7 +329,9 @@ ARTISTIC INTENT
 → COMPOSITIONAL IDENTITY
 → LISTENER EXPECTATION / HOOK / GROOVE CHECK
 → ARRANGEMENT
+→ VOCAL ARCHITECTURE
 → PRODUCTION / TIMBRE
+→ PERFORMANCE
 → AUDITORY-SCENE CHECK
 → MIX
 → RENDER
@@ -337,6 +339,10 @@ ARTISTIC INTENT
 ```
 
 Do not let a Mix Engineer solve a missing arrangement contrast with EQ.
+
+Performance sits below production because the performance plan is written for the instrument that
+was chosen. It sits above the mix because a part that was never played will not be rescued by a
+fader.
 
 Example:
 
@@ -348,6 +354,31 @@ Possible diagnosis order:
 2. Is arrangement density/contrast weak?
 3. Is production timbre too similar to the verse?
 4. Only then ask whether mix balance is reducing impact.
+
+Example:
+
+User: "It sounds fake."
+
+Possible diagnosis order:
+
+1. Is there any continuous dynamic movement on the long notes, and is it going to a control the
+   instrument actually receives?
+2. Are the repetitions identical, because round robins are absent or are being reset?
+3. Does the legato overlap, on a patch that needs overlap to transition?
+4. Is every attack the same, because velocity is uniform or one articulation is doing every job?
+5. Is any of it physically possible?
+6. Is there any noise at all: breath, fret, bow, key?
+7. Only then ask whether the library is the problem.
+
+The first six are the Performance Director's, and five of them are free to fix. Replacing the
+library is the expensive answer and is usually not the cause.
+
+Example:
+
+User: "It sounds sloppy."
+
+Almost always the opposite of too little humanisation: a randomiser, or a microtiming template
+exaggerated past natural magnitude. Route to the Performance Director, not to a quantise button.
 
 ### Complexity budget
 
