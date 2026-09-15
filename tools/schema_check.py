@@ -118,13 +118,21 @@ def main():
             parts = [v.strip() for v in m.group(1).split('|') if v.strip()]
             if len(parts) < 2 or any(p.startswith(('<', '[', '{')) for p in parts):
                 continue
+            # A list that is wholly inside some declared vocabulary is correct, whatever else
+            # it partially resembles. Two vocabularies can legitimately share members.
+            if any(all(p in allowed for p in parts) for allowed in vocabs.values()):
+                continue
+            near = []
             for key, allowed in vocabs.items():
                 hits = [p for p in parts if p in allowed]
                 misses = [p for p in parts if p not in allowed]
                 if len(hits) >= 2 and misses and len(hits) >= len(misses):
-                    problems.append(
-                        f'{rel}:{i}: choice list looks like the {key} vocabulary but adds '
-                        f'{misses}; either add it to tools/vocab.json or use the vocabulary')
+                    near.append((len(hits), key, misses))
+            if near:
+                _, key, misses = max(near)
+                problems.append(
+                    f'{rel}:{i}: choice list looks like the {key} vocabulary but adds '
+                    f'{misses}; either add it to tools/vocab.json or use the vocabulary')
 
     # the ledger and the exploration schema define lists that other files rely on
     def check_list(rel_path, marker, expected, label):
