@@ -100,7 +100,10 @@
     "shared/VIRTUAL_INSTRUMENT_GUIDE/EWE_DANCE_DRUMS.md",
     "shared/VIRTUAL_INSTRUMENT_GUIDE/JEMBE_AND_DUNUN.md",
     "shared/VIRTUAL_INSTRUMENT_GUIDE/TABLA.md",
-    "shared/VIRTUAL_INSTRUMENT_GUIDE/MRIDANGAM.md"
+    "shared/VIRTUAL_INSTRUMENT_GUIDE/MRIDANGAM.md",
+    "shared/VIRTUAL_INSTRUMENT_GUIDE/OUD.md",
+    "shared/VIRTUAL_INSTRUMENT_GUIDE/QANUN.md",
+    "shared/VIRTUAL_INSTRUMENT_GUIDE/NAY.md"
   ],
   "research": [
     "research/PERCEPTION_AND_PRODUCTION.md",
@@ -136,7 +139,10 @@
     "research/instruments/EWE_DANCE_DRUMS.md",
     "research/instruments/JEMBE_AND_DUNUN.md",
     "research/instruments/TABLA.md",
-    "research/instruments/MRIDANGAM.md"
+    "research/instruments/MRIDANGAM.md",
+    "research/instruments/OUD.md",
+    "research/instruments/QANUN.md",
+    "research/instruments/NAY.md"
   ],
   "benchmark": [
     "research/BENCHMARK.md",
