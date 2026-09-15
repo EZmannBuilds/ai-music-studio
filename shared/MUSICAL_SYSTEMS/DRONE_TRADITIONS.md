@@ -8,8 +8,10 @@ this file covers the shared consequence rather than any one tradition.
 Named practices referenced here:
 
 - **Hindustani and Carnatic classical music**, two distinct traditions that both keep the
-  **tanpura** (or an electronic sruti box) sounding throughout. See `RAGA_AND_TALA.md`.
-- **The Great Highland bagpipe** of Scotland, with a bass drone and two tenor drones.
+  **tanpura** (or an electronic sruti box) sounding throughout. See `RAGA_AND_TALA.md`, and
+  `shared/VIRTUAL_INSTRUMENT_GUIDE/TANPURA.md` for the instrument itself.
+- **The Great Highland bagpipe** of Scotland, with a bass drone and two tenor drones. The instrument's
+  physics, gracenotes and pitch are on `shared/VIRTUAL_INSTRUMENT_GUIDE/HIGHLAND_BAGPIPE.md`.
 - **Launeddas**, a Sardinian instrument of three single-reed pipes played simultaneously with
   circular breathing: two chanters and one drone, with the chanters moving in thirds and sixths.
 - **Minimalism and the drone music of La Monte Young**, where the drone becomes the whole piece.

@@ -34,7 +34,8 @@ cent had unsystematic gaps and about five per cent had accidentals, usually an i
 with the remaining ninety per cent purely modal. **Those percentages describe collected
 Anglo-American ballad tunes, not folk music in general.**
 
-**Intonation is not equal-tempered.** Hardanger fiddle music is modal, with intonation patterns
+**Intonation is not equal-tempered.** (The instrument itself, its understrings and scordaturas, is on
+`shared/VIRTUAL_INSTRUMENT_GUIDE/HARDANGER_FIDDLE.md`.) Hardanger fiddle music is modal, with intonation patterns
 characterised by great variability, conditioned by shifting contextual factors: melodic formulas,
 local tonal centres that often coincide with the open strings, and string resonance. Most tunes
 use A-D-A-E tuning, with sympathetic understrings. A scheme attributed to Sven Ahlback divides a
