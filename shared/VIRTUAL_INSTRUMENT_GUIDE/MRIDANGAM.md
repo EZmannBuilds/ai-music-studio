@@ -227,7 +227,7 @@ solo with its korvai-based structure) is concert and pedagogical material, openl
 published, including by the mridangam vidwan whose own work is this page's primary practitioner source.
 This page found nothing indicating a restricted category and states plainly that this question was not
 independently pursued with a tradition bearer this pass beyond what the read sources themselves state;
-if Erik or a future agent has reason to believe otherwise for a specific composition or lineage-held
+if the user or a future agent has reason to believe otherwise for a specific composition or lineage-held
 item, treat that as open and ask rather than assuming this page's silence means clearance. [to-verify: direct confirmation from a tradition bearer or teacher was not separately sought this pass]
 
 ## What the Performance Director needs from this file

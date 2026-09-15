@@ -50,6 +50,8 @@ testable, and it was built and tested on `main` without a release.
   mounted volumes, the home-directory variables on every OS, and names inside MIDI track-name and lyric events. Private terms are matched as
   whole words: with a surname as a private term, 2.0's research citations of Hartmann, Kilchenmann
   and Schumann were false findings, so the check with a real profile could not report zero.
+  The tool and the profile template are now scanned for private terms too; they had skipped
+  themselves entirely, and the tool's own docstring was carrying a real name as its example.
 - `tools/routing_check.py` now holds the README's routing table to the Director too.
 - `tools/check_all.py` runs eight checks (ten, with the two below).
 

@@ -9,13 +9,14 @@ Fails (exit 1) when a file in the pack contains:
     ${HOME}/... or %USERPROFILE%;
   - any term from the profile's privacy.private_terms list (names, titles, paths), matched as a
     whole word, case-insensitively, so that a surname does not match inside another one
-    ("Mann" is found in "Erik Mann" but not in "Hartmann").
+    ("Lee" is found in "Ann Lee" but not in "Ashlee").
 
 Text files are read line by line. MIDI files are read as bytes, because track names, markers and
 lyric events can carry a name. A path whose user segment is a placeholder in angle brackets
 (/Users/<you>/...) is generic, and so are the few locations listed in GENERIC, which are the same on
-every machine of that OS. The profile itself, any local/ folder and this tool are skipped. Nothing is
-changed.
+every machine of that OS. The profile itself and any local/ folder are skipped; this tool and the
+profile template are checked for private terms but not for paths, since they describe path patterns.
+Nothing is changed.
 """
 import argparse, os, re, sys
 
@@ -28,7 +29,9 @@ PLACEHOLDER = re.compile(r"(?:Users|home)(?:\\{1,2}|/)<")
 SKIP_DIRS = {'.git', 'local', '__pycache__'}
 # generic locations that are the same on every machine of that OS
 GENERIC = ('~/Library/Audio/Plug-Ins', '~/Music/Ableton/User Library', '~/Library/Application Support')
-SKIP_FILES = {'privacy_check.py', 'user-profile.example.yaml'}
+# These two describe path patterns as examples, so only the path check skips them. They are still
+# scanned for private terms: a name left in the tool or the template would be published.
+NO_PATH_CHECK = {'privacy_check.py', 'user-profile.example.yaml'}
 TEXT_EXT = ('.md', '.json', '.yaml', '.yml', '.txt', '.py', '.csv', '.toml', '.cfg', '.ini', '.html')
 BINARY_EXT = ('.mid', '.midi')
 
@@ -83,12 +86,13 @@ def main():
         dn[:] = [d for d in dn if d not in SKIP_DIRS]
         for f in sorted(fn):
             p = os.path.join(dp, f)
-            if f in SKIP_FILES or os.path.abspath(p) in skip_abs:
+            if os.path.abspath(p) in skip_abs:
                 continue
+            check_paths = f not in NO_PATH_CHECK
             if f.endswith(TEXT_EXT):
                 n_files += 1
                 for i, line in enumerate(open(p, encoding='utf-8', errors='replace'), 1):
-                    for found in path_hits(line):
+                    for found in (path_hits(line) if check_paths else ()):
                         hits.append((p, i, 'path', found))
                     for t, pat in terms:
                         if pat.search(line):

@@ -228,7 +228,7 @@ documented here (theka, kaida, rela, peshkar, gat, tihai and related forms, and 
 accompaniment, solo performance and dance) is concert and pedagogical material, openly taught and
 published (including in the Percussive Arts Society's own journal). This page found nothing indicating
 a restricted category and states plainly that the question was not independently pursued with a
-tradition bearer this pass; if Erik or a future agent has reason to believe otherwise for a specific
+tradition bearer this pass; if the user or a future agent has reason to believe otherwise for a specific
 composition or lineage-held item, treat that as open and ask rather than assuming this page's silence
 means clearance. [to-verify: direct confirmation from a tradition bearer or teacher was not sought this
 pass]

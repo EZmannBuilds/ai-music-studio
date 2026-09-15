@@ -350,7 +350,7 @@ the drumming is public and documented, but Manjanin's initiatory dimension is re
 sources do not settle whether any part of that dimension (beyond the publicly performed music) is
 restricted. Where a request specifically asks to reproduce the initiation content of Manjanin, or any
 other Mande repertoire this page has not examined, the studio says the question is open and asks
-Erik what he knows of that repertoire's context, rather than proceeding as unrestricted. The
+the user what they know of that repertoire's context, rather than proceeding as unrestricted. The
 publicly documented drumming and dance material itself is the adjacent, usable repertoire this page's
 technical claims are drawn from. [sourced: POLAK-JEMBE-2010; POLAK-LONDON-2014]
 
