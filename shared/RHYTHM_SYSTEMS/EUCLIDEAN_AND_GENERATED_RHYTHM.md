@@ -28,10 +28,11 @@ That origin is worth keeping in view. The algorithm was not derived from music. 
 match some musical patterns, which is an observation about the shape of those patterns, not an
 account of why they exist.
 
-## The confirmed correspondences
+## Three reported correspondences
 
-The studio treats three correspondences as confirmed from the research, and no more than three
-without checking the source.
+Toussaint (2005) reports these three. The pack took them from the paper's abstract and from
+secondary accounts, not from its tables, so they are **reported, not confirmed** here, and no other
+correspondence is claimed without opening a source.
 
 ```text
 E(3,8)    the Cuban tresillo
@@ -75,11 +76,12 @@ material stays related while the feel changes.
 
 ## The naming rule
 
-**Never label a generated pattern with the name of a tradition** unless the pattern, its
-rotation and its tempo range all match a documented case, and then say which case.
+**Never label a generated pattern with the name of a tradition** unless the pattern and its
+rotation match a documented case and the music around it is a context where that name is used, and
+then say which case.
 
 ```text
-allowed      "E(3,8), rotation 0, at 95 BPM; matches the tresillo as reported by Toussaint 2005"
+allowed      "E(3,8), rotation 0, in a son: the shape Toussaint (2005) reports as the tresillo"
 allowed      "E(5,16), rotation 2; shape only, not claimed as any named pattern"
 forbidden    "a tresillo generated with E(3,8)" when the rotation was never checked
 forbidden    "an African rhythm" for any generated output whatever
@@ -134,7 +136,7 @@ layer with its own rules, and it is a template rather than a randomiser.
 becomes a part. It fills `claimed_correspondence` only when all three conditions hold.
 
 **Performance Director** treats a generated part like any other: it needs an anchor, and if it
-is itself the anchor it is not humanised.
+is itself the anchor it gets no expressive deviation.
 
 **Listener Model** evaluates the result as a pattern against a reference, and does not award it
 credit for being algorithmically even. Evenness is not groove.

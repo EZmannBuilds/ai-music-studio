@@ -26,8 +26,11 @@ excerpts except where noted. Figures are ranges from particular corpora, never c
 - Polak & London (2014), *MTO* 20(1), and Polak & London (2022) on Malian drumming: roughly **100 ms**
   is the rule-of-thumb floor for the fastest metrical subdivision, better treated as a range from
   about 120 ms down to about 80 ms; the fastest useful beat is around 250 ms and the slowest around
-  1.5 s. Binary subdivision in the studied repertoire sits consistently near **60:40** long to short,
-  and as tempo rises the ensemble **drops the fastest layer** rather than compressing it.
+  1.5 s. In *Bire* (Khasonka dundunba) the bell's long-short subdivision averages 58.6:41.4, and in
+  *Ngòn Fariman* (Segu Bambara) a long-short-short pattern averages about 41:31:28; the patterns hold
+  through acceleration from about 85 to 125 BPM (2014 paper read for 2.1). 2.0 also stated here that
+  ensembles **drop the fastest layer** as tempo rises; the 2014 paper does not report that, and the
+  claim is unverified.
 - Polak, Jacoby & London (2016), *Frontiers in Neuroscience*: non-isochronous subdivision supports
   ensemble entrainment as precisely and stably as isochronous subdivision.
 - Lerdahl & Jackendoff (1983) require equal spacing at the tactus and above; London admits unequal
@@ -188,7 +191,7 @@ Listener Model reports alternative hearings instead of forcing one.
 - Naveda, Gouyon, Guedes & Leman (2011), *JNMR*: in a samba corpus, the third and fourth sixteenths of
   each beat are systematically early relative to a quantised grid, interacting with intensity and
   metric position.
-- Polak & London: Malian binary subdivision near 60:40.
+- Polak & London (2014): *Bire* bell subdivision about 59:41; *Ngòn Fariman* about 41:31:28. Two pieces, not a Malian constant.
 - Danielsen (2006; ed. 2010): the **beat bin**, a span rather than a point, whose felt centre depends
   on the shape of the sound; and the scholarly account of the displaced pulse associated with
   D'Angelo and the Soulquarians.

@@ -120,10 +120,10 @@ the reference and the arrangement reads as loose rather than expressive. Fix: na
 
 Two limits on that rule. **A drum kit in live-feel music is usually not a marker part**: its
 microtiming is the groove, as the pack's own hi-hat study shows [academic: RASANEN-2015]. And **in
-some traditions the reference part carries the feel itself**: where a bell or drum part plays a
-non-isochronous subdivision, as documented for some Mande jembe repertoire, it takes that
-repertoire's named microtiming template, applied as a model, not left on the grid
-[standard-reference: POLAK-LONDON-2014]. What the rule forbids is deviation without a cause, not a
+some traditions the reference part carries the feel itself**: in one measured Khasonka dundunba
+piece the bell plays a long-short subdivision averaging about 59:41 [academic: POLAK-LONDON-2014].
+There the bell takes that piece's named microtiming template, applied as a model, not left on the
+grid. What the rule forbids is deviation without a cause, not a
 reference that has a feel.
 
 ## 14. A section patch playing more voices than the section has

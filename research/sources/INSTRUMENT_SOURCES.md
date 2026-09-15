@@ -25,3 +25,4 @@ next person knows it was tried. Accessed dates are the date of reading.
 | id | citation | type | read | url | accessed |
 |---|---|---|---|---|---|
 | STRINGS-LIBRARY-MANUAL-1 | Spitfire Audio, Spitfire Symphonic Strings User Manual (26 pages; the sections on basic principles, legato, performance legato, articulations, round robins and controls) | manual | section | https://spitfire-www-assets.s3.amazonaws.com/manuals/SpitfireSymphonicStrings_UserManual.pdf | 2026-09-15 |
+| POLAK-LONDON-2014 | Rainer Polak and Justin London, "Timing and Meter in Mande Drumming from Mali", Music Theory Online 20.1 (2014) | ethnomusicology | section | https://mtosmt.org/issues/mto.14.20.1/mto.14.20.1.polak-london.html | 2026-09-15 |

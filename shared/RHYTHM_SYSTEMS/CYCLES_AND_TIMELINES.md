@@ -25,12 +25,14 @@ cycle    . . . <|  . . . <|        motion toward the marker
 A bar line is inferred by the listener from accents. A cycle is usually stated by an explicit
 pattern that is present as sound.
 
-- Indian tala is externalised through clap patterns and drum thekas, with at least three pulse
-  levels.
-- Arabic iqa'at are defined by a dum and tak skeleton with rests, in cycles from 3 to 48 or more
-  pulses, ornamented freely over a fixed skeleton.
+- Hindustani tal is externalised through clap-and-wave patterns and the tabla's theka; Carnatic
+  tala is reckoned with its own hand gestures (kriya) and angas, and its drum, the mridangam, does
+  not play a theka. See `shared/MUSICAL_SYSTEMS/RAGA_AND_TALA.md`.
+- Arabic iqa'at are defined by a dum and tak skeleton with rests, ornamented over that skeleton;
+  the range of cycle lengths is to verify (2.0 printed "3 to 48 or more pulses" without a source).
 - Javanese colotomic structure marks nested intervals with specific gongs.
-- West African ensembles state the cycle with a bell pattern.
+- In Ewe dance-drumming the cycle is stated by a bell pattern. That is not a regional rule: other
+  ensembles of the same region state it differently, for example with talking drums.
 
 This has a direct consequence for arrangement: **the marker is a part**, not a metrical
 abstraction. If it is removed, thinned or humanised, the cycle it states weakens. See the marker
@@ -38,7 +40,7 @@ rule in `MICROTIMING_AND_GROOVE.md`.
 
 ### 3. Several valid "ones" may coexist
 
-Locke (2009; 2010) describes a **metric matrix** in Ewe music: several simultaneously valid
+Locke (2010, *Music Theory Online* 16.4; a 2009 source cited in 2.0 is not identified and is to verify) describes a **metric matrix** in Ewe music: several simultaneously valid
 hearings of the same sounding pattern, where Western notation forces a single one. Agawu (2006)
 treats the same bell pattern as a time line whose entry point is contested.
 
@@ -62,7 +64,7 @@ orientation.
 
 `hierarchy_levels` carries the nesting: for a colotomic structure, which marker falls at which
 interval; for a tala, the vibhag divisions; for a timeline, the levels the ensemble references.
-At least three pulse levels is the documented case for tala.
+At least three pulse levels is the documented case for Hindustani tal in Clayton's account.
 
 ```yaml
 cycle:
@@ -112,7 +114,8 @@ the notated downbeat as the answer.
 departing-from, and links to the relevant page in `shared/MUSICAL_SYSTEMS/` rather than
 describing the tradition here.
 
-**Performance Director** keeps the marker part exact and unhumanised, and keeps it audible. It
+**Performance Director** keeps the marker part exact, on its own documented feel where it has
+one and with no other deviation, and keeps it audible. It
 checks that the cycle length at the planned tempo is trackable, using the limits in
 `METER_AND_PULSE.md`.
 
@@ -129,4 +132,4 @@ written.
 - `shared/MUSICAL_SYSTEMS/GAMELAN.md` for colotomic structure and the gongs that mark it
 - `shared/MUSICAL_SYSTEMS/CLAVE_AND_TIMELINES.md` for clave, bell patterns and entry points
 - `POLYMETER_POLYRHYTHM_CROSSRHYTHM.md` for what happens when layers run against the cycle
-- `MICROTIMING_AND_GROOVE.md` for why the marker is never humanised
+- `MICROTIMING_AND_GROOVE.md` for why the marker keeps its own feel and gets no other

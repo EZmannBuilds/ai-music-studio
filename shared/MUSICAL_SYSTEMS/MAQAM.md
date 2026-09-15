@@ -116,6 +116,11 @@ There is no chord section, and no part is a harmonic accompaniment in the Wester
 - Do not assume Egyptian, Levantine and Turkish practice tune a written note the same way. Pick
   the practice you mean, and say which one.
 - Do not generate "a maqam" by choosing a scale and adding an oud sample.
+- **Maqam is also the melodic language of religious practice**: Qur'anic recitation, the call to
+  prayer, Sufi ritual music, and Eastern Christian chant in the Arabic-speaking world. Those uses are
+  not source material. Under `INDEX.md` rule 5 the studio does not imitate, sample or set new words to
+  recitation or liturgy, and offers the secular repertoire (taqsim, the song and instrumental
+  repertoire of the takht) instead.
 
 ## Working with this in the studio
 

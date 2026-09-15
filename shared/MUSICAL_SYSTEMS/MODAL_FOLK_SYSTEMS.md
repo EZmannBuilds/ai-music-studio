@@ -20,7 +20,7 @@ as a secondary record rather than as the source.
 is itself modal.
 
 Breathnach (1971) holds that beyond Ionian, three modes are relevant for Irish folk music: Dorian,
-Mixolydian and Aeolian. Celtic melody typically uses **gapped scales** of five (pentatonic) or six
+Mixolydian and Aeolian. Irish and Scottish traditional melody often uses **gapped scales** of five (pentatonic) or six
 (hexatonic) tones, and a good many Irish tunes are hexatonic in a way that makes a single mode
 label ambiguous.
 
@@ -140,10 +140,14 @@ incomplete.
 - Bronson, *The Traditional Tunes of the Child Ballads*, Princeton, 1959 to 1972, and "A
   Simplified Mode Classification for Traditional Anglo-American Song Tunes", *Yearbook of the
   IFMC*.
-- On Hardanger fiddle intonation: the TISMIR dataset paper on Hardanger fiddle pitch, which
-  reports intonation as contextually conditioned by melodic formulas, local tonal centres and
-  string resonance; and the Hardanger Fiddle Association of America tuning guide for the A-D-A-E
-  and related tunings.
+- On Hardanger fiddle intonation: 2.0 attributed the claim that intonation is conditioned by melodic
+  formulas, local tonal centres and string resonance to "the TISMIR dataset paper". That paper
+  (Lartillot, Johansson, Elowsson, Monstad and Cyvin, "A Dataset of Norwegian Hardanger Fiddle
+  Recordings with Precise Annotation of Note and Beat Onsets", *TISMIR* 6(1), 2023) is an onset and
+  pitch annotation dataset; the intonation claim more likely comes from "On measuring intonation in
+  Hardanger fiddle tunes" (Folk Music Analysis conference, 2019). **To verify** which, before the
+  claim is repeated. The Hardanger Fiddle Association of America tuning guide for the A-D-A-E and
+  related tunings.
 
 Confidence: the melody-carries-the-mode account and the gapped-scale argument are supported across
 Breathnach and Bronson. **Explicitly unverified:** the Ahlback five-positions-per-semitone scheme,

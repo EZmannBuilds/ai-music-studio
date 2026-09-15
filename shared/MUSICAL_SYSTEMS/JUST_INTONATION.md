@@ -144,7 +144,8 @@ reads as pure.
 
 - Partch, *Genesis of a Music*, 1949, 2nd ed. 1974. Open first for otonality, utonality, the
   tonality diamond and the 43-tone scale.
-- Ekman, *The Intonation Systems of Harry Partch*, for a secondary account of the same material.
+- Ekman, *The Intonation Systems of Harry Partch*, for a secondary account of the same material
+  (year and publisher not recorded in 2.0; to verify).
 - Sethares, *Tuning, Timbre, Spectrum, Scale*, Springer, 1998, 2nd ed. 2005, for adaptive tuning
   and for the timbre argument carried in `CONTEMPORARY_MICROTONALITY.md`.
 
