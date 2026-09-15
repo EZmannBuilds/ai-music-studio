@@ -135,7 +135,7 @@ its signal path, which sounds like a tuning bug and is not.
 
 ```yaml
 tuning_export:
-  tier_used: master | scale_file | mpe | per_channel_bend | none
+  tuning_tier: master | scale_file | mpe | per_channel_bend | none
   mechanism:
   scale_file_shipped:          # path, when one travels with the deliverable
   bend_range_declared_semitones:

@@ -1,32 +1,129 @@
 {
-  "note": "Vocabularies the pack uses in more than one file. schema_check.py verifies that a file using one of these keys uses only these values, so that two specialists cannot drift apart.",
+  "note": "Vocabularies the pack uses in more than one file. schema_check.py compares choice lists by their values rather than by their key name, because the same choices appear under several keys. Two evidence vocabularies exist on purpose: guide_evidence says how an instrument claim is known, and pitch_evidence says how a tuning is known.",
   "vocabularies": {
-    "deliverable_mode": ["instrumental", "vocal_guide", "full_with_vocal"],
-    "interaction_mode": ["DO IT", "DO IT WITH ME", "TEACH ME", "REVIEW MY WORK", "GIVE ME OPTIONS", "DIAGNOSE ONLY"],
-    "session_mode": ["CREATE", "CONTINUE", "DIAGNOSE", "LEARN", "REVISE", "ORGANIZE", "FINISH", "RELEASE"],
-    "temperature": ["safe", "exploratory", "radical"],
-    "realism_target": ["realistic", "stylised", "deliberately_mechanical"],
-    "evidence_source": ["measured", "vendor_documented", "inspected", "user_stated", "inferred"],
-    "guide_evidence": ["manual-derived", "excerpt-derived", "orchestration-text", "musicianship", "measured", "to-verify"],
-    "track_role": ["vocal_line", "vocal_guide", "instrument", "percussion", "fx"],
-    "diversity_classification": ["accidental", "motif", "convention", "callback"],
-    "expression_tier": ["midi2_per_note", "mpe", "midi1_channel"],
-    "release_gate": ["open", "blocked"]
+    "deliverable_mode": [
+      "instrumental",
+      "vocal_guide",
+      "full_with_vocal"
+    ],
+    "interaction_mode": [
+      "DO IT",
+      "DO IT WITH ME",
+      "TEACH ME",
+      "REVIEW MY WORK",
+      "GIVE ME OPTIONS",
+      "DIAGNOSE ONLY"
+    ],
+    "session_mode": [
+      "CREATE",
+      "CONTINUE",
+      "DIAGNOSE",
+      "LEARN",
+      "REVISE",
+      "ORGANIZE",
+      "FINISH",
+      "RELEASE"
+    ],
+    "temperature": [
+      "safe",
+      "exploratory",
+      "radical"
+    ],
+    "realism_target": [
+      "realistic",
+      "stylised",
+      "deliberately_mechanical"
+    ],
+    "evidence_source": [
+      "measured",
+      "vendor_documented",
+      "inspected",
+      "user_stated",
+      "inferred"
+    ],
+    "guide_evidence": [
+      "manual-derived",
+      "excerpt-derived",
+      "orchestration-text",
+      "musicianship",
+      "measured",
+      "to-verify"
+    ],
+    "track_role": [
+      "vocal_line",
+      "vocal_guide",
+      "instrument",
+      "percussion",
+      "fx"
+    ],
+    "diversity_classification": [
+      "accidental",
+      "motif",
+      "convention",
+      "callback"
+    ],
+    "expression_tier": [
+      "midi2_per_note",
+      "mpe",
+      "midi1_channel"
+    ],
+    "release_gate": [
+      "open",
+      "blocked"
+    ],
+    "pitch_evidence": [
+      "measured",
+      "documented",
+      "constructed",
+      "to-verify"
+    ]
   },
   "exploration_dimensions": [
-    "premise", "form", "pitch_organization", "rhythmic_logic", "harmonic_mechanism",
-    "performance_constraint", "arrangement_logic", "production_behavior",
-    "compositional_process", "lead_source"
+    "premise",
+    "form",
+    "pitch_organization",
+    "rhythmic_logic",
+    "harmonic_mechanism",
+    "performance_constraint",
+    "arrangement_logic",
+    "production_behavior",
+    "compositional_process",
+    "lead_source"
   ],
   "track_dna_dimensions": [
-    "tempo_family", "meter", "pitch_system", "tonal_center_strategy", "harmonic_mechanism",
-    "harmonic_rhythm", "bass_role", "groove_family", "subdivision", "form", "section_lengths",
-    "hook_type", "lead_source", "chorus_lift_mechanism", "arrangement_curve",
-    "production_density", "texture_family", "transition_grammar", "vocal_architecture",
-    "outro_behavior", "dynamic_shape", "performance_character", "unusual_constraint"
+    "tempo_family",
+    "meter",
+    "pitch_system",
+    "tonal_center_strategy",
+    "harmonic_mechanism",
+    "harmonic_rhythm",
+    "bass_role",
+    "groove_family",
+    "subdivision",
+    "form",
+    "section_lengths",
+    "hook_type",
+    "lead_source",
+    "chorus_lift_mechanism",
+    "arrangement_curve",
+    "production_density",
+    "texture_family",
+    "transition_grammar",
+    "vocal_architecture",
+    "outro_behavior",
+    "dynamic_shape",
+    "performance_character",
+    "unusual_constraint"
   ],
   "timing_models": [
-    "phrase_arch", "final_ritard", "metrical_accent", "chord_asynchrony", "section_offset",
-    "swing_ratio", "microtiming_template", "ensemble_spread", "drift_1f"
+    "phrase_arch",
+    "final_ritard",
+    "metrical_accent",
+    "chord_asynchrony",
+    "section_offset",
+    "swing_ratio",
+    "microtiming_template",
+    "ensemble_spread",
+    "drift_1f"
   ]
 }

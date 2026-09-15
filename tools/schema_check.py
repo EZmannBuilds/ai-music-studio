@@ -6,7 +6,9 @@ usage: python3 tools/schema_check.py [--root .]
 Fails (exit 1) when:
   - a ```yaml block in a shared schema or a SKILL.md does not parse;
   - a fenced block is left unclosed;
-  - a file uses a key from tools/vocab.json with a value that is not in that vocabulary;
+  - a pipe-separated choice list has drifted from a vocabulary in tools/vocab.json, which is
+    checked by its values rather than by its key, because the same choices appear under several
+    key names;
   - the ledger's track_dna block or the exploration dimension list has drifted from vocab.json.
 
 PyYAML is used when it is installed. Without it the parse check is skipped and the rest still runs,
@@ -104,18 +106,25 @@ def main():
                     first = str(e).split('\n')[0]
                     problems.append(f'{rel}:{line_no}: yaml block does not parse: {first}')
 
-        # vocabulary agreement
+        # Vocabulary agreement, checked by value rather than by key. The same choices appear
+        # under several key names (mode, deliverable_mode, tier_used), so matching on the key
+        # misses real drift. A choice list that mostly matches a vocabulary and has one member
+        # outside it is the drift worth catching.
         txt = open(path, encoding='utf-8', errors='replace').read()
-        for key, allowed in vocabs.items():
-            for m in re.finditer(rf'^\s*{re.escape(key)}:\s*([^\n#]+)$', txt, re.M):
-                val = m.group(1).strip()
-                if not val or val.startswith(('[', '{', '#')):
-                    continue
-                parts = [v.strip() for v in val.split('|')]
-                bad = [v for v in parts if v and v not in allowed and not v.startswith('<')]
-                if bad and len(parts) > 1:
+        for i, line in enumerate(txt.split('\n'), 1):
+            m = re.match(r'^\s*[\w.]+:\s*([^#\n]*\|[^#\n]*)$', line)
+            if not m:
+                continue
+            parts = [v.strip() for v in m.group(1).split('|') if v.strip()]
+            if len(parts) < 2 or any(p.startswith(('<', '[', '{')) for p in parts):
+                continue
+            for key, allowed in vocabs.items():
+                hits = [p for p in parts if p in allowed]
+                misses = [p for p in parts if p not in allowed]
+                if len(hits) >= 2 and misses and len(hits) >= len(misses):
                     problems.append(
-                        f'{rel}: {key} offers {bad}, which is not in tools/vocab.json')
+                        f'{rel}:{i}: choice list looks like the {key} vocabulary but adds '
+                        f'{misses}; either add it to tools/vocab.json or use the vocabulary')
 
     # the ledger and the exploration schema define lists that other files rely on
     def check_list(rel_path, marker, expected, label):
