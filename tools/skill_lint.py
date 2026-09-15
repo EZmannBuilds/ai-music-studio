@@ -94,7 +94,8 @@ def main():
         else:
             if fm.get('name') != d:
                 problems.append(f'{rel}: front matter name {fm.get("name")!r} != folder {d!r}')
-            if not re.fullmatch(r'\d+(\.\d+)*', fm.get('version', '')):
+            if not re.fullmatch(r'\d+(?:\.\d+)*(?:-(?:dev|beta\.\d+|rc\.\d+))?',
+                                fm.get('version', '')):
                 problems.append(f'{rel}: version {fm.get("version")!r} is not a version string')
             if len(fm.get('description', '')) < 40:
                 problems.append(f'{rel}: description is missing or too short to route on')

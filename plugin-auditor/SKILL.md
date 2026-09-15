@@ -1,6 +1,6 @@
 ---
 name: plugin-auditor
-version: 2.0
+version: 2.1-dev
 description: Inventories every instrument source available before production (DAW stock instruments and racks, AU/VST/VST3 plugins, sample-library editions), maps what each one can actually play against the score, and offers the user a calibration pass that measures how each instrument really renders.
 ---
 

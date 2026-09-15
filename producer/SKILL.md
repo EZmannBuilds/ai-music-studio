@@ -1,6 +1,6 @@
 ---
 name: producer
-version: 2.0
+version: 2.1-dev
 description: Converts composition and arrangement intent into sound through synthesis, instrument choice, layering, effects, resampling, automation, editing, and texture design.
 ---
 

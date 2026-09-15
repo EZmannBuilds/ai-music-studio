@@ -1,6 +1,32 @@
 # Changelog
 
-## 2.0 — 2026-09-15
+**Release status.** 1.0 is the only published release. 2.0 was a development milestone that was
+never released. 2.1 is being built and tested on `main`. A version with a suffix (`-dev`, `-beta.N`,
+`-rc.N`) is not a release.
+
+## 2.1-dev — unreleased, in development and testing
+
+2.1 adds no specialists. It makes what 2.0 already claims better sourced, more specific and
+testable. Entries are added as each part lands.
+
+### Versioning
+
+- The pack is versioned `2.1-dev` in `manifest.json` and in every skill's front matter, and `music-research`,
+  left at 1.1 by 2.0, now agrees with the rest.
+- `manifest.json` gains `status` and `stable_release`.
+- `tools/manifest_check.py` accepts pre-release versions, requires a pre-release to carry an
+  "unreleased" CHANGELOG heading, and now does what its docstring said: it compares the README's
+  version, and every skill's front-matter version, with the manifest.
+- README opens with the testing status and says where the stable release is. Its routing table now
+  matches the Director: Lyric Generator, Listener Model and MIDI Builder were missing, and render
+  verification, which is a Director procedure and not a specialist, was listed as one.
+- `tools/check_all.py` prints each check's heading before its output when the output is piped.
+
+## 2.0 — 2026-09-14 — development milestone, never released
+
+Commit `8017f2b`. This entry is kept as it was written. 2.0 was merged and pushed but was never
+tagged or published as a GitHub Release. The date is corrected from 2026-09-15, which was the UTC
+date of the commits; they were made on the evening of 2026-09-14, US Central time.
 
 A creative environment rather than a generator. 1.0 was good at preventing bad and generic decisions.
 This release makes the studio able to explore, teach, perform, develop, diagnose, organise and finish

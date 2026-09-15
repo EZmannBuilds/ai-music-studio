@@ -1,6 +1,6 @@
 ---
 name: mix-engineer
-version: 2.0
+version: 2.1-dev
 description: Diagnoses and improves balance, masking, dynamics, stereo image, depth, transients, tonal balance, loudness, and translation while preserving production intent.
 ---
 

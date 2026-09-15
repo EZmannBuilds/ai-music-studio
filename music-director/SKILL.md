@@ -1,6 +1,6 @@
 ---
 name: music-director
-version: 2.0
+version: 2.1-dev
 description: Orchestrates music creation, development, performance, teaching and finishing by routing work to the correct specialist and keeping one coherent artistic direction. Runs a session in a mode: create, continue, diagnose, learn, revise, organize, finish or release.
 ---
 

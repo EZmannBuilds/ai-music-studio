@@ -1,6 +1,6 @@
 ---
 name: midi-builder
-version: 2.0
+version: 2.1-dev
 description: Converts composition, arrangement, and production plans into validated multi-track DAW-ready MIDI with track naming, markers, control data, and import notes.
 ---
 

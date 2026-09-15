@@ -1,6 +1,6 @@
 ---
 name: listener-model
-version: 2.0
+version: 2.1-dev
 description: Models musical expectation, uncertainty, surprise, groove, memorability, salience, emotion, and auditory-scene perception to guide composition, arrangement, production, and mixing.
 ---
 

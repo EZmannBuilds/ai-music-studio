@@ -1,6 +1,6 @@
 ---
 name: arranger
-version: 2.0
+version: 2.1-dev
 description: Designs song form, section contrast, instrumentation, orchestration, energy, density, transitions and musical development across time, including adaptive form for interactive music and sequencing across a project.
 ---
 

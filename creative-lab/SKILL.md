@@ -1,6 +1,6 @@
 ---
 name: creative-lab
-version: 2.0
+version: 2.1-dev
 description: Generates genuinely different musical directions before any specialist commits, by naming the rules the work is currently following and breaking or replacing them on purpose. Runs seed translation, fusion and experimental-system exploration.
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: performance-director
-version: 2.0
+version: 2.1-dev
 description: Turns notes into performances by modelling how players and instruments actually behave: articulation, phrasing, dynamic arcs, systematic microtiming, physical feasibility and imperfection with a stated reason. Produces an explicit performance plan for MIDI Builder and DAW adapters to execute.
 ---
 

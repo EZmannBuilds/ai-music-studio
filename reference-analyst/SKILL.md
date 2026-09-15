@@ -1,6 +1,6 @@
 ---
 name: reference-analyst
-version: 2.0
+version: 2.1-dev
 description: Extracts transferable musical, structural, production, and mix principles from reference tracks or analysis reports without encouraging imitation.
 ---
 

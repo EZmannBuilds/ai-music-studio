@@ -30,7 +30,7 @@ def main():
         args = [sys.executable, os.path.join(HERE, script), '--root', a.root] + extra
         if script == 'privacy_check.py' and a.profile:
             args += ['--profile', a.profile]
-        print(f'\n=== {name} ===')
+        print(f'\n=== {name} ===', flush=True)
         r = subprocess.run(args)
         if r.returncode != 0:
             failed.append(name)

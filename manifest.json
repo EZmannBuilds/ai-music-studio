@@ -1,6 +1,8 @@
 {
   "name": "AI Music Studio",
-  "version": "2.0",
+  "version": "2.1-dev",
+  "status": "development and testing; not a release",
+  "stable_release": "1.0",
   "license": "MIT",
   "entry_skill": "music-director/SKILL.md",
   "skills": [

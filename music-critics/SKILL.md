@@ -1,6 +1,6 @@
 ---
 name: music-critics
-version: 2.0
+version: 2.1-dev
 description: Provides specialized theory, originality, melody, groove, arrangement, production, emotional-impact, and mix criticism without collapsing everything into one generic quality score.
 ---
 

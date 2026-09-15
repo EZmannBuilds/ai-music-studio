@@ -4,7 +4,19 @@ Agent skills for making music, and for developing the music you have already sta
 Director that routes each problem to the right specialist, and fifteen specialists behind it. Works
 with or without a DAW, for any genre, any user.
 
-Version 2.0. MIT licensed.
+Version 2.1-dev. MIT licensed.
+
+> **Status: `main` is 2.1, in development and testing. It is not a release.**
+>
+> | Want | Use |
+> |---|---|
+> | the stable studio | **1.0**, the latest [GitHub Release](https://github.com/EZmannBuilds/ai-music-studio/releases), or `git checkout v1.0` |
+> | the current architecture, knowing it is being tested | `main` |
+>
+> 2.0 was a development milestone (commit `8017f2b`) and was never published as a release. 2.1
+> hardens it: better-sourced instrument knowledge, tradition-specific instrument pages, and an
+> evaluation harness that tests what the studio does rather than only whether its files are tidy.
+> Nothing on `main` should be treated as stable until a 2.1 release is published.
 
 ## Create, continue, learn, finish
 
@@ -113,12 +125,15 @@ a note is silent or a part is buried.
 | backgrounds, stacks, ad-libs, rap flow, choir, what the voices do | Vocal Director |
 | it sounds fake, it sounds stiff, articulation, feel, is this playable | Performance Director |
 | synth patch, texture, layering, creative effects, automation | Producer |
+| lyrics, syllable fit, rhyme, prosody | Lyric Generator |
 | mud, harshness, masking, stereo, loudness, balance | Mix Engineer |
 | analyze a song, a reference or an analyzer report | Reference Analyst |
 | "is this generic?", theory check, groove check, critique | Music Critics |
+| will a listener remember it, where attention drops, how it will be heard | Listener Model |
+| a multitrack MIDI file, a performance plan written to notes | MIDI Builder |
 | which instruments are available, what they can play and tune, calibration | Plugin Auditor |
 | research an artist, build or extend an artist research pack | Music Research |
-| notes that do not play, parts too quiet, checking each track after an export | Render Verification |
+| notes that do not play, parts too quiet, checking each track after an export | Music Director, by `shared/RENDER_VERIFICATION.md` |
 | substantial track work | Music Director coordinates several |
 
 Specialists pass structured handoffs rather than repeating the whole conversation
@@ -216,6 +231,16 @@ The standard library is enough. PyYAML adds one extra check.
 2. `profiles/local/` must not exist in the published copy, or must be ignored.
 3. Keep `LICENSE` with the folder.
 4. Update `CHANGELOG.md` and the version in `manifest.json`.
+
+## Versions
+
+The pack version lives in `manifest.json`, and `tools/manifest_check.py` holds the README, the
+CHANGELOG and every skill's front matter to it. A suffix marks a version that is not a release: `-dev` while
+it is being built, `-beta.N` for a GitHub pre-release offered to testers, `-rc.N` for a release
+candidate. Only a version without a suffix is published as a GitHub Release.
+
+Shared schemas carry their own `## Version` headings. Those version the schema, not the pack, and
+change only when the schema does.
 
 ## License
 

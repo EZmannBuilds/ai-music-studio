@@ -1,6 +1,6 @@
 ---
 name: music-research
-version: 1.1
+version: 2.1-dev
 description: Researches how an artist actually makes music, at basic or deep depth, and writes a reusable Artist Research Pack that the other specialists retrieve by problem. It models the artist's creative decision system; it never builds an imitation preset.
 ---
 
