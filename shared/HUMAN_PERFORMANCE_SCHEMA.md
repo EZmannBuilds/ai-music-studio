@@ -82,6 +82,11 @@ performance_state:
   performer_count: 1           # 1 for solo; a number for a section; affects spread and vibrato
   performer_character:         # e.g. precise, laid_back, driving, ragged, ceremonial, machine
   realism_target: realistic | stylised | deliberately_mechanical
+  performance_reference:       # optional, added in 2.1: whose practice the plan follows
+    tradition:                 # e.g. Hindustani, Ewe dance-drumming; see shared/MUSICAL_SYSTEMS/
+    school_or_lineage:         # a gharana, a regional style, a named teacher's practice, or "unknown"
+    repertoire:                # the piece or genre the plan is modelled on
+    basis:                     # the source: a guide page, a research record, a named recording
 
   articulation:
     default:                   # the articulation most notes use
@@ -150,6 +155,12 @@ performance_state:
     calibration_profile_id:    # or "unmeasured"
     known_limits: []           # what this patch cannot do, from the audit
 ```
+
+`performance_reference` answers the first question the culturally specific instruments protocol asks
+(`shared/VIRTUAL_INSTRUMENT_GUIDE/CULTURALLY_SPECIFIC_INSTRUMENTS.md`, step 0): whose practice is
+this? A plan for a tabla part that says "Lucknow gharana, accompanying a khayal, from the guide's
+TABLA page" can be checked; one that says "tabla" cannot. It is optional, and older plans without it
+are unaffected.
 
 ---
 

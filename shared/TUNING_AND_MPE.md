@@ -1,5 +1,5 @@
 # Tuning, Microtonality and Per-Note Expression
-## Version 1.0
+## Version 1.1
 
 How a pitch system that is not twelve-tone equal temperament actually reaches an instrument, and what
 to do when it cannot.
@@ -171,7 +171,44 @@ Consequences the Producer acts on:
 
 ---
 
-# 7. Practical checks
+# 7. What the instrument itself allows
+
+The tiers above are about the virtual instrument. The real one decides first, and a plan that ignores
+it asks a player, or a sampled copy of a player, for something the instrument does not do. Five kinds
+of pitch behaviour, with the instrument pages that carry the detail
+(`shared/VIRTUAL_INSTRUMENT_GUIDE/`) [inference, from the physics of each kind]:
+
+| Kind | Examples | What it means for a plan |
+|---|---|---|
+| **Fixed at the factory or the tuner's** | piano, celesta, metallophones and gongs, harmonium | the tuning is a property of the instrument or the set, not of the piece; a gamelan set's tuning is one measured instance of that set |
+| **Fixed by frets** | guitar, bass, many lutes | 12-TET on a standard fretboard; bends and fret pressure move pitch upward only |
+| **Frets that move, or were placed for the music** | movable frets retied or slid per piece on some long-necked lutes | the tuning is set before the piece and does not change inside it without stopping |
+| **Retuned by a mechanism during the piece** | pedal harp, lever harp, qanun courses with small levers | a pitch change takes a hand or a foot and a moment; two spellings of one pitch class may be impossible at once |
+| **Continuous** | voice, fretless strings, trombone, end-blown flutes | intonation belongs to the phrase and the context, and a fixed table under-describes it |
+
+Two consequences for the records on this page:
+
+- **A mechanism change is a performance event.** Where a pitch system needs a harp pedal or a qanun
+  lever to move inside a phrase, the Performance Director plans the moment and the feasibility report
+  says whether a hand or foot is free for it (`shared/HUMAN_PERFORMANCE_SCHEMA.md` section 5).
+- **Phrase-shaped intonation needs more than `degrees_cents`.** Where a tradition's intonation is a
+  range that depends on direction and context, record it as `intonation` beside the `pitch_system`,
+  and realise it with per-note bend (tier 3) rather than a scale file:
+
+```yaml
+intonation:                    # optional, added in 2.1
+  degree_ranges: {}            # degree -> [low_cents, high_cents], each with its source
+  context_rules: []            # e.g. "the second degree sits lower when the line descends to 1/1"
+  source:                      # whose practice: a named tradition, school or measured recording
+  evidence: measured | documented | constructed | to-verify
+```
+
+Every range in it is one source's observation, labelled with whose (`shared/MUSICAL_SYSTEMS/INDEX.md`
+rule 7). Where no source gives one, the field says `to-verify` rather than inventing a number.
+
+---
+
+# 8. Practical checks
 
 Before relying on a tuning:
 
@@ -184,11 +221,11 @@ Before relying on a tuning:
 
 ---
 
-# 8. What this page does not decide
+# 9. What this page does not decide
 
 - Which pitch system to use. That is the Composer, working from the brief and, where relevant, from
   `shared/MUSICAL_SYSTEMS/`.
 - Whether a tradition's intonation can be represented by a fixed table. Often it cannot: intonation
   can belong to a phrase and a context rather than to a scale degree. A `.scl` may be the wrong object
-  entirely, and a bend-based, phrase-shaped approach the right one.
+  entirely, and `intonation` with per-note bend (section 7) the right one.
 - Which products support what today. That is the Auditor's job, and the answer changes.

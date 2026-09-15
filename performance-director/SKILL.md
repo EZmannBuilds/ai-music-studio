@@ -142,7 +142,9 @@ imperfection with a reason; and the decision to be deliberately non-organic when
 - vocal architecture and vocal performance intent (Vocal Director, which writes the voice's
   `performance_state` entries itself);
 - sound choice (Producer);
-- what an instrument is and what it measured (Plugin Auditor, calibration profiles);
+- what a product can do and what a patch measured (Plugin Auditor, calibration profiles). What the
+  instrument itself does, and what its players can do, it reads from
+  `shared/VIRTUAL_INSTRUMENT_GUIDE/`;
 - writing files (MIDI Builder, DAW adapter);
 - balance (Mix Engineer), though the plan tells the Mix Engineer what the dynamics were meant to do.
 

@@ -124,6 +124,13 @@ silently dropped or silently re-voiced.
 
 ## 3. Capability map
 
+**Start from the instrument, not the plugin.** Open the instrument's page in
+`shared/VIRTUAL_INSTRUMENT_GUIDE/` first: its behaviour card's `virtual_programming` rows say what a
+convincing version of that instrument needs (continuous dynamics, overlap for legato, round robins,
+release samples, sympathetic resonance, per-note pitch), and so what to look for in this patch. The
+guide says what the instrument does; this audit says what this product can do; a calibration profile
+says what this patch measured. Keep the three apart.
+
 For every instrument that may be assigned, record (schema: `shared/PLUGIN_CALIBRATION_SCHEMA.md`):
 
 - playable range, documented and, after calibration, measured;
@@ -422,6 +429,12 @@ tuning check        a just fifth and a just third against a reference: does the 
 ```
 
 Each answers a question that otherwise gets guessed at for the life of the project.
+
+**What calibration cannot measure.** A render measures a patch. It cannot measure a player: how
+long an oboist's breath lasts, how fast a marimbist rolls, how far a pianist's hand reaches, whether a
+harp chord is possible under one pedal setting. Those are human limits, and they come from the
+instrument's page in the guide, labelled with their evidence. Do not offer a calibration pass as the
+way to settle them.
 
 ## Downstream use, added
 
