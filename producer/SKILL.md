@@ -1,6 +1,6 @@
 ---
 name: producer
-version: 1.0
+version: 2.0
 description: Converts composition and arrangement intent into sound through synthesis, instrument choice, layering, effects, resampling, automation, editing, and texture design.
 ---
 
@@ -84,7 +84,7 @@ role
 
 Do not start with effects before deciding the role.
 
-## Serum/Vital-style specification
+## Synth patch specification
 
 When useful:
 
@@ -291,7 +291,8 @@ Bright oscillator or sample + fast amp decay + controlled high-frequency transie
 small modulated ambience.
 
 Optional translation:
-Provide Serum, Vital, hardware synth, or sampler settings only if requested.
+Provide settings for a specific synth, sampler or hardware unit only if the user asks and the
+instrument is available.
 ```
 
 Do not assume a particular synth, DAW, plugin suite, or operating system.
@@ -368,8 +369,10 @@ Before assigning sounds, read the plugin audit and any calibration profiles
 
 ## Brightness and width before processing
 
-- Open an instrument's own tone controls, including rack macros, before adding EQ. Stock racks
-  can hold the filter nearly closed by default (`daw-adapters/ABLETON_LIVE.md`).
+- Open an instrument's own tone controls, including any macro layer, before adding EQ. A preset or
+  rack can ship with its filter nearly closed, so the instrument sounds dark until its own control is
+  opened and no amount of shelving fixes it. Installation-specific cases belong in the DAW adapter and
+  the user's installation notes, not here.
 - A single-mic or single-mix library can be very wide and dark by design. Treat that as its
   character. Narrow it when the arrangement needs a centre; do not chase its brightness through
   many EQ passes: repeated shelving rarely moves such a library's overall brightness far.
@@ -425,3 +428,61 @@ The Plugin Auditor lists them; this section says how to use them.
   sounds by name and pack, and let the user download them.** Never sign in, browse to buy, or
   download from a service on the user's behalf.
 
+
+
+# Production from instrument behaviour
+
+The plugin audit says what is installed. A calibration profile says what it measured. Neither says what
+the instrument *is*, which is what `shared/VIRTUAL_INSTRUMENT_GUIDE/` holds.
+
+Read the family file before assigning a part to an instrument. It carries the things that decide
+whether a part will work at all: practical range and where the register is strong or weak, what an
+articulation actually is, how the instrument behaves in a section against alone, and how it is normally
+recorded.
+
+Three production decisions that come straight from it:
+
+- **A section is not a soloist multiplied.** Section patches have diffuse attacks, averaged vibrato and
+  their own voice count. A solo line played by a section patch sounds like a crowd agreeing.
+- **Recording behaviour is part of the sound.** Room, bleed and microphone position are not effects
+  added afterward on instruments that were captured with them.
+- **A library's character is character.** A dark, wide or distant library is not a fault to chase with
+  EQ. Narrow it or replace it, but do not spend four passes trying to make it something else.
+
+# Timbre and tuning are one decision
+
+Where the piece is not in twelve-tone equal temperament, timbre and tuning have to be chosen together.
+Consonance depends on how a timbre's partials line up with the scale, so a bright sawtooth in an
+unfamiliar division beats in ways a softer timbre does not, and inharmonic timbres suit scales built
+for their partials (`shared/TUNING_AND_MPE.md`, section 6).
+
+If a tuning sounds wrong, changing the timbre is a legitimate fix and is sometimes the right one.
+
+# Adaptive layers
+
+For interactive work, the Producer designs the layers that a parameter or a state mask moves
+(`shared/ADAPTIVE_MUSIC.md`).
+
+```text
+each layer has a role                anchor, pulse, harmony, lead, texture, tension
+each layer is complete alone         or is declared incomplete and always paired
+fades are in beats, not seconds      so they survive a tempo change
+the palette holds across states      or the transition sounds like a different piece
+```
+
+The usual failure is a layer stack that is really one arrangement with things muted: every layer is
+mid-range, every layer is wide, and removing any of them leaves a hole rather than a thinner version.
+
+# Serving the vocal architecture
+
+Where there is a voice, the Vocal Director has decided what the layers are *for*
+(`shared/VOCAL_ARCHITECTURE_SCHEMA.md`). Processing serves that function.
+
+A double that exists to widen is treated differently from a double that exists to thicken, and an
+ad-lib that comments is treated differently from one that answers. Ask what the layer is for before
+reaching for a chain.
+
+# The ledger row
+
+Write the Producer's part of the diversity row (`shared/TRACK_DIVERSITY_LEDGER.md`): production
+density, texture family, and the contribution to transition grammar.

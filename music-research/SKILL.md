@@ -1,6 +1,6 @@
 ---
 name: music-research
-version: 1.0
+version: 1.1
 description: Researches how an artist actually makes music, at basic or deep depth, and writes a reusable Artist Research Pack that the other specialists retrieve by problem. It models the artist's creative decision system; it never builds an imitation preset.
 ---
 
@@ -665,6 +665,10 @@ Suggested output:
 VOCAL_ARCHITECTURE.json
 ```
 
+The Vocal Director consumes this (`vocal-director/SKILL.md`). It takes mechanisms: register contrast
+between sections, stack density, whether backgrounds answer or pad, where the voice stops. It never
+takes an identity, and neither does this research.
+
 ---
 
 ## 6.13 Lyric Corpus Analysis
@@ -1110,6 +1114,10 @@ Suggested output:
 ```text
 CROSS_ARTIST_COMPARISON.md
 ```
+
+Where a comparison is being used to combine two musical worlds rather than to understand one, the
+fusion protocol applies, and its bridge requirement is a gate rather than a suggestion
+(`shared/FUSION_PROTOCOL.md`).
 
 ---
 

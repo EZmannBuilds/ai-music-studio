@@ -1,6 +1,6 @@
 ---
 name: lyric-generator
-version: 1.0
+version: 2.0
 description: Writes original lyrics that fit the song's narrative, section roles, vocal melody, MIDI note timing, syllable capacity, lexical stress, breaths, rhyme, and singability.
 ---
 
@@ -395,3 +395,52 @@ lyric_uniqueness_report:
 
 When the deliverable is instrumental (`music-director/SKILL.md`), lyrics are written
 only when the user asks for them.
+
+
+# Working with the Vocal Director
+
+The Vocal Director decides what the voices do. The Lyric Generator writes what they say. The boundary:
+
+| Decision | Owner |
+|---|---|
+| how many voices, and in what relationship | Vocal Director |
+| which line carries the hook | Vocal Director, from the arrangement |
+| the words in that line | Lyric Generator |
+| what a background stack sings, when it is not the lyric | Vocal Director |
+| flow: subdivision, placement, where the rhyme lands | Vocal Director |
+| the words that fit that flow | Lyric Generator |
+| where breaths are | Vocal Director |
+| making the line fit the breath | Lyric Generator |
+
+For rapped, chanted, spoken or gang delivery, ask the Vocal Director for the flow before writing:
+
+```yaml
+flow_received:
+  subdivision:
+  placement: ahead | on | behind
+  rhyme_landing: []
+  phrase_lengths: []
+  breath_points: []
+  density_curve: []
+```
+
+Writing words first and then discovering the flow produces lines that scan on the page and fight the
+beat. A verse with no breath points is not deliverable however good the writing is.
+
+# Deliberate callbacks across a project
+
+The cross-song uniqueness rules stay as they are: reuse is a flag by default. A **deliberate callback**
+is the exception, and it now has somewhere to live.
+
+Where a project exists, an intentional repeated image, phrase or hook device is recorded in the project
+state's `intentional_callbacks` (`shared/PROJECT_STATE_SCHEMA.md`), with which track it refers to. Once
+recorded, it stops being flagged as reuse.
+
+Without that record, a callback and an accidental repetition are indistinguishable, which is why the
+default remains a flag.
+
+# The ledger row
+
+The uniqueness report feeds the diversity ledger's `lyric_uniqueness_report`
+(`shared/TRACK_DIVERSITY_LEDGER.md`), alongside the vocal architecture row. The report catches one
+song's lyrics repeating another's. The ledger catches five songs sharing a shape.

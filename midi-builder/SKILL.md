@@ -1,6 +1,6 @@
 ---
 name: midi-builder
-version: 1.0
+version: 2.0
 description: Converts composition, arrangement, and production plans into validated multi-track DAW-ready MIDI with track naming, markers, control data, and import notes.
 ---
 
@@ -40,9 +40,12 @@ It should not silently replace:
 
 Return upstream if the musical plan is incomplete.
 
-## Advanced pop / electronic MIDI
+## Representing layers separately
 
-When relevant, represent layers separately:
+Roles, not track counts. Three worked lists follow; the principle is the same in each, and a style not
+listed here gets its own list built the same way.
+
+### Pop and electronic
 
 ```text
 lead guide
@@ -66,6 +69,31 @@ open hats
 percussion
 glitch fills
 cymbals
+```
+
+### Band
+
+```text
+lead vocal guide
+backing vocals
+lead guitar
+rhythm guitar
+bass
+keys or organ
+kick, snare, hats, toms, cymbals as the kit's parts
+percussion
+```
+
+### Orchestral and acoustic ensemble
+
+```text
+melody line, by instrument
+counter-line
+inner harmony, by section
+bass line
+pedal or drone
+percussion, by instrument
+keyswitch tracks where a library needs them, marked non-sounding
 ```
 
 Do not add tracks merely to satisfy a high count.
@@ -266,10 +294,12 @@ and quiet on many instruments. Check it every time.
 CC1 and CC11 are not universal. Some sampled instruments take dynamics only through their own
 host parameters.
 
-In some hosts, CC1 written as clip envelopes never reaches a VST3 instrument. In Ableton Live this
-is known for Spitfire's BBC Symphony Orchestra, where envelopes on the plugin's own Dynamics and
-Expression parameters work instead (`shared/FREE_INSTRUMENTS.md`). Confirm which control reaches
-the instrument, from the audit or a calibration pass, before relying on it.
+In some hosts a controller written as clip automation never reaches a plugin at all, and the plugin's
+own host parameters have to be automated instead. This is a real and common failure, it is specific to
+a host and a plugin, and it renders as a part with no dynamics rather than as an error. Confirm which
+control reaches the instrument, from the audit or a calibration pass, before relying on it. Known
+cases for a particular setup belong in that DAW's adapter and the user's installation notes, not
+here.
 
 When the verified control is a host parameter, a Standard MIDI File cannot carry it. Write the
 dynamics intent into the DAW notes or a sidecar, as a curve per track, for the DAW adapter to
@@ -339,3 +369,87 @@ reads the schedule from the DAW instead.
 
 When Render Verification reports silent notes, MIDI Builder answers for the causes it owns:
 range, velocity, note length, drum pads, dynamics control, channel and port.
+
+
+# Executing a performance plan
+
+**MIDI Builder executes expression. It does not invent it.**
+
+Where a `performance_state` exists (`shared/HUMAN_PERFORMANCE_SCHEMA.md`), the builder is implementing
+someone else's decisions:
+
+```text
+articulation        write keyswitches, controller values or track splits as the plan's map says
+dynamics            write to the control the plan names, which the audit confirmed reaches it
+overlap             apply legato_overlap_ms, so a monophonic legato patch actually transitions
+separation          apply the plan's separation for detached playing
+timing              apply the plan's models, in the plan's magnitudes
+accents             write the plan's accent map, not a generic one
+keyswitches         list as non-sounding, so the note audit excludes them
+```
+
+Where the plan and a calibration profile conflict, for example a velocity the plan wants and a floor
+the instrument imposes, **report the conflict rather than silently overriding either**. The plan's
+author decides.
+
+Where **no plan exists**, write plain quantised notes with a usable rough balance and label the
+artifact:
+
+```yaml
+unperformed: true
+```
+
+in the DAW notes, the verification output and the track state. That is an honest deliverable. An
+artifact full of invented expression that nobody planned is not, and it is what used to happen by
+default.
+
+# Writing a pitch system
+
+Where the piece is not in twelve-tone equal temperament (`shared/TUNING_AND_MPE.md`):
+
+1. read what the target instrument supports, from the audit;
+2. pick the highest tier it supports: a session tuning master, a scale file, per-note bend, or one
+   voice per channel;
+3. write it, and **declare the bend range wherever bend data is written**;
+4. ship the scale file beside the artifact where one exists, named per `shared/FILE_NAMING.md`;
+5. record the mechanism and the honest failure sentence in the export.
+
+```yaml
+tuning:
+  mechanism:
+  bend_range_declared_semitones:
+  scale_file_shipped:
+  what_happens_if_ignored:     # e.g. "a receiver ignoring the bends plays this in 12-TET"
+```
+
+**Never silently quantise to twelve-tone equal temperament.** A microtonal piece rendered in equal
+temperament with no comment is a wrong deliverable that looks like a right one.
+
+Hand the tuning to Render Verification with the note schedule, or its pitch test will report every
+correctly tuned note as out of tune.
+
+# Adaptive exports
+
+For interactive work, export per state rather than once
+(`shared/ADAPTIVE_MUSIC.md`, section 6): per-state stems on a common grid and start, segment files with
+their tails recorded, stingers, and a transition matrix an implementer can read without the project
+file. Render Verification then applies per state: a layer silent in one state is a silent part.
+
+# Verification output, added fields
+
+```yaml
+midi_verification:
+  performance_plan_executed: true | false
+  unperformed: true | false
+  controls_written: {}               # track -> the control dynamics were written to
+  overlaps_applied: {}
+  plan_conflicts: []                 # where the plan and the calibration profile disagreed
+  tuning: {}
+  expression_tier: midi2_per_note | mpe | midi1_channel
+  bend_range_declared: {}
+  adaptive_states_exported: []
+  track_dna_matches_artifact: true | false    # the ledger row against what was built
+```
+
+The last field is a cheap and useful check: a row claiming a 7/8 metre on an artifact in 4/4 means one
+of them is wrong, and it is worth knowing which before delivery.

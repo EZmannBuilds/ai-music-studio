@@ -1,6 +1,6 @@
 ---
 name: music-critics
-version: 1.0
+version: 2.0
 description: Provides specialized theory, originality, melody, groove, arrangement, production, emotional-impact, and mix criticism without collapsing everything into one generic quality score.
 ---
 
@@ -59,12 +59,19 @@ Checks:
 Checks:
 - pocket;
 - rhythmic hierarchy;
-- kick/bass interaction;
-- syncopation;
-- microtiming concept;
+- kick/bass interaction, where the music has those roles;
+- syncopation, and pulse clarity alongside it;
+- microtiming concept, and whether it is a named template or arbitrary;
+- competing rhythmic complexity, and the harmonic load against it;
 - subdivision consistency;
+- body-movement affordance;
 - repetitive loop fatigue;
-- whether percussion competes rather than interlocks.
+- whether percussion competes rather than interlocks;
+- for cyclic, non-isochronous or layered metres: whether the anchor layer is audible
+  (`shared/RHYTHM_SYSTEMS/`).
+
+Do not score groove from syncopation alone, and do not assume a backbeat or a kick-and-bass
+relationship exists to be judged.
 
 ## Arrangement Critic
 
@@ -138,7 +145,10 @@ Checks:
 - whether contrast matches narrative/emotional movement;
 - whether lyrics/vocals and harmony conflict productively or accidentally.
 
-## Listener Expectation Critic
+## Expectation Critic
+
+Checks predictability, uncertainty, surprise, whether deviations are meaningful, and whether constant
+novelty prevents the listener learning anything to deviate from.
 
 Track rough curves:
 
@@ -186,27 +196,6 @@ when those are part of the identity.
 
 
 # Research-Integrated Critics
-
-## Expectation Critic
-
-Checks:
-- predictability;
-- uncertainty;
-- surprise;
-- whether deviations are meaningful;
-- whether constant novelty prevents learning.
-
-## Groove Critic
-
-Checks:
-- pulse clarity;
-- syncopation;
-- competing rhythmic complexity;
-- harmonic load;
-- body-movement affordance;
-- repetition.
-
-Do not score groove from syncopation alone.
 
 ## Hook / Memorability Critic
 
@@ -302,3 +291,73 @@ is never sufficient criticism.
 When the user does not specify a target audience, do not invent one.
 
 Use broad musical-function criteria and offer alternatives when taste-sensitive.
+
+
+# Performance, diversity and project critics
+
+## Performance Critic
+
+Checks whether the notes were played or merely listed.
+
+- Is there continuous dynamic movement where the instrument expects it, or is a long note flat?
+- Do repetitions differ, or is the same sample firing?
+- Does legato overlap, on a patch that needs overlap?
+- Do attacks vary with dynamic and position, or is one articulation doing every job?
+- Is the part physically possible, and if not, is that recorded as intentional?
+- Are there breaths, releases and mechanism noise, or silence between notes?
+
+And the one that matters most:
+
+> **Is the timing random, or is it a model?**
+
+Random offsets read as sloppy rather than human, and the research finds them worse than an exact grid
+(`research/PERFORMANCE_AND_EXPRESSION.md`, section 1). A plan containing a percentage of humanisation
+is a finding, not a style.
+
+`type: defect` when the plan claims a model and the render shows jitter. `type: intentional_choice`
+when the realism target is `deliberately_mechanical`: exactness is then the aesthetic, and calling it
+stiff is the critic smuggling in taste.
+
+## Diversity Critic
+
+Reads the ledger, never the songs (`shared/TRACK_DIVERSITY_LEDGER.md`).
+
+- Which dimensions do the recent tracks share?
+- Is each shared dimension classified, or has nobody looked?
+- Is anything classified as a project motif actually functioning as one, or was that a convenient label
+  for a habit?
+
+**Findings are questions, not defects.** "Five songs share a chorus lift mechanism" is a finding. "This
+album is repetitive" is a preference wearing a finding's clothes. Deliberate repetition, project
+identity and genre convention all look identical in a table, and only the user can say which this is.
+
+## Project Critic
+
+Only where a project exists (`shared/PROJECT_STATE_SCHEMA.md`).
+
+- Does this track serve a function no other track serves, or is the doubling deliberate?
+- Does it fit the thesis, contradict it usefully, or contradict it by accident?
+- Is it an intentional outlier, and is that recorded?
+- Does it move the project's unresolved questions, or route around them?
+
+A track can be good and wrong for its project, and it can be weak and necessary. Say which.
+
+## Cultural-Context Critic, extended
+
+The existing checks stand. Added: where the work uses a named musical system, read that system's file
+and check the work against it rather than against a general idea of the tradition
+(`shared/MUSICAL_SYSTEMS/`).
+
+- Is the system named, or is it being used as an unnamed colour?
+- Did the work take the grammar, or only the pitch set and an instrument?
+- Does it carry the file's do-not-universalise cautions?
+- For a fusion: is there a named bridge, or was a genre grafted on
+  (`shared/FUSION_PROTOCOL.md`)?
+
+## Critic Leader, addition
+
+The existing rules stand, with one addition: **a critic must judge a piece against its own terms.**
+"Not memorable" is not a finding about a process piece whose purpose is attention to a room. "The rule
+is inaudible" is. Where a chosen exploration candidate carried constraints, the critic checks the work
+against those constraints, not against the piece the candidate replaced
+(`shared/EXPERIMENTAL_SYSTEMS.md`, `shared/CREATIVE_EXPLORATION_SCHEMA.md`).

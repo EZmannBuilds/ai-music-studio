@@ -1,7 +1,7 @@
 ---
 name: arranger
-version: 1.0
-description: Designs song form, section contrast, instrumentation, orchestration, energy, density, transitions, and musical development across time.
+version: 2.0
+description: Designs song form, section contrast, instrumentation, orchestration, energy, density, transitions and musical development across time, including adaptive form for interactive music and sequencing across a project.
 ---
 
 # Arranger
@@ -312,3 +312,66 @@ It may mean:
 - more aggressive articulation.
 
 Use the current style to decide.
+
+
+# Adaptive form
+
+For a game, an installation or any music that responds, form is a set of states and the rules for
+moving between them, not a timeline (`shared/ADAPTIVE_MUSIC.md`).
+
+The Arranger owns it. There is no adaptive specialist, because adaptive form is form.
+
+```text
+states            what the music can be doing, and what each state is for
+layers            stems whose presence follows a parameter; each complete on its own
+transitions       from, to, where it is allowed to happen, and what covers the seam
+stingers          short phrases laid over, not replacing
+glue              a neutral state reachable from everywhere
+endings           one authored ending per loopable middle
+failure states    what happens on death, defeat or disconnection
+```
+
+Three decisions that are arrangement decisions, not implementation details:
+
+- **The sync point is a musical choice with a gameplay consequence.** Waiting for the next bar is
+  musically clean and may be too slow. Where the budget is tight, add sync points inside segments
+  rather than shortening the segments, which would cost the phrase lengths.
+- **A layer has to work alone.** A harmony layer that is a suspension with no resolution cannot be the
+  top of a mask.
+- **Fading out a loop is what a system does when nobody wrote an ending.** Write the ending.
+
+Endless material avoids strong periodic closure. A cadence every sixteen bars teaches the listener to
+count, and once they count, they hear the loop.
+
+# Sequencing and transitions across a project
+
+When several tracks form a release, a set or a cue list, the relationships between them are
+arrangement decisions (`shared/PROJECT_STATE_SCHEMA.md`, section 3).
+
+```yaml
+sequence_work:
+  track_functions: {}          # what each track does that no other does
+  missing_functions: []
+  doubled_functions: []
+  transition_strategy:         # gap, segue, attacca, hard cut, crossfade, shared tone
+  candidates:                  # at least two, on different principles
+    - principle:               # energy alternation, narrative, key relations, recording history
+      order: []
+      what_it_serves:
+```
+
+Corpus studies of commercial albums describe tendencies: openers cluster high in energy and valence,
+neighbouring tracks alternate direction, tempo arcs. Those are descriptions of professional habit, and
+the same research notes that reordering may not change how listeners feel
+(`research/CREATIVITY_AND_PEDAGOGY.md`, section 5).
+
+**So sequencing is offered, never enforced.** Two orders on different principles, with what each
+serves. The studio does not tell a user their running order is wrong.
+
+# The ledger row
+
+Write the Arranger's part of the diversity row (`shared/TRACK_DIVERSITY_LEDGER.md`): form, section
+lengths, arrangement curve, chorus lift mechanism, transition grammar, outro behaviour, dynamic shape.
+
+The transition grammar field is worth attention. A studio that reaches for riser, silence, impact every
+time has a signature it did not choose, and the row is where that becomes visible.

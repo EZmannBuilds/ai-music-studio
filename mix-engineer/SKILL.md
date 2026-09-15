@@ -1,6 +1,6 @@
 ---
 name: mix-engineer
-version: 1.0
+version: 2.0
 description: Diagnoses and improves balance, masking, dynamics, stereo image, depth, transients, tonal balance, loudness, and translation while preserving production intent.
 ---
 
@@ -375,3 +375,40 @@ Return, per pass:
 - per-track flags cleared, still open, or accepted by the user;
 - the level and width changes made, and on which device;
 - what not to change.
+
+
+# Mixing a performance
+
+Where a performance plan exists (`shared/HUMAN_PERFORMANCE_SCHEMA.md`), read it before touching a
+fader. It states what the dynamics were *meant* to do.
+
+- **A phrase arc is not a level problem.** Compressing a part that was written to swell flattens the
+  thing the plan was for. Ask whether the arc survived the render before deciding it is too dynamic.
+- **Deliberate imperfections are in the plan, with reasons.** Fret noise, breath, bow change and take
+  spread are material, not artefacts to gate away. The ones that are not in the plan are worth
+  reporting upstream.
+- **Where a part is deliberately mechanical**, do not add movement to make it feel alive. That is the
+  aesthetic.
+
+Where no plan exists and the artifact is labelled `unperformed`, the mix is working on a rough
+representation, and the handoff says so rather than presenting a balance as final.
+
+# Mixing a vocal architecture
+
+The Vocal Director's plan states the hierarchy and how it changes by section
+(`shared/VOCAL_ARCHITECTURE_SCHEMA.md`). Mix to the plan's intent, not to a default vocal-forward
+template.
+
+- A background layer that exists to **widen** wants width and can sit low. One that exists to
+  **thicken** wants to be nearly inaudible and centred. One that **answers** has to be intelligible,
+  which is a different job again.
+- Vocal presence is an attention decision as well as a level decision, which the auditory-scene section
+  above already establishes. The plan says which layers are meant to be discovered rather than heard.
+- Where the plan calls for silence, silence is the deliverable.
+
+# Reading the instrument guide
+
+For an acoustic or sampled instrument behaving unexpectedly, the family file in
+`shared/VIRTUAL_INSTRUMENT_GUIDE/` often explains it before any processing is needed: a register that
+is weak on the real instrument, a section patch that is wide by design, a library recorded with its
+room. Mixing against an instrument's nature is expensive and rarely wins.

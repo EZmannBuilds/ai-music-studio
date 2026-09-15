@@ -1,7 +1,7 @@
 ---
 name: composer
-version: 1.0
-description: Creates and analyzes harmony, melody, rhythm, bass, motifs, voice leading, tonal structure, and theory-aware musical material without treating theory as a rigid rulebook.
+version: 2.0
+description: Creates and analyzes harmony, melody, rhythm, bass, motifs, voice leading, tonal structure and theory-aware musical material in whichever musical and rhythmic system the piece needs, without treating one theory as universal.
 ---
 
 # Composer
@@ -516,3 +516,103 @@ singable, or new. **The same slot count in every line is itself a flag.**
 Report instead:
 - `mapping_complete`: every syllable has a note, a melisma or a held note;
 - the `melody_variety_report` above, also handed to Lyric Generator inside `vocal_melody_spec`.
+
+
+# Choosing the system before writing in it
+
+Before pitches and rhythms, decide which system the piece is in, and say so. Leaving it unstated means
+choosing the default, and the default is Western major/minor in 4/4 at twelve-tone equal temperament.
+
+```yaml
+system_brief:
+  pitch_system:                # 12-TET, a mode, a maqam, a raga, an EDO, a JI subset, a drone
+                               # field, set-based, or none because the piece has no fixed pitch
+  musical_system_file:         # shared/MUSICAL_SYSTEMS/<FILE>.md, where one applies
+  rhythm:
+    meter: {cycle_length_pulses:, beat_pattern: [], subdivision_pattern: []}
+    cycle_reference_point: start | end | multiple
+    layering:                  # polyrhythm, polymeter, cross-rhythm, or none
+    anchor_layer:              # required whenever layers conflict
+    microtiming_template:      # a named corpus, or none
+  why_this_system:             # one line; "because the brief implies it" is a real answer
+```
+
+Two rules the studio already holds, applied here:
+
+- **Theory explanations state their system.** "That chord is outside the key" means nothing until the
+  key, and the tradition the idea of key belongs to, are named.
+- **A tradition is not a scale.** Where the piece uses a named system, read its file and work from its
+  logic: cells and paths, cycles and reference points, ornament as structure. Taking the pitch set and
+  discarding the grammar is the failure that file exists to prevent
+  (`shared/MUSICAL_SYSTEMS/INDEX.md`).
+
+Where the pitch system is not twelve-tone equal temperament, the Plugin Auditor has to confirm the
+instruments can be retuned before the part is assigned, and nothing is silently quantised
+(`shared/TUNING_AND_MPE.md`).
+
+# The rhythm brief
+
+The rhythm section above covers pulse, subdivision, syncopation, accent and density. That is enough for
+straight metres and not enough for anything else.
+
+For music that is not in an isochronous 4/4, write the metre as an object rather than as a signature
+(`shared/RHYTHM_SYSTEMS/METER_AND_PULSE.md`):
+
+```text
+write the grouping, never a bare odd signature      9/8 = 2+2+2+3, not 9/8
+name the anchor layer whenever layers conflict      without one, displacement is just a new metre
+state where the cycle's reference point is          the "one" is not always at the start
+check the fastest layer against the tempo           there is a floor, and crossing it loses the layer
+```
+
+Composer chooses the system and the material. The Performance Director decides how it is actually
+placed in time, including swing ratio, microtiming template and tightness
+(`performance-director/SKILL.md`). Do not write a feel into the note positions and also hand over a
+timing model: one of them will be applied twice.
+
+# Performance handoff
+
+`midi_spec.humanization_notes` is replaced by a handoff to the Performance Director.
+
+```yaml
+performance_intent:
+  per_part:
+    - part:
+      articulation_intent:     # what kind of playing this is
+      phrase_boundaries: []
+      dynamic_shape:           # the arc, in words; the Performance Director makes it a curve
+      accents: []              # structural accents that belong to the composition
+      register_intent:
+      what_must_not_be_smoothed: []   # deliberate awkwardness the composition depends on
+  realism_target:              # if the composition implies one
+```
+
+The Composer says what the music is doing. The Performance Director says how a player does it. Writing
+velocities that encode a feel, and then handing over a feel to apply, produces the feel twice.
+
+# Motif invariants
+
+For adaptive, generative and long-form work, state what must survive every variation
+(`shared/ADAPTIVE_MUSIC.md`, section 3).
+
+```yaml
+motif_invariant:
+  id:
+  what_is_fixed:               # interval shape, rhythm, register, harmonic function, timbre
+  what_may_vary:               # instrumentation, tempo, harmony under it, density, completeness
+  recognition_test:            # would a listener know this is the same theme?
+```
+
+Under recombination, whatever was not declared fixed is what drifts. This is also the mechanism behind
+a character or project theme that returns transformed rather than repeated
+(`shared/SEED_TRANSLATION.md`, section 6).
+
+# The ledger row
+
+After the composition is settled, write the Composer's part of the diversity row
+(`shared/TRACK_DIVERSITY_LEDGER.md`, section 3): tempo family, meter, pitch system, tonal centre
+strategy, harmonic mechanism, harmonic rhythm, bass role, groove family, subdivision, form, section
+lengths, hook type, lead source, unusual constraint.
+
+The melody-variety gate stays exactly as it is and feeds its report into the row. The gate catches one
+song's melodies sharing a rhythm. The ledger catches five songs sharing an architecture.

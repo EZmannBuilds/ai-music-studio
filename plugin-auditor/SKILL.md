@@ -1,6 +1,6 @@
 ---
 name: plugin-auditor
-version: 1.0
+version: 2.0
 description: Inventories every instrument source available before production (DAW stock instruments and racks, AU/VST/VST3 plugins, sample-library editions), maps what each one can actually play against the score, and offers the user a calibration pass that measures how each instrument really renders.
 ---
 
@@ -135,6 +135,12 @@ For every instrument that may be assigned, record (schema: `shared/PLUGIN_CALIBR
 - stereo and microphone character: positions available, width, measured correlation;
 - tonal character, including brightness hidden behind rack macros;
 - the pad map, for kits;
+- **tuning capability**: can this instrument be retuned at all, and by which mechanism? Where does it
+  put 1/1? Does it retune held notes? Does the tuning reach every part of its signal path
+  (`shared/TUNING_AND_MPE.md`);
+- **per-note expression**: does it accept MPE, and with what zone and bend range;
+- **expression behaviour**: round robins, dynamic layers and whether they crossfade or switch, legato
+  and whether it is monophonic and needs overlap, transition latency, release samples;
 - gaps against the current score's parts;
 - proposed substitutions;
 - **how an agent can drive it** (`agent_control` in the schema): through the **API** of the DAW
@@ -346,3 +352,82 @@ plugin_audit_handoff:
 What an audit or calibration finds on one user's machine is written to that user's installation
 notes (the profile's `notes.installation_notes`), never into this file. The next audit re-checks
 it; it does not assume it.
+
+
+# Tuning and expression capability
+
+Two capability questions were missing before 2.0, and both produce failures that look musical.
+
+## Can it be retuned?
+
+Where the piece is not in twelve-tone equal temperament, this is checked **before** the part is
+assigned, not after it renders wrong.
+
+```yaml
+tuning_support:
+  mechanisms: []               # tuning_master_client | scl | kbm | tun | mts_sysex |
+                               # per_note_bend | none
+  notes_per_period:            # some products accept only 7 or 12
+  reference_note_behavior:     # where this product puts 1/1
+  retunes_held_notes: true | false | unknown
+  caveats: []                  # e.g. "filters do not track the tuning"
+  evidence: measured | vendor_documented | inspected | user_stated | inferred
+```
+
+Three things worth checking rather than assuming:
+
+- **"Supports microtuning" is not a claim.** Which mechanism? A product that reads one scale-file
+  format and one that hosts a session tuning master are different capabilities with different
+  workflows.
+- **A scale file without a keyboard mapping is key-ambiguous.** Products place 1/1 differently, so the
+  same file lands in different keys. Verify the sounding reference per instrument, and record it.
+- **Partial support is common.** A product can apply a tuning to its oscillators and not to another
+  part of its signal path, which sounds like a bug and is documented behaviour.
+
+An instrument that cannot be retuned is **reported, not assigned**, for a part that needs it. The
+options are a fallback mechanism, a substitution, or asking the user.
+
+## What does it need from a performance plan?
+
+```yaml
+expression:
+  round_robins: true | false | unknown
+  round_robin_count:
+  dynamic_layers:
+  dynamics_crossfade: true | false | unknown
+  legato:
+    present:
+    monophonic:
+    requires_overlap:
+    transition_latency_ms:
+    transition_selected_by: velocity | cc | speed | none | unknown
+  release_samples:
+  per_note_expression:
+```
+
+The Performance Director and MIDI Builder both need this. A plan written for an instrument with no
+round robins and no dynamic layers cannot be executed, and the honest answer is to say so rather than
+to write it and let the render disappoint.
+
+## Optional calibration additions
+
+Three short tests, offered with the rest of a calibration pass and run only on approval:
+
+```text
+round robin scan    one pitch, eight repeats at one velocity: do the samples alternate?
+legato scan         two overlapping notes at several overlap amounts: is overlap required,
+                    and how late does the transition speak?
+tuning check        a just fifth and a just third against a reference: does the tuning apply,
+                    and did 1/1 land where expected?
+```
+
+Each answers a question that otherwise gets guessed at for the life of the project.
+
+## Downstream use, added
+
+```text
+Performance Director   articulation map, legato behaviour, round robins, dynamic layers,
+                       and what this instrument cannot do
+Composer               tuning capability, before a pitch system is committed to
+MIDI Builder           which expression tier to write, and which tuning mechanism
+```

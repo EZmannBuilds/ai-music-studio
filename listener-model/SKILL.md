@@ -1,6 +1,6 @@
 ---
 name: listener-model
-version: 1.0
+version: 2.0
 description: Models musical expectation, uncertainty, surprise, groove, memorability, salience, emotion, and auditory-scene perception to guide composition, arrangement, production, and mixing.
 ---
 
@@ -137,16 +137,22 @@ Use:
 ```yaml
 groove_profile:
   pulse_clarity:
+  metric_type: isochronous | non_isochronous | cyclic | layered | free
+  anchor_layer:                # what the listener holds on to; required where layers conflict
   syncopation:
   subdivision_stability:
-  kick_bass_coordination:
-  backbeat_strength:
-  microtiming_character:
+  low_end_coordination:        # kick and bass where those roles exist; the equivalent where not
+  backbeat_strength:           # where the style has a backbeat at all
+  microtiming_character:       # a named template and its corpus, or none
   repetition:
   rhythmic_complexity:
   harmonic_complexity:
   body_movement_affordance:
 ```
+
+Not every music has a backbeat, a kick or a bass. A groove profile that assumes them will report their
+absence as a defect. Where the metre is cyclic, non-isochronous or layered, the question that replaces
+backbeat strength is whether the anchor layer is audible (`shared/RHYTHM_SYSTEMS/`).
 
 ## Groove repair
 
@@ -267,18 +273,19 @@ or dynamics may act much faster.
 
 Timbre is multidimensional and depends on spectrotemporal patterns.
 
-Use perceptual descriptors before plugin parameters.
+Use perceptual descriptors before plugin parameters. The canonical dimensions are defined once, in
+`shared/LISTENER_STATE_SCHEMA.md`, and the Producer uses the same list.
 
 ```yaml
-timbre_target:
+perceptual_timbre:
   hard_soft:
   sharp_dull:
   bright_dark:
   explosive_calm:
-  dense_sparse:
-  stable_moving:
   rough_smooth:
-  noisy_tonal:
+  stable_moving:
+  tonal_noisy:
+  dense_open:
 ```
 
 Then translate into synthesis/production choices.
@@ -405,3 +412,61 @@ Prefer:
 "This design increases repetition and contour clarity, which may improve memorability for
 listeners familiar with this style."
 ```
+
+
+# Listener panel
+
+One simulated listener hides disagreement, and the disagreement is the useful part.
+
+```yaml
+listener_panel:
+  perspectives:
+    - name: scene_native | casual | musician | producer | live_crowd | headphone_listener
+      attention_channels: []   # affect_and_gist, structure_and_harmony,
+                               # production_and_timing, body_and_groove
+      what_they_notice:
+      how_it_feels:
+      what_they_would_not_notice:
+  agreements: []
+  disagreements: []            # returned, never averaged
+  confidence: low
+```
+
+## What the perspectives are
+
+They are **attention channels**, not demographic caricatures. Research finds untrained listeners
+perceive tension, structure and emotion at levels close to trained ones; the reliable difference is in
+what they can *name* (`research/CREATIVITY_AND_PEDAGOGY.md`, section 7).
+
+| Perspective | Weights | Does not |
+|---|---|---|
+| `casual` | affect and gist | use theory terms, or notice structure as structure |
+| `scene_native` | genre-specific timing, production signatures, what is expected here | judge against another scene's conventions |
+| `musician` | structure, harmony, melodic and rhythmic detail | speak for how it feels to someone not listening that way |
+| `producer` | arrangement, sound choice, mix decisions | say whether the song is good |
+| `live_crowd` | body, energy, dynamics, the shared moment | hear detail |
+| `headphone_listener` | detail, stereo, depth, quiet events | feel a room |
+
+## Rules
+
+- **Return disagreements.** When the musician perspective and the live-crowd perspective conflict, that
+  is the finding. Averaging produces a listener who does not exist.
+- **The casual perspective reports feeling, not analysis.** It says it lost interest before the chorus.
+  It does not say the pre-chorus lacks a lift.
+- **This is not survey data.** It is qualitative modelling, and every report says so. Simulated
+  listeners over-articulate: they name specifics that real listeners in the same position often do not
+  notice at all, and untrained listeners in one study reported differences that were not there.
+- **A real playback test with one person outranks the whole panel.** Say that too.
+
+## When to use it
+
+When a decision turns on who is listening: whether a reference is too obvious, whether an unusual
+choice will read as intentional, whether a long intro is patient or slow. Not for every task; the
+single listener context is enough for most.
+
+# Long-form and process music
+
+Expectation still applies to a twenty-minute ambient piece or a process piece, on a longer time scale.
+The question is whether there is enough repetition for the listener to learn the pattern before it
+changes. A process nobody can track is not surprising, it is uniform
+(`shared/EXPERIMENTAL_SYSTEMS.md`).
