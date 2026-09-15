@@ -1,0 +1,231 @@
+# Human Performance Schema
+## Version 1.0
+
+The representation that carries performance decisions from the Composer's notes to a rendered part.
+
+```text
+Composer / Arranger          notes, phrasing intent, register
+        ↓
+Performance Director         performance_state, one per part
+Vocal Director               performance_state for voices
+        ↓
+MIDI Builder                 executes it: velocities, lengths, controller lanes, per-note expression
+        ↓
+DAW adapter                  automation lanes, articulation switches, tuning
+        ↓
+Mix Engineer                 reads the intended dynamic shape before touching a fader
+```
+
+**MIDI Builder executes this plan. It does not invent expression.** With no plan, it writes plain
+quantised notes and labels the artifact `unperformed` (section 6). That is an honest deliverable. An
+artifact full of invented expression is not.
+
+---
+
+# 1. The rule this schema exists to enforce
+
+```text
+ORGANIC PERFORMANCE
+IS NOT
+RANDOM HUMANIZATION.
+```
+
+Research on microtiming finds that systematic deviations at natural magnitude are roughly as pleasing
+as an exact grid, that exaggerated deviation is liked less, and that where looseness is preferred it
+has long-range structure rather than being white noise
+(`research/PERFORMANCE_AND_EXPRESSION.md`, sections 1 and 3).
+
+So this schema **has no field named random**, and no field whose value is "amount of humanization".
+Every deviation comes from a named model that another specialist can read, argue with, and reproduce.
+A deviation with no model is a bug.
+
+---
+
+# 2. `performance_state`
+
+One record per part. Populate what the task needs.
+
+```yaml
+performance_state:
+  part:                        # the track or voice this describes
+  instrument:                  # family and, where known, the assigned instrument
+  performer_count: 1           # 1 for solo; a number for a section; affects spread and vibrato
+  performer_character:         # e.g. precise, laid_back, driving, ragged, ceremonial, machine
+  realism_target: realistic | stylised | deliberately_mechanical
+
+  articulation:
+    default:                   # the articulation most notes use
+    by_section: {}             # section -> articulation, where it changes
+    switching: separate_patch | keyswitch | cc | velocity | host_parameter | none
+    map: {}                    # articulation -> how it is selected on this instrument
+
+  phrase:
+    boundaries: []             # bar:beat positions where a phrase begins
+    breath_or_bow_changes: []  # where the player must breathe, change bow, or re-pick
+    longest_phrase_seconds:    # checked against the instrument's limit
+    shape: []                  # per phrase: rise, fall, arch, terraced, flat
+
+  dynamic_arc:
+    control: velocity | cc1 | cc11 | cc7 | host_parameter | per_note_expression
+    points: [{bar_beat:, value:}]
+    within_note: []            # swells and decays inside long notes
+    note: "on a crossfading library this changes timbre, not only level"
+
+  timing_character:
+    models: []                 # from section 3; each entry names its model and magnitude
+    grid_reference:            # the pulse or cycle offsets are measured against
+    marker_parts_excluded: []  # bell, gong, clap, clave: never displaced
+
+  note_overlap:
+    legato_overlap_ms:         # positive where the patch needs overlap to trigger a transition
+    separation_ms:             # negative space for detached playing
+    pedal:                     # for pedalled instruments, as a curve, not a switch
+
+  accent_pattern:
+    metrical: []               # accents by position in the bar or cycle
+    structural: []             # accents that mark form
+    ghost_notes: []            # where, and with which sample or technique
+
+  vibrato:
+    kind: none | finger | breath | hand | motor
+    onset: immediate | delayed | growing
+    control:                   # how it is driven on this instrument
+    by_phrase: []              # vibrato is a phrase decision, not a constant
+
+  portamento_and_bends:
+    kind: none | portamento | slide | bend | pitch_gesture
+    range_cents:
+    implementation: sampled_transition | per_note_bend | channel_bend | mts
+    note: "declare the bend range wherever bend data is written"
+
+  physical_constraints:
+    limbs_or_fingers:          # e.g. 4 limbs, 8 usable fingers, one note per string
+    reach:                     # hand span, fret span, string set
+    breath_seconds:
+    simultaneity_limit:        # how many notes can sound at once, honestly
+
+  intentional_imperfections:
+    - what:                    # from section 4
+      why:                     # the musical or physical reason. Required.
+      magnitude:               # with units
+      applies_to:              # which notes or sections
+
+  automation_controls:         # what the DAW adapter has to write
+    - target: cc | host_parameter | per_note | tempo
+      name:
+      curve: [{bar_beat:, value:}]
+
+  virtual_instrument_translation:
+    guide_file:                # shared/VIRTUAL_INSTRUMENT_GUIDE/<FAMILY>.md
+    calibration_profile_id:    # or "unmeasured"
+    known_limits: []           # what this patch cannot do, from the audit
+```
+
+---
+
+# 3. Timing models
+
+`timing_character.models` accepts only entries from this table. Each has a documented basis in
+`research/PERFORMANCE_AND_EXPRESSION.md` and a magnitude with units.
+
+| Model | What it does | Typical magnitude | Basis |
+|---|---|---|---|
+| `phrase_arch` | tempo and dynamics shaped over a phrase, often slower and softer at the ends | style-dependent | Todd 1992 |
+| `final_ritard` | parabolic slowing at a structural end | style-dependent | Repp 1992 |
+| `metrical_accent` | accent and slight lengthening by position in the bar or cycle | small | KTH rule system |
+| `chord_asynchrony` | the louder note of a chord arrives first | roughly 20-30 ms on piano | Goebl 2001 |
+| `section_offset` | one constant offset per part per section | a few ms to tens of ms | Friberg & Sundström 2002 |
+| `swing_ratio` | long-short ratio as a function of tempo | 3.5:1 slow to 1:1 fast | Friberg & Sundström 2002 |
+| `microtiming_template` | per-position offsets from a named corpus | 1-5% of the beat | `shared/RHYTHM_SYSTEMS/MICROTIMING_AND_GROOVE.md` |
+| `ensemble_spread` | many players do not attack at one instant | grows with performer count | musicianship |
+| `drift_1f` | small long-range-correlated wander, applied last and least | smallest layer | Hennig 2011 |
+
+Rules:
+
+- **Natural magnitude is the ceiling.** Scaling past what players do scales into the region listeners
+  liked least.
+- `drift_1f` is applied last and is the smallest contribution, mirroring the position of performance
+  noise in the KTH rule system.
+- Marker instruments named in `marker_parts_excluded` receive no timing model at all. They are the
+  reference everything else is heard against.
+- `chord_asynchrony` is derived from the voicing and the velocities, not stored as a fixed number, and
+  it is not copied from a keyboard part to a non-keyboard part.
+
+---
+
+# 4. Intentional imperfections
+
+Each entry needs a cause. These are the causes the studio recognises; anything else has to argue for
+itself in the `why` field.
+
+| `what` | `why` |
+|---|---|
+| `melody_lead` | the louder note reaches the string first |
+| `phrase_arch` | players breathe and lean across a phrase |
+| `final_ritard` | a structural end is approached, not arrived at |
+| `double_spread` | two takes are never identical |
+| `ensemble_spread` | a section is many players |
+| `swing_ratio` | the style's long-short feel at this tempo |
+| `drift_1f` | human timing wanders with long-range correlation |
+| `fret_noise`, `bow_change`, `breath`, `pick_noise`, `key_noise` | the instrument makes these sounds |
+| `velocity_asymmetry` | a hand does not strike evenly, and voicing is intentional |
+| `note_length_variation` | releases are decisions |
+| `flam` | two limbs arriving fractionally apart |
+| `pitch_drift`, `tape_wow`, `tape_flutter` | an unstable pitch source or transport |
+| `performer_fatigue` | endurance is finite, and a long loud passage tires |
+
+**`realism_target: deliberately_mechanical` produces an empty `intentional_imperfections` list, and
+says so.** Exactness is a legitimate aesthetic. A style built on the grid is not a defect to repair.
+
+---
+
+# 5. `feasibility_report`
+
+Returned with the plan, before anything is written.
+
+```yaml
+feasibility_report:
+  part:
+  impossible_voicings: []      # e.g. six notes on a six-string guitar with a stretch of nine frets
+  limb_or_finger_conflicts: [] # e.g. three simultaneous hand strikes plus a foot hi-hat
+  out_of_range: []             # pitch, bar:beat, and the range it exceeds
+  breath_or_bow_overruns: []   # phrases longer than the player can sustain
+  articulation_unavailable: [] # asked for, not present in this instrument
+  simultaneity_exceeded: []    # more notes at once than the instrument has voices or hands
+  intentional_exceptions: []   # the brief wants the impossible; recorded, not silently allowed
+  status: clear | flags | blocked
+```
+
+An impossible part can still be written. What is not allowed is writing it **silently**. The
+Director sees the report, and the user decides whether the physical world applies to this track.
+
+---
+
+# 6. Contract with MIDI Builder and the DAW adapter
+
+MIDI Builder:
+
+- reads `dynamic_arc.control` and writes to that control, not to whichever one is habitual;
+- applies `note_overlap.legato_overlap_ms` so monophonic legato patches actually trigger transitions;
+- applies the velocity floor and minimum note length from the calibration profile **after** the
+  performance plan, and reports where the two conflict rather than silently overriding the plan;
+- writes `automation_controls` it can carry in a Standard MIDI File, and hands the rest to the DAW
+  adapter as a sidecar;
+- labels the artifact `unperformed: true` when no `performance_state` exists, in the DAW notes and in
+  the track state.
+
+The DAW adapter:
+
+- writes automation lanes and articulation switches for what MIDI cannot carry;
+- reports in `daw_capabilities` whether it can write per-note expression, MPE and tuning at all;
+- verifies after writing, as `shared/DAW_ADAPTER_CONTRACT.md` requires.
+
+---
+
+# 7. What this schema does not do
+
+- It does not choose notes, harmony or form. That is the Composer.
+- It does not choose sounds. That is the Producer.
+- It does not set balance. That is the Mix Engineer.
+- It does not hold product-specific facts. Those are in the plugin audit and calibration profiles.
+- It does not decide whether realism is wanted. The brief does, through `realism_target`.
