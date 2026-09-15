@@ -1,5 +1,5 @@
 # User Profile Schema
-## Version 1.0
+## Version 1.1
 
 The studio's skills are written for any user. Everything that belongs to **one** user or **one**
 machine lives in a **user profile**, kept outside the skill folder:
@@ -29,7 +29,7 @@ location, the DAW, and the deliverable mode. It writes nothing until it has them
 ## Schema
 
 ```yaml
-profile_version: 1.0
+profile_version: 1.1
 user:
   display_name:            # how the studio addresses the user; never written into skill files
   pronouns:                # optional
@@ -39,6 +39,8 @@ paths:
   sample_service_downloads: []   # e.g. a sample service's download folder
   artist_research: []     # folders of artist research packs the Director may draw on
   calibration_store:       # where plugin calibration profiles are kept
+  project_state:           # where project state files live (shared/PROJECT_STATE_SCHEMA.md)
+  diversity_ledger:        # where the track ledger lives; defaults beside output_root
   tools:                   # helper scripts, if any
   excluded_roots: []       # music that must never be filed under output_root
 output_layout:
@@ -54,6 +56,7 @@ daw:
 instruments:
   audit_file:              # last plugin audit (plugin-auditor)
   editions: []             # {name, edition, gaps: []}
+  tuning_capable: []       # instruments that can be retuned, and by which mechanism
 analyzer:
   name:                    # optional; WavRead (https://wavread.com) is recommended; none is a valid answer
   endpoint:                # e.g. a local address
@@ -72,6 +75,14 @@ privacy:
   never_upload: []         # material that must stay on the user's machine
 preferences:
   standing_instructions: []   # e.g. "no lyric versions until told otherwise"
+  default_interaction_mode:   # DO IT | DO IT WITH ME | TEACH ME | REVIEW MY WORK |
+                              # GIVE ME OPTIONS | DIAGNOSE ONLY. Default: DO IT
+  expertise:                  # self-declared and optional: beginner | intermediate |
+                              # experienced | professional | unspecified. A starting point only.
+  explanation_depth:          # minimal | normal | full
+  diversity_ledger: on        # on | off. Off means earlier songs are never consulted.
+  realism_default:            # realistic | stylised | deliberately_mechanical, when the brief
+                              # does not say
 notes:
   installation_notes:      # path to measurements and findings from this user's work
 ```
@@ -88,6 +99,10 @@ notes:
 | Reference Analyst | `analyzer` |
 | Lyric Generator, Composer | `paths.output_root`, for the earlier-songs corpus |
 | Music Research | `paths.artist_research`, where packs are written and read |
+| Project Guide | `paths.project_state`, `preferences.default_interaction_mode` |
+| Creative Lab | `paths.diversity_ledger`, `preferences.diversity_ledger` |
+| Performance Director | `preferences.realism_default`, calibration through `paths.calibration_store` |
+| Vocal Director | nothing user-specific; the singer's range comes from the brief |
 | every specialist | `privacy`, and `naming` through `shared/FILE_NAMING.md` |
 
 ## Writing back
@@ -96,3 +111,24 @@ notes:
 - It may update `instruments.audit_file` after an audit the user ran or approved.
 - **It never writes user-specific facts into skill files.** A finding that generalises goes into a
   skill file in general terms, with no name, path or title.
+
+
+## Version 1.1
+
+Additive. A 1.0 profile stays valid, and every key below is optional.
+
+| Key | What it does |
+|---|---|
+| `paths.project_state` | where project state lives; with none, the Project Guide asks before writing |
+| `paths.diversity_ledger` | where the track ledger lives; defaults beside `output_root` |
+| `instruments.tuning_capable` | which instruments can be retuned, and how, from audits |
+| `preferences.default_interaction_mode` | how much the studio does and explains by default |
+| `preferences.expertise` | a starting point for calibration, not a verdict |
+| `preferences.explanation_depth` | how much reasoning to include |
+| `preferences.diversity_ledger` | `off` means earlier songs are never consulted |
+| `preferences.realism_default` | the performance realism target when the brief is silent |
+
+**Expertise is a starting point, never a setting to trust.** Support that helps a beginner degrades
+an expert's performance, and self-reports are unreliable, so the studio calibrates from what the user
+actually does and updates as it goes (`shared/INTERACTION_MODES.md`, section 3). Expertise is also per
+domain: an expert producer may be new to orchestration.

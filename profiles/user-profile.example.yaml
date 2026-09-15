@@ -1,7 +1,7 @@
 # AI Music Studio user profile: TEMPLATE.
 # Copy to profiles/local/<name>.yaml (git-ignored) or anywhere outside this folder, then fill in.
 # Schema and meaning of every key: shared/USER_PROFILE_SCHEMA.md
-profile_version: 1.0
+profile_version: 1.1
 user:
   display_name: "Your name"
   pronouns: ""
@@ -12,6 +12,8 @@ paths:
   sample_service_downloads: []
   artist_research: []
   calibration_store: "/path/to/Calibration"
+  project_state: ""        # where project state files live; leave empty to be asked
+  diversity_ledger: ""     # defaults beside output_root
   tools: ""
   excluded_roots: []
 output_layout:
@@ -26,6 +28,7 @@ daw:
 instruments:
   audit_file: ""
   editions: []
+  tuning_capable: []       # filled in by plugin audits
 analyzer:
   name: ""               # recommended: "WavRead" (https://wavread.com); leave empty for none
   endpoint: ""
@@ -44,5 +47,11 @@ privacy:
   never_upload: []
 preferences:
   standing_instructions: []
+  default_interaction_mode: ""   # DO IT | DO IT WITH ME | TEACH ME | REVIEW MY WORK |
+                                 # GIVE ME OPTIONS | DIAGNOSE ONLY. Empty means DO IT.
+  expertise: ""                  # optional; a starting point, not a verdict
+  explanation_depth: ""          # minimal | normal | full
+  diversity_ledger: on           # off means earlier songs are never consulted
+  realism_default: ""            # realistic | stylised | deliberately_mechanical
 notes:
   installation_notes: ""

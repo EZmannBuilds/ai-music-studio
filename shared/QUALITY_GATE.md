@@ -56,8 +56,10 @@ Is the material too obvious, too unstable, or intentionally positioned at an ext
 ## Hook memory
 Can at least one important musical object be recognized after the sound design is stripped back?
 
-## Groove
-Does syncopation create movement without destroying pulse clarity?
+## Pulse clarity
+Does syncopation create movement without destroying pulse clarity? Where the music uses a cycle, a
+non-isochronous metre or layered metres, is the reference layer audible
+(`shared/RHYTHM_SYSTEMS/`)?
 
 ## Auditory scene
 Are important elements perceptually separable? Are intended layers allowed to fuse?
@@ -134,3 +136,56 @@ vocal-guide track muted, silent in the mix, and is the file named "Instrumental"
 
 ## Honest status
 Is the pass described as "measured, not listened to" until someone has listened to it?
+
+
+# Performance, voice, diversity and project
+
+## Performance intent
+Was a performance plan written, and did MIDI Builder execute it rather than inventing expression
+(`shared/HUMAN_PERFORMANCE_SCHEMA.md`)? An artifact with no plan is labelled `unperformed`, which is
+honest; an artifact full of invented expression is not.
+
+## Organic, not random
+Does every timing and dynamic deviation name a model and a magnitude? Is there anything in the plan
+that amounts to a percentage of randomness?
+
+## Deliberate exactness
+If the part is grid-exact, is that recorded as the realism target rather than left looking like an
+omission?
+
+## Physical feasibility
+Was a feasibility report produced? Is every impossible voicing, limb conflict, out-of-range note and
+breath overrun either fixed or recorded as intentional?
+
+## Vocal architecture
+Does every vocal layer have a function? Does register change across the song, or does the lead sit in
+one place? Is silence used, or merely absent? Is the plan inside the singer's declared range?
+
+## No identity imitation
+Does any part of the plan aim at reproducing a specific living artist's voice or signature sound,
+rather than a transferable mechanism?
+
+## Musical system named
+Where the music uses a system other than the default, is it named, and does the work carry that
+system's cautions rather than borrowing its surface?
+
+## Tuning reaches the instrument
+If the pitch system is not twelve-tone equal temperament, was the instrument's capability checked, was
+a mechanism chosen, and does the export state what happens if a receiver ignores it? Was anything
+silently quantised?
+
+## Diversity consulted
+Was the ledger read before this track, and is every shared dimension classified as accidental
+repetition, project motif, genre convention or deliberate callback rather than left unexamined
+(`shared/TRACK_DIVERSITY_LEDGER.md`)?
+
+## Project consistency
+Where a project exists, does this track serve a function no other track already serves, or is the
+doubling deliberate?
+
+## Interaction mode respected
+Was the mode the user asked for actually followed? A diagnosis request answered with a rewrite is a
+failure even if the rewrite is good.
+
+## Explanation calibrated
+Was a beginner buried in terminology? Was an expert given a worked example they did not ask for?

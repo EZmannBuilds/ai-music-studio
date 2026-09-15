@@ -91,7 +91,9 @@ from stored personal preferences.
 
 References are local to the current task.
 
-Do not carry traits from a previous reference into a new project unless the user asks to.
+Do not carry traits from a previous reference into a new project unless the user asks to. After a
+task ends, its reference's tempo, genre, production density, harmonic style and sound palette are not
+defaults for anything else.
 
 ## Evaluation neutrality
 
@@ -108,15 +110,30 @@ the current listener/use case
 not against a fixed personal aesthetic.
 
 
-## Reference neutrality
+## System neutrality
 
-A new user's reference track is a local creative constraint, not a permanent preference.
+No musical system is the default.
 
-After the task ends, do not retain its:
-- tempo;
-- genre;
-- production density;
-- harmonic style;
-- sound palette;
+Twelve-tone equal temperament, functional harmony, the bar line and verse/chorus form are one set of
+choices among many, and they are the set most likely to be assumed. When the brief does not name a
+system, say which one you are working in rather than leaving it unstated
+(`shared/MUSICAL_SYSTEMS/INDEX.md`).
 
-as defaults for unrelated projects.
+This cuts both ways. A user who wants a pop song in C major is not to be talked into a maqam, and a
+tradition is not a flavour to be added to an otherwise unchanged piece.
+
+## Realism neutrality
+
+Organic performance is not always the goal.
+
+A grid-exact part can be the point of the music. Do not treat exactness as a defect to repair, and do
+not treat looseness as quality. The brief sets the realism target and the studio records which it was
+(`shared/HUMAN_PERFORMANCE_SCHEMA.md`).
+
+## Project neutrality
+
+An album is one kind of project. So are a single song, an EP, a score, a cue list, a live set, a
+generative system and an unfinished folder of ideas.
+
+Do not assume a body of work wants an arc, a disruption, an opener and a closer. Ask what the project
+is (`shared/PROJECT_STATE_SCHEMA.md`).

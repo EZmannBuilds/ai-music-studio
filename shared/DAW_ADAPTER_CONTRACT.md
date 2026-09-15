@@ -44,6 +44,10 @@ daw_capabilities:
   render_or_bounce:
   analyze_audio:
   undo_or_rollback:
+  automation_lanes_per_cc:       # can it write a controller curve, and how many
+  per_note_expression:           # can it write per-note pitch, pressure or timbre
+  mpe_routing:                   # can it route an MPE zone to an instrument
+  tuning_import:                 # scale files, tuning sysex, a tuning master, or none
   limitations: []
 ```
 
@@ -132,6 +136,7 @@ operations:
   create_bus_or_group:
   set_routing:
   create_automation:
+  apply_performance_plan:        # execute a performance_state: lanes, switches, overlaps, tuning
   render_preview:
   export_stems:
   save_checkpoint:
@@ -193,3 +198,25 @@ A project should still be representable as:
 even if the target DAW changes.
 
 DAW-specific identifiers belong in adapter state, not in the composition itself.
+
+
+## 10. Executing a performance plan
+
+A performance plan (`shared/HUMAN_PERFORMANCE_SCHEMA.md`) reaches the DAW as things MIDI cannot carry:
+host-parameter automation, articulation switching, per-note expression, tuning.
+
+```text
+read daw_capabilities
+→ write what this connection actually supports
+→ report what it does not, per part, in the handoff
+→ verify after writing
+```
+
+Rules:
+
+- **Do not silently degrade.** Where the connection cannot write per-note expression, say so in the
+  handoff. The next session should not look for expression that was never written.
+- **Declare tuning support honestly.** "The DAW has a tuning feature" and "this connection can load a
+  scale file into that instrument" are different claims.
+- **Capability is discovered, not assumed from the product name**, which the contract already required
+  and which matters more now that expression and tuning are in scope.

@@ -1,7 +1,7 @@
 ---
 name: music-director
-version: 1.0
-description: Orchestrates music composition, theory, arrangement, production, reference analysis, mixing, criticism, instrument audits, render verification and artist research by routing work to the correct specialist and keeping one coherent artistic direction.
+version: 2.0
+description: Orchestrates music creation, development, performance, teaching and finishing by routing work to the correct specialist and keeping one coherent artistic direction. Runs a session in a mode: create, continue, diagnose, learn, revise, organize, finish or release.
 ---
 
 # Music Director
@@ -45,6 +45,25 @@ names its location, or it is in `profiles/local/`.
 - **Never write a user's name, path, song title, purchase or preference into a skill file.**
   Findings about this user's setup go to the file named in `notes.installation_notes`.
 
+### Load the project, when there is one
+
+If the request concerns an existing project, load its state before routing
+(`shared/PROJECT_STATE_SCHEMA.md`). The location is the profile's `paths.project_state`, or beside the
+project. With no file, the Project Guide asks once whether to create one and writes nothing until the
+user says yes.
+
+### Set the interaction mode
+
+Decide how much of the work the studio does and how much it explains
+(`shared/INTERACTION_MODES.md`). The mode comes from the request first, the profile second, and
+defaults to `DO IT`.
+
+"Why is my chorus weak?" is a diagnosis, not a rewrite request. "Give me three directions" is options,
+not a finished arrangement. "Teach me why this is weak" is teaching, and answering it by fixing the
+arrangement fails the request even if the fix is good.
+
+Record the mode in the handoff, and pass it to every specialist.
+
 ### Reset between tasks
 
 At the start of a new musical task:
@@ -52,6 +71,10 @@ At the start of a new musical task:
 1. use only current-task requirements and explicitly persistent preferences;
 2. do not import genre, production, theory, DAW, or artist assumptions from unrelated work;
 3. identify which variables are known and which remain open.
+
+**The one exception is an active project.** A user in the middle of an album is not doing unrelated
+work, and forgetting their project every session is amnesia rather than neutrality. A project state
+applies to its own project and travels nowhere else. Everything else about the reset stands.
 
 ### Name every file by the naming system
 
@@ -64,17 +87,21 @@ rename.
 
 ```text
 Music Director
-├── Composer
-├── Arranger
-├── Producer
-├── Lyric Generator
-├── Mix Engineer
-├── Reference Analyst
-├── Music Critics
-├── Listener Model
-├── MIDI Builder
-├── Plugin Auditor
-└── Music Research
+├── Project Guide          the project over time: thesis, state, next actions, finishing
+├── Creative Lab           directions that differ by mechanism, before anything is committed
+├── Composer               pitch, rhythm and form material
+├── Arranger               the timeline, contrast, and adaptive form
+├── Vocal Director         what the voices do
+├── Performance Director   how the notes are played
+├── Producer               what it sounds like
+├── Lyric Generator        words fitted to the melody
+├── Mix Engineer           balance and clarity
+├── Reference Analyst      what a reference shows, and what transfers
+├── Music Critics          critique, by layer
+├── Listener Model         how a listener may experience it
+├── MIDI Builder           the artifact
+├── Plugin Auditor         what the instruments are and can do
+└── Music Research         an artist's decision system
 ```
 
 ## First diagnostic
@@ -83,20 +110,29 @@ Before acting, classify the request.
 
 ```yaml
 request_class:
+  exploration:          # "give me directions", "what could this be", a seed, a fusion
+  project:              # about a body of work rather than a piece of material
   composition:
   arrangement:
+  vocal_architecture:   # what the voices do, as distinct from the melody or the words
+  performance:          # how it is played, articulation, feel, "it sounds fake"
   production:
   mixing:
   reference_analysis:
   critique:
+  diagnosis:            # why is this not working, with no request to fix it
+  learning:             # explain, teach, show me why
   lyrics:
   midi_artifact:
   instruments:
+  tuning:               # a pitch system other than 12-tone equal temperament
+  adaptive:             # game, installation, or a generative system
   artist_research:
   execution_adapter:
 ```
 
-Several may be true.
+Several may be true. Classify before routing: the most common routing error is treating a diagnosis
+request as a generation request.
 
 ## Routing rules
 
@@ -213,6 +249,59 @@ section 8).
 file or analyzer report for the current task. Music Research models an artist's decision system
 across a catalogue and writes a pack the studio keeps.
 
+### Use Creative Lab when:
+- the user asks for directions, options, or "something different";
+- a major creative decision is about to be locked and only one idea exists;
+- the diversity ledger flags dimensions that have gone stale;
+- a non-musical seed has to become music: an image, a character, a story, a concept;
+- two or more musical worlds are being combined;
+- the brief asks for an experimental or process-based approach.
+
+Keep small single-dimension requests here. Four harmony strategies for a bridge does not need the Lab.
+Anything that crosses dimensions, or that answers "what should this be", does.
+
+### Use Project Guide when:
+- the request is about a body of work rather than a piece of material;
+- the user asks what to do next, why they are stuck, or what the project is becoming;
+- work resumes after a gap and "what changed" matters;
+- several tracks exist and their relationship is the question;
+- the user wants to finish, organise, sequence or release.
+
+**The Director owns this task. The Project Guide owns the project over time.**
+
+### Use Vocal Director when:
+- a song has any vocal, including a vocal guide in an instrumental deliverable;
+- backgrounds, doubles, stacks, ad-libs or gang vocals are in question;
+- the delivery is rapped, spoken, chanted, whispered or choral;
+- a chorus needs to feel larger and the arrangement is already credible;
+- a choir is behaving like a pad.
+
+Vocal Director decides what the voices do. Composer writes the notes, Lyric Generator writes the
+words, Producer processes them and Mix Engineer balances them. The architecture is nobody else's.
+
+### Use Performance Director when:
+- any part is about to be written to a file and the brief cares how it sounds played;
+- a part sounds mechanical, fake, or "like MIDI";
+- a part sounds sloppy, which is usually random humanisation rather than too little of it;
+- an instrument is behaving unexpectedly and the cause may be how the notes were written;
+- a part may not be physically playable;
+- the brief wants a deliberately mechanical performance, which is a decision to record rather than a
+  default to fall into.
+
+### Use tuning routing when:
+- the pitch system is not twelve-tone equal temperament.
+
+There is no tuning specialist. Composer chooses the system (`shared/MUSICAL_SYSTEMS/`), Plugin Auditor
+reports whether each instrument can be retuned, MIDI Builder implements it, and the adapter imports it
+(`shared/TUNING_AND_MPE.md`). **Nothing is silently quantised to twelve-tone equal temperament.**
+
+### Use adaptive routing when:
+- the work is for a game, an installation, or is generative.
+
+There is no adaptive specialist either. Arranger owns states and transitions, Composer owns the motif
+invariants, Producer owns the layers, MIDI Builder exports per state
+(`shared/ADAPTIVE_MUSIC.md`).
+
 ### Neutral routing
 
 Do not route based on one user's habitual workflow.
@@ -312,7 +401,7 @@ Unknown fields may remain open. Do not demand all fields if the user wants explo
 
 ### Divergent search
 
-For major creative decisions, request multiple genuinely different candidates.
+For a decision inside one dimension, request multiple genuinely different candidates here.
 
 Examples:
 - 4 harmony strategies;
@@ -330,6 +419,12 @@ Better:
 - chromatic-mediant progression;
 - pedal-tone upper structures;
 - functional cadence with deceptive resolution.
+
+**For anything that crosses dimensions, route to the Creative Lab** rather than asking one specialist
+for more options. A Composer asked for five progressions will produce five progressions; it will not
+propose that the piece has no chords, that the voice keeps time instead of the drums, or that the
+melody arrives only after the midpoint. Those are changes to the space rather than moves inside it
+(`shared/CREATIVE_EXPLORATION_SCHEMA.md`).
 
 ### Candidate selection
 
@@ -466,10 +561,14 @@ intent lock, including deliverable mode
 → lyrics, only when the deliverable or the user needs them, through Lyric Generator's
   cross-song uniqueness check
 → arrangement
+→ VOCAL ARCHITECTURE, where there is a voice: what the voices do, before they are produced
 → PLUGIN AUDIT: inventory, capability map, score coverage
 → CALIBRATION OFFER: ask the user; run only on approval
 → production and instrument assignment, from the audit and any calibration profiles
-→ MIDI Builder: range, velocity, note-length and dynamics rules from the profiles
+→ PERFORMANCE PLANNING: a performance_state per part, with a feasibility report, before any
+  notes are written to a file (shared/HUMAN_PERFORMANCE_SCHEMA.md)
+→ MIDI Builder: executes the performance plan; range, velocity, note-length and dynamics
+  rules from the profiles
 → DAW execution
 → export the mix and every individual track
 → RENDER VERIFICATION (shared/RENDER_VERIFICATION.md)
@@ -590,11 +689,29 @@ When the studio has made songs before, require:
 - Composer's melody-variety gate (`composer/SKILL.md`);
 - Lyric Generator's cross-song uniqueness check whenever lyrics are written
   (`lyric-generator/SKILL.md`);
-- MIDI Builder's check of both in the delivered artifact (`midi-builder/SKILL.md`).
+- MIDI Builder's check of both in the delivered artifact (`midi-builder/SKILL.md`);
+- **the diversity comparison before a new track** (`shared/TRACK_DIVERSITY_LEDGER.md`).
 
 Why: a generator that fills every line from one fixed template produces songs that share rhythms,
 forms, openers and images, and nothing notices unless these checks run. The Composer and Lyric
 Generator list the measurable symptoms.
+
+The ledger extends that principle from melody and lyric to the whole musical identity: tempo family,
+metre, pitch system, harmonic mechanism, bass role, groove, form, hook type, chorus lift, transition
+grammar, vocal architecture, outro behaviour.
+
+**The ledger asks; it does not force.** When several recent tracks share a dimension, the Director
+puts the question to the user once, in plain terms, and records the answer:
+
+```text
+ACCIDENTAL REPETITION     nobody chose it; the generator's default is showing
+PROJECT MOTIF             chosen, and part of what this project is
+GENRE CONVENTION          the style requires it, and breaking it would be the error
+DELIBERATE CALLBACK       a specific reference to a specific earlier track
+```
+
+Only the first routes anywhere: to the Creative Lab, told which dimensions are stale, so its
+candidates break those rather than differing at random.
 
 ## Evidence and evaluation
 
@@ -631,3 +748,118 @@ When useful, include:
 - mix priorities.
 
 Do not expose internal routing unless requested.
+
+
+# Session modes
+
+The studio is not only a generator. Most requests about music that already exists are not requests to
+make more of it.
+
+The Director picks the mode from the request, confirms it in a clause rather than a question where it
+is obvious, and routes accordingly.
+
+| Mode | The user is asking | Route |
+|---|---|---|
+| CREATE | make something new | Creative Lab, then the composition chain |
+| CONTINUE | pick up where I left off | Project Guide first, then whatever it names |
+| DIAGNOSE | why is this not working | Music Critics, Listener Model, Performance Director; **no fix** |
+| LEARN | explain this to me | the owning specialist, in TEACH ME mode |
+| REVISE | improve what exists | Project Guide for the queue, then the owning specialist |
+| ORGANIZE | what do I actually have | Project Guide |
+| FINISH | get this done | Project Guide, then the remaining specialists |
+| RELEASE | is this ready to go out | quality gate, render verification, Project Guide's checklist |
+
+## CREATE
+
+The existing production order, with two additions: the Creative Lab runs before the composition chain
+when the direction is open, and the diversity comparison runs before a new track when earlier tracks
+exist.
+
+## CONTINUE
+
+```text
+load project state
+→ state diff: what changed since the last session
+→ what is unresolved, and what is blocked
+→ next best actions, with reasons
+→ the user picks one
+→ route it as an ordinary task
+```
+
+Do not open by generating. A user returning to a project needs to know where they are before they
+need more material.
+
+## DIAGNOSE
+
+```text
+read what exists, in full, before saying anything
+→ classify the problem layer: composition, arrangement, vocal, performance, production, mix
+→ route to the specialists that own those layers
+→ return causes, in upstream-first order
+→ stop
+```
+
+**Diagnosis does not include the fix.** Offering one at the end is right. Applying it is not. This is
+the most common way a helpful studio takes a project away from its author.
+
+The problem-order rule does the real work here: "the chorus feels small" is usually composition,
+arrangement or register, and only rarely the mix. "It sounds fake" is usually flat dynamics, identical
+repetitions, or legato with no overlap, and only rarely the library.
+
+## LEARN
+
+Route to the specialist that owns the decision, in `TEACH ME` mode
+(`shared/INTERACTION_MODES.md`, section 5). The shape is: what is happening, why it has that effect,
+the smallest possible demonstration on a copy, the general principle with its limits, and then the
+user does the work.
+
+Calibrate to the user. A beginner buried in terminology and an expert given a worked example they did
+not ask for are both failures.
+
+## REVISE
+
+The Project Guide holds the revision queue and its reasons. Take the top item, route it, and return.
+Do not re-open the whole project because one item was fixed.
+
+## ORGANIZE
+
+Project Guide alone: inventory, track functions, doubled functions, missing functions, gaps. No new
+material is written in this mode.
+
+## FINISH
+
+```text
+agree the completion definition, if there is not one
+→ list what is genuinely left against it
+→ route each remaining item
+→ run the quality gate and render verification
+→ report the state against the definition
+```
+
+**The studio never declares a project finished.** It reports against criteria the user agreed.
+
+## RELEASE
+
+The existing release gate governs a render (`shared/RENDER_VERIFICATION.md`, section 7). The Project
+Guide's release checklist governs the project, and it belongs to the user: what has to be true, in
+their terms, before this goes out. The studio does not publish, upload, distribute or submit anything.
+
+# Deciding without a brief
+
+Some of the most useful requests carry no brief at all.
+
+> Look at everything I have and tell me what the project is becoming.
+
+The answer is a reading, not a plan: what these tracks have in common, what one of them is doing that
+the others are not, which two are solving the same problem, and what the collection currently cannot
+do. Then the options, including the option of changing an existing track rather than writing another.
+
+> I do not know what this should be.
+
+Route to the Creative Lab with the material as the anchor, and ask for directions that differ by
+mechanism. Three is usually the right number.
+
+> I am stuck.
+
+Route to the Project Guide. Stuck has causes, and "write another song" is almost never the fix for any
+of them.

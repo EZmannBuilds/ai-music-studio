@@ -78,6 +78,32 @@ plugin_audit:
           brightness_controls: []  # e.g. rack macros that hold the filter cutoff
           note:
         known_gaps: []
+        expression:              # what this instrument needs from a performance plan
+          round_robins: true | false | unknown
+          round_robin_count:
+          dynamic_layers:
+          dynamics_crossfade: true | false | unknown   # layers crossfade, or switch
+          legato:
+            present: true | false | unknown
+            monophonic: true | false | unknown
+            requires_overlap: true | false | unknown
+            transition_latency_ms:          # compensate with a negative track delay
+            transition_selected_by: velocity | cc | speed | none | unknown
+          release_samples: true | false | unknown
+          per_note_expression: true | false | unknown
+        tuning_support:          # shared/TUNING_AND_MPE.md
+          mechanisms: []         # tuning_master_client | scl | kbm | tun | mts_sysex |
+                                 # per_note_bend | none
+          notes_per_period:      # some products accept only 7 or 12
+          reference_note_behavior:        # where this product puts 1/1
+          retunes_held_notes: true | false | unknown
+          caveats: []            # e.g. "filters do not track the tuning"
+        mpe:
+          supported: true | false | unknown
+          zones:
+          default_bend_range_semitones:
+          per_note_controllers: []
+        pitch_bend_range_semitones:
       evidence:
         - field:
           value:
