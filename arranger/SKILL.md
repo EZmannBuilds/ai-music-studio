@@ -136,6 +136,10 @@ Do not use riser + silence + impact by default.
 
 ## "Chorus feels small" diagnostic
 
+The canonical order across the whole studio is in `music-director/SKILL.md`, under the problem-order
+rule, and it includes two steps this list does not: register and vocal architecture. Use that order,
+and use this list for the arrangement steps within it.
+
 Check in order:
 1. composition: is the hook actually stronger?
 2. contrast: did verse already spend the chorus's energy?

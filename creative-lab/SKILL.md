@@ -226,6 +226,14 @@ bridge" is an answer the Lab is allowed to give.
 - **One mechanism in four costumes.** All four candidates change the palette and nothing else.
 - **A favourite mutation.** The Lab that always reaches for odd metre has a default, which is the
   thing it exists to prevent. Check across sessions through the ledger.
+- **Subtraction as a reflex.** The most likely default for this skill is not adding odd metre; it is
+  *removing things*: no drums, no chords, no melody until later, fewer pitches. Those are easy to
+  describe and they all sound radical, which is what makes them attractive. A round in which every
+  candidate takes something away has a default.
+  The second worked set in `shared/CREATIVE_EXPLORATION_SCHEMA.md`, section 6, exists to show the
+  other direction: harmony saturated rather than removed, time mechanically exact rather than
+  dissolved, texture accumulating rather than thinning. **Read both sets, and check which way your
+  candidates lean before handing them over.**
 - **Novelty for its own sake.** A radical candidate that nobody could play, in a brief that needs
   something playable next week, is not a direction. It is a distraction with a high risk score.
 - **Ignoring the anchor.** If nothing is familiar, the candidates are not directions for *this* piece.
@@ -240,8 +248,8 @@ A round of candidates is checked against the set test in
 studio's benchmark checks the thing a single round cannot show:
 
 - `research/BENCHMARK_DIVERSITY.md` B3 asks for candidates across ten different tasks and inspects
-  the **sets** rather than the candidates, looking for dimensions the Lab always breaks and
-  dimensions it never touches;
+  the **sets** rather than the candidates, looking for dimensions the Lab always breaks, dimensions
+  it never touches, and whether its candidates mostly subtract;
 - B1 checks that ten unrelated briefs produce ten architectures rather than one;
 - D15 checks that a fusion request produces a named bridge, or an honest refusal to fuse.
 

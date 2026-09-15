@@ -355,12 +355,26 @@ Example:
 
 User: "The chorus feels small."
 
-Possible diagnosis order:
+This is the most common diagnostic request the studio receives, so it has one order, here, and the
+specialists carry the detail rather than competing versions of the order.
 
-1. Is the melody/harmony emotionally weak?
-2. Is arrangement density/contrast weak?
-3. Is production timbre too similar to the verse?
-4. Only then ask whether mix balance is reducing impact.
+1. **Hook.** Is the chorus melody actually stronger than the verse, or only higher and louder?
+2. **Contrast already spent.** Did the verse use the density, width and register the chorus needs?
+   The full check is `arranger/SKILL.md`, "Chorus feels small" diagnostic.
+3. **Register.** Can anything move, or is everything already at the top of its range? On a song with
+   a voice this is often the answer, and `vocal-director/SKILL.md` says why: a lead that sits in one
+   part of the range for three minutes leaves the chorus nowhere to go, and no amount of stacking
+   gives it somewhere.
+4. **Vocal architecture.** Is the lift being attempted by layers when it needs a register change, or
+   by a register change when it needs a second voice answering?
+5. **Rhythmic authority.** Does anything reframe the subdivision, or do the drums merely confirm what
+   the verse established?
+6. **Proportion.** Same length, same harmonic rhythm as the verse?
+7. **Production timbre.** Does the palette open, or is it the same sounds turned up?
+8. **Only then** mix balance.
+
+Steps 3 and 4 are the ones an arrangement-only reading misses, and on a song with a voice they are
+frequently the cause.
 
 Example:
 
@@ -807,7 +821,7 @@ is obvious, and routes accordingly.
 |---|---|---|
 | CREATE | make something new | Creative Lab, then the composition chain |
 | CONTINUE | pick up where I left off | Project Guide first, then whatever it names |
-| DIAGNOSE | why is this not working | Music Critics, Listener Model, Performance Director; **no fix** |
+| DIAGNOSE | why is this not working | the specialists owning the layers involved, then Music Critics and Listener Model; **no fix** |
 | LEARN | explain this to me | the owning specialist, in TEACH ME mode |
 | REVISE | improve what exists | Project Guide for the queue, then the owning specialist |
 | ORGANIZE | what do I actually have | Project Guide |

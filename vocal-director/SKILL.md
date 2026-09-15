@@ -73,8 +73,9 @@ Two things people skip:
   omission. A verse where the singer stops for four bars is an arrangement choice with more effect
   than most additions.
 - **Register architecture across the song.** If the lead sits in the same part of the range for three
-  minutes, the chorus has nowhere to go and no amount of stacking will give it somewhere. Register is
-  usually the real answer to "the chorus feels small".
+  minutes, the chorus has nowhere to go and no amount of stacking will give it somewhere. On a song
+  with a voice, register is step 3 of the studio's "chorus feels small" order and is frequently the
+  cause (`music-director/SKILL.md`, problem-order rule).
 
 ### 4. Write the performance intent
 

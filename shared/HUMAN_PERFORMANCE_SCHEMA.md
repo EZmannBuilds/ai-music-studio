@@ -54,6 +54,15 @@ as an exact grid, that exaggerated deviation is liked less, and that where loose
 has long-range structure rather than being white noise
 (`research/PERFORMANCE_AND_EXPRESSION.md`, sections 1 and 3).
 
+**Those studies used short loops, mostly rock and funk stimuli, and mostly Western listeners.** The
+research page says so plainly: "quantised rates highest" is a finding about those stimuli, not a law.
+Jazz, samba, Malian drumming and neo-soul have documented systematic feels that a grid does not
+produce.
+
+What survives the scoping, and what this schema is built on, is narrower and firmer: **a uniform
+random offset is not a weak version of a human one.** Human timing is structured and reproducible.
+Modelling the structure is available in every style; scattering notes is available in none.
+
 So this schema **has no field named random**, and no field whose value is "amount of humanization".
 Every deviation comes from a named model that another specialist can read, argue with, and reproduce.
 A deviation with no model is a bug.
@@ -147,17 +156,27 @@ performance_state:
 `timing_character.models` accepts only entries from this table. Each has a documented basis in
 `research/PERFORMANCE_AND_EXPRESSION.md` and a magnitude with units.
 
-| Model | What it does | Typical magnitude | Basis |
+| Model | What it does | Magnitude | Basis, and the corpus it came from |
 |---|---|---|---|
-| `phrase_arch` | tempo and dynamics shaped over a phrase, often slower and softer at the ends | style-dependent | Todd 1992 |
-| `final_ritard` | parabolic slowing at a structural end | style-dependent | Repp 1992 |
-| `metrical_accent` | accent and slight lengthening by position in the bar or cycle | small | KTH rule system |
-| `chord_asynchrony` | the louder note of a chord arrives first | roughly 20-30 ms on piano | Goebl 2001 |
-| `section_offset` | one constant offset per part per section | a few ms to tens of ms | Friberg & Sundström 2002 |
-| `swing_ratio` | long-short ratio as a function of tempo | 3.5:1 slow to 1:1 fast | Friberg & Sundström 2002 |
-| `microtiming_template` | per-position offsets from a named corpus | 1-5% of the beat | `shared/RHYTHM_SYSTEMS/MICROTIMING_AND_GROOVE.md` |
-| `ensemble_spread` | many players do not attack at one instant | grows with performer count | musicianship |
-| `drift_1f` | small long-range-correlated wander, applied last and least | smallest layer | Hennig 2011 |
+| `phrase_arch` | tempo and dynamics shaped over a phrase, often slower and softer at the ends | no general figure exists; set it per style and record what you set | Todd 1992, described for some classical and romantic piano styles |
+| `final_ritard` | parabolic slowing at a structural end | no general figure; the *shape* is the finding, not a depth | Repp 1992, 28 performances of one romantic piano piece |
+| `metrical_accent` | accent and slight lengthening by position in the bar or cycle | small | KTH rule system, Western art music |
+| `chord_asynchrony` | the louder note of a chord arrives first | the studies report roughly 20-50 ms, clustering near 30 ms, **at the hammer on a piano** | Palmer 1997, Repp 1996, Goebl 2001. Goebl shows it is a consequence of the action, so do not copy the figure to any other instrument |
+| `section_offset` | one constant offset between parts, held across a section | no general figure; derive it from the style, or measure it | Friberg & Sundström 2002 found jazz soloists' downbeats lagging the drums with offbeats roughly synchronous. That is the mechanism; the amount is not transferable |
+| `swing_ratio` | long-short ratio as a function of tempo | about 3.5:1 at slow tempi to 1:1 at fast, **jazz ride cymbal** | Friberg & Sundström 2002. Not a general fact about rhythm. Other traditions have their own ratios: see `shared/RHYTHM_SYSTEMS/MICROTIMING_AND_GROOVE.md` |
+| `microtiming_template` | per-position offsets from a named corpus | 1-5% of the beat; the studied corpora cluster nearer 1-3% | `shared/RHYTHM_SYSTEMS/MICROTIMING_AND_GROOVE.md`, which requires the corpus to be named |
+| `ensemble_spread` | many players do not attack at one instant | no measured figure is available in this pack; state and label whatever you use, or calibrate | musicianship |
+| `drift_1f` | small long-range-correlated wander, applied last and least | smallest layer of the plan | Hennig 2011, and a drum-track analysis in Räsänen 2015 |
+
+**Three of these models have no number, and that is the honest state of the evidence.** `phrase_arch`,
+`final_ritard`, `section_offset` and `ensemble_spread` are shapes and mechanisms rather than
+quantities. Set a value for the style, write it into the plan, and label it as set rather than
+measured. Do not borrow a figure from a neighbouring row: they come from different instruments and
+different repertoires.
+
+**Where a figure exists, it belongs to a corpus.** A jazz ride cymbal's swing curve, a piano action's
+chord asynchrony and a samba sixteenth template are three measurements of three things. None of them
+is a general law of performance.
 
 Rules:
 

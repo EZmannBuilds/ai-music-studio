@@ -105,9 +105,15 @@ millisecond value, and why the guide warns against copying a piano figure to str
 
 ## Research
 
-- Friberg & Sundström (2002), *Music Perception* 19(3): the ride-cymbal swing ratio falls from about
-  3.5:1 at slow tempi toward 1:1 at fast tempi; the short note stays near 100 ms across medium to
-  fast tempi. A 2:1 ratio occurs at one tempo, not as a general rule.
+- Friberg & Sundström (2002), *Music Perception* 19(3), measuring jazz ensemble recordings: the
+  **ride-cymbal** swing ratio falls from about 3.5:1 at slow tempi toward 1:1 at fast tempi; the short
+  note stays near 100 ms across medium to fast tempi. A 2:1 ratio occurs at one tempo, not as a
+  general rule. Separately, in the same work, **soloists' downbeats lag the drums while their
+  offbeats are roughly synchronous**, which is a constant offset between parts rather than a property
+  of either part alone.
+
+  Both findings are **jazz ensemble** findings. The swing curve in particular is a ride-cymbal
+  measurement and is not a general fact about rhythm. Carry the corpus wherever either is used.
 - Danielsen (ed., 2010), *Musical Rhythm in the Age of Digital Reproduction*: the **beat bin** — the
   beat is a span rather than a point, and the shape of the sound determines where the beat is felt.
   Onset-only measurement cannot see this.

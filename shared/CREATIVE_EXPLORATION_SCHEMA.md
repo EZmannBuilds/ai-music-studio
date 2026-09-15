@@ -120,35 +120,53 @@ A set that fails is regenerated, not shipped with an apology.
 
 # 6. Worked shape
 
-The point of the example is that the four candidates cannot be reduced to each other.
+The point of an example is that the candidates cannot be reduced to each other. This one deliberately
+leans the opposite way from the example in `creative-lab/SKILL.md`, which breaks pulse, harmony and
+melody in every candidate. **Read both.** One set is not enough to show what the method does, and a
+single exemplar becomes the Lab's default.
 
 ```text
-Brief: a short piece, voice and one other thing, "held together by something fragile"
+Brief: an instrumental for a credits sequence, "something that keeps moving"
 
 Current space:
-  harmony is a looped diatonic progression
-  the voice enters at the top and carries the melody throughout
-  a drum part keeps time
-  sections are 8 bars
+  the harmony is a slow pad progression
+  a single lead line carries it
+  the tempo is steady and the parts are loose
+  the texture thins toward the end
 
-A  anchor: the voice                 novelty: harmony
-   constraint: precludes drums, promotes breath and room as the pulse
-   mechanism: harmonic rhythm slows until chords become drones; time is kept by breathing
+A  anchor: the lead line                 breaks: harmonic_mechanism, harmonic_rhythm
+   constraint: precludes any chord lasting more than a beat; promotes constant reharmonisation
+   mechanism: the same melody is reharmonised under itself every beat, so the tune never
+              changes and the ground under it never stops moving
+   costs: players cannot busk it; every chord has to be written
+   reversibility: moderate
 
-B  anchor: the bass                  novelty: form
-   constraint: precludes any repeated 8-bar section, promotes continuous variation
-   mechanism: a bass line that is never the same length twice, so the voice is always arriving early
+B  anchor: the tempo                     breaks: performance_constraint, production_behavior
+   constraint: precludes any timing deviation at all; promotes mechanical exactness
+   mechanism: everything is on the grid to the sample, and the movement comes from parts
+              phasing against each other rather than from any player's feel
+   costs: a human performance would weaken it; this is a sequenced piece
+   reversibility: easy
 
-C  anchor: a percussion cycle        novelty: tuning
-   constraint: precludes 12-tone equal temperament, promotes a small just subset
-   mechanism: the cycle stays fixed while the pitch material narrows to beating intervals
+C  anchor: the harmonic rhythm           breaks: arrangement_logic, lead_source
+   constraint: precludes the texture thinning; promotes continuous accumulation
+   mechanism: every section adds and nothing ever leaves, so the piece ends at maximum
+              density and the interest is in what becomes audible as the stack grows
+   costs: no dynamic range in the second half; the ending has to be a cut
+   reversibility: hard
 
-D  anchor: texture                   novelty: performance
-   constraint: precludes melody before the midpoint, promotes accumulating noise components
-   mechanism: fret, breath and key noise become the material; the melody is the last event
+D  anchor: the pad progression           breaks: rhythmic_logic, form
+   constraint: precludes a steady tempo; promotes accelerando across the whole piece
+   mechanism: the harmony is unchanged and the tempo rises continuously from the first bar
+              to the last, so familiarity and urgency move in opposite directions
+   costs: needs a tempo map; loops and fixed-tempo material are out
+   reversibility: moderate
 ```
 
----
+Between the two examples, the sets cover: dropping a layer and adding one, dissolving the grid and
+tightening it to the sample, narrowing the pitch material and saturating the harmony, thinning the
+texture and accumulating it, elastic time and mechanical time. **If a round of candidates only ever
+subtracts, the Lab has a default.**
 
 # 7. Handoff
 

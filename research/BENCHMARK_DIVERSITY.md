@@ -180,8 +180,17 @@ one way of solving that brief, which is the same problem in a smaller frame.
 ## B3 — Candidate sets
 
 Ask the Creative Lab for candidates across ten different tasks, and check the sets rather than the
-candidates: does the Lab have favourite dimensions to break? A Lab that always reaches for odd metre
-and always leaves harmony alone has a default, which is the thing it exists to prevent.
+candidates.
+
+Two things to count:
+
+- **which dimensions it breaks**, across all ten. A Lab that always reaches for the same two
+  dimensions has a default, which is the thing it exists to prevent.
+- **which direction it breaks them in.** Count how many candidates *remove* something (no drums, no
+  chords, fewer pitches, no melody until later) against how many *add or tighten* something
+  (saturated harmony, mechanical exactness, accumulating texture, accelerating tempo). Subtraction is
+  easy to describe and sounds radical, so it is the likelier default. A set that only ever subtracts
+  fails this test even if every candidate differs by mechanism.
 
 ---
 
