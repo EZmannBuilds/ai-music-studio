@@ -16,7 +16,26 @@ DAW adapter                  automation lanes, articulation switches, tuning
 Mix Engineer                 reads the intended dynamic shape before touching a fader
 ```
 
-**MIDI Builder executes this plan. It does not invent expression.** With no plan, it writes plain
+**MIDI Builder executes this plan. It does not invent expression.**
+
+## Which director writes which plan
+
+```text
+the voice, sung or spoken          Vocal Director
+everything else                    Performance Director
+```
+
+Two cases worth settling, because both come up constantly:
+
+- **A vocal guide played by an instrument** follows the Vocal Director's plan. The part is a voice
+  that has not been recorded yet; the flute or synth standing in for it should breathe and phrase
+  where the singer will, or the guide teaches the wrong thing to whoever plays it later.
+- **A wordless vocal used as a texture**, for example a choir written as an orchestral colour with no
+  lyric, is the Vocal Director's if a person sings it and the Performance Director's if it is
+  functioning as an instrument the user does not think of as a voice. The deliverable mode decides
+  the practical question, which is whether an instrumental export mutes it: the Vocal Director
+  declares that per track (`shared/VOCAL_ARCHITECTURE_SCHEMA.md`), and where no plan exists the
+  Director asks once and records the answer. With no plan, it writes plain
 quantised notes and labels the artifact `unperformed` (section 6). That is an honest deliverable. An
 artifact full of invented expression is not.
 
