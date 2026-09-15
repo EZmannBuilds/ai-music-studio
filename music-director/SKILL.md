@@ -694,8 +694,11 @@ Before delivering a MIDI:
 
 - Mute every vocal-line and vocal-guide track: lead vocal guide, doubles, harmonies, rap guide,
   ad-libs, vocal chops, and choir or vocal-pad guides that stand in for sung parts.
-- Find them by role in the track state and by track name. If a track's role is unclear, for
-  example a choir scored as an orchestral texture with no lyric, ask once and record the answer.
+- Find them by role in the track state and by track name. **Where a Vocal Director plan exists, the
+  roles are already declared in it**, including `muted_in_instrumental` per track, so the ambiguous
+  cases have been decided rather than guessed (`shared/VOCAL_ARCHITECTURE_SCHEMA.md`).
+- Where there is no plan and a track's role is unclear, for example a choir scored as an orchestral
+  texture with no lyric, ask once and record the answer.
 - Keep the vocal tracks in the project and in the `.mid`, muted, so a vocal version can still
   be made later.
 - Put "Instrumental" in the exported file name.
