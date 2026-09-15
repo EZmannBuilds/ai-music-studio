@@ -8,15 +8,24 @@ This generalises two checks that already exist: the Composer's melody-variety ga
 Generator's cross-song uniqueness report. Those stay where they are and feed rows into this ledger.
 
 ```text
-Composer, Arranger, Producer,        write the row
+Composer, Arranger, Producer,        each fill the fields they decided
 Vocal Director, Lyric Generator,
 Performance Director
+        ↓
+Music Director                       assembles the row and writes it, once, at the end of the task
         ↓
 track_dna row in the ledger
         ↓
 Music Director, Creative Lab,        read it before the next song
 Project Guide, Music Critics
 ```
+
+**The Director assembles and writes the row.** Each specialist fills the fields for decisions it
+actually made, and hands them over in its handoff. A row that six specialists were each supposed to
+write is a row nobody writes, so the assembly is one job with one owner.
+
+Fields nobody decided are left empty. An empty field means the decision was not made here, which is
+information, and is different from a field set to a default.
 
 ---
 

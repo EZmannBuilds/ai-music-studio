@@ -754,6 +754,10 @@ DELIBERATE CALLBACK       a specific reference to a specific earlier track
 Only the first routes anywhere: to the Creative Lab, told which dimensions are stale, so its
 candidates break those rather than differing at random.
 
+**The Director assembles and writes the row**, from the fields each specialist filled in its handoff,
+once, at the end of the task. Fields nobody decided are left empty, because an empty field is
+information and a defaulted one is not (`shared/TRACK_DIVERSITY_LEDGER.md`, section 2).
+
 ## Evidence and evaluation
 
 When making recommendations, distinguish:
