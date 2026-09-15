@@ -2,7 +2,9 @@
 
 ## Cultural context
 
-Gamelan is the tuned-percussion ensemble music of Indonesia. The two traditions most often meant
+Gamelan is ensemble music of Indonesia, centred on tuned bronze (and in some ensembles iron or
+bamboo) percussion but not limited to it: drums, the bowed rebab, the suling flute, plucked zithers
+and voices belong to many ensembles. The two traditions most often meant
 are **Javanese** and **Balinese**, and they are distinct: different repertoires, different
 aesthetics, different instruments, different playing techniques. Balinese gong kebyar is
 characterised by sudden flashes of sound, virtuosity and extreme dynamic contrast (Tenzer, 2000);
@@ -38,11 +40,17 @@ the shimmer characteristic of many Balinese ensembles. The beat rate is ensemble
 chosen by the tuner. This connects directly to the timbre-and-tuning argument in
 `CONTEMPORARY_MICROTONALITY.md`: the ensemble's spectrum and its tuning are designed as one thing.
 
+The instruments themselves, their construction, damping, tuning and technique, are on
+`shared/VIRTUAL_INSTRUMENT_GUIDE/JAVANESE_GAMELAN_INSTRUMENTS.md` and
+`shared/VIRTUAL_INSTRUMENT_GUIDE/BALINESE_GAMELAN_INSTRUMENTS.md`, kept apart as the traditions are.
+
 ## Rhythm and cycle
 
 Form is **colotomic**: nested cycles marked by punctuating instruments. The largest gong falls at
 the **end** of the cycle, which is simultaneously the arrival and the point from which the next
-cycle starts. Inside it, kenong, kempul and kethuk mark subdivisions at fixed positions.
+cycle starts. Inside it, kenong, kempul and kethuk mark subdivisions at fixed positions. These are
+the **Central Javanese** names and positions; Balinese colotomic instruments and their patterns
+differ, and are not interchangeable with them.
 
 ```text
 gongan (one full cycle)
@@ -85,7 +93,9 @@ describe gamelan as improvised music.
 Layered by function: punctuating gongs mark the cycle; balungan instruments carry the skeleton;
 elaborating instruments (bonang, gender, gambang, and in Bali the reyong and gangsa) fill at the
 current density; drums direct; and in Javanese practice voices and softer instruments occupy their
-own register and dynamic layer. Paired instruments are detuned against each other by design.
+own register and dynamic layer. **In Balinese gamelan**, paired instruments are tuned slightly apart
+by design (pengumbang and pengisep) so that together they beat, the shimmer called ombak; Javanese
+gamelan is not built on this paired detuning, and it must not be generalised to it.
 
 ## What generalises
 
@@ -133,7 +143,9 @@ should not expect harmonic resolution as the source of arrival. The gong is the 
 ## Sources and confidence
 
 - Sumarsam, *Introduction, Theory, and Analysis: Javanese Gamelan*, and "Temporal and Density Flow
-  in Javanese Gamelan" (Wesleyan). Open first for balungan, irama and colotomy from a
+  in Javanese Gamelan" (Wesleyan; years not recorded in 2.0, to verify). His *Gamelan: Cultural
+  Interaction and Musical Development in Central Java* (University of Chicago Press, 1995) is the
+  standard monograph. Open first for balungan, irama and colotomy from a
   practitioner-scholar.
 - Tenzer, *Gamelan Gong Kebyar: The Art of Twentieth-Century Balinese Music*, Chicago, 2000; and
   "Theory and Analysis of Melody in Balinese Gamelan", *Music Theory Online* 6.2 (2000).

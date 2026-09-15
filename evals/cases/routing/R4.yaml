@@ -1,0 +1,34 @@
+# Evaluation case R4. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: R4
+  title: 'Routing: a diagnosis is not a rewrite'
+  category: routing
+  source: new in 2.1 (music-director "First diagnostic")
+  brief: Why doesn't my chorus lift? Don't change anything yet.
+  supplied_context: []
+  expected_routes:
+    must_include: []
+    must_not_include: []
+  required_behaviors:
+  - causes only
+  forbidden_behaviors:
+  - a rewritten chorus
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  - id: mode
+    field_equals:
+      path: session_trace.session_mode
+      value: DIAGNOSE
+  - id: no_new_material
+    field_empty: session_trace.created_material
+  - id: critic_or_arranger
+    any_of:
+    - routes_include:
+      - arranger
+    - routes_include:
+      - music-critics
+  human_questions:
+  - Would these causes help the user fix it themselves?
+  trials: 3

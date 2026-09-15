@@ -1,0 +1,30 @@
+# Evaluation case D3. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: D3
+  title: Polymetre
+  category: rhythm_and_form
+  source: research/BENCHMARK_DIVERSITY.md D3
+  brief: Two parts in different cycle lengths over a shared pulse.
+  supplied_context: []
+  expected_routes:
+    must_include: []
+    must_not_include: []
+  required_behaviors:
+  - an anchor layer named
+  - the realignment horizon stated
+  - the pattern given before it is contradicted
+  forbidden_behaviors:
+  - two layers with no stated relationship
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  - id: anchor
+    regex_present:
+      pattern: anchor
+  - id: realignment
+    regex_present:
+      pattern: (realign|line up again|coincide|every \d+ (pulses|beats|bars)|least common multiple|LCM)
+  human_questions:
+  - Can a listener hear the pattern before it is contradicted?
+  trials: 3

@@ -1,12 +1,12 @@
 # Common Errors
 
-The failures that make a competently written part sound fake. Held here once so the fourteen family
-files link to this page instead of repeating the list fourteen times.
+The failures that make a competently written part sound fake. Held here once so every instrument
+page links to this list instead of repeating it.
 
-> Evidence: `manual-derived` for the round robin, note overlap, continuous dynamics and
-> release-sample items, from the one symphonic strings manual read in full for this work.
-> `excerpt-derived` for the drum and sample-library grammar items. `musicianship` for the rest.
-> Nothing here was measured on the reader's system.
+> Evidence: tags per item, in the labels of `shared/RESEARCH_RULES.md`. The round-robin, overlap,
+> continuous-dynamics and release items rest on one symphonic strings library's manual, re-read for
+> 2.1 (`STRINGS-LIBRARY-MANUAL-1` in `research/sources/INSTRUMENT_SOURCES.md`); the rest is inference
+> unless tagged otherwise. Nothing here was measured on the reader's system.
 
 ---
 
@@ -14,17 +14,22 @@ files link to this page instead of repeating the list fourteen times.
 
 The same pitch repeated at the same velocity, so the sampler plays one identical recording several
 times. No player produces two identical notes, and the ear hears the loop point faster than it hears
-anything else on this list. Fix: use round robins, vary velocity a few points per repetition,
-alternate articulations where the player really would, alternate sticking on a kit. `manual-derived`:
-the documented library states that round robins exist to prevent repeated identical samples.
+anything else on this list [inference]. The documented library states that round robins exist to
+prevent repeated identical samples [manual-derived: STRINGS-LIBRARY-MANUAL-1].
+
+Fix: use round robins, and let each repetition differ **for the reason a player's would**, never by
+a random amount: the metrical accent of its position, the alternation that produced it (sticking,
+bow direction, single against double tonguing, plucking fingers), and the direction of the phrase's
+dynamic. Those are causes in `shared/HUMAN_PERFORMANCE_SCHEMA.md` section 4, and each gives the
+repetitions a pattern the ear accepts as playing [inference].
 
 ## 2. No continuous dynamics on long notes
 
 A held note given a velocity and nothing else, sitting at one loudness and one colour. On a bowed,
 blown or sung instrument there is no held note at constant intensity. Fix: draw a dynamic shape per
-phrase on the control that crossfades recorded dynamic layers. The one manual read in full calls that
-controller the most important in the library and instructs the player to always use it on long notes.
-Which controller it is belongs in the calibration profile, not here.
+phrase on the control that crossfades recorded dynamic layers. The documented library makes using it
+on every long note one of its two basic rules [manual-derived: STRINGS-LIBRARY-MANUAL-1]. Which controller it is belongs in the calibration profile, not
+here.
 
 ## 3. Quantised chord attacks with uniform velocity
 
@@ -49,7 +54,7 @@ monophonic and plays a recorded transition only when the new note arrives while 
 sounding. Without overlap it plays separate attacks, the articulation the writer was avoiding. Fix:
 overlap the notes. The amount is a product fact, carried as `note_overlap.legato_overlap_ms`. In the
 documented library the arriving note's velocity selects the transition, so those velocities are
-articulation choices, not loudness.
+articulation choices, not loudness [manual-derived: STRINGS-LIBRARY-MANUAL-1].
 
 ## 6. Voicings the instrument cannot physically play
 
@@ -87,10 +92,11 @@ not to whichever control is habitual.
 
 A crescendo made by raising the output level of a quiet sample. On most acoustic instruments, and on
 brass most obviously, the spectrum brightens as the player pushes, so louder is a different sound and
-not only a bigger one. A loud sample turned down reads as a fader move. Fix: use the control that
-crossfades recorded dynamic layers so timbre changes with level. `to-verify`: confirm the physics of
-dynamic-dependent spectral brightening in Fletcher and Rossing, *The Physics of Musical Instruments*,
-which was not opened for this work.
+not only a bigger one. For brass this is measured: the lips add harmonics as blowing pressure rises,
+and at fortissimo a trombone's bore steepens the wave into a shock [academic: UNSW-BRASS;
+HIRSCHBERG-1996]. That the same holds, less dramatically, across most blown and bowed instruments is
+[standard-reference: FLETCHER-ROSSING-1998]. A loud sample turned down reads as a fader move. Fix:
+use the control that crossfades recorded dynamic layers so timbre changes with level [inference].
 
 ## 11. Round robins reset every bar
 
@@ -105,12 +111,20 @@ samples need a real note-off with somewhere to sound; glued notes lose the relea
 damper noise and the room tail. Fix: shorten notes so note-off happens, except where legato requires
 overlap. `note_length_variation` exists because releases are decisions.
 
-## 13. Humanising marker and timekeeping parts
+## 13. Moving the reference the other parts are heard against
 
-Applying timing deviation to the click, the pulse, the sequenced hat or the arpeggiator. Deviation
-reads as expression only against a stable reference; move the reference and the arrangement reads as
-loose rather than expressive. Fix: name those parts in `marker_parts_excluded`. They get no timing
-model at all.
+Applying expressive timing deviation to the part that states the time: a click, a sequenced pulse, an
+arpeggiator, a timeline bell. Deviation reads as expression only against a stable reference; move
+the reference and the arrangement reads as loose rather than expressive. Fix: name those parts in
+`marker_parts_excluded` [inference].
+
+Two limits on that rule. **A drum kit in live-feel music is usually not a marker part**: its
+microtiming is the groove, as the pack's own hi-hat study shows [academic: RASANEN-2015]. And **in
+some traditions the reference part carries the feel itself**: in one measured Khasonka dundunba
+piece the bell plays a long-short subdivision averaging about 59:41 [academic: POLAK-LONDON-2014].
+There the bell takes that piece's named microtiming template, applied as a model, not left on the
+grid. What the rule forbids is deviation without a cause, not a
+reference that has a feel.
 
 ## 14. A section patch playing more voices than the section has
 
@@ -134,7 +148,7 @@ practical voice count before divisi, and write divisi as a deliberate thinning. 
 [ ] articulations change where the music changes; unavailable ones reported, not substituted
 [ ] voicings physically playable, or the exception recorded
 [ ] breaths, bow changes and gaps exist; noise layers not muted
-[ ] marker and timekeeping parts untouched by the timing model
+[ ] reference parts steady, unless their feel is a named model (a drum groove, a timeline's template)
 [ ] every imperfection in the plan names its cause
 ```
 

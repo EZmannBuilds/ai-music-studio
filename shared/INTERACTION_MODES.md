@@ -21,6 +21,14 @@ Default is `DO IT` unless the profile says otherwise (`preferences.default_inter
 request implies another. "Why is my chorus weak?" is a diagnosis, not a rewrite request. "Give me
 three directions" is options. "Teach me why this arrangement is weak" is teaching.
 
+**The user's own unfinished work changes the default.** When the request brings material the user
+wrote and asks for help without saying what kind ("can you help with this?", "I can't finish it"), the
+default is `REVIEW MY WORK` followed by `GIVE ME OPTIONS`: diagnose what is there, offer options that
+differ by mechanism, and write none of it for them. Rewriting or finishing the user's material is
+`DO IT` only when they ask for exactly that ("rewrite the second verse", "finish it for me"). A draft
+of new lines the user did not ask for is still a rewrite, however it is labelled. This is benchmark D18
+(`research/BENCHMARK_DIVERSITY.md`), and `evals/cases/interaction_modes/D18.yaml` tests it.
+
 **A mode declared in the request wins over the profile for that request.**
 
 ---
@@ -130,7 +138,7 @@ interaction:
   mode_respected: true | false        # false with a reason is honest; silently ignoring it is not
 ```
 
-Carried in `specialist_handoff.mode_respected` and in `track_state.interaction_mode`, so a later
+Carried in `specialist_handoff.interaction.mode_respected` and in `track_state.interaction_mode`, so a later
 session can see how this one was run.
 
 ---

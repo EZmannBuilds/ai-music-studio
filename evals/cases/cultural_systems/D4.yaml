@@ -1,0 +1,46 @@
+# Evaluation case D4. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: D4
+  title: Reasoning inside a named musical system
+  category: cultural_systems
+  source: research/BENCHMARK_DIVERSITY.md D4
+  brief: Compose a short taqsim-style opening in maqam Bayati for oud, the way a player in that tradition
+    would approach it.
+  supplied_context: []
+  expected_routes:
+    must_include: []
+    must_not_include: []
+  required_behaviors:
+  - 'the system''s own grammar: jins, stations, direction, ornament as structure'
+  - the cultural cautions carried
+  - intonation treated as context-dependent
+  forbidden_behaviors:
+  - the tradition reduced to a scale
+  - the pitch set harmonised with triads
+  - twelve-tone equal temperament used silently
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  - id: system_file
+    knowledge_loaded:
+    - shared/MUSICAL_SYSTEMS/MAQAM.md
+  - id: no_chord_progression
+    regex_absent:
+      pattern: \b[A-G][#b♯♭]?(?:m|maj7|m7|7|sus[24]|dim|aug)?\s*(?:[-–|>]|→)\s*[A-G][#b♯♭]?(?:m|maj7|m7|7|sus[24]|dim|aug)?\s*(?:[-–|>]|→)\s*[A-G]
+      in: prose
+      ignore_case: false
+  - id: not_a_scale
+    regex_absent:
+      pattern: bayati (is|=|equals) (just |simply )?(the |these )?(notes|scale)
+      in: prose
+  - id: intonation
+    regex_present:
+      pattern: (cents|neutral|half-flat|microton|intonation)
+  - id: caution_carried
+    regex_present:
+      pattern: (to verify|not a scale|quarter[- ]tone is a notation|varies (by|between) (region|player|school)|egyptian|levantine|iraqi)
+  human_questions:
+  - Would a player of maqam recognise this as Bayati, approached as they would?
+  - Is anything presented as fact that the pack marks to verify?
+  trials: 3

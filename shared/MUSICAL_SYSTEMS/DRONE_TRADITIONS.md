@@ -7,9 +7,11 @@ this file covers the shared consequence rather than any one tradition.
 
 Named practices referenced here:
 
-- **South Asian classical music**, where the **tanpura** (or an electronic sruti box) sounds
-  throughout. See `RAGA_AND_TALA.md`.
-- **The Great Highland bagpipe** of Scotland, with a bass drone and two tenor drones.
+- **Hindustani and Carnatic classical music**, two distinct traditions that both keep the
+  **tanpura** (or an electronic sruti box) sounding throughout. See `RAGA_AND_TALA.md`, and
+  `shared/VIRTUAL_INSTRUMENT_GUIDE/TANPURA.md` for the instrument itself.
+- **The Great Highland bagpipe** of Scotland, with a bass drone and two tenor drones. The instrument's
+  physics, gracenotes and pitch are on `shared/VIRTUAL_INSTRUMENT_GUIDE/HIGHLAND_BAGPIPE.md`.
 - **Launeddas**, a Sardinian instrument of three single-reed pipes played simultaneously with
   circular breathing: two chanters and one drone, with the chanters moving in thirds and sixths.
 - **Minimalism and the drone music of La Monte Young**, where the drone becomes the whole piece.
@@ -37,9 +39,10 @@ it.** That is the whole system, and several things follow:
 
 The Highland pipe is a concrete case. The bass drone and both tenor drones are tuned to one note,
 A. The chanter scale is best modelled as a **just-intonation Mixolydian**, in which D is a 4:3
-ratio above low A and the high G is 16:9. **Most pipes today tune at roughly 476 to 480 Hz, about
-halfway between B flat and B**, so the instrument's "A" is not A440 and should never be treated as
-one.
+ratio above low A and the high G is 16:9. **The pipe's "A" is far sharper than A440**: MacPherson
+(1998) reports 1990s chanters at 470 to 480 Hz for low A, between B flat and B, and the pitch has
+been rising for over a century. Never treat it as A440, and treat any figure as the measurement of
+a date, not as the instrument's pitch.
 
 ## Rhythm and cycle
 
@@ -64,12 +67,14 @@ York since
 
 Tradition-specific and usually structural. Piping ornament is a system of grace-note figures that
 articulate a continuous sound, because the chanter never stops: ornament is the only way to
-separate repeated notes. In South Asian practice, see the gamaka discussion in `RAGA_AND_TALA.md`.
+separate repeated notes. In Hindustani and Carnatic practice, see the gamaka discussion in
+`RAGA_AND_TALA.md`.
 
 ## The role of improvisation
 
-Varies completely by tradition: extensive and grammar-bounded in South Asian classical music,
-essentially absent in the fixed repertoire of Highland piping, and central in Young's practice.
+Varies completely by tradition: extensive and grammar-bounded in Hindustani and Carnatic music,
+essentially absent in the fixed repertoire of Highland piping (Hindustani and Carnatic differ
+between themselves, see `RAGA_AND_TALA.md`), and central in Young's practice.
 The drone itself is never improvised.
 
 ## Ensemble behaviour
@@ -106,7 +111,8 @@ is one operation, not two.
 ## Working with this in the studio
 
 **Composer** sets: the drone pitches (commonly the first plus the fifth, or the first plus the
-fourth, or the first plus the flat seventh, depending on the tradition), the reference frequency
+fourth, depending on the tradition and, for the tanpura, on the raga; other tanpura tunings exist
+and are to verify against a practitioner source before one is stated for a given raga), the reference frequency
 in Hz, the tuning of the melody relative to the drone as ratios or measured values, and the
 tension plan expressed as degrees and registers rather than as chords.
 
@@ -129,8 +135,12 @@ as a lack of development, and should not treat beating against the drone as a mi
 - On tanpura acoustics: Raman (1921) as cited in later experimental investigations of tanpura
   acoustics, and the literature on the jivari bridge. Open a tanpura acoustics paper first if the
   drone's spectrum matters to the project.
-- MacPherson, "The Pitch and Scale of the Great Highland Bagpipe", for the just Mixolydian model
-  and the 476 to 480 Hz pitch range.
+- Ewan MacPherson, "The Pitch and Scale of the Great Highland Bagpipe", 1998,
+  publish.uwo.ca/~emacphe3/pipes/acoustics/pipescale.html, for the just Mixolydian model and the
+  pitch figures. It reports pitch rising over the century: about 441 Hz for one chanter measured in
+  1885, an average of about 459 Hz in the mid-1950s, and 470 to 480 Hz for low A in chanters of the
+  1990s. **The figure is dated**: pipe pitch has kept moving, so treat any number as a date's
+  measurement, not the instrument's pitch.
 - Bentzon, *The Launeddas: A Sardinian Folk-Music Instrument*, Akademisk Forlag, 1969.
 - On La Monte Young: *The Well-Tuned Piano* release documentation and the *Dream House*
   installation.

@@ -78,7 +78,7 @@ project_state:
 
   health:
     function_coverage: "opening and turning are covered; the ending is unwritten and Track B doubles Track A"
-    diversity: "form and sub-bass recorded as project motifs; transitions and chorus lift flagged as accidental"
+    diversity: "form and sub-bass recorded as project motifs; transitions and the lift mechanism flagged as accidental"
     momentum: "two sessions in the last week, both on Track B"
     decision_debt: "one blocking question, open for a week, and it is blocking Track D"
     finishing_risk: "the ending question. Everything downstream waits on it."

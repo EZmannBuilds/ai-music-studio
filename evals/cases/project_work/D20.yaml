@@ -1,0 +1,46 @@
+# Evaluation case D20. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: D20
+  title: 'Album planning: what is missing'
+  category: project_work
+  source: research/BENCHMARK_DIVERSITY.md D20
+  brief: These are the seven tracks for my album. What is missing?
+  supplied_context:
+  - project_work/seven_tracks.yaml
+  expected_routes:
+    must_include:
+    - project-guide
+    must_not_include: []
+  required_behaviors:
+  - track functions mapped
+  - doubled functions identified
+  - missing functions described as functions
+  - solutions that change existing tracks or the order
+  - at least two sequence candidates on different principles
+  forbidden_behaviors:
+  - '"an upbeat one" as the answer'
+  - only new songs as the solution
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  - id: album_state
+    block_present: album_state
+  - id: missing_functions
+    field_nonempty: album_state.missing_track_functions
+  - id: sequences
+    min_count:
+      path: album_state.sequence_candidates
+      min: 2
+  - id: doubling_found
+    why: t1/t4/t6 and t2/t7 share functions
+    regex_present:
+      pattern: (doubl|same function|overlap|t1.{0,40}t6|Arrivals.{0,80}Saturday Market|Night Bus.{0,80}Last
+        Train)
+  - id: no_upbeat_one
+    regex_absent:
+      pattern: an? (upbeat|sad|slow|fast) one\b
+  human_questions:
+  - Are the missing functions ones the thesis actually needs?
+  - Are the sequences built on genuinely different principles?
+  trials: 3

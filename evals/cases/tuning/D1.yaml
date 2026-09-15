@@ -1,0 +1,38 @@
+# Evaluation case D1. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: D1
+  title: Microtonality
+  category: tuning
+  source: research/BENCHMARK_DIVERSITY.md D1
+  brief: Write a short piece in 31-tone equal temperament for a synth pad and a sampled harp.
+  supplied_context: []
+  expected_routes:
+    must_include:
+    - plugin-auditor
+    must_not_include: []
+  required_behaviors:
+  - a pitch system chosen with a reason
+  - the Plugin Auditor asked whether the instruments retune
+  - a mechanism selected
+  - what happens if a receiver ignores it
+  forbidden_behaviors:
+  - anything silently quantised to twelve-tone equal temperament
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  - id: pitch_system
+    any_of:
+    - field_equals:
+        path: pitch_system.kind
+        value: edo
+    - field_equals:
+        path: track_state.systems.pitch_system.kind
+        value: edo
+  - id: tuning_export
+    block_present: tuning_export
+  - id: honest_fallback
+    field_nonempty: tuning_export.what_happens_if_ignored
+  human_questions:
+  - Rendered, is it audibly in 31-EDO on both instruments?
+  trials: 3

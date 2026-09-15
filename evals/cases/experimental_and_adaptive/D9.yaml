@@ -1,0 +1,40 @@
+# Evaluation case D9. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: D9
+  title: Adaptive game music
+  category: experimental_and_adaptive
+  source: research/BENCHMARK_DIVERSITY.md D9
+  brief: Game music with three intensity states, clean transitions and a failure state.
+  supplied_context: []
+  expected_routes:
+    must_include: []
+    must_not_include: []
+  required_behaviors:
+  - sync points per trigger with a latency budget
+  - layers complete alone
+  - motif invariants
+  - an authored ending
+  - a failure state that is not a hard cut by default
+  forbidden_behaviors:
+  - hard cuts everywhere
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  - id: adaptive
+    block_present: adaptive_music
+  - id: three_states
+    min_count:
+      path: adaptive_music.states
+      min: 3
+  - id: latency
+    field_nonempty: adaptive_music.transitions[].latency_budget
+  - id: invariants
+    field_nonempty: adaptive_music.motif_invariants
+  - id: failure
+    field_nonempty: adaptive_music.failure_states
+  - id: endings
+    field_nonempty: adaptive_music.authored_endings
+  human_questions:
+  - Would the transitions sound musical in play?
+  trials: 3

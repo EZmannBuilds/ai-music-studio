@@ -15,8 +15,9 @@ well formed**, not deviations from an isochronous ideal.
 
 ## Perceptual limits
 
-These are rules of thumb from Polak & London (2014, *MTO* 20(1)) and Polak & London (2022) on
-Malian drumming. They are ranges from studied repertoires, not constants.
+These are rules of thumb. The fast subdivision limit of roughly 100 ms is a general finding of the
+perception literature on metre (London, *Hearing in Time*, not read here); Polak & London (2014,
+*MTO* 20(1)) examine how Malian drumming sits against it. They are ranges, not constants.
 
 ```text
 fastest metrical subdivision   around 100 ms, better held as roughly 80-120 ms
@@ -30,13 +31,20 @@ that the limit is unverified and make the decision by ear.
 
 ### What happens at the fast limit
 
-The documented behaviour is important and counterintuitive: as tempo rises, an ensemble **drops
-the fastest layer rather than compressing it**. The subdivision does not get squeezed below the
-floor. It stops being played, and the layer above it carries the metre.
+2.0 stated that, as tempo rises, an ensemble **drops the fastest layer rather than compressing it**,
+and attributed that to the Malian studies. **That attribution is unverified**
+[to-verify: find the study that reports layer-dropping, or withdraw the claim]: Polak & London
+(2014), read for 2.1, report the opposite for the pieces they measured, which keep their long-short
+distinctions through an acceleration from about 85 to 125 BPM, with the shortest elements pressing
+against the 100 ms floor. Treat layer-dropping as one possible response to a fast tempo, not as what
+players do.
 
-A generator that keeps sixteenths present as tempo climbs is doing something players do not do.
-The Performance Director checks the fastest active layer against the tempo and warns before the
-layer crosses the floor, then thins that layer rather than scaling it.
+Whatever a given tradition does, the floor is not a law for composition either. Plenty of music sustains a very fast layer on
+purpose, near or past the floor: drum and bass hats, metal blast beats and tremolo picking,
+bluegrass banjo rolls. There the fast layer is heard as texture or drive rather than as a countable
+subdivision. So the Performance Director checks the fastest active layer against the tempo and
+**asks** what that layer is for before the floor: a countable subdivision is thinned rather than
+squeezed; a texture is kept, and the plan says so.
 
 ```text
 tempo 100 BPM   sixteenth = 150 ms    inside the range
@@ -73,8 +81,9 @@ See `ADDITIVE_AND_NONISOCHRONOUS_METER.md` for how the ratios are written and
 
 Polak, Jacoby & London (2016, *Frontiers in Neuroscience*) found that non-isochronous
 subdivision supports ensemble entrainment **as precisely and stably as** isochronous
-subdivision. Unequal is not approximate. A 60:40 subdivision held across an ensemble is a tight,
-learned, reproducible target, and the tightness measures like any other well-drilled part.
+subdivision. Unequal is not approximate. A long-short subdivision near 59:41, as measured in one
+Khasonka piece (`ADDITIVE_AND_NONISOCHRONOUS_METER.md`), held across an ensemble is a tight, learned,
+reproducible target, and the tightness measures like any other well-drilled part.
 
 This forbids a common shortcut: treating unequal subdivision as "feel" and implementing it with
 random spread. Unequal subdivision is a position in the grid, not a deviation from one.

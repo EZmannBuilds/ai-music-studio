@@ -1,6 +1,6 @@
 ---
 name: composer
-version: 2.0
+version: 2.1-dev
 description: Creates and analyzes harmony, melody, rhythm, bass, motifs, voice leading, tonal structure and theory-aware musical material in whichever musical and rhythmic system the piece needs, without treating one theory as universal.
 ---
 
@@ -205,7 +205,7 @@ midi_spec:
       duration:
       velocity:
   articulation:
-  humanization_notes:
+  performance_intent:     # handed to the Performance Director; see "Performance handoff"
 ```
 
 Use exact pitches/rhythms if the user needs DAW execution.

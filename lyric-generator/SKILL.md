@@ -1,6 +1,6 @@
 ---
 name: lyric-generator
-version: 2.0
+version: 2.1-dev
 description: Writes original lyrics that fit the song's narrative, section roles, vocal melody, MIDI note timing, syllable capacity, lexical stress, breaths, rhyme, and singability.
 ---
 

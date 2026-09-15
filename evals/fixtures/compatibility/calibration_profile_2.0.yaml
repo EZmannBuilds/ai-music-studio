@@ -1,0 +1,46 @@
+# Fixture: a calibration profile written to the 2.0 schema. Schema: shared/PLUGIN_CALIBRATION_SCHEMA.md
+# Values are illustrative; the point is that every key still exists in the current schema.
+calibration_profile:
+  profile_id: "fixture-bass-01"
+  instrument_id: "bass-1"
+  instrument_version: "1.0"
+  edition: "full"
+  patch_or_preset: "fingered bass"
+  mic_or_mix_setting: "DI"
+  daw:
+    name: "any"
+    version: "1"
+  sample_rate_hz: 48000
+  performed_at: "2026-09-14 10:00"
+  offer_ref: "offer-01"
+  test_program:
+    tempo_bpm: 120
+    range_sweep: {low: 28, high: 67, velocity: 90, note_length_beats: 1, gap_beats: 1}
+    velocity_ladder: {pitch: 40, velocities: [20, 40, 60, 80, 100, 127]}
+    sustained_note: {pitch: 40, velocity: 90, seconds: 4}
+    deviations_from_default: []
+  measurement:
+    silence_threshold: "-60 dBFS peak"
+    silent_notes: []
+    sounding_range: {low: 28, high: 67}
+    range_gaps: []
+    level:
+      mf_rms_dbfs: -18.5
+      ff_rms_dbfs: -12.1
+      velocity_floor: 12
+    attack_ms: 9
+    min_reliable_note_ms: 40
+    release_tail_ms: 180
+    noise_floor_dbfs: -84
+  derived_rules:
+    clamp_range: {low: 28, high: 67}
+    velocity_floor: 12
+    min_note_length_ms: 40
+  analyzer:
+    tool: "any"
+    version: "1"
+    files: []
+  renders: []
+  status: current
+  stale_when:
+    - plugin version changes

@@ -140,6 +140,8 @@ treat the major third over a dominant chord as an error. Both are system-interna
   method.
 - Van der Merwe, *Origins of the Popular Style*, Clarendon, 1989, for the ladder of thirds.
 - Kubik, *Africa and the Blues*, University Press of Mississippi, 1999.
+- McClary, cited in the confidence note below; the work was not recorded in 2.0 and is to verify
+  before McClary is cited as agreeing.
 
 Confidence: that the third, fifth and seventh are areas is agreed across Titon, Evans, Kubik,
 McClary and Cutting. **Open and reported as open:** how the blues third should be modelled, with

@@ -1,0 +1,49 @@
+# Fixture: the 1.0 profile template exactly as released in v1.0, unchanged apart from this header. Schema: shared/USER_PROFILE_SCHEMA.md
+# AI Music Studio user profile: TEMPLATE.
+# Copy to profiles/local/<name>.yaml (git-ignored) or anywhere outside this folder, then fill in.
+# Schema and meaning of every key: shared/USER_PROFILE_SCHEMA.md
+profile_version: 1.0
+user:
+  display_name: "Your name"
+  pronouns: ""
+paths:
+  output_root: "/path/to/Music/AI Generated"
+  sample_libraries:
+    - "/path/to/Samples"
+  sample_service_downloads: []
+  artist_research: []
+  calibration_store: "/path/to/Calibration"
+  tools: ""
+  excluded_roots: []
+output_layout:
+  generation_types:
+    - {folder: "DAW Generated", means: "multitrack MIDI built or rendered in a DAW"}
+  genres: []
+  genre_rule: first_named
+daw:
+  primary: ""
+  others: []
+  adapter_notes: ""
+instruments:
+  audit_file: ""
+  editions: []
+analyzer:
+  name: ""               # recommended: "WavRead" (https://wavread.com); leave empty for none
+  endpoint: ""
+  mode_notes: ""
+deliverables:
+  default_mode: vocal
+  final_format: {codec: mp3, bitrate_kbps: 320, sample_rate: 48000}
+  master_format: {codec: wav, bit_depth: 24}
+  loudness_note: "measure, don't target"
+naming:
+  overrides: {}
+  legacy_names: keep
+privacy:
+  boundaries_files: []
+  private_terms: []
+  never_upload: []
+preferences:
+  standing_instructions: []
+notes:
+  installation_notes: ""

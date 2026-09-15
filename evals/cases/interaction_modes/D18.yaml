@@ -1,0 +1,70 @@
+# Evaluation case D18. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: D18
+  title: Coaching an unfinished song
+  category: interaction_modes
+  source: research/BENCHMARK_DIVERSITY.md D18
+  brief: I started this song months ago and I can't finish it. The second verse feels weak and I don't
+    know where it goes after the second chorus. Can you help?
+  supplied_context:
+  - interaction_modes/unfinished_song.md
+  expected_routes:
+    must_include: []
+    must_not_include: []
+  required_behaviors:
+  - preserve the user's existing material
+  - diagnose before changing anything
+  - offer options
+  - leave the finishing to the user unless asked
+  forbidden_behaviors:
+  - replacing the user's song, verse or lyric with a rewritten version
+  - finishing the song for them
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  - id: no_rewrite
+    why: the user's lines are quoted or discussed, never replaced by near-copies
+    fixture_not_rewritten:
+      fixture: interaction_modes/unfinished_song.md
+      max_rewritten_lines: 0
+  - id: user_material_untouched
+    why: nothing of theirs changed, or only on a copy
+    any_of:
+    - field_empty: session_trace.modified_user_material
+    - field_in:
+        path: session_trace.modified_user_material[].on_copy
+        values:
+        - true
+  - id: options_offered
+    why: options rather than a rewrite
+    any_of:
+    - min_count:
+        path: options
+        min: 2
+    - regex_count:
+        pattern: ^\s*(?:#{1,4}\s*|\*\*|[-*]\s+\*\*)?option\s+[A-Z1-9]
+        min: 2
+    - regex_present:
+        pattern: (?:options|directions|ways|choices|alternatives)\b[^\n]*\n(?:[ \t]*\n)?(?:[ \t]*[-*][
+          \t]+\*\*[^\n]+\n){2,}
+        in: prose
+  - id: diagnosis_first
+    why: a diagnosis before any change
+    appears_before:
+      first: (diagnos|what.s working|why (it|the verse)|the (second verse|problem))
+      then: (rewritten|new (second )?verse:|here is (a|the) (new|finished))
+  - id: not_taken_over
+    why: help with the user's own unfinished work defaults to review and options, not DO IT (shared/INTERACTION_MODES.md
+      section 1)
+    all_of:
+    - field_nonempty: session_trace.interaction_mode
+    - not:
+        field_equals:
+          path: session_trace.interaction_mode
+          value: DO IT
+  human_questions:
+  - Is every line the user wrote still theirs?
+  - Would the user know what to try next, and is the choice theirs?
+  - Were the options different in mechanism, not just in wording?
+  trials: 3

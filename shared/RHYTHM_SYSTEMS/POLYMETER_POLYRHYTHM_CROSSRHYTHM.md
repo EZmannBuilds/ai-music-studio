@@ -91,7 +91,8 @@ non-resolution deliberately and say so.
 is not heard as conflicting. It is heard as the metre, and the intended tension does not exist.
 
 The anchor is the layer that states the cycle plainly: the bell, the clave, the hats, the bass,
-the gong. It is placed exactly, and it is never humanised (see `MICROTIMING_AND_GROOVE.md`).
+the gong. It is placed exactly, on its own documented feel where it has one, and is given no
+expressive deviation (see `MICROTIMING_AND_GROOVE.md`).
 
 ```yaml
 layered_passage:
@@ -115,10 +116,11 @@ arrives as an unexplained lurch rather than as an arrival.
   twelve rotations back to unison, a discrete process. *Piano Phase* shifts continuously. Both
   need the unison opening as the reference.
 - **Hemiola plus additive pulsation.** Ligeti's Etudes combine a Romantic hemiola practice with
-  an additive-pulsation principle he encountered through Arom's Central African recordings. This
-  is a documented encounter with recordings and a compositional response to them, not a
-  transplant of a tradition, and it should be described that way. The cultural material itself
-  belongs in `shared/MUSICAL_SYSTEMS/WEST_AFRICAN_POLYRHYTHM.md`.
+  an additive-pulsation principle he encountered through Arom's recordings of Central African
+  music. This is a documented encounter with recordings and a compositional response to them, not a
+  transplant of a tradition, and it should be described that way. **The pack has no file on the
+  Central African traditions Arom recorded**; the Ewe and Mande files cover different peoples and
+  practices and must not be used to stand in for them.
 
 ## Worked grids
 

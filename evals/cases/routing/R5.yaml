@@ -1,0 +1,23 @@
+# Evaluation case R5. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: R5
+  title: 'Routing: instrument capability'
+  category: routing
+  source: new in 2.1
+  brief: Which of my instruments can play quarter tones?
+  supplied_context: []
+  expected_routes:
+    must_include:
+    - plugin-auditor
+    must_not_include: []
+  required_behaviors:
+  - the audit asked for or run
+  forbidden_behaviors:
+  - an answer from general knowledge presented as fact about their instruments
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  human_questions:
+  - Did it separate what it knows from what it would have to audit?
+  trials: 2

@@ -1,7 +1,7 @@
 # AI Music Studio user profile: TEMPLATE.
 # Copy to profiles/local/<name>.yaml (git-ignored) or anywhere outside this folder, then fill in.
 # Schema and meaning of every key: shared/USER_PROFILE_SCHEMA.md
-profile_version: 1.1
+profile_version: "1.1"
 user:
   display_name: "Your name"
   pronouns: ""
@@ -34,7 +34,7 @@ analyzer:
   endpoint: ""
   mode_notes: ""
 deliverables:
-  default_mode: vocal
+  default_mode: full_with_vocal   # instrumental | vocal_guide | full_with_vocal
   final_format: {codec: mp3, bitrate_kbps: 320, sample_rate: 48000}
   master_format: {codec: wav, bit_depth: 24}
   loudness_note: "measure, don't target"

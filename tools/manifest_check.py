@@ -6,8 +6,10 @@ usage: python3 tools/manifest_check.py [--root .]
 Fails (exit 1) when:
   - a path listed in manifest.json does not exist;
   - a SKILL.md, shared/ page, research/ page, adapter or tool is not listed in the manifest;
-  - the manifest version is not a plain version string;
-  - README.md, CHANGELOG.md and manifest.json disagree about the version;
+  - the manifest version is not a version string (a plain one such as 2.1, or a pre-release such
+    as 2.1-dev, 2.1-beta.1 or 2.1-rc.1);
+  - README.md, CHANGELOG.md, manifest.json and any SKILL.md front matter disagree about the version;
+  - a pre-release version has no CHANGELOG heading that says it is unreleased;
   - README.md's specialist count does not match the manifest.
 Nothing is changed.
 """
@@ -23,6 +25,8 @@ TRACKED = {
     'tools': 'tools',
 }
 SKIP = {'.git', 'local', '__pycache__'}
+# A plain version, or a pre-release one. Keep in step with skill_lint.py.
+VERSION_RE = r'\d+(?:\.\d+)*(?:-(?:dev|beta\.\d+|rc\.\d+))?'
 
 WORDS = {1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six', 7: 'seven', 8: 'eight',
          9: 'nine', 10: 'ten', 11: 'eleven', 12: 'twelve', 13: 'thirteen', 14: 'fourteen',
@@ -90,17 +94,29 @@ def main():
 
     # 4. version sanity and agreement
     version = str(m.get('version', ''))
-    if not re.fullmatch(r'\d+(\.\d+)*', version):
-        problems.append(f'manifest.json version is not a plain version string: {version!r}')
+    if not re.fullmatch(VERSION_RE, version):
+        problems.append(f'manifest.json version is not a version string: {version!r}')
+    prerelease = '-' in version
 
     ch = os.path.join(root, 'CHANGELOG.md')
     if os.path.exists(ch):
         head = open(ch, encoding='utf-8').read()
-        mm = re.search(r'^##\s*([0-9][0-9.]*)', head, re.M)
+        mm = re.search(r'^##\s*(' + VERSION_RE + r')(.*)$', head, re.M)
         if not mm:
             problems.append('CHANGELOG.md: no version heading found')
-        elif mm.group(1) != version:
-            problems.append(f'CHANGELOG.md newest version {mm.group(1)} != manifest {version}')
+        else:
+            if mm.group(1) != version:
+                problems.append(f'CHANGELOG.md newest version {mm.group(1)} != manifest {version}')
+            if prerelease and 'unreleased' not in mm.group(2).lower():
+                problems.append(f'CHANGELOG.md: {version} is a pre-release, so its heading must say '
+                                f'"unreleased"')
+
+    for s in skills_on_disk:
+        text = open(os.path.join(root, s), encoding='utf-8').read()
+        fm = re.match(r'---\n(.*?)\n---\n', text, re.S)
+        sv = re.search(r'^version:\s*(\S+)', fm.group(1), re.M) if fm else None
+        if sv and sv.group(1) != version:
+            problems.append(f'{s}: front matter version {sv.group(1)} != manifest {version}')
 
     # 5. README specialist count
     rd = os.path.join(root, 'README.md')
@@ -117,6 +133,11 @@ def main():
                 f'({word})')
         if not found:
             problems.append('README.md: no specialist count found to check')
+        rv = re.search(r'^Version\s+(' + VERSION_RE + r')\b', txt, re.M)
+        if not rv:
+            problems.append('README.md: no "Version x.y" line found to check')
+        elif rv.group(1) != version:
+            problems.append(f'README.md says version {rv.group(1)}; manifest says {version}')
 
     for p in problems:
         print(p)

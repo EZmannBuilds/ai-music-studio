@@ -1,0 +1,42 @@
+# Evaluation case B3. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: B3
+  title: Creative Lab candidate sets
+  category: diversity
+  source: research/BENCHMARK_DIVERSITY.md B3
+  brief: (batch) Ten different tasks, three directions each.
+  supplied_context: []
+  expected_routes:
+    must_include:
+    - creative-lab
+    must_not_include: []
+  required_behaviors:
+  - candidates that differ by mechanism
+  - no dimension broken in every set
+  forbidden_behaviors:
+  - the same two dimensions every time
+  - only ever subtracting
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  human_questions:
+  - Across the sets, how many candidates remove something, and how many add or tighten? (B3 fails if they
+    only subtract.)
+  trials: 1
+  batch:
+    kind: exploration
+    briefs:
+    - Give me three directions for a song about a lighthouse keeper.
+    - Give me three directions for the second half of my ambient piece, which has been one chord for four
+      minutes.
+    - Give me three directions for a football chant.
+    - Give me three directions for a string quartet movement about insomnia.
+    - Give me three directions for a drum-and-bass intro.
+    - Give me three directions for a choir piece to open a school year.
+    - Give me three directions for a folk song in 7/8.
+    - Give me three directions for a film cue where nothing happens for ninety seconds.
+    - Give me three directions for a love song that is not about love.
+    - Give me three directions for a piano etude for a beginner.
+    threshold: 0.9
+    fail_if: any_always_changed

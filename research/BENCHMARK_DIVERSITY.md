@@ -1,5 +1,8 @@
 # Benchmark: Diversity, Creativity and Project Work
 
+> **Runnable.** Every test on this page is a case in `evals/cases/` (D1-D20, B1-B3 and N1-N4), graded by `evals/runners/run_evals.py`. See `evals/README.md`. The harness checks structure and behaviour; whether the music is good stays a listening question.
+
+
 ## Objective
 
 `research/BENCHMARK.md` tests whether the studio makes good musical decisions. This page tests three
@@ -165,7 +168,7 @@ batch_diversity:
 
 A dimension has **collapsed** when nine or more of ten unrelated briefs produce the same value, and
 that value is not implied by the briefs themselves. Watch especially: meter, form, harmonic mechanism,
-bass role, chorus lift mechanism, transition grammar, outro behaviour, texture family.
+bass role, lift mechanism, transition grammar, outro behaviour, texture family.
 
 Thresholds are CREATIVE INFERENCE and may be tuned. The signal is not the number; it is whether the
 studio has a default it did not choose.

@@ -1,0 +1,49 @@
+# Evaluation case D16. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: D16
+  title: 'Performance realism: a quartet part that sounds played'
+  category: performance
+  source: research/BENCHMARK_DIVERSITY.md D16
+  brief: Write the cello part for the first 16 bars of a slow string quartet in D minor, and make it sound
+    played, not programmed. I'll render it with a sampled string library.
+  supplied_context: []
+  expected_routes:
+    must_include:
+    - performance-director
+    must_not_include: []
+  required_behaviors:
+  - a feasibility report
+  - a named performance model
+  - an articulation plan
+  - a dynamic arc
+  - overlap for legato
+  forbidden_behaviors:
+  - any percentage of random humanisation
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  - id: no_random_humanization
+    why: organic performance is not random humanisation
+    no_random_humanization: true
+  - id: plan
+    block_present: performance_state
+  - id: feasibility
+    block_present: feasibility_report
+  - id: named_models
+    field_in_vocab:
+      path: performance_state.timing_character.models[].model
+      vocab: timing_models
+  - id: articulation
+    field_nonempty: performance_state.articulation
+  - id: dynamic_arc
+    field_nonempty: performance_state.dynamic_arc
+  - id: legato_overlap
+    any_of:
+    - field_nonempty: performance_state.note_overlap.legato_overlap_ms
+    - regex_present:
+        pattern: overlap
+  human_questions:
+  - Rendered, does it sound played?
+  - Is every deviation traceable to a reason a cellist would recognise?
+  trials: 3

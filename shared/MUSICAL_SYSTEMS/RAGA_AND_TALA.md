@@ -36,13 +36,16 @@ Pitch-tracking work treats a Carnatic svara as a contour rather than a point.
 ## Rhythm and cycle
 
 **Tala** is a cycle. Its structure is what a drummer, a soloist and a listener all count against.
+The terms in the list below are **Hindustani** (Clayton's account); Carnatic tala, which follows
+it, has its own structure and vocabulary, and the Hindustani terms must not be applied to it.
 
 - **Sam** is the first matra of the cycle and is simultaneously the end of one cycle and the
   beginning of the next. It is an arrival, not merely a start.
 - **Khali** is an unstressed section, marked by a wave rather than a clap. It creates orientation
   by absence: you know where you are because a stress is missing.
-- **Theka** is the conventional pattern of drum syllables and divisions that defines a tala in
-  practice. It is the right anchor for drum programming.
+- **Theka** is the conventional pattern of tabla syllables and divisions that defines a Hindustani
+  tal in practice. It is the right anchor for programming a Hindustani drum part. Carnatic
+  mridangam accompaniment is not built on a theka.
 
 Carnatic tala is built from **angas** (laghu, drutam, anudrutam), with the variable length of the
 laghu producing the scheme of 35 talas; adi tala is 8 beats as 4+2+2. **This is standard textbook
@@ -74,17 +77,25 @@ especially in Carnatic music.
 
 ## The role of improvisation
 
-Most of a performance is improvised, and the improvisation is tightly bounded: by the raga's
-grammar, by the tala's cycle and its sam, and by the conventions of the genre and lineage. The
-dhrupad alap is improvised within the raga, unmetred and accompanied only by the tanpura drone.
+How much of a performance is improvised differs by tradition and genre. A Hindustani khayal or
+instrumental performance is largely improvised; a Carnatic concert is built substantially on
+composed pieces (kritis), with improvised sections (alapana, niraval, kalpana swaras) around and
+inside them. Either way the improvisation is tightly bounded: by the raga's grammar, by the tala's
+cycle and its arrival, and by the conventions of the genre and lineage. The Hindustani dhrupad alap
+is improvised within the raga, unmetred and accompanied only by the tanpura drone.
+[to-verify: the Carnatic balance of composition and improvisation against a Carnatic source such as
+Pesch, before any output states proportions.]
 
 Freedom here is freedom of realisation inside a strict grammar, which is the opposite of "anything
 goes" and closer to how a jazz musician improvises inside a form.
 
 ## Ensemble behaviour
 
-A soloist (voice or melody instrument), a drummer (tabla in Hindustani, mridangam in Carnatic),
-and a drone (tanpura, or an electronic sruti box). The drummer and soloist relate through the
+At the core, a soloist (voice or melody instrument), a drummer, and a drone (tanpura, or an
+electronic sruti box). The drummer is tabla in most Hindustani genres and pakhawaj in dhrupad;
+Carnatic concerts use the mridangam, often with a violin accompanying the soloist and further
+percussion (ghatam, kanjira) beside the mridangam; the harmonium is common in Hindustani vocal
+music and contested in some circles. The drummer and soloist relate through the
 cycle and the approach to sam, not through harmony. The drone does not change. See
 `DRONE_TRADITIONS.md`.
 

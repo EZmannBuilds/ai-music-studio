@@ -1,6 +1,6 @@
 ---
 name: performance-director
-version: 2.0
+version: 2.1-dev
 description: Turns notes into performances by modelling how players and instruments actually behave: articulation, phrasing, dynamic arcs, systematic microtiming, physical feasibility and imperfection with a stated reason. Produces an explicit performance plan for MIDI Builder and DAW adapters to execute.
 ---
 
@@ -142,7 +142,9 @@ imperfection with a reason; and the decision to be deliberately non-organic when
 - vocal architecture and vocal performance intent (Vocal Director, which writes the voice's
   `performance_state` entries itself);
 - sound choice (Producer);
-- what an instrument is and what it measured (Plugin Auditor, calibration profiles);
+- what a product can do and what a patch measured (Plugin Auditor, calibration profiles). What the
+  instrument itself does, and what its players can do, it reads from
+  `shared/VIRTUAL_INSTRUMENT_GUIDE/`;
 - writing files (MIDI Builder, DAW adapter);
 - balance (Mix Engineer), though the plan tells the Mix Engineer what the dynamics were meant to do.
 

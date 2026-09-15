@@ -1,13 +1,16 @@
-# Two ledger rows and the comparison between them.
-# Schema: shared/TRACK_DIVERSITY_LEDGER.md
+# Three ledger rows and the comparison between them.
+# Schema: shared/TRACK_DIVERSITY_LEDGER.md (track_dna, section 3; comparison, section 4) and
+# shared/VOCAL_ARCHITECTURE_SCHEMA.md section 3 for the vocal sub-record.
 # The point of this example is the classification step: a shared dimension is a question, not a
 # defect, and the answer is recorded so it is not asked again.
+# "Shared" means three or more of the compared rows agree (section 4), so the example compares three.
+# Fields left null are "not decided here" and are not compared.
 
 rows:
   - track_dna:
       song: "Track A"
       project: "example-ep"
-      written: "2026-09-10 14:20"
+      written: "2026-09-08 16:40"
       tempo_family: "mid 90-110"
       meter: "4/4"
       pitch_system: "12-TET, aeolian"
@@ -21,14 +24,14 @@ rows:
       section_lengths: "8/4/8"
       hook_type: vocal
       lead_source: voice
-      chorus_lift_mechanism: width
+      lift_mechanism: width
       arrangement_curve: rising
       production_density: dense
       texture_family: electronic
       transition_grammar: [riser, silence, impact]
       vocal_architecture:
         lead_register_strategy: "verse low and close, chorus high and wide"
-        chorus_lift_mechanism: "octave double plus 3-part stack"
+        vocal_lift_mechanism: "octave double plus 3-part stack"
         background_density: dense
         answer_strategy: none
         ad_lib_density: moderate
@@ -42,75 +45,134 @@ rows:
   - track_dna:
       song: "Track B"
       project: "example-ep"
-      written: "2026-09-12 11:05"
+      written: "2026-09-10 14:20"
       tempo_family: "mid 90-110"
       meter: "4/4"
-      pitch_system: "12-TET, aeolian"
+      pitch_system: "12-TET, dorian"
       tonal_center_strategy: fixed
       harmonic_mechanism: "modal vamp"
-      harmonic_rhythm: "one chord per bar"
+      harmonic_rhythm: "two chords per bar"
       bass_role: "sub anchor"
-      groove_family: straight
+      groove_family: swung
       subdivision: "16ths"
       form: "verse/pre/chorus"
-      section_lengths: "8/4/8"
-      hook_type: vocal
+      section_lengths: "8/8/16"
+      hook_type: rhythmic
       lead_source: voice
-      chorus_lift_mechanism: width
+      lift_mechanism: width
       arrangement_curve: rising
-      production_density: dense
-      texture_family: electronic
+      production_density: moderate
+      texture_family: hybrid
       transition_grammar: [riser, silence, impact]
       vocal_architecture:
         lead_register_strategy: "verse low and close, chorus high and wide"
-        chorus_lift_mechanism: "octave double plus 3-part stack"
+        vocal_lift_mechanism: "octave double plus 3-part stack"
         background_density: dense
         answer_strategy: none
         ad_lib_density: moderate
         texture_signature: [doubles, stack]
         silence_used: false
       outro_behavior: "doubled final chorus, fade"
-      dynamic_shape: "steady rise to the last chorus"
-      performer_character: "grid-exact"
+      dynamic_shape: "terraced, drops before each chorus"
+      performer_character: "laid back"
+      unusual_constraint: null
+
+  - track_dna:
+      song: "Track C"
+      project: "example-ep"
+      written: "2026-09-12 11:05"
+      tempo_family: "mid 90-110"
+      meter: "4/4"
+      pitch_system: "12-TET, minor"
+      tonal_center_strategy: fixed
+      harmonic_mechanism: "modal vamp"
+      harmonic_rhythm: "one chord per two bars"
+      bass_role: "sub anchor"
+      groove_family: straight
+      subdivision: "16ths"
+      form: "verse/pre/chorus"
+      section_lengths: "16/4/8"
+      hook_type: melodic
+      lead_source: voice
+      lift_mechanism: width
+      arrangement_curve: rising
+      production_density: sparse
+      texture_family: acoustic
+      transition_grammar: [riser, silence, impact]
+      vocal_architecture:
+        lead_register_strategy: "verse low and close, chorus high and wide"
+        vocal_lift_mechanism: "octave double plus 3-part stack"
+        background_density: dense
+        answer_strategy: none
+        ad_lib_density: moderate
+        texture_signature: [doubles, stack]
+        silence_used: false
+      outro_behavior: "doubled final chorus, fade"
+      dynamic_shape: "quiet verses, one loud chorus"
+      performer_character: "pushed, ahead of the beat"
       unusual_constraint: null
 
 diversity_comparison:
-  rows_compared: ["Track A", "Track B"]
+  rows_compared: ["Track A", "Track B", "Track C"]
+  # every dimension where all three rows agree
   shared_dimensions:
     - tempo_family
     - meter
+    - tonal_center_strategy
     - harmonic_mechanism
     - bass_role
+    - subdivision
     - form
-    - section_lengths
-    - chorus_lift_mechanism
+    - lead_source
+    - lift_mechanism
+    - arrangement_curve
     - transition_grammar
     - vocal_architecture
     - outro_behavior
-  distinct_dimensions: []
+  distinct_dimensions:
+    - pitch_system
+    - harmonic_rhythm
+    - groove_family
+    - section_lengths
+    - hook_type
+    - production_density
+    - texture_family
+    - dynamic_shape
+    - performer_character
+  # already explained before this comparison: the genre's conventions, recorded earlier
   classification:
-    bass_role: convention
+    tempo_family: convention
+    meter: convention
+    tonal_center_strategy: convention
     subdivision: convention
-    transition_grammar: accidental
-    chorus_lift_mechanism: accidental
-    form: motif
-    vocal_architecture: accidental
-  unclassified: []
+    lead_source: convention
+  unclassified:
+    - harmonic_mechanism
+    - bass_role
+    - form
+    - lift_mechanism
+    - arrangement_curve
+    - transition_grammar
+    - vocal_architecture
+    - outro_behavior
   question_for_user: >
-    Both tracks so far are mid-tempo 4/4, verse/pre/chorus, sub-bass anchored, with the chorus
-    lifted by width and a doubled final chorus that fades, and the same vocal stack in both.
-    Is that this EP's identity, or is it the shape everything is coming out in?
+    All three tracks so far are modal vamps in verse/pre/chorus, sub-bass anchored, rising to a
+    chorus lifted by width, with the same riser-silence-impact transitions, the same vocal stack and
+    a doubled final chorus that fades. Is that this EP's identity, or is it the shape everything is
+    coming out in?
   status: ask
 
 # What the answer produced, recorded so the question is not asked again:
 user_answer: >
-  The form and the sub-bass are the record. The riser-silence-impact and the identical chorus
-  stack are not deliberate.
+  The form and the sub-bass are the record, and the modal vamp and the rising curve are just the
+  genre. The riser-silence-impact, the width lift, the identical chorus stack and the fade are not
+  deliberate.
 
 action_taken:
   recorded_as_project_motif: [form, bass_role]
+  recorded_as_convention: [harmonic_mechanism, arrangement_curve]
   routed_to_creative_lab:
-    stale_dimensions: [transition_grammar, chorus_lift_mechanism, vocal_architecture]
+    stale_dimensions: [transition_grammar, lift_mechanism, vocal_architecture, outro_behavior]
     note: >
-      The Lab is told which dimensions are stale, so its candidates for Track C break those
+      The Lab is told which dimensions are stale, so its candidates for Track D break those
       specifically rather than differing at random.

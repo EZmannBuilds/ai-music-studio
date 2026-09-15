@@ -33,10 +33,10 @@ nonisochronous_meter:
     corpus:                 # which repertoire, which study, which tempo range
 ```
 
-The measured figure the studio has is from one repertoire: Polak & London report binary
-subdivision in Malian drumming sitting consistently near **60:40** long to short. That is a
-measurement of that repertoire at those tempi. It is not a general aksak ratio, and it must not
-be copied onto a Balkan dance because both are "uneven".
+The measured figures the studio has come from two named pieces: in *Bire*, a Khasonka dundunba piece, the bell's long-short subdivision averages **58.6:41.4** across four performances by two players (one near 60:40, the other near 57:43); in *Ngòn Fariman*, a Segu Bambara piece, a ternary long-short-short pattern averages about **41:31:28** (Polak & London 2014, *MTO* 20.1, read 2026-09-15). Those are measurements
+of those pieces, played by those ensembles, at tempi that accelerate from about 85 to 125 BPM. They
+are not a Malian ratio, not a general aksak ratio, and must not be copied onto a Balkan dance
+because both are "uneven".
 
 If no measurement exists for the target repertoire, the honest move is to write the nominal
 ratio, mark the performed ratio as unmeasured, and say so in the plan. Do not invent a decimal.

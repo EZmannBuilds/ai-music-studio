@@ -1,0 +1,43 @@
+# Evaluation case B2. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: B2
+  title: The same brief, ten times
+  category: diversity
+  source: research/BENCHMARK_DIVERSITY.md B2
+  brief: (batch) One brief, ten sessions.
+  supplied_context: []
+  expected_routes:
+    must_include: []
+    must_not_include: []
+  required_behaviors:
+  - some convergence, because the brief constrains the answer
+  forbidden_behaviors:
+  - total convergence on every watched dimension
+  structural_assertions:
+  - id: dna
+    block_present: track_dna
+  human_questions:
+  - Is the convergence the brief, or a habit?
+  trials: 1
+  batch:
+    briefs:
+    - Plan a three-minute indie-pop song about moving house. Write its track_dna row.
+    - Plan a three-minute indie-pop song about moving house. Write its track_dna row.
+    - Plan a three-minute indie-pop song about moving house. Write its track_dna row.
+    - Plan a three-minute indie-pop song about moving house. Write its track_dna row.
+    - Plan a three-minute indie-pop song about moving house. Write its track_dna row.
+    - Plan a three-minute indie-pop song about moving house. Write its track_dna row.
+    - Plan a three-minute indie-pop song about moving house. Write its track_dna row.
+    - Plan a three-minute indie-pop song about moving house. Write its track_dna row.
+    - Plan a three-minute indie-pop song about moving house. Write its track_dna row.
+    - Plan a three-minute indie-pop song about moving house. Write its track_dna row.
+    threshold: 0.9
+    fail_if: all_watched_collapsed
+    watch:
+    - form
+    - harmonic_mechanism
+    - bass_role
+    - lift_mechanism
+    - transition_grammar
+    - outro_behavior
+    brief_implied: {}

@@ -1,0 +1,36 @@
+# Evaluation case N1-C. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: N1-C
+  title: 'Mode respected: DIAGNOSE ONLY'
+  category: interaction_modes
+  source: research/BENCHMARK_DIVERSITY.md N1
+  brief: 'Diagnose only, don''t fix anything: why does my eight-bar piano intro feel too busy? (Bars:
+    right hand plays sixteenth-note arpeggios on Am | F | C | G, left hand plays octaves on every beat.)'
+  supplied_context: []
+  expected_routes:
+    must_include: []
+    must_not_include: []
+  required_behaviors:
+  - causes, in upstream-first order
+  - stop; an offer to fix at the end is fine
+  forbidden_behaviors:
+  - the diagnosis arriving with the fix applied
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  - id: mode
+    field_equals:
+      path: session_trace.interaction_mode
+      value: DIAGNOSE ONLY
+  - id: session_mode
+    field_equals:
+      path: session_trace.session_mode
+      value: DIAGNOSE
+  - id: no_new_material
+    field_empty: session_trace.created_material
+  - id: nothing_changed
+    field_empty: session_trace.modified_user_material
+  human_questions:
+  - Are the causes the real ones, in the order that matters?
+  trials: 3

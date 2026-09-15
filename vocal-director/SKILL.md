@@ -1,6 +1,6 @@
 ---
 name: vocal-director
-version: 2.0
+version: 2.1-dev
 description: Decides what the voices do: lead and background hierarchy, doubles, stacks, ad-libs, rap and spoken delivery, choir architecture, breath, register, comp strategy and vocal silence. Sits between Composer and Lyric Generator upstream and Producer and Mix Engineer downstream.
 ---
 

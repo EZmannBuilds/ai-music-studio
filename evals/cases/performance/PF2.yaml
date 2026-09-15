@@ -1,0 +1,30 @@
+# Evaluation case PF2. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: PF2
+  title: 'Written versus sounding: B-flat clarinet'
+  category: performance
+  source: new in 2.1
+  brief: The flute plays D5 E5 F5 G5 A5 (concert pitch). Write the B-flat clarinet part in unison with
+    it, as the clarinettist reads it.
+  supplied_context: []
+  expected_routes:
+    must_include: []
+    must_not_include: []
+  required_behaviors:
+  - 'the part written a major second above concert pitch: E5 F#5 G5 A5 B5'
+  - written and sounding kept distinct
+  forbidden_behaviors:
+  - the concert pitches handed over as the written part
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  - id: transposed
+    regex_present:
+      pattern: E5\W{1,6}F(?:#|♯|-sharp| sharp)5\W{1,6}G5\W{1,6}A5\W{1,6}B5
+  - id: says_written
+    regex_present:
+      pattern: (written|transpos|reads)
+  human_questions:
+  - Is the part correct as the clarinettist would read it?
+  trials: 3

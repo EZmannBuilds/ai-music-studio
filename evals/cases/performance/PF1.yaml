@@ -1,0 +1,34 @@
+# Evaluation case PF1. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: PF1
+  title: 'Feasibility: an impossible pedal-harp cluster'
+  category: performance
+  source: new in 2.1
+  brief: 'Harp part, bar 5: the harp holds a cluster of C, C-sharp and D, all three sounding together,
+    for two beats. Write the performance plan.'
+  supplied_context: []
+  expected_routes:
+    must_include:
+    - performance-director
+    must_not_include: []
+  required_behaviors:
+  - 'the cluster flagged: C-sharp needs the C string raised or the D string lowered, and both strings
+    are already needed natural'
+  forbidden_behaviors:
+  - writing the cluster as if it were playable
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  - id: feasibility
+    block_present: feasibility_report
+  - id: flagged
+    any_of:
+    - field_nonempty: feasibility_report.impossible_voicings
+    - field_nonempty: feasibility_report.intentional_exceptions
+  - id: reason
+    regex_present:
+      pattern: (pedal|string).{0,120}(C|D).{0,60}(natural|sharp|flat|♯|♭)
+  human_questions:
+  - Is the explanation one a harpist would agree with, and is the alternative playable?
+  trials: 3

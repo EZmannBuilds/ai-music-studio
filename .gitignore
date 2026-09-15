@@ -10,3 +10,7 @@ profiles/local/*
 .DS_Store
 Thumbs.db
 *.swp
+
+# evaluation runs: the replies and reports an agent run produces stay local
+evals/reports/runs/
+__pycache__/

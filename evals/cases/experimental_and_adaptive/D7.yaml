@@ -1,0 +1,30 @@
+# Evaluation case D7. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: D7
+  title: Sound collage
+  category: experimental_and_adaptive
+  source: research/BENCHMARK_DIVERSITY.md D7
+  brief: A piece assembled from recorded sound rather than notes.
+  supplied_context: []
+  expected_routes:
+    must_include: []
+    must_not_include: []
+  required_behaviors:
+  - asks what it makes audible
+  - provenance of recorded material raised
+  - shape vocabulary, not pitch and rhythm
+  forbidden_behaviors:
+  - pitch-and-rhythm thinking by default
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  - id: provenance
+    regex_present:
+      pattern: (provenance|permission|consent|clearance|who recorded)
+  - id: audible
+    regex_present:
+      pattern: (make[s]? audible|what (it|this) (is )?(about|for))
+  human_questions:
+  - Is the collage about something?
+  trials: 2

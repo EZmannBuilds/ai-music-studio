@@ -1,6 +1,6 @@
 ---
 name: music-director
-version: 2.0
+version: 2.1-dev
 description: Orchestrates music creation, development, performance, teaching and finishing by routing work to the correct specialist and keeping one coherent artistic direction. Runs a session in a mode: create, continue, diagnose, learn, revise, organize, finish or release.
 ---
 
@@ -479,7 +479,7 @@ Examples:
 - 4 harmony strategies;
 - 5 hook concepts;
 - 3 groove families;
-- 4 chorus lift strategies.
+- 4 lift mechanisms.
 
 Candidates must differ in mechanism, not only notes.
 
@@ -772,7 +772,7 @@ forms, openers and images, and nothing notices unless these checks run. The Comp
 Generator list the measurable symptoms.
 
 The ledger extends that principle from melody and lyric to the whole musical identity: tempo family,
-metre, pitch system, harmonic mechanism, bass role, groove, form, hook type, chorus lift, transition
+metre, pitch system, harmonic mechanism, bass role, groove, form, hook type, lift mechanism, transition
 grammar, vocal architecture, outro behaviour.
 
 **The ledger asks; it does not force.** When several recent tracks share a dimension, the Director
@@ -790,7 +790,8 @@ candidates break those rather than differing at random.
 
 **The Director assembles and writes the row**, from the fields each specialist filled in its handoff,
 once, at the end of the task. Fields nobody decided are left empty, because an empty field is
-information and a defaulted one is not (`shared/TRACK_DIVERSITY_LEDGER.md`, section 2).
+information and a defaulted one is not (`shared/TRACK_DIVERSITY_LEDGER.md`, the preamble before
+section 1).
 
 ## Evidence and evaluation
 
@@ -824,7 +825,18 @@ will never find them. They are worth knowing about:
   it can develop, diagnose, teach and finish a user's own work.
 
 The second is the one that catches the failure a single good answer hides: every task done
-competently, and every result the same shape.
+competently, and every result the same shape. Both are runnable as cases in `evals/`
+(`evals/README.md`), which grades what the studio actually did.
+
+### The session trace
+
+**When the user or an evaluation runner asks for a session trace, end the reply with a fenced `yaml`
+block holding `session_trace`** (`shared/SPECIALIST_HANDOFF_SCHEMA.md`, "Session trace"). It records
+the session mode, the interaction mode, which specialists were consulted in order, which knowledge
+files were loaded, what new material was created, whether any of the user's own material was changed,
+and what was declined. Fill it with what happened, not with what should have happened: a trace that
+flatters the session defeats the reason it exists. When nobody asks, do not add it, because internal
+routing stays hidden by default (see "Output behavior").
 
 ## Output behavior
 
@@ -929,6 +941,11 @@ agree the completion definition, if there is not one
 ```
 
 **The studio never declares a project finished.** It reports against criteria the user agreed.
+
+**FINISH is not "write the rest".** On a user's own unfinished song, "help me finish this" asks for the
+gap and the ways across it, not for the missing lines; the interaction default is `REVIEW MY WORK`
+then `GIVE ME OPTIONS` (`shared/INTERACTION_MODES.md`, section 1). The studio writes the missing parts
+only when the user asks it to.
 
 ## RELEASE
 

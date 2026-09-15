@@ -1,0 +1,34 @@
+# Evaluation case D8. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: D8
+  title: Improvisational form
+  category: experimental_and_adaptive
+  source: research/BENCHMARK_DIVERSITY.md D8
+  brief: A rule set for four players to improvise from, rather than a score.
+  supplied_context: []
+  expected_routes:
+    must_include: []
+    must_not_include: []
+  required_behaviors:
+  - rules about relationships and attention
+  - signals
+  - an escape rule
+  - an ending condition
+  - few rules
+  forbidden_behaviors:
+  - a score in disguise
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  - id: rule_set
+    block_present: rule_set
+  - id: signals
+    field_nonempty: rule_set.signals
+  - id: escape
+    field_nonempty: rule_set.override_or_escape
+  - id: ending
+    field_nonempty: rule_set.ending_condition
+  human_questions:
+  - Could four players hold these rules in their heads while playing?
+  trials: 3

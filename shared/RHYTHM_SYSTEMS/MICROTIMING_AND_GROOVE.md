@@ -78,11 +78,10 @@ sixteenth 4    early
 The magnitudes belong to that corpus at those tempi. Carry the shape, state the corpus, and do
 not present a figure that was not measured.
 
-### Malian binary subdivision
+### Two measured Mande pieces
 
-Polak & London: binary subdivision in the studied Malian repertoire sits consistently **near
-60:40** long to short. See `ADDITIVE_AND_NONISOCHRONOUS_METER.md` for how this is encoded as a
-metre rather than as a deviation, and `shared/MUSICAL_SYSTEMS/WEST_AFRICAN_POLYRHYTHM.md` for
+Polak & London (2014): in *Bire*, a Khasonka dundunba piece, the bell's long-short subdivision averages **58.6:41.4** across four performances by two players (one near 60:40, the other near 57:43); in *Ngòn Fariman*, a Segu Bambara piece, a ternary long-short-short pattern averages about **41:31:28** (Polak & London 2014, *MTO* 20.1, read 2026-09-15). See `ADDITIVE_AND_NONISOCHRONOUS_METER.md` for how this is encoded as a
+metre rather than as a deviation, and `shared/MUSICAL_SYSTEMS/MANDE_JEMBE_MUSIC.md` for
 the music itself.
 
 ### Within-part tightness
@@ -144,18 +143,26 @@ samba, Malian drumming or hip-hop**, all of which have documented systematic fee
 their own repertoires. Keil's participatory-discrepancy theory is contested, not established,
 and is not treated here as settled either way.
 
-## Marker instruments are never humanised
+## Marker instruments keep their own feel, and get no other
 
-**Bell, gong, clap and clave are placed exactly.** They are the reference everything else is
-heard against. Applying a template to the marker moves the reference, which does not make the
-groove deeper; it makes the groove undefined, because there is nothing left for the other parts
-to be early or late against.
+**Bell, gong, clap and clave are the reference everything else is heard against.** Applying another
+part's template to the marker, or a random offset, moves the reference, which does not make the
+groove deeper; it makes the groove undefined, because there is nothing left for the other parts to be
+early or late against.
+
+**The exception is a marker whose own feel is part of the music.** In *Bire*, a Khasonka dundunba
+piece, the bell itself plays the non-isochronous long-short subdivision the ensemble follows
+(Polak & London 2014; see "Two measured Mande pieces" above). There the marker is placed exactly on
+that piece's named template, which is a position in the cycle, not a deviation from it. And a drum
+kit in live-feel music is not a marker part by default: its microtiming is the groove.
 
 This is the same requirement as the anchor layer in `POLYMETER_POLYRHYTHM_CROSSRHYTHM.md` and
 the marker part in `CYCLES_AND_TIMELINES.md`, stated for timing.
 
-`applies_to` in the template object lists the parts a template touches. The marker parts are
-never in that list, and a plan that puts them there is rejected rather than executed.
+`applies_to` in the template object lists the parts a template touches. A marker part appears in
+that list only when the template is the marker's own documented feel, with its corpus named; a plan
+that applies another part's template, or an unnamed one, to the marker is rejected rather than
+executed.
 
 ## What each specialist does with it
 

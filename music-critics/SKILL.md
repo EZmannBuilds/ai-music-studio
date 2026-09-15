@@ -1,6 +1,6 @@
 ---
 name: music-critics
-version: 2.0
+version: 2.1-dev
 description: Provides specialized theory, originality, melody, groove, arrangement, production, emotional-impact, and mix criticism without collapsing everything into one generic quality score.
 ---
 
@@ -329,7 +329,7 @@ Reads the ledger, never the songs (`shared/TRACK_DIVERSITY_LEDGER.md`).
 - Is anything classified as a project motif actually functioning as one, or was that a convenient label
   for a habit?
 
-**Findings are questions, not defects.** "Five songs share a chorus lift mechanism" is a finding. "This
+**Findings are questions, not defects.** "Five songs share a lift mechanism" is a finding. "This
 album is repetitive" is a preference wearing a finding's clothes. Deliberate repetition, project
 identity and genre convention all look identical in a table, and only the user can say which this is.
 

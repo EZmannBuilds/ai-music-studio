@@ -33,8 +33,9 @@ practice.** Do not present 53-EDO as "the Turkish tuning". See `EDO_SYSTEMS.md`.
 
 ## Rhythm and cycle
 
-**Unequal beats are the primary metrical level.** A short beat is two pulses and a long beat is
-three. They are beats, not subdivisions of a larger regular beat, and they are felt as beats by
+**Unequal beats are the primary metrical level.** In notation a short beat is two pulses and a long
+beat is three; in performance the ratio between them is not fixed at 2:3 and varies by dance,
+region and tempo (see `shared/RHYTHM_SYSTEMS/ADDITIVE_AND_NONISOCHRONOUS_METER.md`). They are beats, not subdivisions of a larger regular beat, and they are felt as beats by
 dancers.
 
 **Always write the grouping, never a bare signature.** "9/8" alone is not information.
@@ -63,8 +64,8 @@ Specific dance groupings are **widely taught and to verify** before printing:
 Turkish usuls are categorised by beat count (for example Aksak at 9 beats, Devr-i Hindi at 7,
 Curcuna at 10) and are written as pronounceable vocables built from **dum** and **tek**, where dum
 is a strong low beat. **Velvele** forms elaborate an usul by increasing the number of strokes
-within each main beat without changing the metre, which is exactly the relationship between a drum
-pattern and its fills.
+within each main beat without changing the metre, which is loosely comparable to the relationship
+between a drum pattern and its fills; the comparison is an analogy, not an equivalence.
 
 ## Phrase structure and form
 
@@ -140,10 +141,14 @@ and should not treat a listener familiar with the dance as experiencing the metr
 - Brailoiu, "Le rythme aksak", *Revue de Musicologie* 33 (1951), 71 to 108. Open first for the
   concept.
 - Arom, "L'aksak: Principes et typologie", 2004, for the typology.
-- Turkish Music Portal, for usul categories and the dum and tek vocables.
-- Akkoc, "Experiments on the relationship between perde and seyir in Turkish makam music", on
-  measured deviation from AEU positions; related measurement work by Bozkurt, Yarman and
-  Karaosmanoglu.
+- Turkish Music Portal, for usul categories and the dum and tek vocables (web address not recorded
+  in 2.0; to verify before it is cited again).
+- Akkoç, "Experiments on the relationship between perde and seyir in Turkish makam music" (year and
+  venue not recorded in 2.0; to verify), on measured deviation from AEU positions.
+- Barış Bozkurt, Ozan Yarman, M. Kemal Karaosmanoğlu and Can Akkoç, "Weighing Diverse Theoretical
+  Models on Turkish Maqam Music Against Pitch Measurements", *Journal of New Music Research* 38(1),
+  2009, 45 to 70: nine maqams, pitch histograms of recordings by master performers, compared with
+  the theoretical scale tones. Read at abstract depth.
 
 Confidence: the aksak concept, the unequal-beat principle, the usul vocable notation and the
 measured deviation from AEU are all supported. **Explicitly unverified:** the specific dance

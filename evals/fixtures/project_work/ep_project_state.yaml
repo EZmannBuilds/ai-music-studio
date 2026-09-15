@@ -1,0 +1,134 @@
+# Fixture for N3: a copy of examples/Project_State_Example.yaml, the project the unrelated task must not borrow from.
+# An example project_state part-way through an EP.
+# Schema: shared/PROJECT_STATE_SCHEMA.md
+# The point of this example is the last two blocks: the next actions are musical, and "write
+# another track" is one option among several rather than the default.
+
+project_state:
+  name: "example-ep"
+  project_type: ep
+  started: "2026-08-02"
+  last_session: "2026-09-12 11:05"
+  user_goal: "five songs that work as one thing, finished before the end of the year"
+
+  thesis: "five songs about leaving somewhere, where the production gets cleaner as the narrator gets further away"
+  thesis_status: confirmed_by_user
+  emotional_world: "reluctant, then relieved, then unsure the relief was earned"
+  sonic_world: "close and saturated at the start, open and dry by the end"
+  constraints:
+    - "no live drums"
+    - "one voice, no features"
+  audience_or_context: "headphones, sequential listening"
+
+  current_phase: developing
+
+  tracks:
+    - id: t1
+      title: "Track A"
+      track_state: "songs/track-a/Track A - Track State v3.json"
+      status: mixed
+      role_in_project: "establishes the close, saturated world and the narrator's reluctance"
+      strength: 4
+      notes: "opener"
+    - id: t2
+      title: "Track B"
+      track_state: "songs/track-b/Track B - Track State v2.json"
+      status: produced
+      role_in_project: "currently the same function as Track A"
+      strength: 3
+      notes: "the diversity comparison flagged this; see decisions_needed"
+    - id: t3
+      title: "Track C"
+      track_state: "songs/track-c/Track C - Track State v1.json"
+      status: draft
+      role_in_project: "the turn: the narrator stops arguing"
+      strength: 4
+    - id: t4
+      title: "Track D"
+      track_state: "songs/track-d/Track D - Track State v1.json"
+      status: sketch
+      role_in_project: "unclear; written before the thesis was settled"
+      strength: 2
+
+  finished: []
+  in_progress: [t2, t3]
+  unresolved:
+    - question: "Does the record end relieved or unsure?"
+      affects: [t3, t4, "project"]
+      options_considered:
+        - "end on the cleanest production, relief earned"
+        - "end dry and thin, so the openness reads as exposure rather than freedom"
+      blocking: true
+      raised: "2026-09-05 19:40"
+      owner: user
+  blocked:
+    - what: "Track D's arrangement"
+      why: "it cannot be arranged until the ending question is answered"
+
+  recurring_motifs:
+    - "a four-note descending figure, first on the voice in Track A, on a synth in Track C"
+  palette:
+    - "one saturated bass, one clean bass, and the change between them is the record's arc"
+    - "no cymbals until Track C"
+  intentional_outliers:
+    - "Track C has no chorus; that is the turn"
+
+  risks:
+    - "four of the five tracks may end up in the same tempo family"
+    - "the production arc is a good idea that no listener will notice if the songs do not differ"
+
+  health:
+    function_coverage: "opening and turning are covered; the ending is unwritten and Track B doubles Track A"
+    diversity: "form and sub-bass recorded as project motifs; transitions and the lift mechanism flagged as accidental"
+    momentum: "two sessions in the last week, both on Track B"
+    decision_debt: "one blocking question, open for a week, and it is blocking Track D"
+    finishing_risk: "the ending question. Everything downstream waits on it."
+    note: "health is a description, not a score"
+
+  next_best_actions:
+    - action: "Answer the ending question, on paper, before touching another arrangement."
+      why: "it blocks Track D and shapes Track C's last minute. A week of work is waiting on it."
+      kind: decide
+      effort: small
+      unblocks: [t3, t4]
+    - action: "Give Track B a different function rather than writing a fifth song."
+      why: >
+        Track A and Track B currently do the same thing for the listener. Track B is the weaker
+        of the two and is also the one whose arrangement is least committed, so it is the one to
+        change. Making it the record's only uptempo track would fill a gap and cost nothing.
+      kind: revise
+      effort: medium
+    - action: "Break the transition grammar on the next thing you touch."
+      why: >
+        Riser, silence, impact appears at every section boundary on both finished tracks, and the
+        ledger classified it as accidental rather than intentional.
+      kind: revise
+      effort: small
+    - action: "Do not write a fifth song yet."
+      why: >
+        The record has four songs and three functions. A fifth song written now would probably be
+        a second attempt at a function that already exists.
+      kind: decide
+      effort: small
+
+  decisions_needed:
+    - "Does the record end relieved or unsure?"
+    - "Is Track D worth keeping, given it predates the thesis?"
+
+  decision_log:
+    - {when: "2026-08-20 16:10", decision: "no live drums", why: "the close world depends on programmed tightness"}
+    - {when: "2026-09-12 11:20", decision: "form and sub-bass are project motifs, not repetition", why: "user confirmed"}
+
+  revision_queue:
+    - {item: "Track B: new function", why: "duplicate function with Track A", priority: 1}
+    - {item: "Track A: transition grammar", why: "classified accidental", priority: 2}
+
+  completion_definition:
+    what_done_means: "five songs I would play to someone in order without apologising for any of them"
+    kind: listening_test
+    criteria:
+      - "each track has a function no other track has"
+      - "the production arc is audible on a single sequential listen"
+      - "no track I skip when I play the record myself"
+    who_decides: user
+    agreed: "2026-08-02 20:15"

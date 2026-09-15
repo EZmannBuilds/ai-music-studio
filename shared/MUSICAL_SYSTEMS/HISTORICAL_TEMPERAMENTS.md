@@ -38,8 +38,9 @@ repertoire written for meantone instruments stays inside the usable keys, which 
 repertoire's key range looks narrow to a modern eye.
 
 **Well temperaments make every key usable at the cost of making them different.** Werckmeister III
-is the standard example: five fifths (D-A, A-E, F sharp-C sharp, C sharp-G sharp and F-C) are
-narrowed by a quarter of a Pythagorean comma each and the other seven are left pure. Unlike
+is the standard example: four fifths (C-G, G-D, D-A and B-F sharp) are narrowed by a quarter of a
+Pythagorean comma each and the other eight are left pure. Four quarters make one comma, which is
+exactly the excess of twelve pure fifths over seven octaves, so the circle closes. Unlike
 quarter-comma meantone, there is no wolf fifth and all twelve notes can serve as a tonic. The keys
 are usable but they are not equivalent: each has its own distribution of interval sizes.
 
@@ -138,10 +139,13 @@ listen.
 - Duffin, *How Equal Temperament Ruined Harmony*, 2007, for an argumentative modern treatment.
 - On Werckmeister III: the fifths narrowed by a quarter Pythagorean comma, the absence of a wolf
   fifth and the usability of all twelve tonics come from secondary technical sources, not from
-  Werckmeister.
+  Werckmeister. **2.0 printed five narrowed fifths, which is arithmetically impossible**: five
+  quarters of a comma overshoot the one comma the circle needs. 2.1 corrects it to the four-fifth
+  scheme of the standard accounts (Barbour, not read; the arithmetic is checkable without him).
 
-Confidence: the framing of tuning as a trade, the meantone and well-temperament trade-offs, and
-the Werckmeister III narrowing scheme are consistent across the sources found. **Explicitly
+Confidence: the framing of tuning as a trade and the meantone and well-temperament trade-offs are
+consistent across the sources found; the Werckmeister III scheme is the standard account and its
+arithmetic is checked. **Explicitly
 unverified:** all specific cent values, including those for quarter-comma meantone, which are to
 be checked against a tuning reference before printing. Barbour and Duffin were not read during
 research.

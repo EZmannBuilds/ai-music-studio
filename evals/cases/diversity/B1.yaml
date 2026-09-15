@@ -1,0 +1,46 @@
+# Evaluation case B1. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: B1
+  title: Ten unrelated briefs
+  category: diversity
+  source: research/BENCHMARK_DIVERSITY.md B1
+  brief: (batch) Ten unrelated briefs, one session each. Plan each song and write its track_dna row.
+  supplied_context: []
+  expected_routes:
+    must_include: []
+    must_not_include: []
+  required_behaviors:
+  - each brief gets the architecture it needs
+  forbidden_behaviors:
+  - one architecture for everything
+  structural_assertions:
+  - id: dna
+    block_present: track_dna
+  human_questions:
+  - Read the ten rows side by side. Which dimension is the studio not choosing?
+  trials: 1
+  batch:
+    briefs:
+    - Plan a song for a friend's wedding, sung by the couple's choir of cousins. Write its track_dna row.
+    - Plan a two-minute punk song about a broken bus timetable. Write its track_dna row.
+    - Plan a lullaby for a newborn, voice and one instrument. Write its track_dna row.
+    - Plan a festival techno track built around one rising filter. Write its track_dna row.
+    - Plan a protest song for a march, to be sung by a crowd who have never heard it. Write its track_dna
+      row.
+    - Plan a slow instrumental piece for a documentary about glaciers. Write its track_dna row.
+    - Plan a jazz waltz about an old dog. Write its track_dna row.
+    - Plan a video-game boss theme for a fight against a clockwork dragon. Write its track_dna row.
+    - Plan a song in Portuguese about homesickness, for voice and guitar. Write its track_dna row.
+    - Plan a hip-hop track whose hook is a spoken phone number. Write its track_dna row.
+    threshold: 0.9
+    fail_if: any_watched_collapsed
+    watch:
+    - meter
+    - form
+    - harmonic_mechanism
+    - bass_role
+    - lift_mechanism
+    - transition_grammar
+    - outro_behavior
+    - texture_family
+    brief_implied: {}

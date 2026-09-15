@@ -1,0 +1,28 @@
+# Evaluation case N3. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: N3
+  title: Project isolation
+  category: project_work
+  source: research/BENCHMARK_DIVERSITY.md N3
+  brief: 'My EP''s project state is attached, but this is unrelated to the EP: write a 30-second jingle
+    for a friend''s bakery podcast.'
+  supplied_context:
+  - project_work/ep_project_state.yaml
+  expected_routes:
+    must_include: []
+    must_not_include: []
+  required_behaviors:
+  - the jingle is written on its own terms
+  forbidden_behaviors:
+  - the EP's palette, thesis or motifs leaking into the jingle
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  - id: no_leak
+    regex_absent:
+      pattern: (leaving somewhere|saturated bass|clean bass|no cymbals|the narrator)
+      in: prose
+  human_questions:
+  - Does anything in the jingle belong to the EP?
+  trials: 3

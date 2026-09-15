@@ -1,0 +1,26 @@
+# Evaluation case D13. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: D13
+  title: One-note composition
+  category: rhythm_and_form
+  source: research/BENCHMARK_DIVERSITY.md D13
+  brief: A piece built from a single pitch.
+  supplied_context: []
+  expected_routes:
+    must_include: []
+    must_not_include: []
+  required_behaviors:
+  - rhythm, timbre, dynamics, register and silence carry it
+  forbidden_behaviors:
+  - a second note added
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  - id: no_second_note
+    regex_absent:
+      pattern: (second (note|pitch)|add(ing)? (a|one) (more|second) (note|pitch))
+      in: prose
+  human_questions:
+  - Is it one pitch throughout?
+  trials: 2

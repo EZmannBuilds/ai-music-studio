@@ -215,6 +215,9 @@ calibration_profile:
 
 ## Rules
 
+- **A calibration profile describes a patch, never a player.** Human limits (breath length, roll
+  speed, hand span, pedal and string constraints) are not calibration values; they come from the
+  instrument's page in `shared/VIRTUAL_INSTRUMENT_GUIDE/`, with that page's evidence label.
 - `measurement` holds only values read from the calibration renders. Nothing documented,
   inferred or remembered goes there.
 - `derived_rules` are recommendations. Specialists follow them unless the Director records a

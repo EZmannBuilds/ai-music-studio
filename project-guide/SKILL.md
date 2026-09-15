@@ -1,6 +1,6 @@
 ---
 name: project-guide
-version: 2.0
+version: 2.1-dev
 description: Helps a user understand and develop what their project is becoming, and finish it. Owns project thesis, state, unresolved decisions, track functions, next actions, diagnosis of why work is stuck, and the definition of done. Music-creative, not corporate project management.
 ---
 

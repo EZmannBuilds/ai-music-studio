@@ -19,6 +19,8 @@ import argparse, os, re, sys
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 SKIP_DIRS = {'.git', 'local', '__pycache__'}
+# Hand-written failing responses for the evaluation self-test commit these mistakes on purpose.
+SKIP_PREFIXES = ('evals/expected/',)
 
 # Product names belong in the adapters, the free-instruments reference, the auditor's worked
 # example and the research pages that cite manufacturer documentation. Not in a neutral skill.
@@ -94,7 +96,8 @@ def main():
         else:
             if fm.get('name') != d:
                 problems.append(f'{rel}: front matter name {fm.get("name")!r} != folder {d!r}')
-            if not re.fullmatch(r'\d+(\.\d+)*', fm.get('version', '')):
+            if not re.fullmatch(r'\d+(?:\.\d+)*(?:-(?:dev|beta\.\d+|rc\.\d+))?',
+                                fm.get('version', '')):
                 problems.append(f'{rel}: version {fm.get("version")!r} is not a version string')
             if len(fm.get('description', '')) < 40:
                 problems.append(f'{rel}: description is missing or too short to route on')
@@ -119,6 +122,8 @@ def main():
                 continue
             path = os.path.join(dp, f)
             rel = os.path.relpath(path, root).replace(os.sep, '/')
+            if rel.startswith(SKIP_PREFIXES):
+                continue
             for i, line in enumerate(open(path, encoding='utf-8', errors='replace'), 1):
                 for pat, why in FORBIDDEN:
                     if pat.search(line) and not PROHIBITION.search(line):

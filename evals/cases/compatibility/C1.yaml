@@ -1,0 +1,31 @@
+# Evaluation case C1. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: C1
+  title: A 1.0 profile still reads
+  category: compatibility
+  source: new in 2.1 (shared/USER_PROFILE_SCHEMA.md)
+  brief: Here is my profile. What deliverable will you make by default for my next song?
+  supplied_context:
+  - compatibility/profile_1.0.yaml
+  expected_routes:
+    must_include: []
+    must_not_include: []
+  required_behaviors:
+  - 'default_mode: vocal read as full_with_vocal'
+  forbidden_behaviors:
+  - treating the 1.0 profile as invalid
+  - asking the user to edit it
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  - id: reads_vocal
+    regex_present:
+      pattern: (full_with_vocal|full (mix|version) with (the )?vocals?|vocal version)
+  - id: not_invalid
+    regex_absent:
+      pattern: (invalid|not a (valid )?(deliverable )?mode|unknown mode|please update your profile)
+      in: prose
+  human_questions:
+  - Did the answer treat the old profile as ordinary?
+  trials: 2

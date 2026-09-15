@@ -64,13 +64,17 @@ or 3+3+3 or 2+3+2+2. Those are different pieces of music. Always write `9/8 = 2+
 and displacement are all relationships against a reference. Without a named anchor a displaced
 pattern is simply heard in a different metre, and the intended tension does not exist.
 
-**Never label a generated pattern with a tradition's name** unless the pattern, its rotation and
-its tempo range match a documented case, and then say which case. A Euclidean generator recovers
+**Never label a generated pattern with a tradition's name** unless the pattern and its rotation
+match a documented case and the music around it is a context where that name is used, and then say
+which case. A Euclidean generator recovers
 a shape. It does not recover a rotation, an accent hierarchy, a dance or a name.
 
-**Marker instruments are never humanised.** Bell, gong, clap and clave state the cycle. They are
-the reference everything else is heard against, so they are placed exactly. Microtiming
-templates apply to the parts that play against them.
+**Marker instruments are not given expressive deviation.** Bell, gong, clap and clave state the
+cycle. They are the reference everything else is heard against, so a random or expressive offset on
+them reads as looseness. Two limits: where a tradition's feel lives in the marker part itself (some
+Mande jembe repertoire plays a non-isochronous subdivision on the bell and dunun), the marker takes
+that repertoire's named microtiming template as a model; and a drum kit in live-feel music is not a
+marker part by default. What is ruled out is deviation without a cause.
 
 **All figures here are corpus ranges.** Every number came from a particular repertoire at a
 particular tempo, measured by a named study. None of them is a constant, and none of them
@@ -80,7 +84,7 @@ verify*, this folder keeps the mark.
 ## Cross-links
 
 Cultural context, in `shared/MUSICAL_SYSTEMS/`: `ADDITIVE_METERS_BALKAN_TURKISH.md`,
-`CLAVE_AND_TIMELINES.md`, `WEST_AFRICAN_POLYRHYTHM.md`, `RAGA_AND_TALA.md`, `MAQAM.md`,
+`CLAVE_AND_TIMELINES.md`, `EWE_DANCE_DRUMMING.md`, `MANDE_JEMBE_MUSIC.md`, `RAGA_AND_TALA.md`, `MAQAM.md`,
 `GAMELAN.md`, `BLUES_SYSTEM.md`.
 
 Adjacent shared pages: `shared/QUALITY_GATE.md` (the groove and expectation checks),

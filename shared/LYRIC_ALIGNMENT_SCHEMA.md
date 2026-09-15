@@ -48,6 +48,10 @@ lyric_alignment:
           pronunciation_confidence:
 ```
 
+`examples/Lyric_Alignment_Example.json` is a one-phrase sidecar: its top-level `syllables` list is
+one phrase's `phrases[].syllables`, flattened, and uses only the fields defined above
+(`tools/example_check.py` holds it to them).
+
 ## Slot model
 
 A syllable slot is normally a note onset, but not every note onset must introduce a new syllable.

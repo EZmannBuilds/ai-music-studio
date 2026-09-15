@@ -1,0 +1,36 @@
+# Evaluation case D19. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: D19
+  title: Diagnosing why the user is stuck
+  category: project_work
+  source: research/BENCHMARK_DIVERSITY.md D19
+  brief: I've been stuck for weeks. I open the project and close it again. I don't know what's wrong.
+  supplied_context: []
+  expected_routes:
+    must_include:
+    - project-guide
+    must_not_include: []
+  required_behaviors:
+  - causes named honestly, including that the project may be finished, or that this is not a creative
+    problem
+  forbidden_behaviors:
+  - a reflexive suggestion to write another song
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  - id: mode_fits
+    field_in:
+      path: session_trace.session_mode
+      values:
+      - DIAGNOSE
+      - CONTINUE
+  - id: no_reflex_new_song
+    regex_absent:
+      pattern: (let'?s|you should|try|why not) (to )?(write|writing|start|starting) (a )?(new|another|fresh)
+        (song|track)
+      in: prose
+  human_questions:
+  - Were the causes honest, including the uncomfortable ones?
+  - Is the next step something the user would actually do?
+  trials: 3

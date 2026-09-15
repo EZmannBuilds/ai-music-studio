@@ -1,5 +1,5 @@
 {
-  "note": "Vocabularies the pack uses in more than one file. schema_check.py compares choice lists by their values rather than by their key name, because the same choices appear under several keys. Two evidence vocabularies exist on purpose: guide_evidence says how an instrument claim is known, and pitch_evidence says how a tuning is known.",
+  "note": "Vocabularies the pack uses in more than one file. schema_check.py compares choice lists by their values rather than by their key name, because the same choices appear under several keys. Two evidence vocabularies exist on purpose: guide_evidence says how an instrument claim is known, and pitch_evidence says how a tuning is known. aliases lists older values that are still read (a 1.0 profile's default_mode: vocal). key_vocabularies says which vocabulary governs a key wherever it appears in an example or a fixture; example_check.py and compat_check.py use it. vocal_dna_fields is track_dna.vocal_architecture, from shared/VOCAL_ARCHITECTURE_SCHEMA.md section 3. field_aliases maps an old field name to its current one; compat_check.py accepts the old name only while the schema still documents it. guide_evidence is defined in shared/RESEARCH_RULES.md; evidence_label_needs_read says how deeply a source must have been read for a claim to carry each label, and instrument_card_fields lists the rows every behaviour card must have (shared/INSTRUMENT_BEHAVIOR_SCHEMA.md section 3).",
   "vocabularies": {
     "deliverable_mode": [
       "instrumental",
@@ -42,11 +42,12 @@
       "inferred"
     ],
     "guide_evidence": [
+      "sourced",
+      "academic",
       "manual-derived",
-      "excerpt-derived",
-      "orchestration-text",
-      "musicianship",
+      "standard-reference",
       "measured",
+      "inference",
       "to-verify"
     ],
     "track_role": [
@@ -76,6 +77,30 @@
       "documented",
       "constructed",
       "to-verify"
+    ],
+    "source_read_depth": [
+      "full",
+      "section",
+      "excerpt",
+      "abstract",
+      "not-read"
+    ],
+    "source_type": [
+      "pedagogy",
+      "orchestration",
+      "academic acoustics",
+      "perception",
+      "ethnomusicology",
+      "performer",
+      "manual",
+      "specification",
+      "tradition institution",
+      "standard reference"
+    ],
+    "record_confidence": [
+      "high",
+      "medium",
+      "low"
     ]
   },
   "exploration_dimensions": [
@@ -125,5 +150,99 @@
     "microtiming_template",
     "ensemble_spread",
     "drift_1f"
-  ]
+  ],
+  "aliases": {
+    "deliverable_mode": {
+      "vocal": "full_with_vocal"
+    },
+    "guide_evidence": {
+      "musicianship": "inference",
+      "orchestration-text": "standard-reference",
+      "excerpt-derived": "standard-reference"
+    }
+  },
+  "key_vocabularies": {
+    "default_mode": "deliverable_mode",
+    "deliverable_mode": "deliverable_mode",
+    "realism_target": "realism_target",
+    "realism_default": "realism_target",
+    "default_interaction_mode": "interaction_mode",
+    "model": "timing_models",
+    "session_mode": "session_mode",
+    "interaction_mode": "interaction_mode",
+    "mode": "deliverable_mode"
+  },
+  "vocal_dna_fields": [
+    "lead_register_strategy",
+    "vocal_lift_mechanism",
+    "background_density",
+    "answer_strategy",
+    "ad_lib_density",
+    "texture_signature",
+    "silence_used"
+  ],
+  "field_aliases": {
+    "wavread_findings": "analyzer_findings"
+  },
+  "instrument_card_fields": {
+    "instrument_behavior": [
+      "physical_sound_source",
+      "attack_behavior",
+      "sustain_behavior",
+      "release_behavior",
+      "dynamic_timbre_change",
+      "register_character",
+      "practical_range",
+      "tessitura",
+      "articulation_logic",
+      "phrase_limits",
+      "transitions",
+      "repeated_note_behavior",
+      "vibrato",
+      "pitch_instability",
+      "resonance",
+      "physical_noise",
+      "feasibility",
+      "ensemble_behavior",
+      "recording_behavior"
+    ],
+    "virtual_programming": [
+      "note_length",
+      "overlap",
+      "velocity",
+      "continuous_dynamics",
+      "expression",
+      "articulation_switching",
+      "round_robins",
+      "release_samples",
+      "pedal_or_breath_behavior",
+      "transition_samples",
+      "mic_or_room_behavior",
+      "likely_fake_sounding_errors",
+      "organic_programming_methods"
+    ]
+  },
+  "evidence_label_needs_read": {
+    "sourced": [
+      "full",
+      "section"
+    ],
+    "academic": [
+      "full",
+      "section"
+    ],
+    "manual-derived": [
+      "full",
+      "section"
+    ],
+    "standard-reference": [
+      "full",
+      "section",
+      "excerpt",
+      "abstract",
+      "not-read"
+    ]
+  },
+  "evidence_pending": [],
+  "bucket_pending": []
 }
