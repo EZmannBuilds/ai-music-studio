@@ -57,7 +57,7 @@ has an arrival point that is simultaneously the end and the beginning, and an "e
 creates orientation by absence. In Carnatic practice the oscillation is not decoration of the note;
 it is the note.
 
-### Clave, timelines and West African polyrhythm
+### Clave, timelines, Ewe dance-drumming and Mande jembe music
 A timeline is a reference ostinato, asymmetric inside a symmetric cycle, that everything else is heard
 against. It is neither the metre nor the melody. Twelve- and sixteen-pulse cycles support
 simultaneous four- and six-beat hearings, and the music uses that ambiguity deliberately. The 3-2 and
@@ -153,7 +153,7 @@ tradition bearers, and decline sacred or community-restricted repertoire.
 **On reduction.** See section 1. The most common failure is to keep the scale and throw away the
 grammar, then add a characteristic instrument sample and call the result the tradition.
 
-**Where sources disagree.** Whether West African timeline music has metre in the Western sense; whether
+**Where sources disagree.** Whether Ewe and Mande timeline music has metre in the Western sense; whether
 an equal quarter-tone exists in Arabic practice; how the blues third should be modelled; whether a
 timeline is best described geometrically or as a named dance. The skill files present these as open
 questions, because they are.

@@ -66,6 +66,8 @@
     "shared/MUSICAL_SYSTEMS/MAQAM.md",
     "shared/MUSICAL_SYSTEMS/MODAL_FOLK_SYSTEMS.md",
     "shared/MUSICAL_SYSTEMS/RAGA_AND_TALA.md",
+    "shared/MUSICAL_SYSTEMS/MANDE_JEMBE_MUSIC.md",
+    "shared/MUSICAL_SYSTEMS/EWE_DANCE_DRUMMING.md",
     "shared/MUSICAL_SYSTEMS/WEST_AFRICAN_POLYRHYTHM.md",
     "shared/RHYTHM_SYSTEMS/ADDITIVE_AND_NONISOCHRONOUS_METER.md",
     "shared/RHYTHM_SYSTEMS/CYCLES_AND_TIMELINES.md",
@@ -94,7 +96,9 @@
     "shared/VIRTUAL_INSTRUMENT_GUIDE/WOODWINDS.md",
     "shared/VIRTUAL_INSTRUMENT_GUIDE/HAND_PERCUSSION.md",
     "shared/VIRTUAL_INSTRUMENT_GUIDE/TANPURA.md",
-    "shared/VIRTUAL_INSTRUMENT_GUIDE/SITAR.md"
+    "shared/VIRTUAL_INSTRUMENT_GUIDE/SITAR.md",
+    "shared/VIRTUAL_INSTRUMENT_GUIDE/EWE_DANCE_DRUMS.md",
+    "shared/VIRTUAL_INSTRUMENT_GUIDE/JEMBE_AND_DUNUN.md"
   ],
   "research": [
     "research/PERCEPTION_AND_PRODUCTION.md",
@@ -126,7 +130,9 @@
     "research/instruments/HARP.md",
     "research/instruments/TANPURA.md",
     "research/instruments/SITAR.md",
-    "research/sources/WAVE2_SOURCE_SURVEY.md"
+    "research/sources/WAVE2_SOURCE_SURVEY.md",
+    "research/instruments/EWE_DANCE_DRUMS.md",
+    "research/instruments/JEMBE_AND_DUNUN.md"
   ],
   "benchmark": [
     "research/BENCHMARK.md",

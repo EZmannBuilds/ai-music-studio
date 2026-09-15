@@ -81,7 +81,7 @@ not present a figure that was not measured.
 ### Two measured Mande pieces
 
 Polak & London (2014): in *Bire*, a Khasonka dundunba piece, the bell's long-short subdivision averages **58.6:41.4** across four performances by two players (one near 60:40, the other near 57:43); in *Ngòn Fariman*, a Segu Bambara piece, a ternary long-short-short pattern averages about **41:31:28** (Polak & London 2014, *MTO* 20.1, read 2026-09-15). See `ADDITIVE_AND_NONISOCHRONOUS_METER.md` for how this is encoded as a
-metre rather than as a deviation, and `shared/MUSICAL_SYSTEMS/WEST_AFRICAN_POLYRHYTHM.md` for
+metre rather than as a deviation, and `shared/MUSICAL_SYSTEMS/MANDE_JEMBE_MUSIC.md` for
 the music itself.
 
 ### Within-part tightness

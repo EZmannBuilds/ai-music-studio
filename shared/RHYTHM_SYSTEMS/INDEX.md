@@ -84,7 +84,7 @@ verify*, this folder keeps the mark.
 ## Cross-links
 
 Cultural context, in `shared/MUSICAL_SYSTEMS/`: `ADDITIVE_METERS_BALKAN_TURKISH.md`,
-`CLAVE_AND_TIMELINES.md`, `WEST_AFRICAN_POLYRHYTHM.md`, `RAGA_AND_TALA.md`, `MAQAM.md`,
+`CLAVE_AND_TIMELINES.md`, `EWE_DANCE_DRUMMING.md`, `MANDE_JEMBE_MUSIC.md`, `RAGA_AND_TALA.md`, `MAQAM.md`,
 `GAMELAN.md`, `BLUES_SYSTEM.md`.
 
 Adjacent shared pages: `shared/QUALITY_GATE.md` (the groove and expectation checks),

@@ -62,7 +62,7 @@ depends on a specific tradition's technique or vocabulary is marked `varies by t
 | articulation_switching | Each named stroke in a tradition's vocabulary is a separate recorded sample set, not an EQ or gain variant of another stroke. | inference |
 | round_robins | Essential; hand-percussion patterns repeat short figures rapidly, and repeated identical strokes are highly exposed. | inference |
 | release_samples | The difference between an open stroke's natural ring and a muted stroke's immediate stop is a real release behaviour; collapsing both into one un-damped sample loses the muted technique entirely. | inference |
-| pedal_or_breath_behavior | Not applicable to most hand drums; some traditions use a foot or a second player for a bass drum function (see, for instance, JEMBE_AND_DUNUN (page in preparation in 2.1) for the dunun's role), which is tradition-specific. | inference |
+| pedal_or_breath_behavior | Not applicable to most hand drums; some traditions use a foot or a second player for a bass drum function (see, for instance, `JEMBE_AND_DUNUN.md` for the dunun's role), which is tradition-specific. | inference |
 | transition_samples | Not applicable between discrete strokes; a heel-pressure pitch bend, where modelled, needs its own transition behaviour rather than a note-to-note glide built for a different instrument. | inference |
 | mic_or_room_behavior | Close-miked by convention, with hand and skin noise intact; further convention is tradition-specific. | inference |
 | likely_fake_sounding_errors | A tradition's real stroke vocabulary collapsed into one sample played at different velocities; a muted stroke played as an open stroke turned down instead of a genuinely damped recording; identical repeated strokes with no round robin; one tradition's stroke names or technique applied to a different tradition's drum. | inference |
@@ -175,8 +175,8 @@ The general list is in `COMMON_ERRORS.md`. Family-specific tells:
 | Drum(s) | Tradition | Page |
 |---|---|---|
 | Conga (tumbadora), bongó | Cuban | CUBAN_HAND_PERCUSSION (page in preparation in 2.1) |
-| Jembe, dunun | Mande jembe music (Mali, Guinea) | JEMBE_AND_DUNUN (page in preparation in 2.1) |
-| Ewe drums (e.g. sogo, kidi, kagan, atsimevu) | Ewe (Ghana/Togo) | EWE_DANCE_DRUMS (page in preparation in 2.1) |
+| Jembe, dunun | Mande jembe music (Mali, Guinea) | `JEMBE_AND_DUNUN.md` |
+| Ewe drums (e.g. sogo, kidi, kagan, atsimevu) | Ewe (Ghana/Togo) | `EWE_DANCE_DRUMS.md` |
 | Tabla | Hindustani (North Indian) | TABLA (page in preparation in 2.1) |
 | Mridangam | Carnatic (South Indian) | MRIDANGAM (page in preparation in 2.1) |
 | Frame drums (e.g. bendir, riq, daf, pandeiro, bodhrán) | many independent traditions, each with its own drum and technique | no page yet |

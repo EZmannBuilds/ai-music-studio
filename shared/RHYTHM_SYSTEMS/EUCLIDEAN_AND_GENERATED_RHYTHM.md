@@ -91,8 +91,8 @@ forbidden    naming any tradition on the basis of a shape match alone
 The rule is not pedantry about credit. A name carries a rotation, a tempo, an accent hierarchy,
 an instrument and a function, and a shape match supplies none of those. Applying the name
 asserts all of them without evidence. Cultural detail belongs in
-`shared/MUSICAL_SYSTEMS/CLAVE_AND_TIMELINES.md` and
-`shared/MUSICAL_SYSTEMS/WEST_AFRICAN_POLYRHYTHM.md`, which describe patterns as they are used,
+`shared/MUSICAL_SYSTEMS/CLAVE_AND_TIMELINES.md`, `shared/MUSICAL_SYSTEMS/EWE_DANCE_DRUMMING.md` and
+`shared/MUSICAL_SYSTEMS/MANDE_JEMBE_MUSIC.md`, which describe patterns as they are used,
 not as they are generated.
 
 ## What Euclidean generation does not give you

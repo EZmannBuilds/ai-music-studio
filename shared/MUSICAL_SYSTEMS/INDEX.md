@@ -102,7 +102,9 @@ than being padded.
 | `MAQAM.md` | melodic identity as three to five note cells with a tonic and a pivot, joined into a path |
 | `RAGA_AND_TALA.md` | mode as grammar rather than pitch set; form as a density gradient over a cycle |
 | `CLAVE_AND_TIMELINES.md` | an asymmetric reference ostinato that every other part is heard against |
-| `WEST_AFRICAN_POLYRHYTHM.md` | deliberate simultaneous hearings of one cycle, and non-isochronous feel |
+| `EWE_DANCE_DRUMMING.md` | a bell timeline, simultaneous four- and six-beat hearings of one cycle, and a lead drum's calls and answers |
+| `MANDE_JEMBE_MUSIC.md` | non-isochronous subdivision as metre, measured per piece, and the jembe soloist over the dunun |
+| `WEST_AFRICAN_POLYRHYTHM.md` | a pointer only: 2.0's regional bucket, split into the two files above |
 | `GAMELAN.md` | nested punctuating cycles, fixed density ratios, interlock, and per-ensemble tuning |
 | `ADDITIVE_METERS_BALKAN_TURKISH.md` | unequal beats as the primary metrical level, with the grouping named |
 | `BLUES_SYSTEM.md` | pitch areas and a melodic frame that is independent of the chords under it |

@@ -12,8 +12,8 @@ and Guinea, and Cuban son and rumba each have named repertoires, named patterns 
 functions. "Afro-Cuban rhythm" is not one thing, and "African rhythm" is even less one thing (Agawu,
 2003). Timeline practices are also reported in Brazilian and Haitian music; **no source for those was
 read for this pack**, so they are named here only so that nobody assumes this file covers them. This
-file covers the shared logic; `WEST_AFRICAN_POLYRHYTHM.md` covers the Ewe and Mande practices in
-more depth.
+file covers the shared logic; `EWE_DANCE_DRUMMING.md` and `MANDE_JEMBE_MUSIC.md` cover those two
+traditions in depth.
 
 ## Pitch organisation
 
@@ -114,7 +114,7 @@ orientation (which half aligns with the phrase start), the sub-cells in use, and
 bass and comping to named landing points.
 
 **Performance Director** needs: the orientation, whether the grid is isochronous (see
-`WEST_AFRICAN_POLYRHYTHM.md`, where it often is not), and the intended feel of the supporting
+`MANDE_JEMBE_MUSIC.md` for measured cases where it is not), and the intended feel of the supporting
 parts, which is usually not straight quantisation.
 
 **MIDI Builder and Plugin Auditor** must check that the percussion instrument has distinct enough
