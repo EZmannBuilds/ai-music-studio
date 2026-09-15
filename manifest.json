@@ -115,7 +115,10 @@
     "research/instruments/DRUM_KIT.md",
     "research/instruments/PERCUSSION.md",
     "research/instruments/MALLETS.md",
-    "research/instruments/HAND_PERCUSSION.md"
+    "research/instruments/HAND_PERCUSSION.md",
+    "research/instruments/PIANO_AND_KEYBOARDS.md",
+    "research/instruments/ORGANS.md",
+    "research/instruments/SYNTHS_AND_SAMPLERS.md"
   ],
   "benchmark": [
     "research/BENCHMARK.md",

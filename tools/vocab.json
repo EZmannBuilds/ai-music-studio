@@ -246,10 +246,7 @@
   "evidence_pending": [
     "BASS.md",
     "GUITAR.md",
-    "HARP.md",
-    "ORGANS.md",
-    "PIANO_AND_KEYBOARDS.md",
-    "SYNTHS_AND_SAMPLERS.md"
+    "HARP.md"
   ],
   "bucket_pending": [
     "shared/MUSICAL_SYSTEMS/WEST_AFRICAN_POLYRHYTHM.md"
