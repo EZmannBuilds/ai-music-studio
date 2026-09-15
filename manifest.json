@@ -91,7 +91,8 @@
     "shared/VIRTUAL_INSTRUMENT_GUIDE/PIANO_AND_KEYBOARDS.md",
     "shared/VIRTUAL_INSTRUMENT_GUIDE/STRINGS.md",
     "shared/VIRTUAL_INSTRUMENT_GUIDE/SYNTHS_AND_SAMPLERS.md",
-    "shared/VIRTUAL_INSTRUMENT_GUIDE/WOODWINDS.md"
+    "shared/VIRTUAL_INSTRUMENT_GUIDE/WOODWINDS.md",
+    "shared/VIRTUAL_INSTRUMENT_GUIDE/HAND_PERCUSSION.md"
   ],
   "research": [
     "research/PERCEPTION_AND_PRODUCTION.md",
@@ -110,7 +111,11 @@
     "research/instruments/BRASS.md",
     "research/instruments/WOODWINDS.md",
     "research/instruments/STRINGS.md",
-    "research/instruments/CHOIR_AND_VOICE.md"
+    "research/instruments/CHOIR_AND_VOICE.md",
+    "research/instruments/DRUM_KIT.md",
+    "research/instruments/PERCUSSION.md",
+    "research/instruments/MALLETS.md",
+    "research/instruments/HAND_PERCUSSION.md"
   ],
   "benchmark": [
     "research/BENCHMARK.md",

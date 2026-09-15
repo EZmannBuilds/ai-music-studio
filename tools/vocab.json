@@ -245,12 +245,9 @@
   },
   "evidence_pending": [
     "BASS.md",
-    "DRUM_KIT.md",
     "GUITAR.md",
     "HARP.md",
-    "MALLETS.md",
     "ORGANS.md",
-    "PERCUSSION.md",
     "PIANO_AND_KEYBOARDS.md",
     "SYNTHS_AND_SAMPLERS.md"
   ],
