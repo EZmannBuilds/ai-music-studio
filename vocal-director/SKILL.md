@@ -215,7 +215,7 @@ The studio does not synthesise a voice; a vocal guide is a guide, and the delive
 |---|---|
 | Composer | requests to change contour, range or phrase length, with the reason |
 | Lyric Generator | which lines carry the hook, where breaths fall, what a stack sings |
-| Performance Director | the voice's `performance_state` entries, written here rather than there |
+| Performance Director | notice that the voice's entries exist and are not its to write; and where instrumental phrasing has to breathe with the vocal |
 | MIDI Builder | the track list with roles, so an instrumental export mutes by role |
 | Producer | what each layer is for, so processing serves the architecture |
 | Mix Engineer | the intended hierarchy, and where it changes by section |

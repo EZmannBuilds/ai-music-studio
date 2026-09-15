@@ -36,7 +36,7 @@ rows:
         silence_used: false
       outro_behavior: "doubled final chorus, fade"
       dynamic_shape: "steady rise to the last chorus"
-      performance_character: "grid-exact"
+      performer_character: "grid-exact"
       unusual_constraint: null
 
   - track_dna:
@@ -71,7 +71,7 @@ rows:
         silence_used: false
       outro_behavior: "doubled final chorus, fade"
       dynamic_shape: "steady rise to the last chorus"
-      performance_character: "grid-exact"
+      performer_character: "grid-exact"
       unusual_constraint: null
 
 diversity_comparison:

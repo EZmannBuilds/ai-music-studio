@@ -116,3 +116,29 @@ it directly, naming the feasibility checks that file supports in
    `CULTURALLY_SPECIFIC_INSTRUMENTS.md`, with `shared/MUSICAL_SYSTEMS/INDEX.md` for the governing
    rules and `shared/FUSION_PROTOCOL.md` for the bridge requirement.
 6. **No product names.** Ever, in this folder.
+
+
+## What this folder does not cover, and the shape of that gap
+
+Thirteen of the family files describe instruments of the Western orchestra, the Western band and the
+studio. One file covers everything else, and it is a research protocol rather than content.
+
+**That is a lopsided shape, and it is worth naming rather than leaving as an implication.**
+`shared/MUSICAL_SYSTEMS/INDEX.md` rule 2 forbids exactly this category ("never 'world', 'ethnic', or
+a continent used as a genre"), and a folder with thirteen files on one tradition's instruments and
+one on the rest is the structural version of that mistake, whatever the individual files say.
+
+The reason is not that the other instruments matter less. It is that writing them properly needs
+sources this work could not reach, and a paragraph written without them would be worse than no
+paragraph. `CULTURALLY_SPECIFIC_INSTRUMENTS.md` is a protocol precisely because a summary written
+from the available material would have been wrong in ways that read as authoritative.
+
+What follows from that:
+
+- **Do not read the coverage as a judgement of importance.** A file's absence here says something
+  about this pack's sources, not about the instrument.
+- **Do not treat the thirteen as the general case and the fourteenth as the exception.** A cello is
+  as culturally specific as an oud. It is just that this folder's sources happen to describe it.
+- **The gap is fillable.** A family file for an instrument the writer actually knows, or can reach
+  primary sources for, belongs here under the same evidence discipline as the rest. That is the fix,
+  and it is better than the alternative of writing them all thinly.

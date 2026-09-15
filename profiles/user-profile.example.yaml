@@ -49,7 +49,8 @@ preferences:
   standing_instructions: []
   default_interaction_mode: ""   # DO IT | DO IT WITH ME | TEACH ME | REVIEW MY WORK |
                                  # GIVE ME OPTIONS | DIAGNOSE ONLY. Empty means DO IT.
-  expertise: ""                  # optional; a starting point, not a verdict
+  expertise: ""                  # beginner | developing | experienced | professional
+                                 # optional; a starting point, not a verdict
   explanation_depth: ""          # minimal | normal | full
   diversity_ledger: on           # off means earlier songs are never consulted
   realism_default: ""            # realistic | stylised | deliberately_mechanical

@@ -77,8 +77,9 @@ preferences:
   standing_instructions: []   # e.g. "no lyric versions until told otherwise"
   default_interaction_mode:   # DO IT | DO IT WITH ME | TEACH ME | REVIEW MY WORK |
                               # GIVE ME OPTIONS | DIAGNOSE ONLY. Default: DO IT
-  expertise:                  # self-declared and optional: beginner | intermediate |
+  expertise:                  # self-declared and optional: beginner | developing |
                               # experienced | professional | unspecified. A starting point only.
+                              # The vocabulary is shared/INTERACTION_MODES.md section 3.
   explanation_depth:          # minimal | normal | full
   diversity_ledger: on        # on | off. Off means earlier songs are never consulted.
   realism_default:            # realistic | stylised | deliberately_mechanical, when the brief
@@ -102,7 +103,7 @@ notes:
 | Project Guide | `paths.project_state`, `preferences.default_interaction_mode` |
 | Creative Lab | `paths.diversity_ledger`, `preferences.diversity_ledger` |
 | Performance Director | `preferences.realism_default`, calibration through `paths.calibration_store` |
-| Vocal Director | nothing user-specific; the singer's range comes from the brief |
+| Vocal Director | `paths.diversity_ledger`, `privacy`. The singer's range comes from the brief, not the profile |
 | every specialist | `privacy`, and `naming` through `shared/FILE_NAMING.md` |
 
 ## Writing back

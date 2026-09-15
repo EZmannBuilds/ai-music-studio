@@ -415,11 +415,14 @@ Where the piece is not in twelve-tone equal temperament (`shared/TUNING_AND_MPE.
 5. record the mechanism and the honest failure sentence in the export.
 
 ```yaml
-tuning:
+tuning_export:                 # the block defined in shared/TUNING_AND_MPE.md section 5
+  tuning_tier: master | scale_file | mpe | per_channel_bend | none
   mechanism:
-  bend_range_declared_semitones:
   scale_file_shipped:
+  bend_range_declared_semitones:
+  channels_used:
   what_happens_if_ignored:     # e.g. "a receiver ignoring the bends plays this in 12-TET"
+  verified_on:                 # what it was checked against, or "not verified"
 ```
 
 **Never silently quantise to twelve-tone equal temperament.** A microtonal piece rendered in equal
@@ -444,7 +447,7 @@ midi_verification:
   controls_written: {}               # track -> the control dynamics were written to
   overlaps_applied: {}
   plan_conflicts: []                 # where the plan and the calibration profile disagreed
-  tuning: {}
+  tuning_export: {}
   expression_tier: midi2_per_note | mpe | midi1_channel
   bend_range_declared: {}
   adaptive_states_exported: []

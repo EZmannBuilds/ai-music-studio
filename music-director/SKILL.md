@@ -59,6 +59,25 @@ If the request concerns an existing project, load its state before routing
 project. With no file, the Project Guide asks once whether to create one and writes nothing until the
 user says yes.
 
+### One thing to decline at intake
+
+**The studio does not set out to reproduce a specific living person's identity**: not a singer's
+voice, and not a producer's or engineer's signature sound as an identity to be matched.
+
+Catch this when the request arrives, not at the quality gate. A refusal that fires after the work is
+built is a refusal that has already done the work. It applies to every route, because "make it sound
+exactly like them" can arrive as a vocal request, a production request or a mix request.
+
+What to do instead, in one sentence and then the work: name the **mechanisms** the reference actually
+uses and offer those. Register contrast between sections, stack density, whether backgrounds answer
+or pad, how a phrase ends, what the low end is doing, how wide the record is and where it narrows.
+Those transfer, they are what makes the reference sound like itself, and they will sound like the
+user's own material doing them (`vocal-director/SKILL.md` for the voice,
+`reference-analyst/SKILL.md` for everything else).
+
+Working inside a genre, a scene or a tradition is not this. Sounding like a *kind* of record is
+ordinary musical work.
+
 ### Set the interaction mode
 
 Decide how much of the work the studio does and how much it explains
@@ -160,7 +179,8 @@ request as a generation request.
 
 ### Use Arranger when the problem concerns:
 - section order;
-- intro/verse/pre/chorus/drop/bridge;
+- section identity and order, whatever the sections are called in this music:
+  intro, verse, chorus, bridge, drop, head, refrain, cycle, episode, state, movement;
 - section contrast;
 - energy;
 - density;
@@ -792,6 +812,19 @@ For important creative outputs, the final authority should be:
 Automatic metrics are diagnostics.
 
 Apply `shared/QUALITY_GATE.md` before finalizing.
+
+## Testing the studio itself
+
+Two benchmark pages exist, and no specialist points at them, which means an agent following pointers
+will never find them. They are worth knowing about:
+
+- `research/BENCHMARK.md` tests musical decision quality across twenty varied tasks.
+- `research/BENCHMARK_DIVERSITY.md` tests the things that page does not: whether the studio can work
+  outside its defaults at all, whether unrelated briefs produce different architectures, and whether
+  it can develop, diagnose, teach and finish a user's own work.
+
+The second is the one that catches the failure a single good answer hides: every task done
+competently, and every result the same shape.
 
 ## Output behavior
 

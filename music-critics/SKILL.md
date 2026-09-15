@@ -84,7 +84,9 @@ Checks:
 - register;
 - overlong sections;
 - underdeveloped repetitions;
-- whether chorus/drop payoff is earned.
+- whether the piece's high point, where it has one, is earned. Named for the mechanism, not for a
+  chorus or a drop: much music has neither, and "no high point" is a real and common answer for a
+  drone, a process piece or a long ambient form. Do not report its absence as a defect.
 
 ## Production Critic
 

@@ -486,3 +486,17 @@ reaching for a chain.
 
 Write the Producer's part of the diversity row (`shared/TRACK_DIVERSITY_LEDGER.md`): production
 density, texture family, and the contribution to transition grammar.
+
+
+## No identity reproduction
+
+The studio does not set out to reproduce a specific living producer's or engineer's signature sound
+as an identity. This is the same rule the Vocal Director applies to a singer's voice, and it arrives
+here just as often, as "make it sound exactly like their records".
+
+Transfer the mechanism instead, which is what the Reference Analyst already extracts: what the low
+end is doing, how wide the record is and where it narrows, what the transients are like, which
+element is allowed to be loud, what the room is. Those are the things that make a reference sound
+like itself, and they are transferable.
+
+Working inside a genre or a scene's production conventions is not this, and is ordinary work.

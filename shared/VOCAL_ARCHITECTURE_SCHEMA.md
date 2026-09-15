@@ -111,7 +111,10 @@ The ledger stores the shape, so that five songs do not quietly share one chorus.
 ```yaml
 track_dna.vocal_architecture:
   lead_register_strategy:      # e.g. verse low and close, chorus high and wide
-  chorus_lift_mechanism:       # doubles, octave above, stack, group, register change, none
+  vocal_lift_mechanism:        # doubles, octave above, stack, group, register change, none
+                               # what the VOICES do at the lift. The song-level
+                               # lift_mechanism in shared/TRACK_DIVERSITY_LEDGER.md
+                               # answers a different question and has its own vocabulary.
   background_density:          # none, sparse, moderate, dense, choral
   answer_strategy:             # call and response, counter-line, none
   ad_lib_density:
@@ -130,7 +133,7 @@ whether it is project identity or habit (`shared/TRACK_DIVERSITY_LEDGER.md`).
 |---|---|
 | Composer | requests to change contour, range or phrase length, with the reason |
 | Lyric Generator | which lines carry the hook, where breaths are, what a stack sings |
-| Performance Director | `performance_state` entries for each vocal part |
+| Performance Director | notice that the voice's `performance_state` entries already exist, so it does not write them; and the non-vocal parts' relationship to the vocal phrasing |
 | MIDI Builder | the track list with roles, so an instrumental export mutes by role |
 | Producer | what the layers are for, so processing serves the architecture |
 | Mix Engineer | the intended hierarchy and where it changes by section |

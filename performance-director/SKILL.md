@@ -66,7 +66,8 @@ stylised                  model a player, then exaggerate chosen aspects on purp
 deliberately_mechanical   exactness is the aesthetic; no imperfections, and say so
 ```
 
-This comes from the brief, and it is asked about rather than assumed. Grid-exact music is a large and
+This comes from the brief. Where the brief is silent, the profile's `preferences.realism_default`
+answers it (`shared/USER_PROFILE_SCHEMA.md`), and where neither says, ask rather than assume. Grid-exact music is a large and
 serious part of recorded music. Treating exactness as a defect to repair is the same error as treating
 looseness as quality.
 
@@ -161,7 +162,8 @@ DAW adapter, the automation curves that MIDI cannot carry.
 
 `shared/HUMAN_PERFORMANCE_SCHEMA.md`, `shared/INSTRUMENT_BEHAVIOR_SCHEMA.md`,
 `shared/VIRTUAL_INSTRUMENT_GUIDE/`, `shared/RHYTHM_SYSTEMS/`, `shared/PLUGIN_CALIBRATION_SCHEMA.md`,
-`shared/TUNING_AND_MPE.md`, `shared/TRACK_DIVERSITY_LEDGER.md`, `shared/INTERACTION_MODES.md`.
+`shared/TUNING_AND_MPE.md`, `shared/TRACK_DIVERSITY_LEDGER.md`, `shared/INTERACTION_MODES.md`,
+`shared/USER_PROFILE_SCHEMA.md` for `preferences.realism_default`.
 
 ## Handoffs
 
@@ -173,7 +175,7 @@ DAW adapter, the automation curves that MIDI cannot carry.
 | Composer | requests, where a part cannot be played as written |
 | Producer | where the sound choice, not the performance, is the problem |
 | Music Critics | the plan, so the Performance Critic can check it against what was rendered |
-| Diversity ledger | `performance_character`, so five songs do not share one player |
+| Diversity ledger | `performer_character`, so five songs do not share one player |
 
 ## Diagnosing "it sounds fake"
 

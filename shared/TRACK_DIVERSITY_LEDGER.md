@@ -84,8 +84,13 @@ track_dna:
   section_lengths:             # e.g. "8/8/16", or "unequal"
   hook_type:                   # vocal, melodic, rhythmic, bass, harmonic, timbral, compound, none
   lead_source:                 # voice, instrument named by family, sample, texture, none
-  chorus_lift_mechanism:       # register, density, width, harmony, rhythm, subtraction,
-                               # vocal stack, none - or "no chorus"
+  lift_mechanism:              # how the piece's high point is reached, where it has one:
+                               # register, density, width, harmony, rhythm, subtraction,
+                               # vocal stack, accumulation, none.
+                               # "no high point" is a real answer and a common one: a drone,
+                               # a process piece and a six-hour installation may have none.
+                               # Named for the mechanism, not for a chorus, because most
+                               # music does not have a chorus.
   arrangement_curve:           # rising, arch, terraced, flat, descending, episodic
   production_density:          # sparse, moderate, dense, maximal
   texture_family:              # acoustic, electronic, hybrid, orchestral, band, processed, noise
@@ -93,7 +98,7 @@ track_dna:
   vocal_architecture:          # from shared/VOCAL_ARCHITECTURE_SCHEMA.md section 3
   outro_behavior:              # hard stop, fade, vamp, collapse, return, new material, unresolved
   dynamic_shape:               # the loudness and energy contour in words
-  performance_character:       # from performance_state.performer_character
+  performer_character:       # from performance_state.performer_character
   unusual_constraint:          # what this song was not allowed to do, if anything
 
   melody_variety_report: {}    # composer/SKILL.md

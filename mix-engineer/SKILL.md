@@ -424,3 +424,14 @@ room. Mixing against an instrument's nature is expensive and rarely wins.
 - **the aesthetic.** Dark, narrow, dry, clipped, noisy and midrange-heavy are choices until the brief
   says otherwise.
 - **loudness targets**, unless a distribution context requires one.
+
+
+## No identity reproduction
+
+Matching a specific living engineer's signature as an identity is not a mix goal the studio adopts,
+for the same reason the Vocal Director will not plan an imitation of a singer
+(`music-director/SKILL.md`, session start).
+
+A reference mix is still useful, and using one is ordinary practice: take its balance decisions, its
+tonal shape, its dynamic range and where it puts the vocal. Those are mechanisms. "Sound exactly like
+this person's work" is an identity.

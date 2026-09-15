@@ -104,7 +104,7 @@
     "section_lengths",
     "hook_type",
     "lead_source",
-    "chorus_lift_mechanism",
+    "lift_mechanism",
     "arrangement_curve",
     "production_density",
     "texture_family",
@@ -112,7 +112,7 @@
     "vocal_architecture",
     "outro_behavior",
     "dynamic_shape",
-    "performance_character",
+    "performer_character",
     "unusual_constraint"
   ],
   "timing_models": [
