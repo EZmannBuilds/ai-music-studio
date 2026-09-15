@@ -92,7 +92,9 @@
     "shared/VIRTUAL_INSTRUMENT_GUIDE/STRINGS.md",
     "shared/VIRTUAL_INSTRUMENT_GUIDE/SYNTHS_AND_SAMPLERS.md",
     "shared/VIRTUAL_INSTRUMENT_GUIDE/WOODWINDS.md",
-    "shared/VIRTUAL_INSTRUMENT_GUIDE/HAND_PERCUSSION.md"
+    "shared/VIRTUAL_INSTRUMENT_GUIDE/HAND_PERCUSSION.md",
+    "shared/VIRTUAL_INSTRUMENT_GUIDE/TANPURA.md",
+    "shared/VIRTUAL_INSTRUMENT_GUIDE/SITAR.md"
   ],
   "research": [
     "research/PERCEPTION_AND_PRODUCTION.md",
@@ -121,7 +123,9 @@
     "research/instruments/SYNTHS_AND_SAMPLERS.md",
     "research/instruments/GUITAR.md",
     "research/instruments/BASS.md",
-    "research/instruments/HARP.md"
+    "research/instruments/HARP.md",
+    "research/instruments/TANPURA.md",
+    "research/instruments/SITAR.md"
   ],
   "benchmark": [
     "research/BENCHMARK.md",
