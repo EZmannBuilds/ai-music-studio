@@ -7,7 +7,7 @@ never released. 2.1 is being built and tested on `main`. A version with a suffix
 ## 2.1-dev — unreleased, in development and testing
 
 2.1 adds no specialists. It makes what 2.0 already claims better sourced, more specific and
-testable. Entries are added as each part lands.
+testable, and it was built and tested on `main` without a release.
 
 ### Versioning
 
@@ -87,6 +87,80 @@ testable. Entries are added as each part lands.
 - `tools/eval_selftest.py`, in CI: every case validates, and hand-written passing and failing
   responses prove each grader catches what it claims to, without calling a model.
 - `research/EVALUATION.md` records the evidence for the harness's design and where it stops.
+
+### The instrument guide, researched
+
+- **All fourteen family pages were researched and rewritten** against sources that were actually
+  read: public-domain orchestration texts (Rimsky-Korsakov, Forsyth), the UNSW music acoustics pages,
+  peer-reviewed acoustics and performance papers, pedagogy from named teachers and professional
+  societies, and one strings library manual, re-opened for 2.1. Each page opens with a behaviour card
+  per instrument, every field present, and each claim's evidence and limits are in
+  `research/instruments/`. 169 sources are in the register, most read at section depth; the standard
+  texts that could not be opened are listed as not read and cited only as `standard-reference`.
+- **Factual errors in 2.0 corrected**, each with its source: the harpist's thumb takes the highest
+  note of a hand's group, not the lowest; xylophone and glockenspiel ranges were sounding ranges
+  labelled as written; the oboist's breath problem is stale air, not shortage; the clavinet is struck,
+  not plucked; electric pianos are pedalled much like a piano; every snare roll alternates hands; the
+  female primo passaggio sits low; sibilants, not plosives, need the longest consonant lead; no bowed
+  chord sustains three strings; stopped-horn pitch differs between the F and B-flat sides; E- and
+  A-shape barre chords are movable full voicings; a ghost note is usually a low velocity layer.
+- **Coverage added**: saxophones and the woodwind and brass auxiliaries, with written and sounding
+  ranges; harpsichord, celesta, accordion and harmonium; solo voice registers and ranges; string
+  techniques; drum rudiments and brushes; tubular bells and crotales; a hand-percussion frame page.
+- **The three layers are kept apart.** The 40-to-70 ghost-note velocity band and other product facts
+  left the guide; human limits (breath, roll speed, reach) are no longer deferred to calibration,
+  which measures a patch, not a player. The Plugin Auditor now starts from the instrument's page.
+- **Random variation is gone from the advice.** Common error 1 told the reader to vary velocity a few
+  points per repetition; it, the bass page and the synth page now name the cause of each difference.
+- Sample-library behaviour that no opened manual states is labelled `inference`, not `manual-derived`;
+  about seventy such labels were downgraded during integration.
+
+### Instruments of named traditions
+
+- **Twelve pages for instruments of eight traditions**, on the same footing as the families, each
+  through a source gate (two independent specialist sources read at section depth, one of them
+  practice) and each with what virtual implementations get wrong, what must not be generalised
+  outside the tradition, and the repertoire the studio declines: tanpura, sitar, tabla, mridangam
+  (Hindustani and Carnatic, kept distinct); oud, qanun, nay (Arabic maqam); Ewe dance drums; jembe
+  and dunun (Mande); Cuban hand percussion; Hardanger fiddle; Highland bagpipe.
+- **The bansuri did not pass the gate** and has no page: its practitioner sources could not be read.
+  The guide's index keeps a coverage record of what was attempted, and
+  `research/sources/WAVE2_SOURCE_SURVEY.md` records the sources for seventeen more instruments.
+- **`WEST_AFRICAN_POLYRHYTHM` is split** into `EWE_DANCE_DRUMMING` and `MANDE_JEMBE_MUSIC`; the old
+  file is a pointer, so existing links resolve. Ewe response drums do answer the lead drum, which 2.0
+  denied.
+- **`CULTURALLY_SPECIFIC_INSTRUMENTS.md` is rewritten** as the protocol for an instrument with no page
+  and the gate for writing one. It no longer presumes such an instrument is monophonic with a drone,
+  no longer says a cello is a cello wherever it is played, and declines sacred and restricted
+  repertoire rather than handing it to the user as a question.
+- `performance_state` gains an optional `performance_reference` (whose practice a plan follows), and
+  `TUNING_AND_MPE` gains what the real instrument allows (fixed, fretted, movable-fret,
+  mechanism-retuned, continuous) with an optional phrase-shaped `intonation` record.
+
+### Musical and rhythm systems, corrected
+
+- Werckmeister III had five narrowed fifths, which cannot close the circle; it has four.
+- The Malian "60:40" was printed as fact in four files while its source was marked unreachable. The
+  paper, read for 2.1, gives 58.6:41.4 for one Khasonka piece's bell and 41:31:28 for a Segu Bambara
+  piece, and does not report ensembles dropping their fastest layer, which 2.0 attributed to it; that
+  claim is now marked unverified.
+- One corpus is no longer promoted to a law: Hindustani terms are no longer presented as tala in
+  general, Balinese paired detuning no longer as gamelan in general, and "marker parts are never
+  humanised" allows a timeline its own documented feel. Brazilian and Haitian timeline practices are
+  named as unsourced. Maqam gains its sacred caution. The Euclidean correspondences are "reported",
+  not "confirmed".
+- Incomplete citations are completed, or marked to verify; the bagpipe's pitch is dated.
+- `research/PERFORMANCE_AND_EXPRESSION.md` promised that each claim said what it rested on, and most
+  did not; its entries are now read as `standard-reference` unless marked.
+
+### What the first live run found
+
+A smoke run of three cases against a command-line agent (`evals/reports/SMOKE_RUN_2026-09-15.md`)
+passed D16 and N1-C and **failed D18**: asked only for help with an unfinished song, the studio chose
+`DO IT` and rewrote the user's verse. The pack caused it, and is fixed: the user's own unfinished
+work now defaults to review and options (`shared/INTERACTION_MODES.md`), and FINISH no longer means
+writing the rest. D18 passed when rerun. Two over-narrow D18 assertions were corrected after reading
+the replies, and the record says so.
 
 ## 2.0 — 2026-09-14 — development milestone, never released
 
