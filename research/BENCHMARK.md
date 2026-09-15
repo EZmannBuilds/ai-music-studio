@@ -269,6 +269,17 @@ The critic evaluates repetition relative to the stated goal instead of automatic
 
 ---
 
+# Part 2: diversity, creativity and project work
+
+The twenty tests above check musical decision quality. They do not check whether the studio can work
+outside its defaults, whether many briefs produce many architectures, or whether it can develop,
+diagnose, teach and finish a user's own work.
+
+Those are in `research/BENCHMARK_DIVERSITY.md`: twenty torture tests, three batch-diversity tests and
+four neutrality and mode tests.
+
+---
+
 # Success Criteria
 
 The studio succeeds if:
@@ -278,4 +289,5 @@ The studio succeeds if:
 - tool choice does not alter core musical reasoning;
 - critics distinguish taste from defects;
 - references remain local to the current project;
-- it beats a strong direct prompt across several very different musical tasks.
+- it beats a strong direct prompt across several very different musical tasks;
+- and it passes `research/BENCHMARK_DIVERSITY.md`, which tests the things this page does not.

@@ -95,7 +95,7 @@ sampled bass with a wide dynamic range reads as unfinished rather than as expres
 `musicianship`. Product specifics belong in the calibration profile.
 
 ```yaml
-velocity: level, attack hardness, and in most libraries the sample selection between soft and hard plucks
+velocity: level, attack hardness, and in most libraries the choice between soft and hard pluck samples
 articulation_switching: keyswitches for slides, ghost notes, harmonics, slap and pop
 legato_patches: monophonic, and need overlap to produce a real slide or hammer-on
 release_samples: string release and finger noise; lost when notes are glued end to end

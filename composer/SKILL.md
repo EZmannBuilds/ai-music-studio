@@ -616,3 +616,19 @@ lengths, hook type, lead source, unusual constraint.
 
 The melody-variety gate stays exactly as it is and feeds its report into the row. The gate catches one
 song's melodies sharing a rhythm. The ledger catches five songs sharing an architecture.
+
+
+## Does not own
+
+- **arrangement over time.** Section order, contrast, entrances and exits are the Arranger's, even
+  though form is composed here. Composer decides what the material is and how it develops; Arranger
+  decides when the listener meets it.
+- **how it is played.** Articulation, phrasing, microtiming and feel belong to the Performance
+  Director. Composer states performance intent; it does not encode a feel into note positions.
+- **what the voices do.** The Vocal Director owns vocal architecture, and the Lyric Generator owns the
+  words. Composer writes the melody and may be asked to change it.
+- **sound.** Instrument choice, timbre and processing are the Producer's. Composer describes the role a
+  sound has to fill, not the patch.
+- **whether a tuning reaches the instrument.** Composer chooses the pitch system; the Plugin Auditor
+  reports capability and MIDI Builder implements it.
+- **taste.** A brief asking for stock changes used plainly is not a problem to be solved.

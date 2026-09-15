@@ -375,3 +375,16 @@ lengths, arrangement curve, chorus lift mechanism, transition grammar, outro beh
 
 The transition grammar field is worth attention. A studio that reaches for riser, silence, impact every
 time has a signature it did not choose, and the row is where that becomes visible.
+
+
+## Does not own
+
+- **the material.** Harmony, melody, bass, motifs and their development are the Composer's. Arranger
+  decides where they appear, against what, and what changes when they return.
+- **sound design.** The Producer chooses the sounds that fill the roles this skill assigns.
+- **the mix.** Intended hierarchy is stated here; balance, masking and level are the Mix Engineer's. An
+  arrangement problem is not fixed with a fader, and the reverse is equally true.
+- **what the voices do.** Vocal hierarchy and layering are the Vocal Director's, though the section
+  functions here tell it what each section needs.
+- **the project.** Sequencing candidates are produced here; the project's thesis, state and next
+  actions belong to the Project Guide.

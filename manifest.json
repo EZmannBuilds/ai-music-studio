@@ -1,12 +1,16 @@
 {
   "name": "AI Music Studio",
-  "version": "1.0",
+  "version": "2.0",
   "license": "MIT",
   "entry_skill": "music-director/SKILL.md",
   "skills": [
     "music-director/SKILL.md",
+    "project-guide/SKILL.md",
+    "creative-lab/SKILL.md",
     "composer/SKILL.md",
     "arranger/SKILL.md",
+    "vocal-director/SKILL.md",
+    "performance-director/SKILL.md",
     "producer/SKILL.md",
     "lyric-generator/SKILL.md",
     "mix-engineer/SKILL.md",
@@ -19,13 +23,25 @@
   ],
   "shared": [
     "shared/TRACK_STATE_SCHEMA.md",
+    "shared/PROJECT_STATE_SCHEMA.md",
     "shared/SPECIALIST_HANDOFF_SCHEMA.md",
     "shared/QUALITY_GATE.md",
+    "shared/INTERACTION_MODES.md",
+    "shared/CREATIVE_EXPLORATION_SCHEMA.md",
+    "shared/TRACK_DIVERSITY_LEDGER.md",
+    "shared/HUMAN_PERFORMANCE_SCHEMA.md",
+    "shared/VOCAL_ARCHITECTURE_SCHEMA.md",
+    "shared/INSTRUMENT_BEHAVIOR_SCHEMA.md",
     "shared/LISTENER_STATE_SCHEMA.md",
     "shared/MUSICAL_MEMORY_SCHEMA.md",
     "shared/RESEARCH_RULES.md",
     "shared/GENERALIZATION_RULES.md",
     "shared/REFERENCE_TRANSLATION_SCHEMA.md",
+    "shared/FUSION_PROTOCOL.md",
+    "shared/SEED_TRANSLATION.md",
+    "shared/EXPERIMENTAL_SYSTEMS.md",
+    "shared/ADAPTIVE_MUSIC.md",
+    "shared/TUNING_AND_MPE.md",
     "shared/MIDI_EXPORT_SCHEMA.md",
     "shared/MIX_FEEDBACK_PROTOCOL.md",
     "shared/DAW_ADAPTER_CONTRACT.md",
@@ -34,17 +50,63 @@
     "shared/RENDER_VERIFICATION.md",
     "shared/FILE_NAMING.md",
     "shared/USER_PROFILE_SCHEMA.md",
-    "shared/FREE_INSTRUMENTS.md"
+    "shared/FREE_INSTRUMENTS.md",
+    "shared/MUSICAL_SYSTEMS/ADDITIVE_METERS_BALKAN_TURKISH.md",
+    "shared/MUSICAL_SYSTEMS/BLUES_SYSTEM.md",
+    "shared/MUSICAL_SYSTEMS/CLAVE_AND_TIMELINES.md",
+    "shared/MUSICAL_SYSTEMS/CONTEMPORARY_MICROTONALITY.md",
+    "shared/MUSICAL_SYSTEMS/DRONE_TRADITIONS.md",
+    "shared/MUSICAL_SYSTEMS/EDO_SYSTEMS.md",
+    "shared/MUSICAL_SYSTEMS/GAMELAN.md",
+    "shared/MUSICAL_SYSTEMS/HISTORICAL_TEMPERAMENTS.md",
+    "shared/MUSICAL_SYSTEMS/INDEX.md",
+    "shared/MUSICAL_SYSTEMS/JUST_INTONATION.md",
+    "shared/MUSICAL_SYSTEMS/MAQAM.md",
+    "shared/MUSICAL_SYSTEMS/MODAL_FOLK_SYSTEMS.md",
+    "shared/MUSICAL_SYSTEMS/RAGA_AND_TALA.md",
+    "shared/MUSICAL_SYSTEMS/WEST_AFRICAN_POLYRHYTHM.md",
+    "shared/RHYTHM_SYSTEMS/ADDITIVE_AND_NONISOCHRONOUS_METER.md",
+    "shared/RHYTHM_SYSTEMS/CYCLES_AND_TIMELINES.md",
+    "shared/RHYTHM_SYSTEMS/DISPLACEMENT_AND_METRIC_DISSONANCE.md",
+    "shared/RHYTHM_SYSTEMS/EUCLIDEAN_AND_GENERATED_RHYTHM.md",
+    "shared/RHYTHM_SYSTEMS/INDEX.md",
+    "shared/RHYTHM_SYSTEMS/METER_AND_PULSE.md",
+    "shared/RHYTHM_SYSTEMS/METRIC_MODULATION_AND_TEMPO_MORPHING.md",
+    "shared/RHYTHM_SYSTEMS/MICROTIMING_AND_GROOVE.md",
+    "shared/RHYTHM_SYSTEMS/POLYMETER_POLYRHYTHM_CROSSRHYTHM.md",
+    "shared/VIRTUAL_INSTRUMENT_GUIDE/BASS.md",
+    "shared/VIRTUAL_INSTRUMENT_GUIDE/BRASS.md",
+    "shared/VIRTUAL_INSTRUMENT_GUIDE/CHOIR_AND_VOICE.md",
+    "shared/VIRTUAL_INSTRUMENT_GUIDE/COMMON_ERRORS.md",
+    "shared/VIRTUAL_INSTRUMENT_GUIDE/CULTURALLY_SPECIFIC_INSTRUMENTS.md",
+    "shared/VIRTUAL_INSTRUMENT_GUIDE/DRUM_KIT.md",
+    "shared/VIRTUAL_INSTRUMENT_GUIDE/GUITAR.md",
+    "shared/VIRTUAL_INSTRUMENT_GUIDE/HARP.md",
+    "shared/VIRTUAL_INSTRUMENT_GUIDE/INDEX.md",
+    "shared/VIRTUAL_INSTRUMENT_GUIDE/MALLETS.md",
+    "shared/VIRTUAL_INSTRUMENT_GUIDE/ORGANS.md",
+    "shared/VIRTUAL_INSTRUMENT_GUIDE/PERCUSSION.md",
+    "shared/VIRTUAL_INSTRUMENT_GUIDE/PIANO_AND_KEYBOARDS.md",
+    "shared/VIRTUAL_INSTRUMENT_GUIDE/STRINGS.md",
+    "shared/VIRTUAL_INSTRUMENT_GUIDE/SYNTHS_AND_SAMPLERS.md",
+    "shared/VIRTUAL_INSTRUMENT_GUIDE/WOODWINDS.md"
   ],
   "research": [
     "research/PERCEPTION_AND_PRODUCTION.md",
+    "research/CREATIVITY_AND_PEDAGOGY.md",
+    "research/PERFORMANCE_AND_EXPRESSION.md",
+    "research/MUSICAL_SYSTEMS_AND_TUNING.md",
+    "research/RHYTHM.md",
+    "research/INSTRUMENT_BEHAVIOR.md",
+    "research/ADAPTIVE_AND_EXPERIMENTAL.md",
     "research/GENERALIZATION.md",
     "research/REFERENCES_AND_MIDI.md",
     "research/DAW_AGENT_INTEGRATION.md",
     "research/LYRICS_AND_PROSODY.md"
   ],
   "benchmark": [
-    "research/BENCHMARK.md"
+    "research/BENCHMARK.md",
+    "research/BENCHMARK_DIVERSITY.md"
   ],
   "adapters": [
     "daw-adapters/ABLETON_LIVE.md",
@@ -55,21 +117,32 @@
   "examples": [
     "examples/Lyric_Alignment_Example.mid",
     "examples/Lyric_Alignment_Example.json",
-    "examples/Lyric_Alignment_Example.txt"
+    "examples/Lyric_Alignment_Example.txt",
+    "examples/Performance_Plan_Example.yaml",
+    "examples/Track_DNA_Example.yaml",
+    "examples/Project_State_Example.yaml"
   ],
   "profiles": [
     "profiles/README.md",
     "profiles/user-profile.example.yaml"
   ],
   "tools": [
-    "tools/privacy_check.py"
+    "tools/check_all.py",
+    "tools/manifest_check.py",
+    "tools/link_check.py",
+    "tools/skill_lint.py",
+    "tools/schema_check.py",
+    "tools/routing_check.py",
+    "tools/privacy_check.py",
+    "tools/vocab.json"
   ],
   "meta": [
     "README.md",
     "CHANGELOG.md",
     "LICENSE",
     "manifest.json",
-    ".gitignore"
+    ".gitignore",
+    ".github/workflows/validate.yml"
   ],
-  "user_specific_content": "none; it lives in the user profile (shared/USER_PROFILE_SCHEMA.md)"
+  "user_specific_content": "none; it lives in the user profile (shared/USER_PROFILE_SCHEMA.md), and tools/check_all.py enforces it"
 }

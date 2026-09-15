@@ -1,33 +1,57 @@
 # AI Music Studio
 
-Agent skills for writing, arranging, producing, mixing and checking music: one Music Director
-that routes each problem to the right specialist, and eleven specialists behind it. Works with or
-without a DAW, for any genre, any user.
+Agent skills for making music, and for developing the music you have already started: one Music
+Director that routes each problem to the right specialist, and fifteen specialists behind it. Works
+with or without a DAW, for any genre, any user.
+
+Version 2.0. MIT licensed.
+
+## Create, continue, learn, finish
+
+The studio is not only a generator. Four kinds of request, all first class:
+
+**CREATE.** "Write a chorus that lifts." "Give me three directions for this idea, without rewriting
+what I have." "Turn this painting into a piece." The Creative Lab produces directions that differ by
+*mechanism* rather than by adjective, and the composition chain builds the one you choose.
+
+**CONTINUE.** "What was I doing?" "What should I work on next?" "Look at everything I have and tell me
+what this project is becoming." The Project Guide keeps the project's thesis, its unresolved
+decisions and its state, and tells you what is actually missing. Often that is not another song.
+
+**LEARN.** "Teach me why this arrangement is weak." "Why does that chorus work?" The studio explains
+on your material, demonstrates the alternative on a copy, and leaves you to do the work. Diagnosis
+requests return causes and stop rather than quietly rewriting your song.
+
+**FINISH.** "Help me finish this EP." "Is this done?" You agree what done means, and the studio
+reports the state against it. It never declares your project finished for you.
 
 ## What is in it
 
-One user-facing orchestrator, `music-director`, and eleven specialists:
+One user-facing orchestrator, `music-director`, and fifteen specialists:
 
 | Skill | Handles |
 | --- | --- |
-| `composer` | chords, melody, bass, rhythm, motifs, form, and a melody-variety gate |
-| `arranger` | section order, contrast, energy, transitions, orchestration |
+| `project-guide` | the project over time: thesis, state, gaps, next actions, finishing |
+| `creative-lab` | directions that differ by mechanism; seeds, fusion, experimental systems |
+| `composer` | chords, melody, bass, rhythm, motifs, form, pitch and rhythm systems |
+| `arranger` | section order, contrast, energy, transitions, orchestration, adaptive form |
+| `vocal-director` | what the voices do: hierarchy, stacks, ad-libs, flow, breath, silence |
+| `performance-director` | how it is played: articulation, phrasing, feel, feasibility |
 | `producer` | sound choice, synthesis, layering, effects, automation, sample packs |
 | `lyric-generator` | lyrics fitted to a melody: syllables, stress, rhyme, cross-song uniqueness |
 | `mix-engineer` | balance, masking, dynamics, stereo, loudness, per-track evidence |
-| `reference-analyst` | what a reference song or analyzer report shows, and what transfers |
-| `music-critics` | originality, theory, groove and preference-neutral critique |
-| `listener-model` | expectation, surprise, memorability, groove, attention |
-| `midi-builder` | validated multitrack MIDI, lyric events, instrument-safe building |
-| `plugin-auditor` | what instruments are installed, what they can play, how an agent can drive them, and an optional calibration pass |
-| `music-research` | basic or deep research on an artist's creative system, saved as a reusable pack |
+| `reference-analyst` | what a reference or analyzer report shows, and what transfers |
+| `music-critics` | originality, theory, groove, performance, diversity, preference-neutral critique |
+| `listener-model` | expectation, surprise, memorability, groove, attention, a listener panel |
+| `midi-builder` | validated multitrack MIDI that executes a performance plan |
+| `plugin-auditor` | what is installed, what it can play and tune, and an optional calibration pass |
+| `music-research` | basic or deep research on an artist's creative system, saved as a pack |
 
-Shared protocols and schemas live in `shared/`, DAW adapters in `daw-adapters/`, the research
-behind the skills in `research/`, a lyric-alignment example in `examples/`, and a release
-check in `tools/`.
+Shared protocols, schemas and knowledge live in `shared/`, DAW adapters in `daw-adapters/`, the
+research behind the skills in `research/`, examples in `examples/`, and release checks in `tools/`.
 
-You speak to the Music Director as if it were one skill. It decides which specialists are needed
-and keeps them from solving the wrong kind of problem.
+You speak to the Music Director as if it were one skill. It decides which specialists are needed and
+keeps them from solving the wrong kind of problem.
 
 ## Quick start
 
@@ -43,8 +67,9 @@ and keeps them from solving the wrong kind of problem.
    relative to <path>. My profile is <path>/profiles/local/<you>.yaml.
    ```
 
-4. **Ask for music.** "Write a chorus that lifts", "why does my mix sound small?", "build a
-   24-track MIDI for this idea", "export an instrumental and check every note".
+4. **Ask for music, or for help with the music you have.** "Write a chorus that lifts", "why does my
+   mix sound small?", "give me three directions for this", "what should I work on next?", "help me
+   finish this EP".
 
 Nothing is required beyond an agent that can read files. A DAW connection, Python 3 (for the
 tools) and an audio analyzer each unlock more.
@@ -58,46 +83,91 @@ Do not treat music creation as:
 Use:
 
 `artistic intent -> reference/constraint analysis -> divergent musical search -> composition ->
-arrangement -> production -> render/analysis -> criticism -> revision`
+arrangement -> vocal architecture -> production -> performance planning -> render/analysis ->
+criticism -> revision`
 
 The studio keeps apart:
 
 - composition problems from arrangement problems;
 - arrangement problems from mix problems;
+- notes from performances;
+- what the voices sing from what the voices do;
 - theory explanation from theory policing;
 - originality from randomness;
 - reference analysis from imitation;
-- production intent from measurable rendered results.
+- production intent from measurable rendered results;
+- this task from this project.
 
-For rendered work it audits the instruments first, exports every track as well as the mix,
-checks every note against the MIDI (`shared/RENDER_VERIFICATION.md`), and does not call anything
-final while a note is silent or a part is buried.
+For rendered work it audits the instruments first, exports every track as well as the mix, checks
+every note against the MIDI (`shared/RENDER_VERIFICATION.md`), and does not call anything final while
+a note is silent or a part is buried.
 
 ## Routing
 
 | User request | Route |
 |---|---|
-| chord progression, melody, bassline, rhythm, motif | Composer |
-| weak chorus, section flow, transitions, instrumentation | Arranger |
+| directions, options, "something different", a seed, a fusion | Creative Lab |
+| what should I do next, why am I stuck, what is this becoming, help me finish | Project Guide |
+| chord progression, melody, bassline, rhythm, motif, pitch system | Composer |
+| weak chorus, section flow, transitions, instrumentation, game-music states | Arranger |
+| backgrounds, stacks, ad-libs, rap flow, choir, what the voices do | Vocal Director |
+| it sounds fake, it sounds stiff, articulation, feel, is this playable | Performance Director |
 | synth patch, texture, layering, creative effects, automation | Producer |
 | mud, harshness, masking, stereo, loudness, balance | Mix Engineer |
-| analyze a song, a reference or a WavRead report | Reference Analyst |
+| analyze a song, a reference or an analyzer report | Reference Analyst |
 | "is this generic?", theory check, groove check, critique | Music Critics |
-| which instruments and plugins are available, what they can play, calibration | Plugin Auditor |
+| which instruments are available, what they can play and tune, calibration | Plugin Auditor |
 | research an artist, build or extend an artist research pack | Music Research |
-| notes that do not play, parts too quiet, checking each track after an export | Render Verification protocol |
+| notes that do not play, parts too quiet, checking each track after an export | Render Verification |
 | substantial track work | Music Director coordinates several |
 
 Specialists pass structured handoffs rather than repeating the whole conversation
 (`shared/TRACK_STATE_SCHEMA.md`, `shared/SPECIALIST_HANDOFF_SCHEMA.md`).
 
+## Shared systems
+
+Reusable protocols and knowledge that several specialists need. A specialist owns a **kind of
+decision**; a shared system is a **representation or a body of knowledge**.
+
+| Area | Files |
+|---|---|
+| state | `TRACK_STATE_SCHEMA`, `PROJECT_STATE_SCHEMA`, `MUSICAL_MEMORY_SCHEMA`, `SPECIALIST_HANDOFF_SCHEMA` |
+| creativity | `CREATIVE_EXPLORATION_SCHEMA`, `SEED_TRANSLATION`, `FUSION_PROTOCOL`, `EXPERIMENTAL_SYSTEMS` |
+| diversity | `TRACK_DIVERSITY_LEDGER` |
+| performance | `HUMAN_PERFORMANCE_SCHEMA`, `VOCAL_ARCHITECTURE_SCHEMA`, `INSTRUMENT_BEHAVIOR_SCHEMA`, `VIRTUAL_INSTRUMENT_GUIDE/` |
+| musical knowledge | `MUSICAL_SYSTEMS/`, `RHYTHM_SYSTEMS/`, `TUNING_AND_MPE` |
+| interactive music | `ADAPTIVE_MUSIC` |
+| working with the user | `INTERACTION_MODES` |
+| quality and evidence | `QUALITY_GATE`, `RESEARCH_RULES`, `GENERALIZATION_RULES`, `RENDER_VERIFICATION` |
+| artifacts and tools | `MIDI_EXPORT_SCHEMA`, `LYRIC_ALIGNMENT_SCHEMA`, `PLUGIN_CALIBRATION_SCHEMA`, `DAW_ADAPTER_CONTRACT`, `FILE_NAMING`, `FREE_INSTRUMENTS` |
+
+## Three rules worth knowing before you use it
+
+**Organic performance is not random humanization.** Studies that shifted timing systematically found
+groove and naturalness went *down* against an exact grid, and where looseness is preferred it has
+long-range structure rather than being noise. So the studio models phrase arcs, metrical accent,
+tempo-dependent swing and ensemble spread, each with a magnitude you can read and argue with. There is
+no randomness control (`shared/HUMAN_PERFORMANCE_SCHEMA.md`).
+
+**A tradition is not a scale.** Sources inside maqam, raga, gamelan, blues and modal folk practice all
+say the same thing in different words: the operative units are cells, behaviours, cycles and pitch
+areas, not pitch sets. The studio teaches the logic and names what must not be universalised, and it
+will not use a tradition as a colour over an otherwise unchanged piece
+(`shared/MUSICAL_SYSTEMS/INDEX.md`).
+
+**Diversity is asked about, not enforced.** When several of your recent tracks share a shape, the
+studio tells you which dimensions and asks whether that is your project's identity, a genre
+convention, a deliberate callback, or a default nobody chose. Only the last one gets acted on
+(`shared/TRACK_DIVERSITY_LEDGER.md`).
+
 ## Your profile: what is yours stays out of the skills
 
-The skills are the same for every user. Paths, DAWs, installed plugins and library editions,
-sample folders, artist research packs, the analyzer, default deliverables, output layout, naming
-overrides and private terms all live in a **user profile**, kept outside the skill files:
+The skills are the same for every user. Paths, DAWs, installed plugins and library editions, sample
+folders, artist research packs, the analyzer, default deliverables, output layout, naming overrides,
+interaction preferences and private terms all live in a **user profile**, kept outside the skill
+files:
 
-- schema and which specialist reads what: `shared/USER_PROFILE_SCHEMA.md`;
+- schema and which specialist reads what: `shared/USER_PROFILE_SCHEMA.md` (version 1.1);
 - template: `profiles/user-profile.example.yaml`;
 - findings from your own sessions go to your installation notes, never into a skill file.
 
@@ -127,9 +197,22 @@ Every artifact the studio writes follows `shared/FILE_NAMING.md`. That covers so
 MIDI, lyrics, sessions, mixes, stems, finals, analyses, verification reports and calibration
 profiles. The user's profile can override it.
 
+## Checks
+
+```bash
+python3 tools/check_all.py --profile profiles/local/<you>.yaml
+```
+
+Runs six checks and exits non-zero if any finds something: every manifest path exists, every named
+path resolves, every skill is shaped like a skill and stays tool-neutral, every schema block parses
+and the shared vocabularies agree, the Director's routing matches the folder, and no user-specific
+content has leaked into the skills. A GitHub Action runs them on push.
+
+The standard library is enough. PyYAML adds one extra check.
+
 ## Before publishing a fork
 
-1. `python3 tools/privacy_check.py --profile <your profile>` must report 0 findings.
+1. `python3 tools/check_all.py --profile <your profile>` must report all checks passed.
 2. `profiles/local/` must not exist in the published copy, or must be ignored.
 3. Keep `LICENSE` with the folder.
 4. Update `CHANGELOG.md` and the version in `manifest.json`.

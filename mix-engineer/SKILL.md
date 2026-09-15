@@ -412,3 +412,15 @@ For an acoustic or sampled instrument behaving unexpectedly, the family file in
 `shared/VIRTUAL_INSTRUMENT_GUIDE/` often explains it before any processing is needed: a register that
 is weak on the real instrument, a section patch that is wide by design, a library recorded with its
 room. Mixing against an instrument's nature is expensive and rarely wins.
+
+
+## Does not own
+
+- **the song.** Composition, arrangement and production problems go back upstream. A mix that
+  redesigns the record has stopped being a mix.
+- **the performance.** Dynamics written into a performance plan are intent, not a fault to flatten.
+- **the vocal architecture.** What each vocal layer is for is the Vocal Director's; this skill
+  realises that hierarchy rather than inventing one.
+- **the aesthetic.** Dark, narrow, dry, clipped, noisy and midrange-heavy are choices until the brief
+  says otherwise.
+- **loudness targets**, unless a distribution context requires one.

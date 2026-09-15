@@ -54,7 +54,7 @@ Other articulations:
 
 ```text
 mallet hardness   soft yarn, medium, hard rubber, brass; a separate sample set, not an EQ
-dead stroke       the mallet held against the bar after striking; a dry, pitched thud, vibraphone especially
+dead stroke       the mallet held against the bar after striking; a dry pitched thud, vibraphone above all
 hand dampening    a finger pressed on a ringing bar to stop it, while the mallets continue elsewhere
 ```
 

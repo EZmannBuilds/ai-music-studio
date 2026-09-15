@@ -1,0 +1,116 @@
+# Two ledger rows and the comparison between them.
+# Schema: shared/TRACK_DIVERSITY_LEDGER.md
+# The point of this example is the classification step: a shared dimension is a question, not a
+# defect, and the answer is recorded so it is not asked again.
+
+rows:
+  - track_dna:
+      song: "Track A"
+      project: "example-ep"
+      written: "2026-09-10 14:20"
+      tempo_family: "mid 90-110"
+      meter: "4/4"
+      pitch_system: "12-TET, aeolian"
+      tonal_center_strategy: fixed
+      harmonic_mechanism: "modal vamp"
+      harmonic_rhythm: "one chord per bar"
+      bass_role: "sub anchor"
+      groove_family: straight
+      subdivision: "16ths"
+      form: "verse/pre/chorus"
+      section_lengths: "8/4/8"
+      hook_type: vocal
+      lead_source: voice
+      chorus_lift_mechanism: width
+      arrangement_curve: rising
+      production_density: dense
+      texture_family: electronic
+      transition_grammar: [riser, silence, impact]
+      vocal_architecture:
+        lead_register_strategy: "verse low and close, chorus high and wide"
+        chorus_lift_mechanism: "octave double plus 3-part stack"
+        background_density: dense
+        answer_strategy: none
+        ad_lib_density: moderate
+        texture_signature: [doubles, stack]
+        silence_used: false
+      outro_behavior: "doubled final chorus, fade"
+      dynamic_shape: "steady rise to the last chorus"
+      performance_character: "grid-exact"
+      unusual_constraint: null
+
+  - track_dna:
+      song: "Track B"
+      project: "example-ep"
+      written: "2026-09-12 11:05"
+      tempo_family: "mid 90-110"
+      meter: "4/4"
+      pitch_system: "12-TET, aeolian"
+      tonal_center_strategy: fixed
+      harmonic_mechanism: "modal vamp"
+      harmonic_rhythm: "one chord per bar"
+      bass_role: "sub anchor"
+      groove_family: straight
+      subdivision: "16ths"
+      form: "verse/pre/chorus"
+      section_lengths: "8/4/8"
+      hook_type: vocal
+      lead_source: voice
+      chorus_lift_mechanism: width
+      arrangement_curve: rising
+      production_density: dense
+      texture_family: electronic
+      transition_grammar: [riser, silence, impact]
+      vocal_architecture:
+        lead_register_strategy: "verse low and close, chorus high and wide"
+        chorus_lift_mechanism: "octave double plus 3-part stack"
+        background_density: dense
+        answer_strategy: none
+        ad_lib_density: moderate
+        texture_signature: [doubles, stack]
+        silence_used: false
+      outro_behavior: "doubled final chorus, fade"
+      dynamic_shape: "steady rise to the last chorus"
+      performance_character: "grid-exact"
+      unusual_constraint: null
+
+diversity_comparison:
+  rows_compared: ["Track A", "Track B"]
+  shared_dimensions:
+    - tempo_family
+    - meter
+    - harmonic_mechanism
+    - bass_role
+    - form
+    - section_lengths
+    - chorus_lift_mechanism
+    - transition_grammar
+    - vocal_architecture
+    - outro_behavior
+  distinct_dimensions: []
+  classification:
+    bass_role: convention
+    subdivision: convention
+    transition_grammar: accidental
+    chorus_lift_mechanism: accidental
+    form: motif
+    vocal_architecture: accidental
+  unclassified: []
+  question_for_user: >
+    Both tracks so far are mid-tempo 4/4, verse/pre/chorus, sub-bass anchored, with the chorus
+    lifted by width and a doubled final chorus that fades, and the same vocal stack in both.
+    Is that this EP's identity, or is it the shape everything is coming out in?
+  status: ask
+
+# What the answer produced, recorded so the question is not asked again:
+user_answer: >
+  The form and the sub-bass are the record. The riser-silence-impact and the identical chorus
+  stack are not deliberate.
+
+action_taken:
+  recorded_as_project_motif: [form, bass_role]
+  routed_to_creative_lab:
+    stale_dimensions: [transition_grammar, chorus_lift_mechanism, vocal_architecture]
+    note: >
+      The Lab is told which dimensions are stale, so its candidates for Track C break those
+      specifically rather than differing at random.

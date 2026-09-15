@@ -1,0 +1,121 @@
+# An example performance_state, for one part.
+# Schema: shared/HUMAN_PERFORMANCE_SCHEMA.md
+# The point of this example is that every deviation names a model and a magnitude, and that the
+# imperfections each carry a reason. Nothing here is random.
+
+performance_state:
+  part: "Cello"
+  instrument: "bowed strings, section of 4"
+  performer_count: 4
+  performer_character: "warm, slightly behind, unhurried"
+  realism_target: realistic
+
+  articulation:
+    default: legato
+    by_section:
+      verse: legato
+      chorus: detache
+      outro: sustained
+    switching: keyswitch
+    map:
+      legato: "keyswitch C0, monophonic patch"
+      detache: "keyswitch D0"
+      sustained: "keyswitch C0 with no note overlap"
+
+  phrase:
+    boundaries: ["9:1", "13:1", "17:1", "25:1"]
+    breath_or_bow_changes: ["11:3", "15:3", "20:1", "23:3"]
+    longest_phrase_seconds: 9
+    shape: [arch, arch, rise, fall]
+
+  dynamic_arc:
+    control: cc1
+    points:
+      - {bar_beat: "9:1", value: 38}
+      - {bar_beat: "11:3", value: 72}
+      - {bar_beat: "13:1", value: 54}
+      - {bar_beat: "17:1", value: 95}
+      - {bar_beat: "25:1", value: 30}
+    within_note:
+      - {bar_beat: "20:1", shape: "swell to 88 over 3 beats, then back to 50"}
+    note: "this library crossfades recorded layers, so the swell changes colour, not only level"
+
+  timing_character:
+    models:
+      - {model: phrase_arch, magnitude: "2% tempo lean into each phrase end"}
+      - {model: ensemble_spread, magnitude: "12 ms spread across 4 players at onsets"}
+      - {model: section_offset, magnitude: "-8 ms in the verse, 0 in the chorus"}
+      - {model: drift_1f, magnitude: "3 ms standard deviation, long-range correlated"}
+    grid_reference: "the 4/4 pulse at 84 BPM"
+    marker_parts_excluded: ["Clave"]
+
+  note_overlap:
+    legato_overlap_ms: 60
+    separation_ms: 0
+    pedal: null
+
+  accent_pattern:
+    metrical: ["beat 1 strong, beat 3 medium"]
+    structural: ["17:1 marks the chorus entry"]
+    ghost_notes: []
+
+  vibrato:
+    kind: finger
+    onset: delayed
+    control: cc21
+    by_phrase:
+      - {phrase: 1, description: "none at the onset, growing from bar 10"}
+      - {phrase: 3, description: "wide at the climax, narrowing into the fall"}
+
+  portamento_and_bends:
+    kind: portamento
+    range_cents: null
+    implementation: sampled_transition
+    note: "only on the leap at 15:3; the library selects it from the arriving velocity"
+
+  physical_constraints:
+    limbs_or_fingers: "one bow, one note at a time per player"
+    reach: "double stops on adjacent strings only"
+    breath_seconds: null
+    simultaneity_limit: 2
+
+  intentional_imperfections:
+    - what: ensemble_spread
+      why: "four players do not attack at one instant"
+      magnitude: "12 ms at onsets, less on repeated notes within a phrase"
+      applies_to: "all sections"
+    - what: bow_change
+      why: "the instrument makes this sound, and the slow music exposes it"
+      magnitude: "audible at the four marked bow changes"
+      applies_to: "verse and outro"
+    - what: phrase_arch
+      why: "players lean across a phrase"
+      magnitude: "2% tempo"
+      applies_to: "all phrases"
+
+  automation_controls:
+    - target: cc
+      name: "CC1 dynamics"
+      curve: "as dynamic_arc.points"
+    - target: cc
+      name: "CC21 vibrato"
+      curve: "as vibrato.by_phrase"
+
+  virtual_instrument_translation:
+    guide_file: "shared/VIRTUAL_INSTRUMENT_GUIDE/STRINGS.md"
+    calibration_profile_id: "unmeasured"
+    known_limits:
+      - "legato patch is monophonic; the double stop at 21:1 needs a second track"
+      - "transition latency is documented but not measured here; compensate and verify"
+
+feasibility_report:
+  part: "Cello"
+  impossible_voicings: []
+  limb_or_finger_conflicts: []
+  out_of_range: []
+  breath_or_bow_overruns: []
+  articulation_unavailable: []
+  simultaneity_exceeded:
+    - {bar_beat: "21:1", detail: "3-note chord written; a section patch can divide, a solo cannot"}
+  intentional_exceptions: []
+  status: flags

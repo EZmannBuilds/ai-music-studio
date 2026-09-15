@@ -453,3 +453,16 @@ midi_verification:
 
 The last field is a cheap and useful check: a row claiming a 7/8 metre on an artifact in 4/4 means one
 of them is wrong, and it is worth knowing which before delivery.
+
+
+## Does not own
+
+- **the music.** Harmony, melody, form and orchestration arrive decided. Where the plan is incomplete,
+  return it upstream rather than filling the gap.
+- **expression.** The Performance Director and the Vocal Director decide it; this skill executes it,
+  and labels the artifact `unperformed` when there is nothing to execute.
+- **instrument facts.** What a patch can play, what control reaches it and what it measured come from
+  the plugin audit and calibration profiles.
+- **the mix.** Controller and velocity values give a rough playback balance, and the notes say so.
+- **the pitch system.** Composer chooses it; this skill writes it by the highest tier the target
+  supports and states the failure mode.
