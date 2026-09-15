@@ -1,0 +1,24 @@
+{
+  "_fixture": "A track state written to the 1.0 schema (git tag v1.0, shared/TRACK_STATE_SCHEMA.md). It uses evidence.wavread_findings, which 2.0 renamed to analyzer_findings with the promise that readers accept both. compat_check.py holds that promise.",
+  "track_state": {
+    "identity": {"title": "Fixture Song", "genre": "synth-pop", "emotional_target": "restless, then settled"},
+    "musical": {"tempo_bpm": 104, "meter": "4/4", "key_or_tonal_center": "F# minor", "tuning": "12-TET", "harmonic_rhythm": "one chord per bar"},
+    "arrangement": {"form": ["intro", "verse", "chorus", "verse", "chorus", "outro"], "energy_curve": ["low", "mid", "high", "mid", "high", "low"]},
+    "production": {"instrument_palette": ["analog bass", "drum machine", "pad", "lead synth"]},
+    "mix": {"masking_risks": ["pad against lead in the chorus"], "loudness_target": "measure, don't target"},
+    "lyrical_vocal": {"locked_lyrics": false, "locked_vocal_melody": false},
+    "daw_execution": {"target_daw": "any", "adapter": "none"},
+    "evidence": {
+      "wavread_findings": [{"file": "Fixture Song - Mix v1.wav", "finding": "low-mid build-up around 250 Hz", "evidence": "MEASURED"}],
+      "reference_findings": [],
+      "rendered_audio_findings": []
+    },
+    "constraints": {"must_keep": ["the chorus hook"], "must_avoid": [], "available_tools": []},
+    "decisions": {"accepted": [], "rejected": [], "unresolved": ["bridge or no bridge"]},
+    "deliverable": {"mode": "instrumental", "also_export": ["vocal_guide"], "muted_for_export": ["vocal_line"]},
+    "instruments": {"plugin_audit_id": null, "calibration_profiles": {"Bass": "unmeasured"}, "substitutions": []},
+    "verification": {"last_render_verification": null, "release_gate": "blocked", "accepted_by_user": [], "listened_to": false},
+    "variety": {"melody_variety_report": {}, "lyric_uniqueness_report": {}}
+  },
+  "session_scope": {"current_project": "fixture", "current_user_preferences_explicitly_given": [], "assumptions_made": [], "variables_left_open": []}
+}

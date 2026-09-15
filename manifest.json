@@ -137,7 +137,12 @@
     "tools/schema_check.py",
     "tools/routing_check.py",
     "tools/privacy_check.py",
+    "tools/example_check.py",
+    "tools/compat_check.py",
     "tools/vocab.json"
+  ],
+  "fixtures": [
+    "evals/fixtures/compatibility/"
   ],
   "meta": [
     "README.md",

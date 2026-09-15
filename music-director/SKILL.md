@@ -479,7 +479,7 @@ Examples:
 - 4 harmony strategies;
 - 5 hook concepts;
 - 3 groove families;
-- 4 chorus lift strategies.
+- 4 lift mechanisms.
 
 Candidates must differ in mechanism, not only notes.
 
@@ -772,7 +772,7 @@ forms, openers and images, and nothing notices unless these checks run. The Comp
 Generator list the measurable symptoms.
 
 The ledger extends that principle from melody and lyric to the whole musical identity: tempo family,
-metre, pitch system, harmonic mechanism, bass role, groove, form, hook type, chorus lift, transition
+metre, pitch system, harmonic mechanism, bass role, groove, form, hook type, lift mechanism, transition
 grammar, vocal architecture, outro behaviour.
 
 **The ledger asks; it does not force.** When several recent tracks share a dimension, the Director
@@ -790,7 +790,8 @@ candidates break those rather than differing at random.
 
 **The Director assembles and writes the row**, from the fields each specialist filled in its handoff,
 once, at the end of the task. Fields nobody decided are left empty, because an empty field is
-information and a defaulted one is not (`shared/TRACK_DIVERSITY_LEDGER.md`, section 2).
+information and a defaulted one is not (`shared/TRACK_DIVERSITY_LEDGER.md`, the preamble before
+section 1).
 
 ## Evidence and evaluation
 

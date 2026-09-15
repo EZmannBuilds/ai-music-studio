@@ -29,7 +29,7 @@ location, the DAW, and the deliverable mode. It writes nothing until it has them
 ## Schema
 
 ```yaml
-profile_version: 1.1
+profile_version: "1.1"         # quoted, so that a future "1.10" is not read as 1.1
 user:
   display_name:            # how the studio addresses the user; never written into skill files
   pronouns:                # optional
@@ -62,7 +62,7 @@ analyzer:
   endpoint:                # e.g. a local address
   mode_notes:
 deliverables:
-  default_mode:            # instrumental | vocal | vocal_guide | ...
+  default_mode:            # instrumental | vocal_guide | full_with_vocal
   final_format: {codec: mp3, bitrate_kbps: 320, sample_rate: 48000}
   master_format: {codec: wav, bit_depth: 24}
   loudness_note:           # optional target or "measure, don't target"
@@ -117,6 +117,16 @@ notes:
 ## Version 1.1
 
 Additive. A 1.0 profile stays valid, and every key below is optional.
+
+Two things a 1.0 profile may contain are read as follows, and neither needs editing:
+
+- **`deliverables.default_mode: vocal`**, which the 1.0 template wrote, means `full_with_vocal`. The
+  deliverable modes have always been `instrumental`, `vocal_guide` and `full_with_vocal`, and
+  `shared/FILE_NAMING.md` already names the `full_with_vocal` version "Vocal".
+- **An unquoted `profile_version: 1.0` or `1.1`** is accepted. From 2.1 the template quotes the
+  version, because YAML reads an unquoted `1.10` as the number 1.1.
+
+`tools/compat_check.py` holds both promises against `evals/fixtures/compatibility/`.
 
 | Key | What it does |
 |---|---|

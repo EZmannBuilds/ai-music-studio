@@ -205,7 +205,7 @@ midi_spec:
       duration:
       velocity:
   articulation:
-  humanization_notes:
+  performance_intent:     # handed to the Performance Director; see "Performance handoff"
 ```
 
 Use exact pitches/rhythms if the user needs DAW execution.

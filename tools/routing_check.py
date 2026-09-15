@@ -77,6 +77,29 @@ def main():
         if not (pat.search(dtext) or alt.search(dtext)):
             problems.append(f'{DIRECTOR}: no routing rule for {s}')
 
+    # README's routing table names every specialist, and names nothing that is not one
+    rpath = os.path.join(root, 'README.md')
+    if os.path.exists(rpath):
+        rtext = open(rpath, encoding='utf-8').read()
+        sec = re.search(r'^## Routing\n(.*?)(?=^## )', rtext, re.S | re.M)
+        if not sec:
+            problems.append('README.md: no "## Routing" section')
+        else:
+            routes = set()
+            for line in sec.group(1).split('\n'):
+                cells = [c.strip() for c in line.strip().strip('|').split('|')]
+                if len(cells) >= 2 and not set(cells[-1]) <= set('-: '):
+                    routes.add(cells[-1])
+            routes.discard('Route')
+            names = {s: s.replace('-', ' ').lower() for s in specialists}
+            for s, name in names.items():
+                if not any(r.lower() == name for r in routes):
+                    problems.append(f'README.md: the routing table has no row for {s}')
+            for r in routes:
+                if r.lower() not in names.values() and not r.startswith('Music Director'):
+                    problems.append(f'README.md: the routing table routes to "{r}", which is not a '
+                                    f'specialist')
+
     # manifest coverage of anything a skill points at
     mpath = os.path.join(root, 'manifest.json')
     if os.path.exists(mpath):

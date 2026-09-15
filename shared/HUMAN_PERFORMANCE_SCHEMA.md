@@ -35,9 +35,11 @@ Two cases worth settling, because both come up constantly:
   functioning as an instrument the user does not think of as a voice. The deliverable mode decides
   the practical question, which is whether an instrumental export mutes it: the Vocal Director
   declares that per track (`shared/VOCAL_ARCHITECTURE_SCHEMA.md`), and where no plan exists the
-  Director asks once and records the answer. With no plan, it writes plain
-quantised notes and labels the artifact `unperformed` (section 6). That is an honest deliverable. An
-artifact full of invented expression is not.
+  Director asks once and records the answer.
+
+**With no performance plan at all**, MIDI Builder writes plain quantised notes and labels the artifact
+`unperformed` (section 6). That is an honest deliverable. An artifact full of invented expression is
+not.
 
 ---
 
@@ -168,7 +170,7 @@ performance_state:
 | `ensemble_spread` | several players do not attack at one instant | no measured figure is available in this pack; state and label whatever you use, or calibrate | musicianship |
 | `drift_1f` | small long-range-correlated wander, applied last and least | smallest layer of the plan | Hennig 2011, and a drum-track analysis in Räsänen 2015 |
 
-**Three of these models have no number, and that is the honest state of the evidence.** `phrase_arch`,
+**Four of these models have no number, and that is the honest state of the evidence.** `phrase_arch`,
 `final_ritard`, `section_offset` and `ensemble_spread` are shapes and mechanisms rather than
 quantities. Set a value for the style, write it into the plan, and label it as set rather than
 measured. Do not borrow a figure from a neighbouring row: they come from different instruments and

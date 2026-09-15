@@ -10,7 +10,7 @@ Version 2.1-dev. MIT licensed.
 >
 > | Want | Use |
 > |---|---|
-> | the stable studio | **1.0**, the latest [GitHub Release](https://github.com/EZmannBuilds/ai-music-studio/releases), or `git checkout v1.0` |
+> | the stable studio | **1.0**: the latest release on this repository's Releases page, or `git checkout v1.0` |
 > | the current architecture, knowing it is being tested | `main` |
 >
 > 2.0 was a development milestone (commit `8017f2b`) and was never published as a release. 2.1
@@ -218,10 +218,11 @@ profiles. The user's profile can override it.
 python3 tools/check_all.py --profile profiles/local/<you>.yaml
 ```
 
-Runs six checks and exits non-zero if any finds something: every manifest path exists, every named
+Runs eight checks and exits non-zero if any finds something: every manifest path exists, every named
 path resolves, every skill is shaped like a skill and stays tool-neutral, every schema block parses
-and the shared vocabularies agree, the Director's routing matches the folder, and no user-specific
-content has leaked into the skills. A GitHub Action runs them on push.
+and the shared vocabularies agree, every example obeys the schema it illustrates, old profiles,
+track states and paths still read, the Director's routing matches the folder and the README, and no
+user-specific content has leaked into the skills. A GitHub Action runs them on push.
 
 The standard library is enough. PyYAML adds one extra check.
 

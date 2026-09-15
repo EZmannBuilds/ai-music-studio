@@ -130,7 +130,7 @@ interaction:
   mode_respected: true | false        # false with a reason is honest; silently ignoring it is not
 ```
 
-Carried in `specialist_handoff.mode_respected` and in `track_state.interaction_mode`, so a later
+Carried in `specialist_handoff.interaction.mode_respected` and in `track_state.interaction_mode`, so a later
 session can see how this one was run.
 
 ---

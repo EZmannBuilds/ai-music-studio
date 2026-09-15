@@ -165,7 +165,7 @@ batch_diversity:
 
 A dimension has **collapsed** when nine or more of ten unrelated briefs produce the same value, and
 that value is not implied by the briefs themselves. Watch especially: meter, form, harmonic mechanism,
-bass role, chorus lift mechanism, transition grammar, outro behaviour, texture family.
+bass role, lift mechanism, transition grammar, outro behaviour, texture family.
 
 Thresholds are CREATIVE INFERENCE and may be tuned. The signal is not the number; it is whether the
 studio has a default it did not choose.

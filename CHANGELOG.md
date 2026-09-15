@@ -22,6 +22,37 @@ testable. Entries are added as each part lands.
   verification, which is a Director procedure and not a specialist, was listed as one.
 - `tools/check_all.py` prints each check's heading before its output when the output is piped.
 
+### Examples and schemas agree, and old files keep reading
+
+- **The Track DNA example contradicted its schema.** It used `chorus_lift_mechanism` where the
+  ledger defines `lift_mechanism` (and `vocal_lift_mechanism` inside the vocal record), compared two
+  rows where "shared" means three or more agree, left thirteen shared dimensions out of its own
+  comparison, and classified a dimension it had not listed. It now compares three rows and its
+  comparison is what its rows say. "Chorus lift" is renamed "lift mechanism" in the Director, the
+  Arranger, the critics and the benchmark, since most music has no chorus.
+- **The profile template's `default_mode: vocal` was never a deliverable mode.** It now reads
+  `full_with_vocal`, and a 1.0 or 1.1 profile that says `vocal` is read as `full_with_vocal`, with no
+  edit needed. `profile_version` is quoted, because YAML reads an unquoted `1.10` as 1.1.
+- The Composer's `midi_spec` no longer carries `humanization_notes`, which 2.0 said it had removed.
+- Small corrections: the handoff path in `INTERACTION_MODES`, a wrong section reference in the
+  Director, the Creative Lab's description of B1, a miscounted list and a spliced sentence in
+  `HUMAN_PERFORMANCE_SCHEMA`, and a note on how the lyric-alignment example relates to its schema.
+- **New `tools/example_check.py`**: every example and the profile template are parsed and held to
+  the choice lists of the schema they name, to the shared vocabularies, and, for Track DNA, to their
+  own rows. No tool read the examples before, which is how the drift above went unnoticed.
+- **New `tools/compat_check.py`** with real old files in `evals/fixtures/compatibility/`: the 1.0 and
+  1.1 profile templates as released, a 1.0 track state using `wavread_findings`, a 2.0 calibration
+  profile, and every path that existed at 2.0. It fails if a key disappears without a documented
+  alias, a value stops being accepted, or a file a user's plan may point to is deleted without a
+  pointer page.
+- **`tools/privacy_check.py` missed real paths.** Its Windows pattern needed doubled backslashes, so
+  an ordinary `C:\Users\name` passed; it now also catches `C:/Users`, `/Volumes`, `$HOME`,
+  `%USERPROFILE%` and names inside MIDI track-name and lyric events. Private terms are matched as
+  whole words: with a surname as a private term, 2.0's research citations of Hartmann, Kilchenmann
+  and Schumann were false findings, so the check with a real profile could not report zero.
+- `tools/routing_check.py` now holds the README's routing table to the Director too.
+- `tools/check_all.py` runs eight checks.
+
 ## 2.0 — 2026-09-14 — development milestone, never released
 
 Commit `8017f2b`. This entry is kept as it was written. 2.0 was merged and pushed but was never

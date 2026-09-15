@@ -271,7 +271,8 @@ studio's benchmark checks the thing a single round cannot show:
 - `research/BENCHMARK_DIVERSITY.md` B3 asks for candidates across ten different tasks and inspects
   the **sets** rather than the candidates, looking for dimensions the Lab always breaks, dimensions
   it never touches, and whether its candidates mostly subtract;
-- B1 checks that ten unrelated briefs produce ten architectures rather than one;
+- B1 checks for architecture collapse: a dimension on which nine or more of ten unrelated briefs
+  produce the same value that the briefs did not require;
 - D15 checks that a fusion request produces a named bridge, or an honest refusal to fuse.
 
 ## Without optional tools

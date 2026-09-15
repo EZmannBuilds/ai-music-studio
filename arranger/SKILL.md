@@ -375,7 +375,7 @@ serves. The studio does not tell a user their running order is wrong.
 # The ledger row
 
 Write the Arranger's part of the diversity row (`shared/TRACK_DIVERSITY_LEDGER.md`): form, section
-lengths, arrangement curve, chorus lift mechanism, transition grammar, outro behaviour, dynamic shape.
+lengths, arrangement curve, lift mechanism, transition grammar, outro behaviour, dynamic shape.
 
 The transition grammar field is worth attention. A studio that reaches for riser, silence, impact every
 time has a signature it did not choose, and the row is where that becomes visible.
