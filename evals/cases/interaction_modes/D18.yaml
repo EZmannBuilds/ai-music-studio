@@ -45,20 +45,24 @@ test:
     - regex_count:
         pattern: ^\s*(?:#{1,4}\s*|\*\*|[-*]\s+\*\*)?option\s+[A-Z1-9]
         min: 2
+    - regex_present:
+        pattern: (?:options|directions|ways|choices|alternatives)\b[^\n]*\n(?:[ \t]*\n)?(?:[ \t]*[-*][
+          \t]+\*\*[^\n]+\n){2,}
+        in: prose
   - id: diagnosis_first
     why: a diagnosis before any change
     appears_before:
       first: (diagnos|what.s working|why (it|the verse)|the (second verse|problem))
       then: (rewritten|new (second )?verse:|here is (a|the) (new|finished))
-  - id: mode_fits
-    why: a request for help with existing work is not CREATE
-    field_in:
-      path: session_trace.session_mode
-      values:
-      - DIAGNOSE
-      - CONTINUE
-      - REVISE
-      - LEARN
+  - id: not_taken_over
+    why: help with the user's own unfinished work defaults to review and options, not DO IT (shared/INTERACTION_MODES.md
+      section 1)
+    all_of:
+    - field_nonempty: session_trace.interaction_mode
+    - not:
+        field_equals:
+          path: session_trace.interaction_mode
+          value: DO IT
   human_questions:
   - Is every line the user wrote still theirs?
   - Would the user know what to try next, and is the choice theirs?

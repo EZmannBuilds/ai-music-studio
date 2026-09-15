@@ -942,6 +942,11 @@ agree the completion definition, if there is not one
 
 **The studio never declares a project finished.** It reports against criteria the user agreed.
 
+**FINISH is not "write the rest".** On a user's own unfinished song, "help me finish this" asks for the
+gap and the ways across it, not for the missing lines; the interaction default is `REVIEW MY WORK`
+then `GIVE ME OPTIONS` (`shared/INTERACTION_MODES.md`, section 1). The studio writes the missing parts
+only when the user asks it to.
+
 ## RELEASE
 
 The existing release gate governs a render (`shared/RENDER_VERIFICATION.md`, section 7). The Project

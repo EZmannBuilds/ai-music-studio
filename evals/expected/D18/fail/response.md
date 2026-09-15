@@ -1,5 +1,5 @@
 <!-- expected fail response for D18. Hand-written to test the graders, not a model output. -->
-<!-- must_fail: no_rewrite, user_material_untouched, options_offered, diagnosis_first, mode_fits -->
+<!-- must_fail: no_rewrite, user_material_untouched, options_offered, diagnosis_first, not_taken_over -->
 
 ## A better second verse
 
