@@ -98,7 +98,9 @@
     "shared/VIRTUAL_INSTRUMENT_GUIDE/TANPURA.md",
     "shared/VIRTUAL_INSTRUMENT_GUIDE/SITAR.md",
     "shared/VIRTUAL_INSTRUMENT_GUIDE/EWE_DANCE_DRUMS.md",
-    "shared/VIRTUAL_INSTRUMENT_GUIDE/JEMBE_AND_DUNUN.md"
+    "shared/VIRTUAL_INSTRUMENT_GUIDE/JEMBE_AND_DUNUN.md",
+    "shared/VIRTUAL_INSTRUMENT_GUIDE/TABLA.md",
+    "shared/VIRTUAL_INSTRUMENT_GUIDE/MRIDANGAM.md"
   ],
   "research": [
     "research/PERCEPTION_AND_PRODUCTION.md",
@@ -132,7 +134,9 @@
     "research/instruments/SITAR.md",
     "research/sources/WAVE2_SOURCE_SURVEY.md",
     "research/instruments/EWE_DANCE_DRUMS.md",
-    "research/instruments/JEMBE_AND_DUNUN.md"
+    "research/instruments/JEMBE_AND_DUNUN.md",
+    "research/instruments/TABLA.md",
+    "research/instruments/MRIDANGAM.md"
   ],
   "benchmark": [
     "research/BENCHMARK.md",

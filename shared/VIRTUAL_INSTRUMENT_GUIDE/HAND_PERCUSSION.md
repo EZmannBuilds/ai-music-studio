@@ -177,8 +177,8 @@ The general list is in `COMMON_ERRORS.md`. Family-specific tells:
 | Conga (tumbadora), bongó | Cuban | CUBAN_HAND_PERCUSSION (page in preparation in 2.1) |
 | Jembe, dunun | Mande jembe music (Mali, Guinea) | `JEMBE_AND_DUNUN.md` |
 | Ewe drums (e.g. sogo, kidi, kagan, atsimevu) | Ewe (Ghana/Togo) | `EWE_DANCE_DRUMS.md` |
-| Tabla | Hindustani (North Indian) | TABLA (page in preparation in 2.1) |
-| Mridangam | Carnatic (South Indian) | MRIDANGAM (page in preparation in 2.1) |
+| Tabla | Hindustani (North Indian) | `TABLA.md` |
+| Mridangam | Carnatic (South Indian) | `MRIDANGAM.md` |
 | Frame drums (e.g. bendir, riq, daf, pandeiro, bodhrán) | many independent traditions, each with its own drum and technique | no page yet |
 | Darbuka / darbuki / doumbek | several goblet-drum traditions (Arabic, Turkish and others), not one | no page yet |
 | Cajón | Afro-Peruvian in origin, later adopted into flamenco practice | no page yet |
