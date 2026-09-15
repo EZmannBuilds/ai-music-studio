@@ -125,7 +125,8 @@
     "research/instruments/BASS.md",
     "research/instruments/HARP.md",
     "research/instruments/TANPURA.md",
-    "research/instruments/SITAR.md"
+    "research/instruments/SITAR.md",
+    "research/sources/WAVE2_SOURCE_SURVEY.md"
   ],
   "benchmark": [
     "research/BENCHMARK.md",
