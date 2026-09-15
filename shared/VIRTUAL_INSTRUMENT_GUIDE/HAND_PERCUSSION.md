@@ -174,7 +174,7 @@ The general list is in `COMMON_ERRORS.md`. Family-specific tells:
 
 | Drum(s) | Tradition | Page |
 |---|---|---|
-| Conga (tumbadora), bongó | Cuban | CUBAN_HAND_PERCUSSION (page in preparation in 2.1) |
+| Conga (tumbadora), bongó | Cuban | `CUBAN_HAND_PERCUSSION.md` |
 | Jembe, dunun | Mande jembe music (Mali, Guinea) | `JEMBE_AND_DUNUN.md` |
 | Ewe drums (e.g. sogo, kidi, kagan, atsimevu) | Ewe (Ghana/Togo) | `EWE_DANCE_DRUMS.md` |
 | Tabla | Hindustani (North Indian) | `TABLA.md` |

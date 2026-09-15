@@ -140,14 +140,13 @@ incomplete.
 - Bronson, *The Traditional Tunes of the Child Ballads*, Princeton, 1959 to 1972, and "A
   Simplified Mode Classification for Traditional Anglo-American Song Tunes", *Yearbook of the
   IFMC*.
-- On Hardanger fiddle intonation: 2.0 attributed the claim that intonation is conditioned by melodic
-  formulas, local tonal centres and string resonance to "the TISMIR dataset paper". That paper
-  (Lartillot, Johansson, Elowsson, Monstad and Cyvin, "A Dataset of Norwegian Hardanger Fiddle
-  Recordings with Precise Annotation of Note and Beat Onsets", *TISMIR* 6(1), 2023) is an onset and
-  pitch annotation dataset; the intonation claim more likely comes from "On measuring intonation in
-  Hardanger fiddle tunes" (Folk Music Analysis conference, 2019). **To verify** which, before the
-  claim is repeated. The Hardanger Fiddle Association of America tuning guide for the A-D-A-E and
-  related tunings.
+- On Hardanger fiddle intonation: Lartillot, Johansson, Elowsson, Monstad and Cyvin, "A Dataset of
+  Norwegian Hardanger Fiddle Recordings with Precise Annotation of Note and Beat Onsets", *TISMIR*
+  6(1), 2023. It is an annotation dataset, and it does state that intonation is conditioned by
+  shifting contextual factors: melodic formulas, local tonal centres and string resonance (read for
+  2.1; see `shared/VIRTUAL_INSTRUMENT_GUIDE/HARDANGER_FIDDLE.md`). A 2019 Folk Music Analysis paper,
+  "On measuring intonation in Hardanger fiddle tunes", may add to it and was not read. The Hardanger
+  Fiddle Association of America tuning guide covers the A-D-A-E and related tunings.
 
 Confidence: the melody-carries-the-mode account and the gapped-scale argument are supported across
 Breathnach and Bronson. **Explicitly unverified:** the Ahlback five-positions-per-semitone scheme,

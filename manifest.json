@@ -103,7 +103,10 @@
     "shared/VIRTUAL_INSTRUMENT_GUIDE/MRIDANGAM.md",
     "shared/VIRTUAL_INSTRUMENT_GUIDE/OUD.md",
     "shared/VIRTUAL_INSTRUMENT_GUIDE/QANUN.md",
-    "shared/VIRTUAL_INSTRUMENT_GUIDE/NAY.md"
+    "shared/VIRTUAL_INSTRUMENT_GUIDE/NAY.md",
+    "shared/VIRTUAL_INSTRUMENT_GUIDE/CUBAN_HAND_PERCUSSION.md",
+    "shared/VIRTUAL_INSTRUMENT_GUIDE/HARDANGER_FIDDLE.md",
+    "shared/VIRTUAL_INSTRUMENT_GUIDE/HIGHLAND_BAGPIPE.md"
   ],
   "research": [
     "research/PERCEPTION_AND_PRODUCTION.md",
@@ -142,7 +145,10 @@
     "research/instruments/MRIDANGAM.md",
     "research/instruments/OUD.md",
     "research/instruments/QANUN.md",
-    "research/instruments/NAY.md"
+    "research/instruments/NAY.md",
+    "research/instruments/CUBAN_HAND_PERCUSSION.md",
+    "research/instruments/HARDANGER_FIDDLE.md",
+    "research/instruments/HIGHLAND_BAGPIPE.md"
   ],
   "benchmark": [
     "research/BENCHMARK.md",
