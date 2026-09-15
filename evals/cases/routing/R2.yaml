@@ -1,0 +1,25 @@
+# Evaluation case R2. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: R2
+  title: 'Routing: a muddy mix'
+  category: routing
+  source: new in 2.1
+  brief: My mix is muddy in the low mids.
+  supplied_context: []
+  expected_routes:
+    must_include:
+    - mix-engineer
+    must_not_include:
+    - creative-lab
+    - lyric-generator
+  required_behaviors:
+  - arrangement causes considered before EQ, per the problem-order rule
+  forbidden_behaviors:
+  - new creative directions
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  human_questions:
+  - Did it check arrangement before reaching for EQ?
+  trials: 3

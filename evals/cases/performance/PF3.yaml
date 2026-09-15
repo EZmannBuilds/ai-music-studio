@@ -1,0 +1,32 @@
+# Evaluation case PF3. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: PF3
+  title: 'Feasibility: a phrase longer than a breath'
+  category: performance
+  source: new in 2.1
+  brief: 'Solo oboe: one unbroken 40-second legato phrase at pianissimo, no rests, as the opening of the
+    piece. Write the performance plan.'
+  supplied_context: []
+  expected_routes:
+    must_include: []
+    must_not_include: []
+  required_behaviors:
+  - the breath overrun flagged, or circular breathing named as an intentional exception for a specialist
+  forbidden_behaviors:
+  - a silent allowance
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  - id: feasibility
+    block_present: feasibility_report
+  - id: flagged
+    any_of:
+    - field_nonempty: feasibility_report.breath_or_bow_overruns
+    - all_of:
+      - field_nonempty: feasibility_report.intentional_exceptions
+      - regex_present:
+          pattern: circular breath
+  human_questions:
+  - Is the advice what an oboist would say?
+  trials: 3

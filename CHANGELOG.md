@@ -51,7 +51,42 @@ testable. Entries are added as each part lands.
   whole words: with a surname as a private term, 2.0's research citations of Hartmann, Kilchenmann
   and Schumann were false findings, so the check with a real profile could not report zero.
 - `tools/routing_check.py` now holds the README's routing table to the Director too.
-- `tools/check_all.py` runs eight checks.
+- `tools/check_all.py` runs eight checks (ten, with the two below).
+
+### One evidence model for the pack's knowledge
+
+- `shared/RESEARCH_RULES.md` defines one set of evidence labels (`sourced`, `academic`,
+  `manual-derived`, `standard-reference`, `measured`, `inference`, `to-verify`), maps each to
+  MEASURED, RESEARCH-SUPPORTED or CREATIVE INFERENCE, and defines the `research_record`. **MEASURED
+  now means the user's own material only**; a published third-party measurement is a cited finding.
+  2.0's six instrument labels were defined four slightly different ways, and nothing checked them.
+- `shared/INSTRUMENT_BEHAVIOR_SCHEMA.md` 1.1: a behaviour card per instrument with every behaviour and
+  programming field, 1.0 field names kept as aliases, and the rule that human limits (breath, reach,
+  roll speed) belong in the guide, because a calibration render measures a patch, not a player.
+- `research/sources/INSTRUMENT_SOURCES.md`: one register of every source, with **how much of it was
+  actually read**. New `tools/evidence_check.py`: a claim labelled `sourced` or `academic` must cite a
+  source read at section depth or more, every card has every row, and no heading uses a continent or
+  "world" as a category. Pages not yet migrated are listed and must shrink to none.
+
+### Behavioural evaluation
+
+- **New `evals/`**: 41 cases, covering the whole of `research/BENCHMARK_DIVERSITY.md` (D1-D20,
+  B1-B3, N1-N4) plus performance feasibility, routing, cultural-system and compatibility cases.
+  Each has a brief written as a user would write it, supplied material, expected routes, required
+  and forbidden behaviours, deterministic structural assertions and questions only a person can
+  answer.
+- `evals/runners/run_evals.py` grades any agent: a **manual** adapter for replies collected by hand,
+  and a **command** adapter that runs any command-line agent. Nothing model-specific is in the core.
+  Cases run for several trials and report k of k, marking inconsistent cases flaky. Batch cases
+  compute architecture collapse across ten briefs (B1, B2) and the Creative Lab's habits across ten
+  candidate sets (B3).
+- **No quality score exists anywhere.** Every run writes a human evaluation sheet, and listening
+  stays the authority.
+- The Director writes an optional **session trace** when asked (`shared/SPECIALIST_HANDOFF_SCHEMA.md`),
+  so routing and whether the user's material was changed can be checked rather than assumed.
+- `tools/eval_selftest.py`, in CI: every case validates, and hand-written passing and failing
+  responses prove each grader catches what it claims to, without calling a model.
+- `research/EVALUATION.md` records the evidence for the harness's design and where it stops.
 
 ## 2.0 — 2026-09-14 — development milestone, never released
 

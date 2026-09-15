@@ -1,0 +1,33 @@
+# Evaluation case D17. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: D17
+  title: Intentionally synthetic performance
+  category: performance
+  source: research/BENCHMARK_DIVERSITY.md D17
+  brief: Same slow D minor quartet cello part, but I want it deliberately mechanical, like a sequencer.
+    No human feel at all.
+  supplied_context: []
+  expected_routes:
+    must_include: []
+    must_not_include: []
+  required_behaviors:
+  - realism target recorded
+  - imperfection list empty, and saying so
+  forbidden_behaviors:
+  - adding life to make it better
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  - id: no_random_humanization
+    why: organic performance is not random humanisation
+    no_random_humanization: true
+  - id: target
+    field_equals:
+      path: performance_state.realism_target
+      value: deliberately_mechanical
+  - id: no_imperfections
+    field_empty: performance_state.intentional_imperfections
+  human_questions:
+  - Is it convincingly mechanical, as an aesthetic rather than a mistake?
+  trials: 3

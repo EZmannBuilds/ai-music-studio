@@ -1,0 +1,29 @@
+# Evaluation case N1-A. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: N1-A
+  title: 'Mode respected: DO IT'
+  category: interaction_modes
+  source: research/BENCHMARK_DIVERSITY.md N1
+  brief: 'Do it: my eight-bar piano intro is too busy. Thin it out. (Bars: right hand plays sixteenth-note
+    arpeggios on Am | F | C | G, left hand plays octaves on every beat.)'
+  supplied_context: []
+  expected_routes:
+    must_include: []
+    must_not_include: []
+  required_behaviors:
+  - the work is done
+  forbidden_behaviors:
+  - a diagnosis with no change, when the user said do it
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  - id: mode
+    field_equals:
+      path: session_trace.interaction_mode
+      value: DO IT
+  - id: made_something
+    field_nonempty: session_trace.created_material
+  human_questions:
+  - Is the thinned intro still recognisably the user's intro?
+  trials: 3

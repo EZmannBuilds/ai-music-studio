@@ -1,0 +1,38 @@
+# Evaluation case D2. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: D2
+  title: Additive metre
+  category: cultural_systems
+  source: research/BENCHMARK_DIVERSITY.md D2
+  brief: Write a dance-derived piece in an unequal metre.
+  supplied_context: []
+  expected_routes:
+    must_include: []
+    must_not_include: []
+  required_behaviors:
+  - the grouping written out
+  - the long beat placed consistently
+  - the short-to-long ratio treated as a range
+  forbidden_behaviors:
+  - a bare time signature
+  - a 4/4 piece with a bar missing
+  - an exact 3:2 assumed
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  - id: grouping
+    any_of:
+    - field_nonempty: track_state.systems.rhythm_system.meter.beat_pattern
+    - regex_present:
+        pattern: \b[23]\s*\+\s*[23](\s*\+\s*[23])+
+  - id: ratio_range
+    regex_present:
+      pattern: (ratio|long beat|short beat).{0,100}(range|between|about|roughly|varies)
+  - id: no_exact_ratio
+    regex_absent:
+      pattern: exactly 3\s*:\s*2
+      in: prose
+  human_questions:
+  - Does the long beat feel like a dancer's long step?
+  trials: 3

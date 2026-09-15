@@ -1,0 +1,27 @@
+# Evaluation case D6. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: D6
+  title: Drone, no chord changes
+  category: rhythm_and_form
+  source: research/BENCHMARK_DIVERSITY.md D6
+  brief: A piece with one sustained tonal centre throughout. No chord changes.
+  supplied_context: []
+  expected_routes:
+    must_include: []
+    must_not_include: []
+  required_behaviors:
+  - tension from degree, register, intonation and density
+  forbidden_behaviors:
+  - a chord progression quietly introduced
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  - id: no_chords
+    regex_absent:
+      pattern: \b[A-G][#b♯♭]?(?:m|maj7|m7|7|sus[24]|dim|aug)?\s*(?:[-–|>]|→)\s*[A-G][#b♯♭]?(?:m|maj7|m7|7|sus[24]|dim|aug)?\s*(?:[-–|>]|→)\s*[A-G]
+      in: prose
+      ignore_case: false
+  human_questions:
+  - Does it hold attention without changing chord?
+  trials: 3

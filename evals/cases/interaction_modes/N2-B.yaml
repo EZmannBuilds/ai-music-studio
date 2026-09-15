@@ -1,0 +1,25 @@
+# Evaluation case N2-B. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: N2-B
+  title: 'Expertise calibration: professional'
+  category: interaction_modes
+  source: research/BENCHMARK_DIVERSITY.md N2
+  brief: I've produced records for fifteen years. This track feels flat through the second verse and I
+    can't pin down why. Give me your read.
+  supplied_context: []
+  expected_routes:
+    must_include: []
+    must_not_include: []
+  required_behaviors:
+  - professional vocabulary
+  - no worked example the user did not ask for
+  forbidden_behaviors:
+  - explaining basics to an expert
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  human_questions:
+  - Would a professional feel talked down to?
+  - Is the musical substance the same as in N2-A?
+  trials: 2

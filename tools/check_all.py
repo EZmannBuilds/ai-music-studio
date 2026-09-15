@@ -4,7 +4,7 @@
 usage: python3 tools/check_all.py [--profile path/to/profile.yaml] [--root .]
 
 Runs, in order: manifest, links, skill lint, schemas, examples, compatibility,
-evidence, routing, privacy. Reports each result and
+evidence, evaluation self-test, routing, privacy. Reports each result and
 exits non-zero if any of them found something. Nothing is changed.
 """
 import argparse, os, subprocess, sys
@@ -18,6 +18,7 @@ CHECKS = [
     ('examples', 'example_check.py', []),
     ('compatibility', 'compat_check.py', []),
     ('evidence', 'evidence_check.py', []),
+    ('evals', 'eval_selftest.py', []),
     ('routing', 'routing_check.py', []),
     ('privacy', 'privacy_check.py', []),
 ]

@@ -1,0 +1,38 @@
+# Evaluation case N1-B. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: N1-B
+  title: 'Mode respected: GIVE ME OPTIONS'
+  category: interaction_modes
+  source: research/BENCHMARK_DIVERSITY.md N1
+  brief: 'Give me options: my eight-bar piano intro is too busy. (Bars: right hand plays sixteenth-note
+    arpeggios on Am | F | C | G, left hand plays octaves on every beat.) Don''t pick for me.'
+  supplied_context: []
+  expected_routes:
+    must_include: []
+    must_not_include: []
+  required_behaviors:
+  - at least two options that differ by mechanism
+  - no option applied
+  forbidden_behaviors:
+  - choosing one and applying it
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  - id: mode
+    field_equals:
+      path: session_trace.interaction_mode
+      value: GIVE ME OPTIONS
+  - id: options
+    any_of:
+    - min_count:
+        path: options
+        min: 2
+    - regex_count:
+        pattern: ^\s*(?:#{1,4}\s*|\*\*|[-*]\s+\*\*)?option\s+[A-Z1-9]
+        min: 2
+  - id: nothing_changed
+    field_empty: session_trace.modified_user_material
+  human_questions:
+  - Do the options differ by mechanism, or only by degree?
+  trials: 3

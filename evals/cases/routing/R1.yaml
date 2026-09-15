@@ -1,0 +1,30 @@
+# Evaluation case R1. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: R1
+  title: 'Routing: it sounds fake'
+  category: routing
+  source: new in 2.1
+  brief: My strings sound fake and stiff. What is wrong?
+  supplied_context: []
+  expected_routes:
+    must_include:
+    - performance-director
+    must_not_include:
+    - lyric-generator
+  required_behaviors:
+  - routed to performance first
+  forbidden_behaviors:
+  - a new arrangement or new chords as the first answer
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  - id: diagnose
+    field_in:
+      path: session_trace.session_mode
+      values:
+      - DIAGNOSE
+      - REVISE
+  human_questions:
+  - Are the likely causes the right ones?
+  trials: 3

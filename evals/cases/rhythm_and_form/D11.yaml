@@ -1,0 +1,22 @@
+# Evaluation case D11. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: D11
+  title: Radically short form
+  category: rhythm_and_form
+  source: research/BENCHMARK_DIVERSITY.md D11
+  brief: A complete piece under forty-five seconds.
+  supplied_context: []
+  expected_routes:
+    must_include: []
+    must_not_include: []
+  required_behaviors:
+  - form compressed, not truncated
+  forbidden_behaviors:
+  - a fragment of a longer idea
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  human_questions:
+  - Is it complete, or a fragment?
+  trials: 2

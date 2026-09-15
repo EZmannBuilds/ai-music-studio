@@ -1,5 +1,8 @@
 # Benchmark: Diversity, Creativity and Project Work
 
+> **Runnable.** Every test on this page is a case in `evals/cases/` (D1-D20, B1-B3 and N1-N4), graded by `evals/runners/run_evals.py`. See `evals/README.md`. The harness checks structure and behaviour; whether the music is good stays a listening question.
+
+
 ## Objective
 
 `research/BENCHMARK.md` tests whether the studio makes good musical decisions. This page tests three

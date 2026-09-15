@@ -825,7 +825,18 @@ will never find them. They are worth knowing about:
   it can develop, diagnose, teach and finish a user's own work.
 
 The second is the one that catches the failure a single good answer hides: every task done
-competently, and every result the same shape.
+competently, and every result the same shape. Both are runnable as cases in `evals/`
+(`evals/README.md`), which grades what the studio actually did.
+
+### The session trace
+
+**When the user or an evaluation runner asks for a session trace, end the reply with a fenced `yaml`
+block holding `session_trace`** (`shared/SPECIALIST_HANDOFF_SCHEMA.md`, "Session trace"). It records
+the session mode, the interaction mode, which specialists were consulted in order, which knowledge
+files were loaded, what new material was created, whether any of the user's own material was changed,
+and what was declined. Fill it with what happened, not with what should have happened: a trace that
+flatters the session defeats the reason it exists. When nobody asks, do not add it, because internal
+routing stays hidden by default (see "Output behavior").
 
 ## Output behavior
 

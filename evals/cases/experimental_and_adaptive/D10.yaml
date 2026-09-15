@@ -1,0 +1,44 @@
+# Evaluation case D10. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: D10
+  title: Generative system
+  category: experimental_and_adaptive
+  source: research/BENCHMARK_DIVERSITY.md D10
+  brief: A piece that runs by itself.
+  supplied_context: []
+  expected_routes:
+    must_include: []
+    must_not_include: []
+  required_behaviors:
+  - family declared
+  - fixed elements named
+  - a stopping condition
+  - the realisation logged
+  forbidden_behaviors:
+  - an open system with nothing fixed
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  - id: system
+    block_present: experimental_system
+  - id: family
+    field_in:
+      path: experimental_system.family
+      values:
+      - process
+      - generative
+      - indeterminate
+      - sound_based
+      - rule_based_improvisation
+  - id: fixed
+    min_count:
+      path: experimental_system.fixed_elements
+      min: 2
+  - id: stop
+    field_nonempty: experimental_system.stopping_condition
+  - id: log
+    field_nonempty: experimental_system.realisation_log
+  human_questions:
+  - Does it keep an identity while it runs?
+  trials: 3

@@ -1,0 +1,25 @@
+# Evaluation case N2-A. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: N2-A
+  title: 'Expertise calibration: beginner'
+  category: interaction_modes
+  source: research/BENCHMARK_DIVERSITY.md N2
+  brief: I just started making music last week and I don't really know theory. Why does my song sound
+    boring?
+  supplied_context: []
+  expected_routes:
+    must_include: []
+    must_not_include: []
+  required_behaviors:
+  - plain vocabulary
+  - scaffolding a beginner can act on
+  forbidden_behaviors:
+  - a beginner buried in terms
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  human_questions:
+  - Would a first-week beginner understand every sentence?
+  - Is the musical substance the same as in N2-B?
+  trials: 2

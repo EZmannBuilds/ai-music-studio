@@ -1,0 +1,24 @@
+# Evaluation case R3. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: R3
+  title: 'Routing: artist research'
+  category: routing
+  source: new in 2.1
+  brief: Research Radiohead's creative process and build me an artist research pack.
+  supplied_context: []
+  expected_routes:
+    must_include:
+    - music-research
+    must_not_include: []
+  required_behaviors:
+  - research routed to Music Research
+  - mechanisms, not imitation
+  forbidden_behaviors:
+  - a song written in their style
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  human_questions:
+  - Is every major claim sourced or marked as inference?
+  trials: 2

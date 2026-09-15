@@ -218,13 +218,20 @@ profiles. The user's profile can override it.
 python3 tools/check_all.py --profile profiles/local/<you>.yaml
 ```
 
-Runs eight checks and exits non-zero if any finds something: every manifest path exists, every named
+Runs ten checks and exits non-zero if any finds something: every manifest path exists, every named
 path resolves, every skill is shaped like a skill and stays tool-neutral, every schema block parses
 and the shared vocabularies agree, every example obeys the schema it illustrates, old profiles,
-track states and paths still read, the Director's routing matches the folder and the README, and no
+track states and paths still read, every instrument claim is labelled no stronger than its source was
+read, the evaluation harness catches what it claims to, the Director's routing matches the folder and the README, and no
 user-specific content has leaked into the skills. A GitHub Action runs them on push.
 
-The standard library is enough. PyYAML adds one extra check.
+The standard library is enough for most of them. PyYAML adds the schema parse, the example and
+compatibility checks and the evaluation self-test, and CI installs it.
+
+**Behaviour is tested separately**, against a real agent, by `evals/` (`evals/README.md`): what the
+studio actually does with forty-one briefs, from a coaching session that must not rewrite the user's
+song to ten unrelated briefs that must not all come out the same shape. It grades structure and
+behaviour; whether the music is good is left to a person listening.
 
 ## Before publishing a fork
 

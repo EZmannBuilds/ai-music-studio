@@ -1,5 +1,8 @@
 # Benchmark: General-Purpose Evaluation
 
+> **Runnable.** Every test on this page is a case in `evals/cases/` (the diversity and neutrality tests; the twenty decision-quality tests here remain human-judged comparisons), graded by `evals/runners/run_evals.py`. See `evals/README.md`. The harness checks structure and behaviour; whether the music is good stays a listening question.
+
+
 ## Objective
 
 Test whether the AI Music Studio improves musical reasoning across varied users and tasks

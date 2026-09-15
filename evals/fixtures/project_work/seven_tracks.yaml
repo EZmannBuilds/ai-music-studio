@@ -1,0 +1,18 @@
+# Fixture for D20: an album with seven finished tracks. Schema: shared/PROJECT_STATE_SCHEMA.md
+project_state:
+  name: "fixture-album"
+  project_type: album
+  thesis: "a year in one city, from arrival to deciding whether to stay"
+  thesis_status: confirmed_by_user
+  tracks:
+    - {id: t1, title: "Arrivals", status: mixed, role_in_project: "opener: bright, fast, the city as possibility", notes: "128 BPM, E major"}
+    - {id: t2, title: "Night Bus", status: mixed, role_in_project: "the city at night, restless", notes: "124 BPM, B minor"}
+    - {id: t3, title: "Sublet", status: mixed, role_in_project: "loneliness in a small room", notes: "72 BPM, D minor, piano and voice"}
+    - {id: t4, title: "Rooftop", status: mixed, role_in_project: "the city as possibility again, a party", notes: "126 BPM, E major"}
+    - {id: t5, title: "Overtime", status: mixed, role_in_project: "work, pressure, the city as a machine", notes: "130 BPM, A minor"}
+    - {id: t6, title: "Saturday Market", status: mixed, role_in_project: "bright, fast, the city as possibility", notes: "128 BPM, A major"}
+    - {id: t7, title: "Last Train", status: mixed, role_in_project: "night, restless, heading home", notes: "122 BPM, B minor"}
+  finished: [t1, t2, t3, t4, t5, t6, t7]
+  unresolved:
+    - question: "Does the narrator stay or leave?"
+      blocking: false

@@ -1,0 +1,42 @@
+# Evaluation case D15. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: D15
+  title: Genre fusion
+  category: diversity
+  source: research/BENCHMARK_DIVERSITY.md D15
+  brief: Fuse Irish sean-nós singing with Detroit techno.
+  supplied_context: []
+  expected_routes:
+    must_include:
+    - creative-lab
+    must_not_include: []
+  required_behaviors:
+  - a bridge named before anything is written, or an honest "no bridge, so not this fusion"
+  - carriers assigned
+  - provenance checked
+  - strip test
+  forbidden_behaviors:
+  - one side used as decoration
+  - a fusion produced with a disclaimer instead of a bridge
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  - id: bridge
+    field_in:
+      path: bridge.status
+      values:
+      - named
+      - absent
+  - id: honest_outcome
+    any_of:
+    - field_equals:
+        path: bridge.status
+        value: absent
+    - all_of:
+      - block_present: provenance
+      - block_present: strip_test
+  human_questions:
+  - Is the bridge real, or asserted?
+  - Does each side survive the strip test on listening?
+  trials: 3

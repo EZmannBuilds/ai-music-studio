@@ -105,7 +105,8 @@
     "research/REFERENCES_AND_MIDI.md",
     "research/DAW_AGENT_INTEGRATION.md",
     "research/LYRICS_AND_PROSODY.md",
-    "research/sources/INSTRUMENT_SOURCES.md"
+    "research/sources/INSTRUMENT_SOURCES.md",
+    "research/EVALUATION.md"
   ],
   "benchmark": [
     "research/BENCHMARK.md",
@@ -141,10 +142,24 @@
     "tools/example_check.py",
     "tools/compat_check.py",
     "tools/evidence_check.py",
+    "tools/eval_selftest.py",
     "tools/vocab.json"
   ],
-  "fixtures": [
-    "evals/fixtures/compatibility/"
+  "evals": [
+    "evals/README.md",
+    "evals/schemas/CASE_SCHEMA.md",
+    "evals/runners/run_evals.py",
+    "evals/runners/graders.py",
+    "evals/runners/diversity.py",
+    "evals/runners/cases.py",
+    "evals/runners/PROMPT_TEMPLATE.md",
+    "evals/runners/adapters/manual.py",
+    "evals/runners/adapters/command.py",
+    "evals/runners/examples/COMMAND_TEMPLATES.md",
+    "evals/reports/HUMAN_EVALUATION_TEMPLATE.md",
+    "evals/cases/",
+    "evals/expected/",
+    "evals/fixtures/"
   ],
   "meta": [
     "README.md",

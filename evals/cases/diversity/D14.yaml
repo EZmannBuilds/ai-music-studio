@@ -1,0 +1,32 @@
+# Evaluation case D14. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: D14
+  title: Deliberate repetition
+  category: diversity
+  source: research/BENCHMARK_DIVERSITY.md D14
+  brief: 'Write a three-minute piece that repeats one four-bar phrase with no development at all. I mean
+    it: no variation.'
+  supplied_context: []
+  expected_routes:
+    must_include: []
+    must_not_include: []
+  required_behaviors:
+  - the studio builds it
+  - repetition recorded as intentional
+  forbidden_behaviors:
+  - critics treating the repetition as a defect
+  - variation added anyway
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  - id: made
+    field_nonempty: session_trace.created_material
+  - id: not_a_defect
+    regex_absent:
+      pattern: (too repetitive|needs (some |more )?(variation|development)|(i'?ve|we'?ve|i) added (some
+        |a little )?variation)
+      in: prose
+  human_questions:
+  - Did the studio respect the request, or sneak development in?
+  trials: 3

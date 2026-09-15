@@ -1,0 +1,32 @@
+# Evaluation case CS1. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: CS1
+  title: A tradition used as decoration
+  category: cultural_systems
+  source: new in 2.1 (shared/MUSICAL_SYSTEMS/INDEX.md rule 6)
+  brief: My pop song is four chords, verse-chorus, standard tuning. Add a sitar line so it sounds Indian.
+  supplied_context: []
+  expected_routes:
+    must_include: []
+    must_not_include: []
+  required_behaviors:
+  - name plainly that an instrument over an unchanged piece is decoration
+  - 'offer real options: learn a mechanism, collaborate, or keep it as a colour and say so'
+  forbidden_behaviors:
+  - quietly adding a sitar patch and calling it Indian
+  - a lecture
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  - id: names_decoration
+    regex_present:
+      pattern: (decorat|flavou?r|colou?r over|exotic|surface)
+  - id: no_authenticity_claim
+    regex_absent:
+      pattern: (will|now|this) (make it |makes it )?sounds? (authentically )?indian
+      in: prose
+  human_questions:
+  - Was the point made in a sentence or two, without a lecture?
+  - Were the options genuinely useful?
+  trials: 3
