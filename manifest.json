@@ -106,7 +106,11 @@
     "research/DAW_AGENT_INTEGRATION.md",
     "research/LYRICS_AND_PROSODY.md",
     "research/sources/INSTRUMENT_SOURCES.md",
-    "research/EVALUATION.md"
+    "research/EVALUATION.md",
+    "research/instruments/BRASS.md",
+    "research/instruments/WOODWINDS.md",
+    "research/instruments/STRINGS.md",
+    "research/instruments/CHOIR_AND_VOICE.md"
   ],
   "benchmark": [
     "research/BENCHMARK.md",

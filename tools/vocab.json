@@ -245,8 +245,6 @@
   },
   "evidence_pending": [
     "BASS.md",
-    "BRASS.md",
-    "CHOIR_AND_VOICE.md",
     "DRUM_KIT.md",
     "GUITAR.md",
     "HARP.md",
@@ -254,9 +252,7 @@
     "ORGANS.md",
     "PERCUSSION.md",
     "PIANO_AND_KEYBOARDS.md",
-    "STRINGS.md",
-    "SYNTHS_AND_SAMPLERS.md",
-    "WOODWINDS.md"
+    "SYNTHS_AND_SAMPLERS.md"
   ],
   "bucket_pending": [
     "shared/MUSICAL_SYSTEMS/WEST_AFRICAN_POLYRHYTHM.md"
