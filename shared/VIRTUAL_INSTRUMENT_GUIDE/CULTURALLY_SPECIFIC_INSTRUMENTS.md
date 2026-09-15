@@ -196,7 +196,7 @@ An empty answer is an unresolved question, not permission to invent one.
 - **Cycle is not bar.** The rhythmic framework goes into the project through `shared/RHYTHM_SYSTEMS/`,
   not by forcing a time signature.
 
-## 6. When this instrument meets another world
+## 6. When this instrument meets another tradition
 
 `shared/FUSION_PROTOCOL.md` governs it, and its **bridge requirement** is the gate: there has to be a
 reason the two belong together, expressed as a shared function, not as one tradition supplying

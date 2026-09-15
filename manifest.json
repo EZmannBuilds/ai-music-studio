@@ -104,7 +104,8 @@
     "research/GENERALIZATION.md",
     "research/REFERENCES_AND_MIDI.md",
     "research/DAW_AGENT_INTEGRATION.md",
-    "research/LYRICS_AND_PROSODY.md"
+    "research/LYRICS_AND_PROSODY.md",
+    "research/sources/INSTRUMENT_SOURCES.md"
   ],
   "benchmark": [
     "research/BENCHMARK.md",
@@ -139,6 +140,7 @@
     "tools/privacy_check.py",
     "tools/example_check.py",
     "tools/compat_check.py",
+    "tools/evidence_check.py",
     "tools/vocab.json"
   ],
   "fixtures": [

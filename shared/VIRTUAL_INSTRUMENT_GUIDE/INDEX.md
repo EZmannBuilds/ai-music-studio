@@ -33,32 +33,25 @@ names products ages into a catalogue and stops being about instruments.
 
 # 2. Evidence labels
 
-Every major section of every file carries one. The labels are defined in
-`shared/INSTRUMENT_BEHAVIOR_SCHEMA.md` section 3 and repeated here so the folder can be read alone.
+Every claim carries one, as a tag at the end of the sentence, bullet or paragraph it covers, and
+every behaviour-card row carries one in its evidence column. The labels (`sourced`, `academic`,
+`manual-derived`, `standard-reference`, `inference`, `to-verify`) are defined once, in
+`shared/RESEARCH_RULES.md`, with what each maps to among MEASURED, RESEARCH-SUPPORTED and CREATIVE
+INFERENCE. `measured` never appears here: it is reserved for the user's own calibration.
 
-| Label | Means |
-|---|---|
-| `manual-derived` | stated in a manufacturer manual that was read in full for this work |
-| `excerpt-derived` | from a search excerpt of a named source, not the full text |
-| `orchestration-text` | attributed to a standard reference that was **not** opened for this work |
-| `musicianship` | general practice, stated as inference rather than citation |
-| `measured` | from a calibration render on the user's own system; not used in this folder |
-| `to-verify` | named explicitly, with what a reader should open to confirm it |
-
-When this research was done, **one manufacturer manual was read in full**, a symphonic strings
-library. Most other sources were reachable only as search excerpts, or not at all. So the strings
-file is the best-supported file here, and much of the rest is labelled `musicianship` or
-`orchestration-text`. That is honest, and it is the point. Only `measured` may be reported as
-MEASURED under `shared/RESEARCH_RULES.md`.
+A source ID in a tag resolves in `research/sources/INSTRUMENT_SOURCES.md`, which records how much of
+each source was read. The evidence for each page, claim by claim, with its scope and limits, is in
+`research/instruments/<page>.md`. `tools/evidence_check.py` checks all three, so a claim cannot carry
+a stronger label than its source was read for.
 
 Numbers in this folder are **typical ranges with a label**, never facts about the reader's
-instrument. Where the research gave no range, the files say "typical range, to verify against
-<named reference>" rather than inventing one.
+instrument. Where the research gave no range, the page says so rather than inventing one.
 
-The standard references named but not opened: Adler, *The Study of Orchestration*; Piston,
-*Orchestration*; Berlioz and Strauss, *Treatise on Instrumentation*; Fletcher and Rossing, *The
-Physics of Musical Instruments*; Sundberg, *The Science of the Singing Voice*. Anyone extending this
-folder should open those first.
+**2.1 is moving every page to this model.** A page still on the 2.0 labels (`musicianship`,
+`orchestration-text`, `excerpt-derived`) is listed in `tools/vocab.json` under `evidence_pending`;
+read `musicianship` there as `inference`, and the other two as `standard-reference`. When this
+research was first done for 2.0, one manufacturer manual was read in full and most other sources
+were reachable only as search excerpts or not at all.
 
 ---
 
