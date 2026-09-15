@@ -150,6 +150,27 @@ D  anchor: texture                breaks: lead_source, compositional_process
 
 Each names what it costs. A direction with no cost has not left the original space.
 
+## Why this is a specialist and not a protocol
+
+Fair challenge, and worth answering because the pack's own test cuts close: a specialist owns a kind
+of decision, a shared system is a representation or a body of knowledge, and this skill explicitly
+does not own the *choice* between candidates.
+
+It owns a different decision, and it is a real one: **which dimensions to leave alone and which to
+break.** That is a judgement about this brief, this material and this user's recent work, and it is
+made before any candidate exists. Getting it wrong produces four candidates that are each interesting
+and none of which is about the problem.
+
+The protocols this skill runs are shared systems, and they are: seed translation, fusion and the
+experimental systems are pages anyone can read and execute. What they do not contain is the decision
+about which of them to reach for, at what temperature, against which stale dimensions, with which
+anchor held fixed. A protocol cannot make that call about itself.
+
+The test that settles it: **remove this skill and see what happens.** The protocols survive. What
+disappears is anyone deciding which dimensions are in play, and the work silently returns to
+single-dimension search inside whatever space the brief happened to arrive in, which is the condition
+this update exists to fix.
+
 ## Owns
 
 - which dimensions to anchor and which to break;

@@ -953,5 +953,17 @@ mechanism. Three is usually the right number.
 
 > I am stuck.
 
-Route to the Project Guide. Stuck has causes, and "write another song" is almost never the fix for any
-of them.
+Ask what they are stuck on, because the answer routes differently:
+
+```text
+stuck on a body of work        Project Guide: thesis, function gaps, blocking decisions
+stuck on one piece             DIAGNOSE the piece first; the Guide only if the piece turns out
+                               to be fine and the problem is what it is for
+stuck on the premise           Creative Lab: the space itself is the problem
+```
+
+The Project Guide's own triggers scope it to a body of work, so a single unfinished track goes to
+diagnosis first. It reaches the Guide when the diagnosis comes back clean, or when the answer is that
+the track is competing with another one, which is a project question wearing a song's clothes.
+
+Stuck has causes, and "write another song" is almost never the fix for any of them.

@@ -165,7 +165,7 @@ performance_state:
 | `section_offset` | one constant offset between parts, held across a section | no general figure; derive it from the style, or measure it | Friberg & Sundström 2002 found jazz soloists' downbeats lagging the drums with offbeats roughly synchronous. That is the mechanism; the amount is not transferable |
 | `swing_ratio` | long-short ratio as a function of tempo | about 3.5:1 at slow tempi to 1:1 at fast, **jazz ride cymbal** | Friberg & Sundström 2002. Not a general fact about rhythm. Other traditions have their own ratios: see `shared/RHYTHM_SYSTEMS/MICROTIMING_AND_GROOVE.md` |
 | `microtiming_template` | per-position offsets from a named corpus | 1-5% of the beat; the studied corpora cluster nearer 1-3% | `shared/RHYTHM_SYSTEMS/MICROTIMING_AND_GROOVE.md`, which requires the corpus to be named |
-| `ensemble_spread` | many players do not attack at one instant | no measured figure is available in this pack; state and label whatever you use, or calibrate | musicianship |
+| `ensemble_spread` | several players do not attack at one instant | no measured figure is available in this pack; state and label whatever you use, or calibrate | musicianship |
 | `drift_1f` | small long-range-correlated wander, applied last and least | smallest layer of the plan | Hennig 2011, and a drum-track analysis in Räsänen 2015 |
 
 **Three of these models have no number, and that is the honest state of the evidence.** `phrase_arch`,
@@ -188,6 +188,12 @@ Rules:
   reference everything else is heard against.
 - `chord_asynchrony` is derived from the voicing and the velocities, not stored as a fixed number, and
   it is not copied from a keyboard part to a non-keyboard part.
+- **`ensemble_spread` follows the ensemble, not the patch.** A quartet is four soloists, so each part
+  carries `performer_count: 1`, and the spread between them is still real and is usually *smaller and
+  more deliberate* than a section's: four players listening to each other agree closely and lead each
+  other on purpose. A section patch playing one line is the other case, where the spread is recorded
+  into the samples and adding more on top double-counts it. Decide which case you are in and say so
+  in the plan.
 
 ---
 
@@ -233,6 +239,11 @@ feasibility_report:
   intentional_exceptions: []   # the brief wants the impossible; recorded, not silently allowed
   status: clear | flags | blocked
 ```
+
+**Whoever wrote the plan writes its feasibility report.** So the Vocal Director produces it for the
+voice: a stack above the singer's declared range, a phrase with no breath in it, a line that needs a
+register the singer does not use. The Performance Director produces it for everything else. Neither
+checks the other's parts, and neither leaves the voice out on the assumption that the other did it.
 
 An impossible part can still be written. What is not allowed is writing it **silently**. The
 Director sees the report, and the user decides whether the physical world applies to this track.

@@ -38,6 +38,12 @@ So the project state is the **one exception**, it is scoped to its project, and 
 
 ## When the Director routes here
 
+One boundary first, because it is the one that gets confused. **Stuck on a single piece is a
+diagnosis, not a project question.** It goes to the specialists that own the layers, and reaches this
+skill only when the piece turns out to be fine and the problem is what it is *for*, or when it is
+competing with another piece. That second case is a project question wearing a song's clothes, and it
+is common.
+
 - the user names a project: an EP, an album, a score, a set, "these songs";
 - the request is about direction, order, gaps, progress or finishing rather than about material;
 - the user is stuck, or asks what to do next;

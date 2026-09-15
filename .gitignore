@@ -1,5 +1,8 @@
-# user profiles and anything local never leave the machine
-profiles/local/
+# user profiles and anything local never leave the machine.
+# The folder itself is tracked, with only its README, so that the path the
+# Music Director looks in exists in a fresh clone.
+profiles/local/*
+!profiles/local/README.md
 *.local.yaml
 *.local.json
 

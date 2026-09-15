@@ -124,7 +124,8 @@
   ],
   "profiles": [
     "profiles/README.md",
-    "profiles/user-profile.example.yaml"
+    "profiles/user-profile.example.yaml",
+    "profiles/local/README.md"
   ],
   "tools": [
     "tools/check_all.py",
