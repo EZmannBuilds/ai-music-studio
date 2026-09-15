@@ -147,3 +147,37 @@ from Avid where required.
 - save checkpoints;
 - keep external agent bridge local;
 - use public APIs unless the user has an authorized private integration.
+
+
+# Performance and tuning
+
+`shared/HUMAN_PERFORMANCE_SCHEMA.md` produces plans that a Standard MIDI File cannot fully carry, and
+`shared/TUNING_AND_MPE.md` produces pitch systems that need a mechanism. Both land here.
+
+**These are capability questions, not claims.** The contract's first rule applies: discover what this
+connection can actually do before promising any of it, and report what it cannot
+(`shared/DAW_ADAPTER_CONTRACT.md`, section 10).
+
+```yaml
+ask_this_connection:
+  automation_lanes_per_cc:       # can it write a controller curve at all, and how many
+  host_parameter_automation:     # can it automate a plugin's own parameters
+  per_note_expression:           # can it write per-note pitch, pressure or timbre
+  mpe_routing:                   # can it route an MPE zone to an instrument
+  tuning_import:                 # scale files, tuning sysex, a tuning master, or none
+  articulation_switching:        # keyswitches, channel changes, track splits, or a device
+  negative_track_delay:          # needed to compensate sampled legato transition latency
+```
+
+Pro Tools-specific things to check rather than assume:
+
+- **Note-level work arrives as an imported file.** The performance plan's controller data has to
+  survive that import, so verify the lanes exist after import rather than assuming the file carried
+  them.
+- **Automation is a first-class timeline object** and is the natural home for host-parameter curves
+  the MIDI could not carry.
+- **Tick-based tracks** keep a performance plan's timing relative to tempo. Sample-based tracks do
+  not, and a tempo change will misalign a plan written against bars.
+- Confirm what the installed version's scripting surface actually exposes for automation and for
+  plugin parameters; the strengths listed above are session and timeline operations, which is not the
+  same thing.

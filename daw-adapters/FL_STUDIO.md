@@ -163,3 +163,37 @@ Music Director
 - avoid free-form Playlist assumptions;
 - verify every Channel's Mixer destination after creating tracks;
 - prefer semantic IDs/names over fragile visual indices where possible.
+
+
+# Performance and tuning
+
+`shared/HUMAN_PERFORMANCE_SCHEMA.md` produces plans that a Standard MIDI File cannot fully carry, and
+`shared/TUNING_AND_MPE.md` produces pitch systems that need a mechanism. Both land here.
+
+**These are capability questions, not claims.** The contract's first rule applies: discover what this
+connection can actually do before promising any of it, and report what it cannot
+(`shared/DAW_ADAPTER_CONTRACT.md`, section 10).
+
+```yaml
+ask_this_connection:
+  automation_lanes_per_cc:       # can it write a controller curve at all, and how many
+  host_parameter_automation:     # can it automate a plugin's own parameters
+  per_note_expression:           # can it write per-note pitch, pressure or timbre
+  mpe_routing:                   # can it route an MPE zone to an instrument
+  tuning_import:                 # scale files, tuning sysex, a tuning master, or none
+  articulation_switching:        # keyswitches, channel changes, track splits, or a device
+  negative_track_delay:          # needed to compensate sampled legato transition latency
+```
+
+FL-specific things to check rather than assume:
+
+- **Automation Clips are Playlist objects**, separate from note data in a Pattern. A performance
+  plan's controller curves therefore live somewhere different from the notes they shape, and the
+  Playlist-versus-Mixer distinction above applies to them too.
+- **Per-note properties are unusually rich here.** The Piano Roll's per-note pan, fine pitch, slide
+  and mod values are a direct route for parts of a performance plan that would otherwise need
+  separate lanes. Check which of them the installed version exposes to scripting.
+- **Slide notes** are a native mechanism for portamento and for pitch gestures; prefer them to a
+  channel-wide bend where the instrument supports them.
+- Confirm the microtuning route before committing to a pitch system: some instruments accept a scale
+  file, some take fine pitch per note, and the two behave differently under transposition.

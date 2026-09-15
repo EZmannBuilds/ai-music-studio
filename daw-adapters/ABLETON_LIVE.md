@@ -212,3 +212,37 @@ For a `plugin-auditor` calibration pass:
   synced drive that can start downloading every file.
 - A dragged or loaded sample on a synced drive downloads on first use. For packs in regular use,
   keep the folder downloaded locally.
+
+
+# Performance and tuning
+
+`shared/HUMAN_PERFORMANCE_SCHEMA.md` produces plans that a Standard MIDI File cannot fully carry, and
+`shared/TUNING_AND_MPE.md` produces pitch systems that need a mechanism. Both land here.
+
+**These are capability questions, not claims.** The contract's first rule applies: discover what this
+connection can actually do before promising any of it, and report what it cannot
+(`shared/DAW_ADAPTER_CONTRACT.md`, section 10).
+
+```yaml
+ask_this_connection:
+  automation_lanes_per_cc:       # can it write a controller curve at all, and how many
+  host_parameter_automation:     # can it automate a plugin's own parameters
+  per_note_expression:           # can it write per-note pitch, pressure or timbre
+  mpe_routing:                   # can it route an MPE zone to an instrument
+  tuning_import:                 # scale files, tuning sysex, a tuning master, or none
+  articulation_switching:        # keyswitches, channel changes, track splits, or a device
+  negative_track_delay:          # needed to compensate sampled legato transition latency
+```
+
+Live-specific things to check rather than assume:
+
+- **Clip envelopes and plugin parameters are different targets.** A controller written as a clip
+  envelope may not reach a plugin at all, while an envelope on that plugin's own host parameter does.
+  This is the single most common cause of a part rendering with no dynamics, and it is per plugin.
+  Test it once per instrument and record the answer in the calibration profile.
+- **Session and Arrangement hold automation differently.** A performance plan committed in Session
+  View may not survive the move to Arrangement in the way a linear timeline would.
+- **Track delay** is the right place to compensate sampled legato latency, not dragging notes.
+- Live 12 has its own tuning-system support and its own scale-file handling, including a native
+  format. Confirm which file types this version accepts, and where it places the reference pitch,
+  before relying on it: `shared/TUNING_AND_MPE.md`, section 3.
