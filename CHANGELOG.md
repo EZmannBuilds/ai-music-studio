@@ -46,8 +46,8 @@ testable. Entries are added as each part lands.
   alias, a value stops being accepted, or a file a user's plan may point to is deleted without a
   pointer page.
 - **`tools/privacy_check.py` missed real paths.** Its Windows pattern needed doubled backslashes, so
-  an ordinary `C:\Users\name` passed; it now also catches `C:/Users`, `/Volumes`, `$HOME`,
-  `%USERPROFILE%` and names inside MIDI track-name and lyric events. Private terms are matched as
+  an ordinary `C:\Users\<name>` path passed; it now also catches forward-slash Windows paths,
+  mounted volumes, the home-directory variables on every OS, and names inside MIDI track-name and lyric events. Private terms are matched as
   whole words: with a surname as a private term, 2.0's research citations of Hartmann, Kilchenmann
   and Schumann were false findings, so the check with a real profile could not report zero.
 - `tools/routing_check.py` now holds the README's routing table to the Director too.
