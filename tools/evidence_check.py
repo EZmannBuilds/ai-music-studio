@@ -47,7 +47,8 @@ RECORD_FIELDS = ['claim', 'source', 'source_type', 'confidence', 'scope', 'limit
 LABELS_WITH_SOURCES = {'sourced', 'academic', 'manual-derived', 'standard-reference'}
 OLD_LABELS = re.compile(r'`(musicianship|orchestration-text|excerpt-derived)`')
 TAG = re.compile(r'\[(sourced|academic|manual-derived|standard-reference|measured|inference|'
-                 r'to-verify|musicianship|orchestration-text|excerpt-derived)(?::\s*([^\]]*))?\]')
+                 r'to-verify|musicianship|orchestration-text|excerpt-derived)(?::\s*([^\]]*))?'
+                 r'(?:\s\+\s[^\]]*)?\]')
 SOURCE_ID = re.compile(r'^[A-Z0-9][A-Z0-9-]*[A-Z0-9]$')
 CONTROLLER = re.compile(r'\b(?:CC|cc)\s?#?\d{1,3}\b')
 VELOCITY_ZONE = re.compile(r'\bvelocit(?:y|ies)\s+(?:of\s+|from\s+)?\d{1,3}\s*(?:to|-|–)\s*\d{1,3}\b', re.I)
@@ -119,6 +120,16 @@ def check_sources(where, label, ids_text, reg, needs, problems):
                             f'[{label}]; use standard-reference or read it')
 
 
+def segments(ev):
+    """An evidence cell or tag may combine support for different parts of one claim, joined by
+    ' + ': `academic: WOLFE-CLARINET + inference`. Returns [(label, ids_text)]."""
+    out = []
+    for part in ev.split(' + '):
+        m = re.match(r'^\s*([a-z-]+)(?::\s*(.*))?$', part.strip())
+        out.append((m.group(1), (m.group(2) or '').strip()) if m else (None, part.strip()))
+    return out
+
+
 def sections(text):
     """(heading, body) for every level-2 section, with code blocks removed."""
     parts = re.split(r'^## (.+)$', strip_code(text), flags=re.M)
@@ -156,16 +167,17 @@ def check_page(rel, text, reg, vocab, problems):
                     problems.append(f'{where}: has {len(r)} cells, not 3 (a "|" inside a cell?)')
                     continue
                 ev = r[2]
-                m = re.match(r'^([a-z-]+)(?::\s*(.*))?$', ev)
-                if not m or m.group(1) not in labels:
+                segs = segments(ev)
+                if any(lab not in labels for lab, _ in segs):
                     problems.append(f'{where}: evidence {ev!r} is not a label from '
                                     f'shared/RESEARCH_RULES.md')
                     continue
-                if r[1].lower().startswith('unresolved') and m.group(1) != 'to-verify':
+                if r[1].lower().startswith('unresolved') and any(l != 'to-verify' for l, _ in segs):
                     problems.append(f'{where}: an unresolved row must be labelled to-verify')
-                if m.group(1) == 'to-verify' and not (m.group(2) or '').strip():
-                    problems.append(f'{where}: to-verify must say what would settle it')
-                check_sources(where, m.group(1), m.group(2), reg, needs, problems)
+                for lab, ids in segs:
+                    if lab == 'to-verify' and not ids:
+                        problems.append(f'{where}: to-verify must say what would settle it')
+                    check_sources(where, lab, ids, reg, needs, problems)
         known = {f for w in fields.values() for f in w} | set(fields)
         for r in rows:
             if r[0] not in known and r[0] not in ('field',):
@@ -173,14 +185,14 @@ def check_page(rel, text, reg, vocab, problems):
 
     # tags in prose and in the other tables
     for m in TAG.finditer(strip_code(text)):
-        where = f'{rel}: tag [{m.group(0)[1:40]}'
-        label = m.group(1)
-        if label not in labels:
-            problems.append(f'{rel}: tag uses the 2.0 or reserved label "{label}"')
-            continue
-        if label == 'to-verify' and not (m.group(2) or '').strip():
-            problems.append(f'{where}: to-verify must say what would settle it')
-        check_sources(where, label, m.group(2), reg, needs, problems)
+        where = f'{rel}: tag {m.group(0)[:50]}'
+        for label, ids in segments(m.group(0)[1:-1]):
+            if label not in labels:
+                problems.append(f'{rel}: tag uses the 2.0 or reserved label "{label}"')
+                continue
+            if label == 'to-verify' and not ids:
+                problems.append(f'{where}: to-verify must say what would settle it')
+            check_sources(where, label, ids, reg, needs, problems)
 
     for heading, body in sections(text):
         if heading.lower() in UNTAGGED_SECTIONS:

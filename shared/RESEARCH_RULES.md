@@ -51,7 +51,8 @@ The three levels describe claims made about a track. The knowledge pages, starti
 
 A label is written as a tag at the end of the sentence, bullet or paragraph it covers:
 `[academic: WOLFE-CLARINET]`, `[standard-reference: FLETCHER-ROSSING-1998]`, `[inference]`,
-`[to-verify: what would settle it]`. Source IDs resolve in `research/sources/INSTRUMENT_SOURCES.md`,
+`[to-verify: what would settle it]`. A claim whose parts rest on different support says so with
+` + `: `[academic: WOLFE-CLARINET + inference]`. Source IDs resolve in `research/sources/INSTRUMENT_SOURCES.md`,
 which records once, for every source, **how much of it was actually read**: `full`, `section`,
 `excerpt`, `abstract` or `not-read`. `sourced`, `academic` and `manual-derived` need a source read
 at `section` depth or more. Anything read less is `standard-reference` at best. `tools/evidence_check.py`
