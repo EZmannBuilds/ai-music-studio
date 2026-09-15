@@ -106,7 +106,9 @@
     "shared/VIRTUAL_INSTRUMENT_GUIDE/NAY.md",
     "shared/VIRTUAL_INSTRUMENT_GUIDE/CUBAN_HAND_PERCUSSION.md",
     "shared/VIRTUAL_INSTRUMENT_GUIDE/HARDANGER_FIDDLE.md",
-    "shared/VIRTUAL_INSTRUMENT_GUIDE/HIGHLAND_BAGPIPE.md"
+    "shared/VIRTUAL_INSTRUMENT_GUIDE/HIGHLAND_BAGPIPE.md",
+    "shared/VIRTUAL_INSTRUMENT_GUIDE/JAVANESE_GAMELAN_INSTRUMENTS.md",
+    "shared/VIRTUAL_INSTRUMENT_GUIDE/BALINESE_GAMELAN_INSTRUMENTS.md"
   ],
   "research": [
     "research/PERCEPTION_AND_PRODUCTION.md",
@@ -148,7 +150,9 @@
     "research/instruments/NAY.md",
     "research/instruments/CUBAN_HAND_PERCUSSION.md",
     "research/instruments/HARDANGER_FIDDLE.md",
-    "research/instruments/HIGHLAND_BAGPIPE.md"
+    "research/instruments/HIGHLAND_BAGPIPE.md",
+    "research/instruments/JAVANESE_GAMELAN_INSTRUMENTS.md",
+    "research/instruments/BALINESE_GAMELAN_INSTRUMENTS.md"
   ],
   "benchmark": [
     "research/BENCHMARK.md",

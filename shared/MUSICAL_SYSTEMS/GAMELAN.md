@@ -40,6 +40,10 @@ the shimmer characteristic of many Balinese ensembles. The beat rate is ensemble
 chosen by the tuner. This connects directly to the timbre-and-tuning argument in
 `CONTEMPORARY_MICROTONALITY.md`: the ensemble's spectrum and its tuning are designed as one thing.
 
+The instruments themselves, their construction, damping, tuning and technique, are on
+`shared/VIRTUAL_INSTRUMENT_GUIDE/JAVANESE_GAMELAN_INSTRUMENTS.md` and
+`shared/VIRTUAL_INSTRUMENT_GUIDE/BALINESE_GAMELAN_INSTRUMENTS.md`, kept apart as the traditions are.
+
 ## Rhythm and cycle
 
 Form is **colotomic**: nested cycles marked by punctuating instruments. The largest gong falls at

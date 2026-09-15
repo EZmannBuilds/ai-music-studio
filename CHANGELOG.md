@@ -95,7 +95,7 @@ testable, and it was built and tested on `main` without a release.
   peer-reviewed acoustics and performance papers, pedagogy from named teachers and professional
   societies, and one strings library manual, re-opened for 2.1. Each page opens with a behaviour card
   per instrument, every field present, and each claim's evidence and limits are in
-  `research/instruments/`. 169 sources are in the register, most read at section depth; the standard
+  `research/instruments/`. 185 sources are in the register, across the families and the tradition pages, most read at section depth; the standard
   texts that could not be opened are listed as not read and cited only as `standard-reference`.
 - **Factual errors in 2.0 corrected**, each with its source: the harpist's thumb takes the highest
   note of a hand's group, not the lowest; xylophone and glockenspiel ranges were sounding ranges
@@ -117,12 +117,13 @@ testable, and it was built and tested on `main` without a release.
 
 ### Instruments of named traditions
 
-- **Twelve pages for instruments of eight traditions**, on the same footing as the families, each
+- **Fourteen pages for instruments of ten traditions**, on the same footing as the families, each
   through a source gate (two independent specialist sources read at section depth, one of them
   practice) and each with what virtual implementations get wrong, what must not be generalised
   outside the tradition, and the repertoire the studio declines: tanpura, sitar, tabla, mridangam
   (Hindustani and Carnatic, kept distinct); oud, qanun, nay (Arabic maqam); Ewe dance drums; jembe
-  and dunun (Mande); Cuban hand percussion; Hardanger fiddle; Highland bagpipe.
+  and dunun (Mande); Central Javanese and Balinese gamelan instruments, kept apart; Cuban hand
+  percussion; Hardanger fiddle; Highland bagpipe.
 - **The bansuri did not pass the gate** and has no page: its practitioner sources could not be read.
   The guide's index keeps a coverage record of what was attempted, and
   `research/sources/WAVE2_SOURCE_SURVEY.md` records the sources for seventeen more instruments.

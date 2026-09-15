@@ -88,6 +88,8 @@ in `CULTURALLY_SPECIFIC_INSTRUMENTS.md` section 3, names its tradition under its
 | Arabic maqam | `OUD.md`, `QANUN.md`, `NAY.md` | `MAQAM.md` |
 | Ewe dance-drumming | `EWE_DANCE_DRUMS.md` | `EWE_DANCE_DRUMMING.md` |
 | Mande jembe music | `JEMBE_AND_DUNUN.md` | `MANDE_JEMBE_MUSIC.md` |
+| Central Javanese gamelan | `JAVANESE_GAMELAN_INSTRUMENTS.md` | `GAMELAN.md` |
+| Balinese gamelan | `BALINESE_GAMELAN_INSTRUMENTS.md` | `GAMELAN.md` |
 | Cuban son and rumba | `CUBAN_HAND_PERCUSSION.md` | `CLAVE_AND_TIMELINES.md` |
 | Norwegian Hardanger fiddle music | `HARDANGER_FIDDLE.md` | `MODAL_FOLK_SYSTEMS.md` |
 | Scottish Highland piping | `HIGHLAND_BAGPIPE.md` | `DRONE_TRADITIONS.md` |
@@ -152,7 +154,7 @@ naming the feasibility checks that page supports in `shared/HUMAN_PERFORMANCE_SC
 A cello belongs to a tradition, has lineages of teaching and a repertoire, and is as specific as an
 oud. What differed in 2.0 was not the instruments but the evidence the pack could reach: the
 orchestral and studio instruments sit on a large written pedagogy, and many others did not have
-readable sources. 2.1 moved that line by researching instruments of seven more traditions to the
+readable sources. 2.1 moved that line by researching instruments of ten traditions to the
 same standard as the families. It has not closed the gap, and the coverage record above says where
 it still is. **An instrument's absence here says something about this pack's sources, not about the
 instrument.**
