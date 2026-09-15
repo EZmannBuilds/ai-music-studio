@@ -118,7 +118,10 @@
     "research/instruments/HAND_PERCUSSION.md",
     "research/instruments/PIANO_AND_KEYBOARDS.md",
     "research/instruments/ORGANS.md",
-    "research/instruments/SYNTHS_AND_SAMPLERS.md"
+    "research/instruments/SYNTHS_AND_SAMPLERS.md",
+    "research/instruments/GUITAR.md",
+    "research/instruments/BASS.md",
+    "research/instruments/HARP.md"
   ],
   "benchmark": [
     "research/BENCHMARK.md",

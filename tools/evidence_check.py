@@ -186,7 +186,8 @@ def check_page(rel, text, reg, vocab, problems):
     # tags in prose and in the other tables
     for m in TAG.finditer(strip_code(text)):
         where = f'{rel}: tag {m.group(0)[:50]}'
-        for label, ids in segments(m.group(0)[1:-1]):
+        # a tag may wrap across a line break in the source; read it as one line
+        for label, ids in segments(re.sub(r'\s+', ' ', m.group(0)[1:-1])):
             if label not in labels:
                 problems.append(f'{rel}: tag uses the 2.0 or reserved label "{label}"')
                 continue

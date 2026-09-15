@@ -243,11 +243,7 @@
       "not-read"
     ]
   },
-  "evidence_pending": [
-    "BASS.md",
-    "GUITAR.md",
-    "HARP.md"
-  ],
+  "evidence_pending": [],
   "bucket_pending": [
     "shared/MUSICAL_SYSTEMS/WEST_AFRICAN_POLYRHYTHM.md"
   ]
