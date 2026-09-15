@@ -24,3 +24,4 @@ next person knows it was tried. Accessed dates are the date of reading.
 
 | id | citation | type | read | url | accessed |
 |---|---|---|---|---|---|
+| STRINGS-LIBRARY-MANUAL-1 | Spitfire Audio, Spitfire Symphonic Strings User Manual (26 pages; the sections on basic principles, legato, performance legato, articulations, round robins and controls) | manual | section | https://spitfire-www-assets.s3.amazonaws.com/manuals/SpitfireSymphonicStrings_UserManual.pdf | 2026-09-15 |
