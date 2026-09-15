@@ -24,24 +24,23 @@ measured response           calibration profile                   this patch, th
 
 ## Evidence note, and what it means for the guide
 
-When this page was written, one manufacturer manual was read in full (a symphonic strings library) and
-most other sources were reachable only as search excerpts or not at all. A good deal of the guide is
-therefore standard musicianship rather than verified citation.
+**This page is the 2.0 synthesis, kept as the record of what 2.0 knew.** When it was written, one
+manufacturer manual was read in full (a symphonic strings library) and most other sources were
+reachable only as search excerpts or not at all, so much of it is musicianship rather than verified
+citation.
 
-**Every section of every guide file carries an evidence label**, and numbers are presented as typical
-ranges with a pointer to verify:
+**From 2.1 the evidence lives elsewhere, claim by claim:**
 
-```text
-manual-derived       stated in a manufacturer manual read for this work
-excerpt-derived      from a search excerpt of a named source, not the full text
-orchestration text   attributed to a standard reference that was not opened
-musicianship         general practice, stated as inference
-to verify            named explicitly, with the host that was unreachable
-```
+- `research/sources/INSTRUMENT_SOURCES.md`: every source, with how much of it was read. The strings
+  manual 2.0 relied on was re-opened for 2.1 and is registered as `STRINGS-LIBRARY-MANUAL-1`.
+- `research/instruments/<page>.md`: one research record per claim on each migrated guide page, with
+  its scope and limits.
+- The labels are those of `shared/RESEARCH_RULES.md`. 2.0's labels on this page read as follows:
+  `musicianship` as `inference`, `orchestration text` and `excerpt-derived` as `standard-reference`.
 
-This matches the studio's existing MEASURED / RESEARCH-SUPPORTED / CREATIVE INFERENCE discipline. A
-guide that presents inference as fact would be worse than no guide, because the Performance Director
-acts on it.
+Where a family page has been migrated, its research page supersedes this one for that family. A guide
+that presents inference as fact would be worse than no guide, because the Performance Director acts
+on it.
 
 ---
 

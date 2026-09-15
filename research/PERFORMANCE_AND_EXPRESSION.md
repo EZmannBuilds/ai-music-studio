@@ -12,9 +12,12 @@ The guiding question:
 ## Evidence note
 
 Several journal pages and manufacturer PDFs could not be opened when this page was written; those
-entries rest on abstracts, search excerpts and one manual read in full. Each claim below says which.
-Items marked **to verify** should be confirmed against the primary text before anyone quotes a page
-number or a exact figure from them.
+entries rest on abstracts, search excerpts and one manual read in full. **2.0 said each claim below
+says which; most do not**, and 2.1 has not re-read these papers, so treat every entry here as
+`standard-reference` (known from its abstract or attribution) unless it is marked otherwise. The
+strings manual was re-opened for 2.1 (`STRINGS-LIBRARY-MANUAL-1` in
+`research/sources/INSTRUMENT_SOURCES.md`). Items marked **to verify** should be confirmed against the
+primary text before anyone quotes a page number or an exact figure from them.
 
 ---
 
