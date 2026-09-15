@@ -1,0 +1,58 @@
+# Evaluation case E5. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: E5
+  title: 'Timecode cue: a stinger hit forced to an exact frame'
+  category: performance
+  source: new in 2.1
+  brief: 'Film cue, bar 11 currently the nearest musical moment: a sting must land exactly at 0:42.5
+    in the cue, a stinger hit, and nothing else about the cue''s pace is supposed to change. Write
+    the timecode cue that gets it there.'
+  supplied_context: []
+  expected_routes:
+    must_include:
+    - arranger
+    must_not_include: []
+  required_behaviors:
+  - 'a timecode_cue block naming the timecode, the nearest grid position, a fit_strategy and
+    hit_point_type: stinger'
+  - the fit actually lands the stinger at 0:42.5, at the named grid position
+  - where the fit is a tempo_ramp, the tempo change reads as a real, computed tempo change (in the
+    terms of METRIC_MODULATION_AND_TEMPO_MORPHING.md) rather than an arbitrary jump
+  forbidden_behaviors:
+  - the hit point ignored, ungridded, or left at "nearest bar" without actually fitting the grid to
+    the timecode
+  - the fit forced through an implausibly extreme tempo jump or bar distortion that breaks
+    musicality even though the frame is technically hit
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  - id: cue_present
+    block_present: timecode_cue
+  - id: timecode_matches
+    why: the cue has to name the exact stated timecode, not a rounded or paraphrased one
+    regex_present:
+      pattern: '42\.5'
+  - id: hit_type_stinger
+    field_equals:
+      path: timecode_cue.hit_point_type
+      value: stinger
+  - id: fit_strategy_valid
+    field_in:
+      path: timecode_cue.fit_strategy
+      values: [tempo_ramp, insert_pause, reharmonize_bar_length]
+  - id: grid_position_present
+    field_nonempty: timecode_cue.nearest_grid_position
+  - id: no_absurd_tempo
+    why: 'the pack''s own ceiling for a tempo change that still reads as one, not a splice, is
+      around a large lift from METRIC_MODULATION_AND_TEMPO_MORPHING.md''s pivot table; a jump into
+      the hundreds of BPM from ordinary material is the implausible-distortion near miss this case
+      exists to catch'
+    regex_absent:
+      pattern: '\b[3-9]\d{2}(\.\d+)?\s*bpm\b'
+      ignore_case: true
+  human_questions:
+  - Does the fit actually read as a real tempo choice a film composer would make, rather than a
+    number picked to make the math work?
+  - Would the sting be felt as landing on the beat, or as an edit spliced onto the music?
+  trials: 3

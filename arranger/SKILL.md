@@ -119,18 +119,22 @@ Use:
 
 ## Transition types
 
-- fill;
-- silence;
-- riser;
-- reverse sound;
-- harmonic pivot;
-- rhythmic pickup;
-- filter movement;
-- tape stop;
-- vocal pickup;
-- motif handoff;
-- abrupt hard cut;
-- metric displacement.
+Choose function first, device second. Each device below is tagged with the function it most
+commonly serves, from `conceal_boundary | exaggerate_boundary | reset | accelerate | destabilize |
+fake_arrival | delay_arrival | preserve_momentum`.
+
+- fill — preserve_momentum;
+- silence — reset;
+- riser — delay_arrival;
+- reverse sound — fake_arrival;
+- harmonic pivot — conceal_boundary;
+- rhythmic pickup — accelerate;
+- filter movement — destabilize;
+- tape stop — exaggerate_boundary;
+- vocal pickup — accelerate;
+- motif handoff — preserve_momentum;
+- abrupt hard cut — exaggerate_boundary;
+- metric displacement — destabilize.
 
 Do not use riser + silence + impact by default.
 
@@ -143,7 +147,8 @@ and use this list for the arrangement steps within it.
 Check in order:
 1. composition: is the hook actually stronger?
 2. contrast: did verse already spend the chorus's energy?
-3. register: can the chorus move upward/downward?
+3. register: can the chorus move upward/downward? Practical range and where each instrument thins
+   out or opens up are in its family file, `shared/VIRTUAL_INSTRUMENT_GUIDE/<FAMILY>.md`.
 4. drums: does rhythmic authority change?
 5. density: is there meaningful addition/subtraction?
 6. timbre: does the palette open?
@@ -159,11 +164,55 @@ instrument_role:
   register:
   rhythmic_role:
   harmonic_role:
-  foreground_level:
+  foreground_level: foreground | support | atmosphere | pulse | hidden_or_felt
+  bar_range:
   section_presence:
 ```
 
+`foreground_level` and `bar_range` are attention and orchestration intent — where a part sits in the
+listener's focus, and for how many bars it holds that position. Mix Engineer still owns mix balance
+and consumes this field as before; it is not a level instruction.
+
 Avoid several instruments performing the same role unless layering is intentional.
+
+## Voicing and divisi
+
+Once the Composer has fixed a chord's identity, the Arranger decides who plays which tone of it.
+Write a `voicing` entry only where a section actually has two or more simultaneous pitched parts
+sharing one chord — a string section, a horn section, a vocal-plus-instrumental doubling. That is a
+condition an arrangement either has or does not have, never a default triggered by genre
+(`shared/ORCHESTRAL_VOICING_SCHEMA.md`, section 2).
+
+A section that can split — violin I into a2, horns into upper/lower pairs — may distribute the
+chord's tones across its parts instead of every part doubling the block voicing. String-section
+divisi is this decision. Choir divisi is a different territory, already owned by the Vocal Director
+(`shared/VOCAL_ARCHITECTURE_SCHEMA.md`); do not write it here.
+
+With no `voicing` entry for a chord, MIDI Builder renders the Composer's block voicing exactly as
+before. Distribution is opt-in per section, never assumed.
+
+## Spatial intent
+
+Where an element sits in near/far, narrow/wide compositional space is an arrangement decision, made
+before mixing, the same way section function and instrument role are
+(`shared/SPATIAL_INTENT_SCHEMA.md`). Write a `spatial_intent` entry only where the placement carries an
+actual compositional reason — a verse that should feel close and alone, a hook that should open
+outward — not as a default for every element in every section.
+
+`spatial_intent` states an intent; it does not perform it. Mix Engineer reads it as upstream context
+for its own depth and stereo work and does not own it, and Producer can let it inform sound choice.
+With no entry, both proceed exactly as they do today.
+
+## Orchestration knowledge
+
+Where the instrumentation is genuinely orchestral or hybrid orchestral/electronic, read
+`shared/ORCHESTRATION_KNOWLEDGE.md` for sourced instrument-combination and colour facts
+(`color_combination`), named orchestral-gesture mechanisms such as a string swell or a brass bloom
+(`gesture`), and the orchestral-percussion role layer and the instrumental half of hybrid role
+assignment (`role_assignment`). It is a reference page, gated the same way `shared/MUSICAL_SYSTEMS/`
+files are: read only when the instrumentation calls for it, never by genre default. With no entry
+consulted, `instrument_role` above (register, function, foreground level) works exactly as it does
+today; the shared file adds sourced depth to that reasoning, it does not replace it.
 
 ## Arrangement curve
 

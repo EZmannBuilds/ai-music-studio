@@ -101,6 +101,11 @@
       "high",
       "medium",
       "low"
+    ],
+    "intelligibility_risk": [
+      "low",
+      "med",
+      "high"
     ]
   },
   "exploration_dimensions": [

@@ -87,16 +87,16 @@ Exclude from the audit, and list separately:
 Check in this order; report the first that fits, with its evidence:
 
 ```text
-1. out of instrument range        pitch outside the calibrated sounding range, or the
+1. [RV-SILENT-01] out of instrument range        pitch outside the calibrated sounding range, or the
                                   documented range when no profile exists
-2. missing drum pad               the note has no pad in the kit's map
-3. velocity too low               below the calibrated velocity floor
-4. too short for the attack       duration below min_reliable_note_ms
-5. same-pitch overlap             an overlapping note's note-off cut it, or it retriggered
-6. routing                        wrong channel or port, instrument not loaded, track muted
+2. [RV-SILENT-02] missing drum pad               the note has no pad in the kit's map
+3. [RV-SILENT-03] velocity too low               below the calibrated velocity floor
+4. [RV-SILENT-04] too short for the attack       duration below min_reliable_note_ms
+5. [RV-SILENT-05] same-pitch overlap             an overlapping note's note-off cut it, or it retriggered
+6. [RV-SILENT-06] routing                        wrong channel or port, instrument not loaded, track muted
                                   or disabled, clip outside the arrangement
-7. dynamics control at minimum    CC or host parameter at zero at that moment
-8. unknown                        say so, and offer calibration for that instrument
+7. [RV-SILENT-07] dynamics control at minimum    CC or host parameter at zero at that moment
+8. [RV-SILENT-08] unknown                        say so, and offer calibration for that instrument
 ```
 
 ## 3. Level and masking, per track

@@ -118,10 +118,13 @@ project_state:
   decision_log:
     - {when: "2026-08-20 16:10", decision: "no live drums", why: "the close world depends on programmed tightness"}
     - {when: "2026-09-12 11:20", decision: "form and sub-bass are project motifs, not repetition", why: "user confirmed"}
+    - {when: "2026-09-13 09:40", decision: "Track B keeps its verse melody, raised a fourth, rather than a new melody",
+       why: "the diversity comparison flagged it as a duplicate of Track A's function; raising it gave it distance without a rewrite",
+       linked_to: "t2", superseded_alternatives: ["writing Track B a new verse melody from scratch"]}
 
   revision_queue:
-    - {item: "Track B: new function", why: "duplicate function with Track A", priority: 1}
-    - {item: "Track A: transition grammar", why: "classified accidental", priority: 2}
+    - {item: "Track B: new function", why: "duplicate function with Track A", priority: 1, linked_to: "t2"}
+    - {item: "Track A: transition grammar", why: "classified accidental", priority: 2, linked_to: "t1"}
 
   completion_definition:
     what_done_means: "five songs I would play to someone in order without apologising for any of them"

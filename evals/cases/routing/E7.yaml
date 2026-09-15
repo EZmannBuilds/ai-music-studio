@@ -1,0 +1,51 @@
+# Evaluation case E7. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: E7
+  title: 'Orchestral gating: a non-orchestral brief must not trigger the new orchestral systems'
+  category: routing
+  source: new in 2.1
+  brief: 'Four-on-the-floor synth-pop track: drum machine, a synth bass line, a synth lead, and a
+    lead vocal, all playing together through the chorus. Arrange the chorus.'
+  supplied_context: []
+  expected_routes:
+    must_include:
+    - arranger
+    must_not_include: []
+  required_behaviors:
+  - the chorus is arranged using the pack's existing, general arrangement reasoning
+  forbidden_behaviors:
+  - 'an ensemble_gesture, voicing, or role_assignment block appearing anywhere in the response, even
+    though four parts are playing together, because none of the three gates that actually license
+    these systems is met here: no authored cross-part gesture was asked for, no two-or-more parts
+    share one chord as a divisi decision, and this is not a hybrid orchestral/electronic brief'
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  - id: no_ensemble_gesture
+    why: 'ensemble_gesture is gated to an authored cross-part gesture, not merely to 2+ parts playing
+      together; a synth-pop chorus with drums, bass, lead and vocal is exactly the case that would
+      over-trigger it if the gate were only "2+ parts"'
+    not:
+      block_present: ensemble_gesture
+  - id: no_voicing
+    why: 'voicing/divisi is gated to 2+ simultaneous pitched parts sharing one chord as a distribution
+      decision; a synth-pop chorus has no such divisi situation'
+    not:
+      block_present: voicing
+  - id: no_role_assignment
+    why: 'role_assignment from shared/ORCHESTRATION_KNOWLEDGE.md is gated to briefs the instrumentation
+      actually calls for it in, including the hybrid orchestral/electronic case; a synth-pop track with
+      no orchestral layer at all must fall back to Arranger''s existing generic instrument_role
+      reasoning instead'
+    not:
+      block_present: role_assignment
+  - id: no_orchestral_vocabulary
+    why: a response that never mentions orchestral-specific terms is the clearest sign none of the
+      new systems fired by accident
+    regex_absent:
+      pattern: '(?i)divisi|ensemble_gesture|role_assignment'
+  human_questions:
+  - Does the arrangement read as a normal synth-pop chorus, with no orchestral reasoning imported
+    that the brief never asked for?
+  trials: 3

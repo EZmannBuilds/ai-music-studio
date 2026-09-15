@@ -148,8 +148,9 @@ vocal_brief:
 
 ## Outputs
 
-`vocal_architecture` per section; vocal `performance_state` entries; the track list with roles; the
-ledger's `vocal_architecture` row; requests upstream.
+`vocal_architecture` per section, including `collision_check` where lines cross; vocal
+`performance_state` entries; the track list with roles; the ledger's `vocal_architecture` row;
+requests upstream.
 
 ## Shared systems read
 
@@ -188,6 +189,43 @@ density curve          across the verse and across the song
 ```
 
 The Lyric Generator writes words that fit the flow. This skill decides what the flow is.
+
+## Vocal collision
+
+Two or more vocal lines can collide the way two instruments never do, because they share the same
+register, the same vowels and the same listener attention. Run `collision_check`
+(`shared/VOCAL_ARCHITECTURE_SCHEMA.md`) where it is actually needed: a dense stacked-harmony passage
+where two or more lines cross register, not every section as boilerplate. A harmony line written
+above the lead in one bar and below it in the next is the clearest case; a second backing line
+sharing the lead's range for a phrase is another.
+
+This is vocal-vs-vocal only. A vocal crowding an instrument's register stays
+`arranger/SKILL.md`'s call and is not re-litigated here.
+
+Name the lines in conflict, then judge three things:
+
+```text
+register_overlap        none, partial (they touch for part of the passage) or full (they occupy
+                         the same range throughout)
+rhythmic_collision       where in the bar the lines land on the same beat with different words,
+                         which is what actually erodes intelligibility, not the overlap alone
+intelligibility_risk     low, med or high, once register and rhythm are both weighed
+```
+
+Then resolve it, or say why not:
+
+```text
+reassign_register        move one line to a different octave or register so the lines stop sharing
+                          space; the cheapest fix when the arrangement has room for it
+stagger_rhythm            keep the registers but offset the rhythm so the lines trade the beat
+                          instead of landing on it together
+thin_texture               drop a line, or move it to a vowel/hum, rather than fight the collision
+accept_as_intended        the crossing is the point (a deliberate braid, a moment of confusion in
+                          the lyric) and stays; say why, so it reads as a choice
+```
+
+A crossing that goes unmentioned is not a decision. Silently stacking the lines and calling it a
+harmony is the failure mode this field exists to catch.
 
 ## Diversity
 
@@ -231,5 +269,8 @@ The studio does not synthesise a voice; a vocal guide is a guide, and the delive
 - a request to imitate a named living artist produces a one-sentence decline and a mechanism-level
   alternative, not a lecture and not quiet compliance
   (`research/BENCHMARK_DIVERSITY.md`, N4);
+- a dense stack where two or more vocal lines cross register produces a `collision_check` that
+  names the lines and either flags the overlap or resolves it; stacking crossing lines with no
+  collision awareness at all is a finding (`evals/cases/interaction_modes/E9.yaml`);
 - `research/BENCHMARK_DIVERSITY.md` D5 and D13 check that a piece with no voice, and a piece with
   almost no material, are still arranged rather than padded with vocal layers.

@@ -74,8 +74,9 @@ looseness as quality.
 ### 3. Check feasibility before planning
 
 Return `feasibility_report` (`shared/HUMAN_PERFORMANCE_SCHEMA.md`, section 5) before writing the plan:
-impossible voicings, limb or finger conflicts, out-of-range notes, breath and bow overruns,
-articulations the instrument does not have, more simultaneous notes than the thing can produce.
+impossible voicings [PD-FEAS-01], limb or finger conflicts [PD-FEAS-02], out-of-range notes
+[PD-FEAS-03], breath and bow overruns [PD-FEAS-04], articulations the instrument does not have
+[PD-FEAS-05], more simultaneous notes than the thing can produce [PD-FEAS-06].
 
 An impossible part can still be written. A drum fill needing five limbs is a legitimate choice for
 music that is not pretending to be a drummer. What is not allowed is writing it **silently** and
@@ -96,6 +97,21 @@ rule systems group their rules:
 ```
 
 Phrase first. A plan that starts with note-level detail produces detail with no shape.
+
+**At the ensemble step, when 2 or more parts are actually playing together**, check whether the
+passage needs one shared gesture that different parts answer differently — a crescendo where the
+violins lead and the low brass waits, an accelerando the rhythm section drives and the pads lag
+behind. `ensemble_spread` and `section_offset` say how far apart parts sit; they cannot say who leads
+a change and who follows it. Where that is what the brief needs, write an `ensemble_gesture`
+(`shared/HUMAN_PERFORMANCE_SCHEMA.md`, section 8): the gesture itself, and a `responses[]` curve per
+part, each with its own `lag_beats`, `curve` and `role`. Point each responding part's
+`performance_state.timing_character.gesture_ref` at it.
+
+**Check the instrumentation from the handoff before writing one.** A solo track has nothing to lead
+or follow, so it never gets an `ensemble_gesture` — confirm 2 or more parts are actually sounding
+together first, the same way `ensemble_spread` itself only applies to an ensemble. A part with no
+`gesture_ref` keeps behaving exactly as it does today: `ensemble_spread` and `section_offset` apply
+unchanged, and nothing about this is required reading for a plan that does not need it.
 
 ### 5. Choose timing models, not amounts
 
@@ -134,7 +150,8 @@ With `realism_target: deliberately_mechanical`, the list is empty and the plan s
 Articulation; note overlap and separation; phrase-level dynamic arcs; systematic microtiming, rubato
 and tempo breathing; accents, ghost notes and grace notes; vibrato, portamento and pedal; strumming,
 picking, bowing and breath models; physical feasibility; repeated-note variation; intentional
-imperfection with a reason; and the decision to be deliberately non-organic when that is the brief.
+imperfection with a reason; ensemble gestures where 2 or more parts are actually playing together; and
+the decision to be deliberately non-organic when that is the brief.
 
 ## Does not own
 
@@ -184,17 +201,22 @@ DAW adapter, the automation curves that MIDI cannot carry.
 Work down this list. The first three are more often the cause than the last.
 
 1. **Dynamics are flat** because there is no continuous controller movement on long notes, or it is
-   going somewhere the instrument ignores.
-2. **Every repetition is identical**, because round robins are absent or are being reset.
-3. **Legato is not legato**, because the notes do not overlap and the patch is monophonic.
+   going somewhere the instrument ignores. [PD-FAKE-01]
+2. **Every repetition is identical**, because round robins are absent or are being reset. [PD-FAKE-02]
+3. **Legato is not legato**, because the notes do not overlap and the patch is monophonic. [PD-FAKE-03]
 4. **Attacks are all the same**, because velocity is uniform, or because one articulation is doing
-   every job.
+   every job. [PD-FAKE-04]
 5. **Nothing is physically true**: chords no hand could hold, fills no drummer could play, phrases no
-   one could breathe through.
+   one could breathe through. [PD-FAKE-05]
 6. **There is no noise at all**: no breath, no fret, no bow change, no key. Real instruments are not
-   silent between notes.
+   silent between notes. [PD-FAKE-06]
 7. **The timing is random**, which reads as sloppy rather than human, and is the failure this skill
-   exists to prevent.
+   exists to prevent. [PD-FAKE-07]
+8. **A long, loud passage stays fresh for its whole length**, with no thinning tone, no pitch creeping
+   flat or sharp, no entries landing a hair late as it goes on. A real player's endurance is finite;
+   over many bars at forte or louder it runs out. Model it as `performer_fatigue`
+   (`shared/HUMAN_PERFORMANCE_SCHEMA.md`, section 4) with a magnitude and the bars it applies to,
+   rather than leaving the passage uniformly perfect. [PD-FAKE-08]
 
 ## Diagnosing "it sounds sloppy"
 

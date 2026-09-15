@@ -1,0 +1,46 @@
+# Evaluation case E10. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: E10
+  title: 'Performer fatigue: an extended fortissimo brass passage'
+  category: performance
+  source: new in 2.1
+  brief: 'Trumpets and trombones, bars 40 to 58 (19 bars): a sustained fortissimo line with no rests,
+    the finale''s big brass wall. Write the performance plan.'
+  supplied_context: []
+  expected_routes:
+    must_include:
+    - performance-director
+    must_not_include: []
+  required_behaviors:
+  - performer_fatigue named as a cause of some performance change over the passage
+  - the change is a performance change over time (tone thinning, pitch drift, or timing lag toward
+    the end), not only range or tessitura
+  forbidden_behaviors:
+  - the passage rendered as uniformly perfect for its full length with no fatigue-aware shaping
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  - id: plan
+    block_present: performance_state
+  - id: fatigue_named
+    why: performer_fatigue is the cause this case checks for, not range or tessitura
+    regex_present:
+      pattern: performer_fatigue
+  - id: fatigue_effect
+    why: fatigue has to change something across the passage, not just be a label
+    any_of:
+    - regex_present:
+        pattern: thin(?:ning|s)?\b
+    - regex_present:
+        pattern: (pitch|intonation).{0,40}(drift|flat|sharp|sag|sags)
+    - regex_present:
+        pattern: (late|lag|drag|behind).{0,40}(entr|beat|attack|bar)
+  - id: imperfections_present
+    why: a fatigue-aware plan has to actually record the imperfection, not just say the word
+    field_nonempty: performance_state.intentional_imperfections
+  human_questions:
+  - Does the described fatigue shaping match what a real brass section does over 19 bars at
+    fortissimo?
+  - Is the fatigue placed late in the passage, with a magnitude and bars, rather than vaguely?
+  trials: 3

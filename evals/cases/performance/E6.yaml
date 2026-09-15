@@ -1,0 +1,108 @@
+# Evaluation case E6. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: E6
+  title: 'Hybrid arrangement: distinct functional roles for orchestral and electronic layers'
+  category: performance
+  source: new in 2.1
+  brief: 'A hybrid cue: strings, a synth pad, a sub bass, brass stabs, and a wordless vocal-texture
+    layer, all sounding together. Give each element a clear functional role in the arrangement rather
+    than letting them all do the same job.'
+  supplied_context: []
+  expected_routes:
+    must_include:
+    - arranger
+    must_not_include: []
+  required_behaviors:
+  - strings, synth pad, sub bass, brass stabs, and the vocal-texture layer each get their own
+    role_assignment, drawn from the fixed role vocabulary (pulse, transition, impact, tension, color,
+    emotion_carrier, movement, scale_extender)
+  - the five roles are not all the same, and none is left blank — the point of a hybrid arrangement
+    is that the orchestral and electronic layers divide the work, not double it
+  - the reasoning for at least one assignment ties the role to something the instrument actually does
+    (e.g. sub bass as scale_extender because it reaches below the orchestral bass register)
+  forbidden_behaviors:
+  - every layer assigned the same role, most often emotion_carrier or color, with only the instrument
+    name changed
+  - one or more layers left with no role_assignment at all
+  - a role invented outside the fixed eight-word vocabulary
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  - id: roles_present
+    block_present: role_assignment
+  - id: five_layers
+    why: five elements are named in the brief; fewer than five roles means something was left
+      unassigned
+    min_count:
+      path: role_assignment
+      min: 5
+  - id: roles_in_vocab
+    why: the role vocabulary is fixed; an invented role is not a smaller version of this failure,
+      it is the same failure
+    field_in:
+      path: role_assignment[].role
+      values: [pulse, transition, impact, tension, color, emotion_carrier, movement, scale_extender]
+  - id: roles_nonempty
+    field_nonempty: role_assignment[].role
+  - id: instruments_named
+    field_nonempty: role_assignment[].instruments
+  - id: layers_mentioned
+    why: a generic answer that never actually names the five brief elements is not engaging with the
+      instrumentation given
+    all_of:
+    - regex_present:
+        pattern: '(?i)string'
+    - regex_present:
+        pattern: '(?i)synth'
+    - regex_present:
+        pattern: '(?i)sub[\s-]?bass'
+    - regex_present:
+        pattern: '(?i)brass'
+    - regex_present:
+        pattern: '(?i)vocal'
+  - id: diverse_role_categories
+    why: real division of labour spans more than one kind of function; this is the positive floor
+      that a real hybrid role split clears and a uniform default does not
+    all_of:
+    - regex_present:
+        pattern: 'role:\s*(emotion_carrier|movement)'
+    - regex_present:
+        pattern: 'role:\s*(pulse|impact|tension)'
+    - regex_present:
+        pattern: 'role:\s*(color|scale_extender|transition)'
+  - id: no_uniform_role
+    why: the near miss this case exists to catch is every layer defaulting to one role, most often
+      emotion_carrier; this catches that directly rather than only rewarding some diversity elsewhere
+    not:
+      any_of:
+      - regex_count:
+          pattern: 'role:\s*pulse'
+          min: 5
+      - regex_count:
+          pattern: 'role:\s*transition'
+          min: 5
+      - regex_count:
+          pattern: 'role:\s*impact'
+          min: 5
+      - regex_count:
+          pattern: 'role:\s*tension'
+          min: 5
+      - regex_count:
+          pattern: 'role:\s*color'
+          min: 5
+      - regex_count:
+          pattern: 'role:\s*emotion_carrier'
+          min: 5
+      - regex_count:
+          pattern: 'role:\s*movement'
+          min: 5
+      - regex_count:
+          pattern: 'role:\s*scale_extender'
+          min: 5
+  human_questions:
+  - Does each assigned role actually match what that layer is doing musically, or does the labelling
+    feel arbitrary — could the roles be shuffled between layers without anything sounding wrong?
+  - Does the sub bass genuinely read as extending the orchestral low end rather than just being "the
+    bass part" relabelled?
+  trials: 3

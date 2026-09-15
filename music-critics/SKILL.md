@@ -302,11 +302,12 @@ Use broad musical-function criteria and offer alternatives when taste-sensitive.
 Checks whether the notes were played or merely listed.
 
 - Is there continuous dynamic movement where the instrument expects it, or is a long note flat?
-- Do repetitions differ, or is the same sample firing?
-- Does legato overlap, on a patch that needs overlap?
-- Do attacks vary with dynamic and position, or is one articulation doing every job?
-- Is the part physically possible, and if not, is that recorded as intentional?
-- Are there breaths, releases and mechanism noise, or silence between notes?
+  [PD-FAKE-01]
+- Do repetitions differ, or is the same sample firing? [PD-FAKE-02]
+- Does legato overlap, on a patch that needs overlap? [PD-FAKE-03]
+- Do attacks vary with dynamic and position, or is one articulation doing every job? [PD-FAKE-04]
+- Is the part physically possible, and if not, is that recorded as intentional? [PD-FAKE-05]
+- Are there breaths, releases and mechanism noise, or silence between notes? [PD-FAKE-06]
 
 And the one that matters most:
 
@@ -314,7 +315,10 @@ And the one that matters most:
 
 Random offsets read as sloppy rather than human, and the research finds them worse than an exact grid
 (`research/PERFORMANCE_AND_EXPRESSION.md`, section 1). A plan containing a percentage of humanisation
-is a finding, not a style.
+is a finding, not a style. [PD-FAKE-07]
+
+The codes point at Performance Director's own diagnostic list (`performance-director/SKILL.md`,
+"Diagnosing 'it sounds fake'") — cite the code instead of restating the cause.
 
 `type: defect` when the plan claims a model and the render shows jitter. `type: intentional_choice`
 when the realism target is `deliberately_mechanical`: exactness is then the aesthetic, and calling it

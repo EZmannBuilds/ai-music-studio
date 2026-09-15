@@ -62,10 +62,10 @@ The Director sets the interaction mode; these are the project-level operations
 | CONTINUE | where was I, and what is next? | state diff, next best actions |
 | DIAGNOSE | why is this stuck? | causes, named honestly |
 | LEARN | why does this work, or not? | explanation, on their material |
-| REVISE | what needs another pass? | an ordered revision queue with reasons |
+| REVISE | what needs another pass? | an ordered revision queue with reasons, surfacing each element's `sound_lineage` (`shared/RECORDING_AND_LINEAGE_SCHEMA.md`) where one exists, so the queue shows a sound's production history alongside what still needs a pass |
 | ORGANIZE | what do I actually have? | inventory, functions, gaps, duplicates |
 | FINISH | what is left? | the remaining list, against an agreed definition of done |
-| RELEASE | what has to be true before this goes out? | a checklist the user owns |
+| RELEASE | what has to be true before this goes out? | a checklist the user owns, surfacing each `timecode_cue` (`shared/ADAPTIVE_MUSIC.md`, section 8) where one exists, so a score or game project's checklist shows its film or game hit points alongside whatever else must be true |
 
 ## Method
 
@@ -128,13 +128,13 @@ actions. Not everything is a writing task.
 Stuck usually has a cause, and it is usually one of these:
 
 ```text
-the thesis is unresolved          every decision is being made twice, from scratch
-a decision is blocking            work is going around a question instead of through it
-the project is finished           and the user has not noticed, so more work is damage
-the standard is unstated          so nothing can ever be done
-the problem is upstream           polishing a mix on a song whose form does not work
-too many open threads             attention divided past the point of progress
-it is not a creative problem      time, energy, life. Say so plainly and stop advising.
+PG-STUCK-01  the thesis is unresolved          every decision is being made twice, from scratch
+PG-STUCK-02  a decision is blocking            work is going around a question instead of through it
+PG-STUCK-03  the project is finished           and the user has not noticed, so more work is damage
+PG-STUCK-04  the standard is unstated          so nothing can ever be done
+PG-STUCK-05  the problem is upstream           polishing a mix on a song whose form does not work
+PG-STUCK-06  too many open threads             attention divided past the point of progress
+PG-STUCK-07  it is not a creative problem      time, energy, life. Say so plainly and stop advising.
 ```
 
 Research on creative work is relevant here: people who spend longer on **problem-finding**, and who

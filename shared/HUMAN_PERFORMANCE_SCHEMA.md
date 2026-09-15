@@ -110,6 +110,7 @@ performance_state:
     models: []                 # from section 3; each entry names its model and magnitude
     grid_reference:            # the pulse or cycle offsets are measured against
     marker_parts_excluded: []  # bell, gong, clap, clave: never displaced
+    gesture_ref:                # optional: id of an ensemble_gesture (section 8) this part responds to
 
   note_overlap:
     legato_overlap_ms:         # positive where the patch needs overlap to trigger a transition
@@ -180,12 +181,17 @@ are unaffected.
 | `microtiming_template` | per-position offsets from a named corpus | 1-5% of the beat; the studied corpora cluster nearer 1-3% | `shared/RHYTHM_SYSTEMS/MICROTIMING_AND_GROOVE.md`, which requires the corpus to be named |
 | `ensemble_spread` | several players do not attack at one instant | no measured figure is available in this pack; state and label whatever you use, or calibrate | musicianship |
 | `drift_1f` | small long-range-correlated wander, applied last and least | smallest layer of the plan | Hennig 2011, and a drum-track analysis in Räsänen 2015 |
+| `accelerando` | tempo rises across a marked span, usually toward a goal | no general figure; the *shape* is the finding, not a rate | Todd 1992, the same phrase-arch literature read for its rising rather than falling half |
+| `ritardando_free` | tempo pulls back somewhere inside a phrase, for expressive reasons, without a structural end to arrive at (distinct from `final_ritard`, which is the parabolic shape at a structural close) | no general figure exists; set it per style and record what you set | Repp 1992 describes the family of expressive tempo curves this draws from; this row is the free, non-terminal member of it |
+| `fermata` | a held note or rest outstays its written value before the next pulse resumes | no general figure; the hold is a performed decision, not a measured duration | KTH rule system's treatment of fermata as a notated event with a performer-chosen length, not a rubato by-product |
+| `caesura` | a brief silence breaks the pulse between two phrases; the next phrase begins from a fresh clock | no general figure; the gap is authored, not derived from a tempo curve | KTH rule system, where the caesura is a distinct notated event from a ritardando |
+| `tempo_reset` | after a structural tempo change (a new section, a written tempo mark), the pulse resumes at the new value rather than drifting into it | no general figure; the point of the model is the discontinuity, not a rate | musicianship: this is the row that keeps `phrase_arch` and `final_ritard` from bleeding across a section boundary they do not govern |
 
-**Four of these models have no number, and that is the honest state of the evidence.** `phrase_arch`,
-`final_ritard`, `section_offset` and `ensemble_spread` are shapes and mechanisms rather than
-quantities. Set a value for the style, write it into the plan, and label it as set rather than
-measured. Do not borrow a figure from a neighbouring row: they come from different instruments and
-different repertoires.
+**Nine of these models have no number, and that is the honest state of the evidence.** `phrase_arch`,
+`final_ritard`, `section_offset`, `ensemble_spread`, `accelerando`, `ritardando_free`, `fermata`,
+`caesura` and `tempo_reset` are shapes and mechanisms rather than quantities. Set a value for the
+style, write it into the plan, and label it as set rather than measured. Do not borrow a figure from a
+neighbouring row: they come from different instruments and different repertoires.
 
 **Where a figure exists, it belongs to a corpus.** A jazz ride cymbal's swing curve, a piano action's
 chord asynchrony and a samba sixteenth template are three measurements of three things. None of them
@@ -291,3 +297,55 @@ The DAW adapter:
 - It does not set balance. That is the Mix Engineer.
 - It does not hold product-specific facts. Those are in the plugin audit and calibration profiles.
 - It does not decide whether realism is wanted. The brief does, through `realism_target`.
+
+---
+
+# 8. `ensemble_gesture`
+
+`ensemble_spread`, `section_offset` and `chord_asynchrony` (section 3) are per-part constants: the
+same spread, the same offset, or a value derived from voicing, applied identically to every part that
+carries the model. None of them can say "violins lead the crescendo, horns enter at bar 9, low brass
+waits for the climax" — one authored shape that different parts respond to differently, not
+identically. `ensemble_gesture` is that shape: a single gesture, and a curve per part for how that
+part answers it.
+
+**Writer:** Performance Director. It defines the gesture and each part's response curve, as part of
+the ensemble step of its method (`performance-director/SKILL.md`).
+
+**Readers:** MIDI Builder, which renders each part's own `responses[]` entry — lag, curve, role — into
+that part's automation instead of copying one shared curve onto every part; Music Critics, which
+checks the gesture's plausibility against what a real ensemble does.
+
+```yaml
+ensemble_gesture:
+  id:
+  type: crescendo | diminuendo | accelerando | ritardando | textural_swell | density_shift
+  origin_bar:
+  target_bar:
+  responses:
+    - part:
+      lag_beats:           # how far behind (or ahead of) the origin this part enters/peaks
+      curve: linear | exponential | stepped | delayed_onset
+      role: lead | follow | independent | held_back
+  why:                     # the musical reason this shape was chosen
+```
+
+A part's own `performance_state.timing_character` block (section 2) carries the other half of the
+link: an optional `gesture_ref: <id>` pointing at the `ensemble_gesture` this part is answering.
+
+**Failure behavior.** A part with no `gesture_ref` keeps today's behavior exactly:
+`ensemble_spread` and `section_offset` apply as they do now, unchanged, and `ensemble_gesture` never
+enters the picture. This is additive. Nothing regresses for a track that never uses a gesture.
+
+**Gating.** `ensemble_gesture` is only meaningful when 2 or more parts are actually playing together.
+A solo track has nothing to lead, follow, or wait for, so it never gets one — the same neutrality
+`shared/GENERALIZATION_RULES.md` asks for throughout this pack: a mechanism this system offers is not
+a default to reach for on a piece that does not call for it. It is invoked because the ensemble needs
+it, never because it exists.
+
+This section is bound by the same hard rule section 1 states for the rest of the schema: **"this
+schema has no field named random, and no field whose value is 'amount of humanization'. Every
+deviation comes from a named model that another specialist can read, argue with, and reproduce. A
+deviation with no model is a bug."** `ensemble_gesture` does not relax that. There is no field for how
+much a part leads or lags by feel; every `responses[]` entry names a `curve` from the fixed vocabulary
+above, and `lag_beats` is a stated quantity, not an amount-of-humanization dial wearing a new name.

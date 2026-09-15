@@ -202,6 +202,41 @@ Rules:
 - if a substitution noticeably changes register, colour or role, ask the Director, and the user
   when the part matters, before committing it.
 
+## Divisi and doubling feasibility
+
+When a score part asks a patch to cover more than one voice — a `voicing.distribution` group with
+`voice_count` greater than 1, or a `doubling_of` relationship
+(`shared/ORCHESTRAL_VOICING_SCHEMA.md`) — verify the assigned patch can actually do it. A solo-string
+patch cannot cover a2 divisi; a section patch may already be a full section and not divisible into the
+distribution the Arranger asked for.
+
+```yaml
+divisi_feasibility:
+  - score_part:
+    assigned_instrument:
+    voice_count_requested:
+    patch_type: solo | section | ensemble | unknown
+    can_cover_divisi: true | false | unknown
+    reason:
+    substitution:
+      replacement:
+      reason:
+    user_decision_needed: true|false
+```
+
+Report it alongside `score_coverage`, above: a divisi request the assigned patch cannot cover is a
+predicted problem the same way an out-of-range note is, named before rendering rather than discovered
+after.
+
+## Recording scene feasibility
+
+Where the Producer has written a `recording_scene` entry for a section
+(`shared/RECORDING_AND_LINEAGE_SCHEMA.md`), check the assigned patch's actual recorded perspective
+(`mic_or_room_behavior` in `shared/INSTRUMENT_BEHAVIOR_SCHEMA.md`, `mic_or_mix_setting` in a
+calibration profile) against the declared scene. A close, dry patch assigned to a section calling for
+`distant` is a predicted mismatch worth naming before rendering, the same way a range or divisi
+mismatch is. With no declared scene, this check does not run.
+
 # Part 2 — Calibration request
 
 ## 5. Offer; never assume

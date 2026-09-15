@@ -70,6 +70,8 @@ adaptive_music:
       latency_budget:          # section 4
       why:                     # the musical reason this transition works
 
+  timecode_cues: []            # fixed real-time hit points fitted to the grid above; section 8
+
   parameters:
     - name:
       range: {min:, max:}
@@ -186,3 +188,58 @@ The same schema covers a piece that runs by itself: states become sections or pr
 become time or a sensor, and the failure states become what happens when it is stopped. For the
 compositional side of process, chance and indeterminacy, see `shared/EXPERIMENTAL_SYSTEMS.md`. The
 question that page insists on applies here too: what is this making audible?
+
+---
+
+# 8. Timecode cue
+
+`musical_clock` (section 2) answers where a moment is in the form: a bar and a beat. A **timecode
+cue** answers a different question the adaptive machinery was never built for: where a moment has to
+land in real time, against a film or game cue sheet given in hh:mm:ss:ff or seconds. The two are read
+together, not one instead of the other: a timecode cue names the nearest grid position on the same
+clock `states` and `transitions` already use, and says how to make that position land exactly on the
+timecode.
+
+A `timecode_cue` is a sibling of the sync-point vocabulary `transitions[]` already uses (`exit_at`,
+`enter_at`, `bridge`, `stinger`, `fade`, `latency_budget`, `why`), for a different trigger: not a state
+change, but a fixed point on the timeline the music must hit regardless of what state it is in.
+
+```yaml
+timecode_cue:
+  timecode:                  # hh:mm:ss:ff or seconds
+  nearest_grid_position:     # bar:beat, read against musical_clock
+  fit_strategy: tempo_ramp | insert_pause | reharmonize_bar_length
+  hit_point_type: sync_point | stinger | hard_hit
+```
+
+| Field | |
+|---|---|
+| `timecode` | the fixed point on the cue sheet, in whatever format the cue sheet uses |
+| `nearest_grid_position` | the bar:beat, on the existing `musical_clock` grid, that should coincide with `timecode` |
+| `fit_strategy` | how the grid is fitted to the timecode, below |
+| `hit_point_type` | reuses section 1's `sync point` and `stinger` where either applies, plus `hard_hit` for a cue with no tolerance because picture or gameplay depends on the exact frame |
+
+## Fit strategies
+
+- **`tempo_ramp`** — a tempo curve between the nearest stable tempo marking and the cue, sized so the
+  beat at `nearest_grid_position` falls on `timecode`. Keep it a tempo change a listener would accept
+  as one: `shared/RHYTHM_SYSTEMS/METRIC_MODULATION_AND_TEMPO_MORPHING.md` gives the pivot mechanism,
+  a worked table of how large a ratio reads as a clear lift versus one that borders on a cut, and the
+  rule that the new tempo is computed from the ratio, never guessed. A ramp so steep it reads as a
+  splice rather than a tempo change has failed the fit even if the frame is hit.
+- **`insert_pause`** — a held bar, a fermata, or silence, so real time passes without the beat grid's
+  rate changing at all.
+- **`reharmonize_bar_length`** — change one bar's length (an added or dropped beat, a metre change for
+  that bar only) so the next downbeat falls on the cue, instead of bending tempo to get there.
+
+Pick the strategy that costs the material the least: a tempo ramp for a small, smooth adjustment; an
+inserted pause where a hold or a breath already belongs there dramatically; a bar-length change where
+the phrase can absorb an odd bar without sounding wrong. A cue that cannot be fitted without an audible
+distortion is a fact to report upstream, not a fit to force through.
+
+## Does not own
+
+A `timecode_cue` does not own the adaptive state machine. `states`, `transitions`, `layers`,
+`parameters` and `failure_states` are unchanged by this section: a timecode cue is placed within
+whatever state is already playing, and fits the grid to a real-time point without altering what
+selected that state or what happens after it.

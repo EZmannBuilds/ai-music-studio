@@ -43,6 +43,12 @@ vocal_architecture:
           purpose:
       call_and_response: {caller:, responder:, placement:}
       ad_libs: {placement: [], density:, purpose:}
+      collision_check:         # vocal-vs-vocal only; run it where lines cross, not by default
+        lines: []               # which lines are in conflict, by name or role
+        register_overlap: none | partial | full
+        rhythmic_collision:     # where in the bar the lines land on top of each other, if they do
+        intelligibility_risk: low | med | high
+        resolution: reassign_register | stagger_rhythm | thin_texture | accept_as_intended
       texture: []              # whisper, spoken, gang, choir, chant, hum, vocoded guide
       silence:                 # where the voice stops, and why
       breath_plan: []          # where breaths fall; staggered for groups
@@ -101,6 +107,11 @@ originality it is a legal exposure in jurisdictions that have extended publicity
 **Ornament belongs to its tradition.** Melisma, gamaka, blues inflection, maqam ornamentation and
 gospel runs are not interchangeable decoration. Route through `shared/MUSICAL_SYSTEMS/` and name the
 system.
+
+**Collision is vocal-vs-vocal only.** `collision_check` catches two or more vocal lines crossing
+register, landing the same rhythm, or crowding intelligibility against each other. It is run where
+lines actually cross, not appended to every section as boilerplate. Instrumental-vs-vocal register
+collision is `arranger/SKILL.md`'s territory and is unchanged by this field.
 
 ---
 

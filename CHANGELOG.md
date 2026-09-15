@@ -22,6 +22,14 @@ testable, and it was built and tested on `main` without a release.
   verification, which is a Director procedure and not a specialist, was listed as one.
 - `tools/check_all.py` prints each check's heading before its output when the output is piped.
 
+### License
+
+- **Relicensed from MIT to PolyForm Noncommercial 1.0.0.** The pack stays free to use, change and
+  share for any noncommercial purpose; commercial use, including selling it or work built on it, is
+  no longer licensed. `LICENSE`, `manifest.json`'s `license` field, and the README's license section
+  are updated; the 1.0 changelog entry below is kept as written, since 1.0 really was released under
+  MIT.
+
 ### Examples and schemas agree, and old files keep reading
 
 - **The Track DNA example contradicted its schema.** It used `chorus_lift_mechanism` where the

@@ -69,12 +69,12 @@ Not everything should be equally present.
 
 1. identify competing elements;
 2. determine whether conflict is:
-   - note/register;
-   - rhythm;
-   - sound choice;
-   - arrangement;
-   - level;
-   - spectral;
+   - note/register; (`MIX-MASK-01`)
+   - rhythm; (`MIX-MASK-02`)
+   - sound choice; (`MIX-MASK-03`)
+   - arrangement; (`MIX-MASK-04`)
+   - level; (`MIX-MASK-05`)
+   - spectral; (`MIX-MASK-06`)
 3. prefer upstream correction when appropriate;
 4. then use mix processing.
 
@@ -137,6 +137,21 @@ Use:
 - automation.
 
 Depth should support the arrangement hierarchy.
+
+## Reading spatial intent and recording scene
+
+Where the Arranger has written a `spatial_intent` entry for a section
+(`shared/SPATIAL_INTENT_SCHEMA.md`), read it as upstream context for the depth and stereo work
+above — not as something this skill owns. It states what an element's near/far, narrow/wide placement
+is *for*, compositionally; it does not prescribe the reverb send, pan value or widener setting that
+gets it there, and it never overrides a mix decision made for masking, translation or feasibility
+reasons. With no `spatial_intent` entry, this section's depth and stereo reasoning is unchanged.
+
+Where the Producer has written a `recording_scene` entry for a section
+(`shared/RECORDING_AND_LINEAGE_SCHEMA.md`), read it the same way: as context for the perspective a
+section was deliberately given, not as a mixing decision to make. Same boundary as above, and the one
+this skill states under "Does not own" — the song, including its arrangement, is not this skill's to
+redesign.
 
 ## Tonal balance
 

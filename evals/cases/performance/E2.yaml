@@ -1,0 +1,56 @@
+# Evaluation case E2. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: E2
+  title: 'Ensemble gesture gating: a string quartet is four soloists, not a section'
+  category: performance
+  source: new in 2.1
+  brief: 'String quartet, bars 1 to 8: first violin, second violin, viola and cello. Write the
+    performance plan for all four parts.'
+  supplied_context: []
+  expected_routes:
+    must_include:
+    - performance-director
+    must_not_include: []
+  required_behaviors:
+  - "every part's performance_state carries performer_count: 1, never a section-sized count for the
+    group"
+  - no single section patch or one shared ensemble spread stood in for four individual plans
+  - the spread between the four parts follows the pack's own principle that a quartet is four
+    soloists, so the spread is real but smaller and more deliberate than a section's
+  forbidden_behaviors:
+  - treating the quartet as one section with performer_count set to 4
+  - copying a section's ensemble_spread magnitude onto four soloists rather than deriving a
+    smaller, more deliberate spread
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  - id: plan_present
+    block_present: performance_state
+  - id: four_soloists_counted
+    why: four parts, each declaring itself a soloist
+    regex_count:
+      pattern: 'performer_count:\s*1\b'
+      min: 4
+  - id: no_section_count
+    why: a quartet played through section-patch assumptions shows up as a performer_count above 1
+      somewhere in the plan
+    regex_absent:
+      pattern: 'performer_count:\s*[2-9]\d*'
+  - id: quartet_soloists_principle
+    why: the pack states this exact mechanism; a plan that follows it should say so in terms close
+      to the original
+    regex_present:
+      pattern: (quartet\s+is\s+four\s+soloists|four\s+(individual\s+)?soloists|each\s+(player|part)
+        (is|as)\s+(a\s+)?soloist)
+  - id: spread_smaller_than_section
+    why: the principle is not just performer_count; the spread itself has to be described as
+      smaller and more deliberate than a section's
+    regex_present:
+      pattern: (smaller|tighter|closer|more\s+deliberate).{0,80}(section|ensemble\s+spread)
+  human_questions:
+  - Does the plan actually read as four individual players listening to each other, rather than a
+    section patch wearing four track names?
+  - Is the spread between the four parts small and deliberate in a way a real quartet's ensemble
+    playing would produce?
+  trials: 3

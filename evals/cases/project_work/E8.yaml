@@ -1,0 +1,54 @@
+# Evaluation case E8. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: E8
+  title: Three revision passes, logged to the specific material
+  category: project_work
+  source: new in 2.1 (shared/PROJECT_STATE_SCHEMA.md section 6, linked_to/superseded_alternatives)
+  brief: 'Track B''s chorus hook has been through two revisions already. First pass we doubled the
+    four-note motif an octave up, and you told me it clashed with the vocal, so we dropped that.
+    Second pass we flattened the rhythm to straight eighths, and I said it lost the lift, so we kept
+    the original syncopation. Now I want a third pass: raise the whole hook up a fourth and see if
+    that clears the vocal clash without losing the syncopation. Log what we land on this time, and
+    what we''re ruling out, so I stop relitigating the first two passes.'
+  supplied_context: []
+  expected_routes:
+    must_include:
+    - project-guide
+    must_not_include: []
+  required_behaviors:
+  - each decision_log entry links to the specific motif or section it changed, by id, not only by
+    describing it in prose
+  - each entry names what was considered and rejected in its favor
+  - the repeated area (Track B's chorus hook) is identifiable as the same linked material across
+    more than one entry, so a later reader does not have to reread the prose to see the passes are
+    connected
+  forbidden_behaviors:
+  - a decision logged only as prose, with no linked_to or superseded_alternatives
+  - inventing a track or motif id the brief does not support
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  - id: enough_entries
+    why: three passes on the record; the log should show more than a single entry
+    min_count:
+      path: project_state.decision_log
+      min: 2
+  - id: linked_to_present
+    why: a decision should name the specific material it touched, not leave it to be inferred from
+      prose
+    field_nonempty: project_state.decision_log[].linked_to
+  - id: alternatives_present
+    why: a decision should name what was rejected, not only what was kept
+    field_nonempty: project_state.decision_log[].superseded_alternatives
+  - id: same_area_twice
+    why: at least two of the three passes touch the same motif/section, and linked_to should show
+      that rather than three unrelated ids
+    regex_count:
+      pattern: t2\.chorus_hook
+      min: 2
+  human_questions:
+  - Is the linked id specific enough that a reader could actually find the material it names?
+  - Do the superseded alternatives read as genuine options that were tried, not padding added to
+    satisfy the field?
+  trials: 3

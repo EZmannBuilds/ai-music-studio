@@ -66,6 +66,17 @@ Choose them for roles:
 - hook;
 - transition.
 
+## Orchestration knowledge for the electronic layer
+
+In a hybrid orchestral/electronic brief, `shared/ORCHESTRATION_KNOWLEDGE.md` section 5 gives the
+electronic-layer half of role assignment — the same `pulse | transition | impact | tension | color |
+emotion_carrier | movement | scale_extender` vocabulary Arranger uses for the orchestral side, applied
+to synths, samplers, sub bass and programmed or processed layers. This is a new input into the
+sound-role thinking above, not a new mission: choosing a sound for `scale_extender` (a sub bass
+reaching below the orchestral bass register) or `color` (a synth pad under an orchestral melody) is
+still deciding sound by role, the way this section already asks. Gated the same way as the rest of
+that file: read it only where the brief's instrumentation is genuinely hybrid, never by default.
+
 ## Sound design workflow
 
 For a synth:
@@ -366,6 +377,10 @@ Before assigning sounds, read the plugin audit and any calibration profiles
 - Plan around measured character rather than the product's reputation: a library can be darker,
   wider or quieter at low velocity than expected.
 - Where no profile exists, say the plan rests on documented values.
+- Where the Arranger has written a `spatial_intent` entry for an element
+  (`shared/SPATIAL_INTENT_SCHEMA.md`), let the intended near/far, narrow/wide placement inform sound
+  choice: a close, dry patch for a foreground/narrow intent; an already-wide, reverberant one for a
+  background/full intent. With no entry, sound choice proceeds as it does today.
 
 ## Brightness and width before processing
 
@@ -448,6 +463,24 @@ Three production decisions that come straight from it:
   added afterward on instruments that were captured with them.
 - **A library's character is character.** A dark, wide or distant library is not a fault to chase with
   EQ. Narrow it or replace it, but do not spend four passes trying to make it something else.
+
+# Recording scene and sound lineage
+
+Two authored facts, one schema (`shared/RECORDING_AND_LINEAGE_SCHEMA.md`). Both are additive: the
+passive recording facts this skill already tracks — `mic_or_room_behavior` in
+`shared/INSTRUMENT_BEHAVIOR_SCHEMA.md` and `mic_or_mix_setting` in
+`shared/PLUGIN_CALIBRATION_SCHEMA.md` — keep working exactly as before with no entry written.
+
+**Recording scene.** Author a `recording_scene` entry when a section's mic/room perspective is a
+deliberate choice rather than whatever the assigned patch happens to ship with — close and dry for
+intimacy, roomy or distant on purpose, or a hybrid. State why. Plugin Auditor checks the assigned
+patch against a declared scene; Mix Engineer reads it as context, not as something it owns.
+
+**Sound lineage.** Maintain `sound_lineage.log[]` for an element that changes meaningfully across
+production passes — resampled, re-amped, layered, replaced, retuned — recording what changed, why,
+and the passes it sits between. An element with no interesting history needs no entry. Project Guide
+surfaces this during REVISE mode, so a revision queue can show a sound's history, not only its current
+state.
 
 # Timbre and tuning are one decision
 

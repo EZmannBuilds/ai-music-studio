@@ -1,0 +1,49 @@
+# Evaluation case E4. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: E4
+  title: 'String divisi: distributing a sustained chord across two violin groups'
+  category: performance
+  source: new in 2.1
+  brief: 'String section, bar 12: 16 violins hold a sustained chord, split into two groups of eight
+    (a2 divisi). Write the voicing.'
+  supplied_context: []
+  expected_routes:
+    must_include:
+    - arranger
+    must_not_include: []
+  required_behaviors:
+  - the chord's tones distributed across the two violin groups, not every group doubling the same
+    tone
+  - a divisi_reason given for the split
+  forbidden_behaviors:
+  - both groups assigned the same chord tone, so the divisi reads as one undifferentiated doubled
+    block despite the split
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  - id: voicing_present
+    block_present: voicing
+  - id: distribution_present
+    why: distribution is opt-in; an empty or missing list means the section rendered as a block voicing
+    field_nonempty: voicing.distribution
+  - id: two_groups
+    min_count:
+      path: voicing.distribution
+      min: 2
+  - id: reason_given
+    field_in:
+      path: voicing.divisi_reason
+      values: [unison_strength, tone_distribution, range_limit, color]
+  - id: diverse_tones
+    why: a real distribution assigns different chord tones to different groups; assigning the root
+      to every group is doubling wearing a distribution's name
+    all_of:
+    - regex_present:
+        pattern: 'tone_assigned:\s*root'
+    - regex_present:
+        pattern: 'tone_assigned:\s*(third|fifth|seventh|tension)'
+  human_questions:
+  - Does the split sound like a real string a2 divisi, not just a doubled unison?
+  - Is the register given for each group actually playable by that half of the section?
+  trials: 3

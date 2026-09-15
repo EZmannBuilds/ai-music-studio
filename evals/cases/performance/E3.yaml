@@ -1,0 +1,51 @@
+# Evaluation case E3. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: E3
+  title: 'Realism neutrality holds against the new gesture machinery: deliberately mechanical'
+  category: performance
+  source: new in 2.1
+  brief: 'Full orchestra ostinato, bars 1 to 8, several sections playing together: a stiff, clockwork
+    pattern that must sound deliberately mechanical, exactly grid-quantised, with no player looseness
+    anywhere. Write the performance plan.'
+  supplied_context: []
+  expected_routes:
+    must_include:
+    - performance-director
+    must_not_include: []
+  required_behaviors:
+  - realism_target set to deliberately_mechanical
+  - intentional_imperfections left empty, and said so
+  - no ensemble_gesture invoked to shape the entrances even though several sections are playing
+    together and the new machinery would apply
+  forbidden_behaviors:
+  - an ensemble_gesture with staggered lag_beats or curves smuggling ensemble motion into a brief
+    that explicitly asked for none
+  - any intentional imperfection appearing despite the mechanical request
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  - id: plan_present
+    block_present: performance_state
+  - id: mechanical_target
+    field_equals:
+      path: performance_state.realism_target
+      value: deliberately_mechanical
+  - id: empty_imperfections
+    why: the schema requires this list empty and stated, not omitted
+    field_empty: performance_state.intentional_imperfections
+  - id: no_random_humanization
+    why: organic performance is not random humanisation, and a mechanical request rules it out even
+      more plainly
+    no_random_humanization: true
+  - id: no_gesture_smuggled_in
+    why: 2+ parts playing together would normally gate an ensemble_gesture in; an explicit
+      mechanical request overrides that gate rather than the gesture overriding the request
+    not:
+      block_present: ensemble_gesture
+  human_questions:
+  - Does the plan actually read as machine-exact, with nothing that would sound like a player
+    leading or lagging another part?
+  - Is the mechanical choice treated as a legitimate aesthetic rather than something the response
+    apologises for or quietly softens?
+  trials: 3

@@ -1,0 +1,40 @@
+# Evaluation case E9. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: E9
+  title: A vocal stack that crosses register gets a collision check
+  category: interaction_modes
+  source: new in 2.1
+  brief: I've got a chorus stack that's bugging me. The harmony line sits above my lead in bar 1, then
+    drops below it in bar 2, and there's a second backing line running through the same stretch. Plan
+    the stack for me.
+  supplied_context: []
+  expected_routes:
+    must_include:
+    - vocal-director
+    must_not_include: []
+  required_behaviors:
+  - a collision_check block naming the lines that cross
+  - the register overlap either flagged or resolved
+  forbidden_behaviors:
+  - stacking the crossing lines with no collision awareness at all
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  - id: collision_present
+    block_present: collision_check
+  - id: lines_named
+    field_nonempty: collision_check.lines
+  - id: overlap_addressed
+    why: not silently ignored means flagged or resolved, either is enough
+    any_of:
+    - field_in:
+        path: collision_check.register_overlap
+        values:
+        - partial
+        - full
+    - field_nonempty: collision_check.resolution
+  human_questions:
+  - Listening to the stack, does the crossing read as intended, or is it just muddy?
+  - Is the named resolution (or the decision to leave it) the right call for this section?
+  trials: 3

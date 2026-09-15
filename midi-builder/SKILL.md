@@ -403,6 +403,93 @@ in the DAW notes, the verification output and the track state. That is an honest
 artifact full of invented expression that nobody planned is not, and it is what used to happen by
 default.
 
+# Rendering a voicing distribution
+
+**MIDI Builder renders the distribution. It does not decide it.**
+
+Where a chord carries a `voicing` entry with a non-empty `distribution`
+(`shared/ORCHESTRAL_VOICING_SCHEMA.md`), write each `instrument_group`'s `tone_assigned` as its own
+note assignment — that group's pitch, register and doubling — instead of copying the Composer's block
+voicing into every part.
+
+Where no `voicing` entry exists for a chord, or its `distribution` is empty, render exactly as today:
+the block voicing, unchanged, on every part. Distribution is opt-in per section; its absence is not a
+gap to fill in.
+
+```yaml
+voicing_render:
+  chord_ref:
+  distributed: true | false
+  groups_rendered: []          # instrument_group -> tone_assigned, register, track/note written
+```
+
+# Rendering an ensemble gesture
+
+**MIDI Builder renders the responses. It does not decide who leads.**
+
+Where a part's `performance_state.timing_character.gesture_ref`
+(`shared/HUMAN_PERFORMANCE_SCHEMA.md`, section 8) points at an `ensemble_gesture`, render that part's
+automation from its own entry in that gesture's `responses[]` — its `lag_beats`, `curve` and `role` —
+rather than applying one shared curve to every part the gesture touches. A violin section with `role:
+lead` and a low-brass part with `role: held_back` on the same `ensemble_gesture` get two different
+automation shapes, timed and curved from their own response entries, not the same ramp copy-pasted
+onto both tracks with a track name changed.
+
+```text
+lag_beats      offset the part's automation start (or peak) from origin_bar by this many beats
+curve          shape the ramp accordingly: linear, exponential, stepped, or delayed_onset (flat, then
+               a late move)
+role           lead and independent parts get their own leading edge; follow and held_back parts are
+               timed off the lead, not off the origin bar directly
+```
+
+Where a part carries no `gesture_ref`, render exactly as today: no gesture curve, and any
+`ensemble_spread` or `section_offset` in its `timing_character.models` applies as it always has.
+Absence of a `gesture_ref` is not a gap to fill in.
+
+```yaml
+gesture_render:
+  gesture_id:
+  parts_rendered: []            # part -> lag_beats, curve, role, track/control written to
+```
+
+# Rendering a timecode cue
+
+**MIDI Builder renders the fit. It does not decide the strategy.**
+
+Where a `timecode_cue` is present (`shared/ADAPTIVE_MUSIC.md`, section 8), render the fit named in its
+`fit_strategy` into the tempo map so that the beat at `nearest_grid_position` lands on `timecode`:
+
+```text
+tempo_ramp                write a tempo curve into the tempo map between the nearest stable tempo
+                          marking and the cue, sized so the target beat falls on the timecode; compute
+                          the tempo from the timing, never guess it
+insert_pause              write a held bar, fermata or silence at the point named, long enough that the
+                          target beat still falls on the timecode with the surrounding tempo unchanged
+reharmonize_bar_length    change the one bar's length (an added or dropped beat, a one-bar metre
+                          change) so its next downbeat is the timecode, instead of touching tempo
+```
+
+Only one strategy is rendered per cue, exactly as named. Where the named fit would require an audible
+distortion — a tempo ramp too steep to read as a tempo change, in the terms
+`shared/RHYTHM_SYSTEMS/METRIC_MODULATION_AND_TEMPO_MORPHING.md` uses for a ratio bordering on a cut —
+report the conflict rather than forcing the frame; a hit that lands by breaking the music is not a
+render this skill should deliver silently. `hit_point_type: hard_hit` raises the bar for what counts
+as forced but does not remove the report.
+
+A `timecode_cue`'s fit changes the tempo map only. It never edits the state, transition or layer
+material the cue sits inside; that machinery renders exactly as its own sections already describe.
+
+```yaml
+timecode_cue_render:
+  cue_ref:
+  fit_strategy: tempo_ramp | insert_pause | reharmonize_bar_length
+  tempo_map_points: []          # bar_beat, tempo — where the ramp/pause changed the map
+  target_timecode:
+  achieved_timecode:            # what the render actually lands on
+  distortion_flagged: true | false
+```
+
 # Writing a pitch system
 
 Where the piece is not in twelve-tone equal temperament (`shared/TUNING_AND_MPE.md`):
@@ -452,6 +539,7 @@ midi_verification:
   bend_range_declared: {}
   adaptive_states_exported: []
   track_dna_matches_artifact: true | false    # the ledger row against what was built
+  voicing_distributions_rendered: []          # chords with a voicing.distribution, rendered per group
 ```
 
 The last field is a cheap and useful check: a row claiming a 7/8 metre on an artifact in 4/4 means one

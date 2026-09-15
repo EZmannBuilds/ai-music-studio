@@ -1,5 +1,5 @@
 # Project State Schema
-## Version 1.0
+## Version 1.1
 
 State above one song: what the project is, what is done, what is unresolved, and what to do next.
 
@@ -69,12 +69,12 @@ project_state:
   intentional_outliers: []     # the track that breaks the rules on purpose, and why
 
   risks: []                    # creative risks worth naming: sameness, scope, unearned scale
-  health:                      # section 6
+  health:                      # section 7
   next_best_actions: []        # section 5
   decisions_needed: []         # what only the user can answer
-  decision_log: []             # what was decided, when, and why
-  revision_queue: []           # known fixes, ordered, with the reason each matters
-  completion_definition:       # section 7
+  decision_log: []             # what was decided, when, and why; entry shape in section 6
+  revision_queue: []           # known fixes, ordered, with the reason each matters; section 6
+  completion_definition:       # section 8
 ```
 
 ---
@@ -153,7 +153,39 @@ intent.
 
 ---
 
-# 6. Project health
+# 6. Decision log and revision queue
+
+Both are flat, ordered lists. Neither travels; both belong to this project.
+
+```yaml
+decision_log:
+  - when:
+    decision:
+    why:
+    linked_to:                 # optional: a motif id (composer/SKILL.md "Motif ledger") or a
+                                # track/section id — the specific material this decision touched
+    superseded_alternatives: [] # optional: what was considered and rejected in its favor
+```
+
+`linked_to` and `superseded_alternatives` are additive (version 1.1): a 1.0 entry with neither is
+still a valid entry. Leave both empty rather than invent one — a project-wide decision ("no live
+drums") has no `linked_to`; a decision about one track's chorus hook does, and should say so rather
+than leave the specific change to be inferred from prose.
+
+```yaml
+revision_queue:
+  - item:
+    why:
+    priority:
+    linked_to:                 # optional, same meaning as above
+```
+
+`revision_queue` has no `superseded_alternatives`: an item is a known fix, not yet a decision among
+options, so there is nothing superseded until the fix is made and logged.
+
+---
+
+# 7. Project health
 
 ```yaml
 health:
@@ -167,7 +199,7 @@ health:
 
 ---
 
-# 7. Completion definition
+# 8. Completion definition
 
 Written **before** production, not after. Research on creative work finds that finishing is a decision
 rather than something detected, and that closing the problem too early costs originality
@@ -188,7 +220,7 @@ whether an individual render may be called final.
 
 ---
 
-# 8. What Project State is not
+# 9. What Project State is not
 
 - It is not a task manager. Every field earns its place by changing a musical decision.
 - It does not store musical detail. That is the track state.

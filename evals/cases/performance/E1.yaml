@@ -1,0 +1,66 @@
+# Evaluation case E1. Format: evals/schemas/CASE_SCHEMA.md
+test:
+  id: E1
+  title: 'Ensemble gesture: a 40-piece orchestra building from intimate to enormous'
+  category: performance
+  source: new in 2.1
+  brief: '40-piece orchestra, bars 1 to 24: a solo oboe opens alone, and the passage builds all the
+    way to full tutti by the last bar. Write the ensemble gesture for that buildup, and how strings,
+    woodwinds, brass and percussion each answer it.'
+  supplied_context: []
+  expected_routes:
+    must_include:
+    - performance-director
+    must_not_include: []
+  required_behaviors:
+  - an ensemble_gesture spanning the buildup, with an origin bar near the start and a target bar
+    near the end
+  - at least four distinct groups in responses, each with its own lag_beats, curve and role rather
+    than one curve copied onto every part
+  - the hierarchy of who is foreground and who is support visibly changes over the span, e.g. the
+    oboe and strings leading early while brass and percussion are held back until the tutti
+  forbidden_behaviors:
+  - one shared automation curve applied identically to every instrument group with only the part
+    name changed
+  - treating a 40-piece orchestra passage as though only one part is playing
+  structural_assertions:
+  - id: trace_present
+    why: routing and preservation are checked from the trace
+    block_present: session_trace
+  - id: gesture_present
+    block_present: ensemble_gesture
+  - id: gesture_type
+    field_in:
+      path: ensemble_gesture.type
+      values: [crescendo, textural_swell, density_shift]
+  - id: gesture_why
+    field_nonempty: ensemble_gesture.why
+  - id: responses_present
+    field_nonempty: ensemble_gesture.responses
+  - id: multi_groups
+    why: a 40-piece buildup answered by one group is not an ensemble gesture
+    min_count:
+      path: ensemble_gesture.responses
+      min: 4
+  - id: diverse_curves
+    why: differentiated response shapes are the point of the gesture; one curve for every part is
+      the near miss this case exists to catch
+    all_of:
+    - regex_present:
+        pattern: 'curve:\s*linear'
+    - regex_present:
+        pattern: 'curve:\s*(exponential|stepped|delayed_onset)'
+  - id: diverse_roles
+    why: a real buildup has parts that lead and parts that are held back, not every part doing the
+      same job
+    all_of:
+    - regex_present:
+        pattern: 'role:\s*(lead|independent)'
+    - regex_present:
+        pattern: 'role:\s*(follow|held_back)'
+  human_questions:
+  - Does the shape of who enters when actually read as a real orchestral buildup, intimate to
+    enormous, rather than a generic fade-in?
+  - Is the lag and curve given to each group something a conductor would recognise as how that
+    section actually enters a crescendo?
+  trials: 3

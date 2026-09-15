@@ -4,7 +4,7 @@ Agent skills for making music, and for developing the music you have already sta
 Director that routes each problem to the right specialist, and fifteen specialists behind it. Works
 with or without a DAW, for any genre, any user.
 
-Version 2.1-dev. MIT licensed.
+Version 2.1-dev. PolyForm Noncommercial 1.0.0 licensed.
 
 > **Status: `main` is 2.1, in development and testing. It is not a release.**
 >
@@ -252,5 +252,8 @@ change only when the schema does.
 
 ## License
 
-MIT. See `LICENSE`. Free to use, change and share, including commercially, as long as the
-license and copyright notice travel with it.
+PolyForm Noncommercial 1.0.0. See `LICENSE`. Free to use, change and share for any noncommercial
+purpose — personal use, research, and use by a charitable, educational, public-research, public-safety
+or health, environmental, or government body are all included — as long as the license and the
+required notice travel with it. Commercial use, including selling the pack or work built on it, is
+not licensed.
