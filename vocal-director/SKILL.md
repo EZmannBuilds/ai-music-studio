@@ -206,3 +206,29 @@ cautions. Where it is not, do not add a tradition's ornament as colour.
 
 Everything here is a plan in text. With no DAW and no singer, it is instructions a person can follow.
 The studio does not synthesise a voice; a vocal guide is a guide, and the deliverable says so.
+
+
+## Handoffs
+
+| To | What it carries |
+|---|---|
+| Composer | requests to change contour, range or phrase length, with the reason |
+| Lyric Generator | which lines carry the hook, where breaths fall, what a stack sings |
+| Performance Director | the voice's `performance_state` entries, written here rather than there |
+| MIDI Builder | the track list with roles, so an instrumental export mutes by role |
+| Producer | what each layer is for, so processing serves the architecture |
+| Mix Engineer | the intended hierarchy, and where it changes by section |
+| Diversity ledger | the `vocal_architecture` row |
+
+## How this is tested
+
+- every added layer has a stated function, and a layer with none is a finding;
+- stacks stay inside the declared range, and the range was declared rather than assumed;
+- consonant and vowel timing is planned for background parts, not only for the lead;
+- two consecutive songs do not share a chorus vocal architecture unless it is recorded as a project
+  motif or a deliberate callback;
+- a request to imitate a named living artist produces a one-sentence decline and a mechanism-level
+  alternative, not a lecture and not quiet compliance
+  (`research/BENCHMARK_DIVERSITY.md`, N4);
+- `research/BENCHMARK_DIVERSITY.md` D5 and D13 check that a piece with no voice, and a piece with
+  almost no material, are still arranged rather than padded with vocal layers.

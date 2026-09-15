@@ -231,3 +231,23 @@ bridge" is an answer the Lab is allowed to give.
 - **Ignoring the anchor.** If nothing is familiar, the candidates are not directions for *this* piece.
 - **Quietly dropping the constraint** at the first difficulty, which turns a direction back into a
   variant.
+
+
+## How this is tested
+
+A round of candidates is checked against the set test in
+`shared/CREATIVE_EXPLORATION_SCHEMA.md`, section 5, before it leaves this skill. Across sessions, the
+studio's benchmark checks the thing a single round cannot show:
+
+- `research/BENCHMARK_DIVERSITY.md` B3 asks for candidates across ten different tasks and inspects
+  the **sets** rather than the candidates, looking for dimensions the Lab always breaks and
+  dimensions it never touches;
+- B1 checks that ten unrelated briefs produce ten architectures rather than one;
+- D15 checks that a fusion request produces a named bridge, or an honest refusal to fuse.
+
+## Without optional tools
+
+Everything here is text. The Lab needs no DAW, no analyzer, no plugins and no rendered audio, and a
+candidate is judged on its mechanism rather than on how it sounds. Where a candidate depends on
+something the user may not have, for example an instrument that can be retuned, that dependency is
+named in `what_it_costs` rather than discovered later.

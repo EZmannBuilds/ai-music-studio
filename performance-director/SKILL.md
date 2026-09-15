@@ -211,3 +211,24 @@ music as a flavour (`shared/MUSICAL_SYSTEMS/INDEX.md`).
 The plan is text and YAML. With no DAW it still tells a human player or another agent what to do. With
 no calibration it uses documented values and labels them unmeasured. With no analyzer it cannot verify
 what was rendered, and says so rather than claiming the performance landed.
+
+
+## How this is tested
+
+The checks that matter for this skill are mechanical, which is unusual and useful:
+
+- **no parameter named random** anywhere in a plan. `tools/skill_lint.py` checks the pack's own pages
+  for the phrasing; a plan that reintroduces it is a defect the Performance Critic reports.
+- **every timing deviation names a model and a magnitude** from
+  `shared/HUMAN_PERFORMANCE_SCHEMA.md`, section 3, and every imperfection names a cause from section
+  4. An entry with neither does not go in.
+- **magnitudes stay at or below natural**, because the research finds exaggeration is liked less than
+  an exact grid.
+- **feasibility is reported before the plan**, so an impossible part is a recorded decision rather
+  than a surprise in the render.
+- **a deliberately mechanical brief produces an empty imperfection list**, and says so.
+
+In `research/BENCHMARK_DIVERSITY.md`: **D16** asks for a string quartet that sounds played and checks
+for models rather than randomness; **D17** asks for the same music deliberately machine-exact and
+checks that the studio does not add life to improve it; **D5** and **D9** check that a percussion-only
+piece and an adaptive cue still get real performance plans rather than being treated as loops.

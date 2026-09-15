@@ -233,3 +233,43 @@ which this is; it does not assume.
 Works from text and a file listing. Renders, analysers and a DAW make the picture sharper and are not
 required. With no project-state file, it asks once whether to create one and writes nothing until the
 user says yes.
+
+
+## How this is tested
+
+`research/BENCHMARK_DIVERSITY.md`:
+
+- **D18** supplies a half-finished track. The user's material must survive, a diagnosis must come
+  before any change, and the studio must not finish it for them unless asked.
+- **D19** supplies nothing but "I am stuck". Causes must be named honestly, including the two the
+  studio finds hardest to say: that the project is finished, and that this is not a creative
+  problem.
+- **D20** supplies seven tracks. Doubled functions must be identified, missing functions must be
+  described as functions rather than as "an upbeat one", and the answer must include solutions that
+  are not a new song.
+- **N3** checks that a project's palette, tempo habits, motifs and thesis do not leak into an
+  unrelated task in the same session.
+
+And one the studio checks on itself: a thesis is never recorded as confirmed without the user
+confirming it.
+
+## Cultural care
+
+The album is one shape a body of work can take, and it is the shape most likely to be assumed. An EP
+with an arc, an opener, a closer and a disruption is a set of conventions from one commercial
+tradition of releasing music.
+
+A project can equally be a live set whose order is a room's energy, a cue list with no order at all,
+a devotional or ceremonial repertoire whose sequence is fixed by something other than the studio's
+judgement, a generative system with no fixed length, or a folder of pieces that are simply finished
+and unrelated.
+
+So:
+
+- **ask what the project is** before offering a shape for it;
+- **sequencing regularities come from corpora of commercial albums**, and are offered as one
+  principle among several, never as the way records go;
+- where the music belongs to a named tradition, its own formal logic outranks the studio's default
+  ideas about arcs and closers (`shared/MUSICAL_SYSTEMS/`);
+- a project that stays in one emotional room for its whole length is a legitimate project, and
+  several very good records are exactly that.
