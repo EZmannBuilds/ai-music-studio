@@ -112,7 +112,9 @@
     "shared/VIRTUAL_INSTRUMENT_GUIDE/HARDANGER_FIDDLE.md",
     "shared/VIRTUAL_INSTRUMENT_GUIDE/HIGHLAND_BAGPIPE.md",
     "shared/VIRTUAL_INSTRUMENT_GUIDE/JAVANESE_GAMELAN_INSTRUMENTS.md",
-    "shared/VIRTUAL_INSTRUMENT_GUIDE/BALINESE_GAMELAN_INSTRUMENTS.md"
+    "shared/VIRTUAL_INSTRUMENT_GUIDE/BALINESE_GAMELAN_INSTRUMENTS.md",
+    "shared/STRUCTURED_RECORDS.md",
+    "shared/RESEARCH_RETRIEVAL.md"
   ],
   "research": [
     "research/PERCEPTION_AND_PRODUCTION.md",
@@ -193,7 +195,9 @@
     "tools/compat_check.py",
     "tools/evidence_check.py",
     "tools/eval_selftest.py",
-    "tools/vocab.json"
+    "tools/vocab.json",
+    "tools/validate_records.py",
+    "tools/research_index.py"
   ],
   "evals": [
     "evals/README.md",

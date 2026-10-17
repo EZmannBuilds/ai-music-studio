@@ -1,0 +1,14 @@
+{
+  "id": "D001",
+  "when": "2026-10-17",
+  "scope": "project/track-a/chorus",
+  "decision": "Retain the original melody",
+  "reason": "The user requested arrangement changes only",
+  "status": "accepted",
+  "approved_by": "user",
+  "supersedes": [],
+  "related_artifacts": [
+    "track-a-state.yaml"
+  ],
+  "render_ids": []
+}

@@ -1,0 +1,19 @@
+{
+  "id": "F001",
+  "source": {
+    "kind": "human_listening",
+    "artifact": "mix_v2.wav",
+    "render_id": "v2"
+  },
+  "observation": {
+    "statement": "Chorus feels smaller than the verse",
+    "basis": "listened",
+    "confidence": "medium"
+  },
+  "suspected_cause": "The chorus loses the upper register counterline",
+  "proposed_action": "Restore the counterline on a copy; compare at matched loudness",
+  "action_layer": "arrangement",
+  "approval": "pending",
+  "recheck": null,
+  "status": "proposed"
+}

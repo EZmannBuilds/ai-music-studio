@@ -229,3 +229,7 @@ whether an individual render may be called final.
   Director does not carry them into unrelated work.
 - It does not assume the album. A live set, a cue list, a generative system and a single song are all
   projects, and the schema supports each without treating the album as the real one.
+
+## Optional append-only decision events
+
+`project_state.decision_log` remains authoritative for the project overview. When changes need audit-level provenance across revisions, supplement entries with project-local `decision_event` records (`shared/STRUCTURED_RECORDS.md`). Do not migrate or overwrite older entries automatically.

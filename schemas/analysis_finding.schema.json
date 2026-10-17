@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Audio analysis finding with revision follow-through",
+  "type": "object",
+  "required": [
+    "id",
+    "source",
+    "observation",
+    "status"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "kind",
+        "artifact"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "wavread",
+            "other_analyzer",
+            "human_listening",
+            "render_verification"
+          ]
+        },
+        "artifact": {
+          "type": "string"
+        },
+        "render_id": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "observation": {
+      "type": "object",
+      "required": [
+        "statement",
+        "basis"
+      ],
+      "properties": {
+        "statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "basis": {
+          "enum": [
+            "measured",
+            "listened",
+            "inferred"
+          ]
+        },
+        "value": {
+          "type": [
+            "number",
+            "string",
+            "null"
+          ]
+        },
+        "unit": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "confidence": {
+          "enum": [
+            "high",
+            "medium",
+            "low",
+            "unknown"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "suspected_cause": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "proposed_action": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "action_layer": {
+      "enum": [
+        "composition",
+        "arrangement",
+        "sound_design",
+        "level",
+        "processing",
+        "none",
+        "undetermined"
+      ]
+    },
+    "approval": {
+      "enum": [
+        "pending",
+        "accepted",
+        "rejected",
+        "not_required"
+      ]
+    },
+    "recheck": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "render_id": {
+          "type": "string"
+        },
+        "result": {
+          "enum": [
+            "improved",
+            "worsened",
+            "unchanged",
+            "inconclusive"
+          ]
+        },
+        "evidence": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "render_id",
+        "result"
+      ]
+    },
+    "status": {
+      "enum": [
+        "observed",
+        "proposed",
+        "approved",
+        "applied",
+        "verified",
+        "dismissed"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

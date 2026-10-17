@@ -1023,3 +1023,7 @@ diagnosis first. It reaches the Guide when the diagnosis comes back clean, or wh
 the track is competing with another one, which is a project question wearing a song's clothes.
 
 Stuck has causes, and "write another song" is almost never the fix for any of them.
+
+## Optional persistent evidence extensions
+
+For recurring revision cycles, read `shared/STRUCTURED_RECORDS.md` and preserve observations and decisions alongside the project files. For large research libraries, consult `shared/RESEARCH_RETRIEVAL.md`. These extensions never override the user brief, existing project state, specialist responsibilities or human listening.

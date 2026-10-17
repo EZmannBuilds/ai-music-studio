@@ -102,3 +102,7 @@ An analyzer can be wrong for the artistic target.
 
 If the analyzer and listening intent disagree, explain the tradeoff instead of blindly forcing
 the measurement into a target range.
+
+## Optional revision evidence record
+
+For multi-pass work, preserve each observation and its follow-through as `schemas/analysis_finding.schema.json`; see `shared/STRUCTURED_RECORDS.md`. The original `mix_feedback` structure remains valid.

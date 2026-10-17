@@ -9,6 +9,22 @@ never released. 2.1 is being built and tested on `main`. A version with a suffix
 2.1 adds no specialists. It makes what 2.0 already claims better sourced, more specific and
 testable, and it was built and tested on `main` without a release.
 
+### Structured records and research retrieval (optional)
+
+- `shared/STRUCTURED_RECORDS.md` adds two optional JSON record types, with formal schemas in
+  `schemas/`: `analysis_finding` follows one observation from its basis (measured, listened or
+  inferred) to a recheck on a new render, and `decision_event` is an append-only supplement to
+  `project_state.decision_log`. A finding cannot be marked verified without a new render, and an
+  agent cannot record user approval it was not given. Existing Markdown and YAML stay valid, with
+  no migration.
+- `tools/validate_records.py` checks those records using only the standard library. It isn't a full
+  JSON Schema validator. `examples/` holds one fictional record of each type.
+- `shared/RESEARCH_RETRIEVAL.md` and `tools/research_index.py` build an offline heading index of a
+  Markdown research library and search it. The index is a disposable cache written outside the
+  indexed folder. A hit is not evidence, so the original section and its sources are still read.
+- The Music Director, Music Research, Mix Feedback Protocol, Project State Schema and README point
+  to these extensions, which never override the brief, project state or listening.
+
 ### Deliverable hygiene
 
 - `music-director/SKILL.md` gains **"Leave only the deliverable"**: the delivery folder holds the

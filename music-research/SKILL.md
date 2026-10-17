@@ -1673,3 +1673,7 @@ The standard is:
   A comparison with the user's work belongs in the current song's notes, not the pack.
 - The Music Director routes here; the other specialists retrieve from a finished pack by problem
   (section 12). Reference Analyst still handles a single reference song or file.
+
+## Optional offline research index
+
+Keep the research papers and citations as source documents. When research becomes too large to load whole, use the heading index workflow in `shared/RESEARCH_RETRIEVAL.md` to find relevant sections, then read the original section and source evidence. An index hit is not proof.

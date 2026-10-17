@@ -257,3 +257,7 @@ purpose — personal use, research, and use by a charitable, educational, public
 or health, environmental, or government body are all included — as long as the license and the
 required notice travel with it. Commercial use, including selling the pack or work built on it, is
 not licensed.
+
+## Optional structured evidence and offline research retrieval
+
+The pack includes backward-compatible, optional JSON records for musical findings and decision history (`shared/STRUCTURED_RECORDS.md`, `schemas/`) plus an offline Markdown heading index for larger research collections (`shared/RESEARCH_RETRIEVAL.md`). Markdown remains the source of truth for skill instructions and research prose. No database installation or migration is required. Run `python3 tools/validate_records.py analysis_finding examples/analysis_finding.example.json` and `python3 tools/validate_records.py decision_event examples/decision_event.example.json` to check example records. Run `python3 tools/research_index.py build --root research --output /tmp/music-research-index.json` to create a disposable private index.
