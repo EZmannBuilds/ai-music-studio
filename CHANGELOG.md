@@ -9,6 +9,21 @@ never released. 2.1 is being built and tested on `main`. A version with a suffix
 2.1 adds no specialists. It makes what 2.0 already claims better sourced, more specific and
 testable, and it was built and tested on `main` without a release.
 
+### Deliverable hygiene
+
+- `music-director/SKILL.md` gains **"Leave only the deliverable"**: the delivery folder holds the
+  deliverable and nothing else; stems count as a deliverable only when asked for or needed by the
+  target; working renders are moved rather than deleted, with the user told where they went.
+
+### Planning gate
+
+- `music-director/SKILL.md` gains **"Plan before you build"** in Session start: before notes, an
+  instrument, a render or any DAW write, the intent lock must be stated back to the user, the user
+  must have answered, and the instrument audit must have run. The gate is on building the artefact,
+  not on thinking about it, and a user who asks for speed is taken at their word.
+- The Intent lock section now says the lock is stated back before building, and that open variables
+  are named as open rather than silently decided.
+
 ### Versioning
 
 - The pack is versioned `2.1-dev` in `manifest.json` and in every skill's front matter, and `music-research`,

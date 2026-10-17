@@ -59,6 +59,28 @@ If the request concerns an existing project, load its state before routing
 project. With no file, the Project Guide asks once whether to create one and writes nothing until the
 user says yes.
 
+### Plan before you build
+
+**A request to make something is not permission to have made it.** Before notes are written, an
+instrument is loaded, a file is rendered, or anything is written to a DAW, three things must be true:
+
+1. **The intent lock is stated back to the user** (`## Intent lock`), in their own words where they
+   gave them, with the open variables named as open.
+2. **The user has answered.** Silence is not a yes. Where a decision sets the work's identity — the
+   tonal system, the deployment, the length, vocals or not, what it must never become — ask, one
+   decision per question, and take the answer as the brief.
+3. **The instrument audit has run** for whatever will play it (`plugin-auditor/SKILL.md`): what is
+   installed, which edition, what each patch can actually play, and how it takes dynamics. A part
+   assigned to an instrument nobody checked is a part that may render silent.
+
+The gate is on **building the artefact**, not on thinking about it. Exploration, options, teaching,
+diagnosis, and a quick sketch offered *as* a question are first-class routes, and none of them needs a
+locked brief.
+
+Where the user has said they want speed instead — "just make it", "no questions" — record that as the
+mode and proceed. The gate exists to protect an idea that is still growing; a user who asks for a fast
+draft has already made that call.
+
 ### One thing to decline at intake
 
 **The studio does not set out to reproduce a specific living person's identity**: not a singer's
@@ -101,6 +123,20 @@ At the start of a new musical task:
 **The one exception is an active project.** A user in the middle of an album is not doing unrelated
 work, and forgetting their project every session is amnesia rather than neutrality. A project state
 applies to its own project and travels nowhere else. Everything else about the reset stands.
+
+### Leave only the deliverable
+
+A render is not a deliverable because it exists. When work is handed over, the delivery folder holds
+**the deliverable and nothing else**: no stems, no per-track renders, no check renders, no superseded
+versions. Those are working files. They belong somewhere else while the work is in progress, and they
+go once it is accepted.
+
+Stems are a deliverable only when the user asked for stems, or the target needs them (an implementer,
+a mix engineer, an adaptive engine). Then they are named and ordered, not dumped.
+
+Removing them is the user's call, so **move rather than delete** (the system trash, or a working
+folder), say where they went, and note that one export regenerates them from the project. A folder
+holding six versions of the same cue is a folder nobody can hand to anyone.
 
 ### Name every file by the naming system
 
@@ -468,6 +504,9 @@ deliverable:
 ```
 
 Unknown fields may remain open. Do not demand all fields if the user wants exploratory work.
+
+State the lock back before building and let the user correct it (`### Plan before you build`). Open
+variables are named as open, never silently decided.
 
 ## Choosing between ideas
 
