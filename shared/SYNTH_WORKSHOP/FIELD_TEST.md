@@ -17,7 +17,7 @@ Measured on one setup and one Vital version. Recheck them on another.
 - **Tempo-synced LFO:** tempo index 9 is an eighth note, measured at 4.0 Hz at 120 BPM.
 - **Oscillator distortion type 7** is FM from another oscillator. Energy above 1 kHz rose from -16.6 to -11.5 dB as the amount rose.
 - **Random style 1** is sample-and-hold. Three identical sixteenth notes measured 1150, 1201 and 1272 Hz spectral centroid.
-- **Free-running Perlin random (style 0) at 0.4 Hz**, routed to a wavetable frame under a 900 Hz filter, gave no measurable movement on a held note: 0.05 dB of spectral-shape change at an amount of 0.12, and 0.12 dB at 0.3. The cause was not found.
+- **Perlin random (style 0) restarts at every note in trigger mode** (`sync_type` 0, the default). A sine with random on its pitch (±4.8 st) put eight short notes within 0.1 st of each other, and moved a 4-second held note only 0.72 st. **In sync mode (`sync_type` 1) it runs on across notes**, but at 0.4 Hz it reaches only about 15–25% of its range in a few seconds (1.23 st and 0.32 st). So a drift needs about 5 times the route it seems to need. Sample-and-hold (style 1) picks a new value at each trigger and steps within a note (3.67 st on the held note).
 - **A 7 kHz high cut before the reverb** did not change a bright reverb tail (energy above 14 kHz: -16.2 dB before, -16.4 dB after).
 
 ## What the protocol caught
@@ -25,9 +25,11 @@ Measured on one setup and one Vital version. Recheck them on another.
 - **A dead velocity layer:** a second layer meant to arrive on hard notes changed brightness by 0.15 semitones across the whole velocity range. The quadratic level was the cause. After the fix, the layer rose 19.5 dB from velocity 40 to 120.
 - **A macro that did all its work in its first half:** +21.8 semitones, then -0.9. Step 7, "test each control from minimum to maximum", caught it.
 - **A macro whose tail never ended** at full travel: about 18 s of reverb in a 32 s test slot.
-- **A recipe's motion that was not there:** the bass recipe's slow random drift, and with it the macro meant to speed the drift up. Both are unresolved.
+- **A recipe's motion that was not there:** the bass recipe's slow random drift, and with it the macro meant to speed the drift up. Two fixes changed nothing, because the random was restarting at every note. With sync mode and a 5x route, the phrase moved 3.2 st from the original, and the macro gave 3.9 dB of held-note movement at full travel.
 - **Macros that change loudness:** a drive macro added 4.1 dB over its travel and a wavetable-brightness macro lost 3.2 dB. The challenge asks for constant loudness, so both need compensating.
 - **Hard chords that came out darker, not brighter**, on both pads (about -4 semitones). Unresolved; it may be the measurement (next section).
+
+- **A challenge whose three versions sounded the same in the song:** the leads differed alone but only by 0.9–1.6 dB of spectral shape in the chorus, against 0.2–0.3 dB between the verses, which have no lead. Pushing each mechanism to its extreme, and giving the lead its solo level, brought every pair to 1.8–2.7 dB. Moving one lead's cutoff only slid it between the other two; resonance gave it an axis of its own.
 
 ## Traps in measuring the protocol
 
@@ -37,6 +39,7 @@ Measured on one setup and one Vital version. Recheck them on another.
 - **An octave layer interferes with the core's own second harmonic,** so that band is unreliable at medium velocity. If the layer is the only stereo part, its side channel measures it cleanly.
 - **"Largest jump against the median" flags bright sounds and decaying tails as clicks.** Compare each jump against the local 10 ms level instead.
 - **A 14-second drift can't be heard or measured on a 4-second held note.** Hold one note for a full cycle.
+- **Measure competing versions in context, against a baseline.** Compare their spectral shape in the part's own band, and their brightness over time, against a section where the part is absent. Match the versions alone on the material they play.
 - **A loudness target and a peak ceiling can conflict for strikes.** A transition hit had to drop to -20.6 LUFS before its stacked strikes stopped clipping.
 
 Measurement shows whether a route does anything. Only listening decides whether it serves the part, so rubric scores taken from measurements are provisional.
