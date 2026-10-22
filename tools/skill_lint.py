@@ -30,7 +30,7 @@ SKIP_PREFIXES = ('evals/expected/',)
 PRODUCT_OK_PREFIXES = (
     'daw-adapters/', 'shared/FREE_INSTRUMENTS.md', 'shared/PLUGIN_CALIBRATION_SCHEMA.md',
     'shared/DAW_ADAPTER_CONTRACT.md', 'shared/FILE_NAMING.md', 'shared/RENDER_VERIFICATION.md',
-    'plugin-auditor/SKILL.md', 'research/', 'README.md', 'CHANGELOG.md',
+    'plugin-auditor/SKILL.md', 'research/', 'shared/SYNTH_WORKSHOP/', 'README.md', 'CHANGELOG.md',
 )
 PRODUCTS = re.compile(
     r'\b(ableton|live\s+1[12]|fl\s+studio|pro\s+tools|logic\s+pro|cubase|reaper|studio\s+one|'

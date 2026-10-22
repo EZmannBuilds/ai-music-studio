@@ -60,7 +60,7 @@ One user-facing orchestrator, `music-director`, and fifteen specialists:
 | `music-research` | basic or deep research on an artist's creative system, saved as a pack |
 
 Shared protocols, schemas and knowledge live in `shared/`, DAW adapters in `daw-adapters/`, the
-research behind the skills in `research/`, examples in `examples/`, and release checks in `tools/`.
+research behind the skills in `research/`, the synth learning workshop in `shared/SYNTH_WORKSHOP/`, examples in `examples/`, and release checks in `tools/`.
 
 You speak to the Music Director as if it were one skill. It decides which specialists are needed and
 keeps them from solving the wrong kind of problem.
@@ -125,6 +125,7 @@ a note is silent or a part is buried.
 | backgrounds, stacks, ad-libs, rap flow, choir, what the voices do | Vocal Director |
 | it sounds fake, it sounds stiff, articulation, feel, is this playable | Performance Director |
 | synth patch, texture, layering, creative effects, automation | Producer |
+| teach me a specific synth or help me design/review a patch | Producer |
 | lyrics, syllable fit, rhyme, prosody | Lyric Generator |
 | mud, harshness, masking, stereo, loudness, balance | Mix Engineer |
 | analyze a song, a reference or an analyzer report | Reference Analyst |
@@ -151,6 +152,7 @@ decision**; a shared system is a **representation or a body of knowledge**.
 | diversity | `TRACK_DIVERSITY_LEDGER` |
 | performance | `HUMAN_PERFORMANCE_SCHEMA`, `VOCAL_ARCHITECTURE_SCHEMA`, `INSTRUMENT_BEHAVIOR_SCHEMA`, `VIRTUAL_INSTRUMENT_GUIDE/` |
 | musical knowledge | `MUSICAL_SYSTEMS/`, `RHYTHM_SYSTEMS/`, `TUNING_AND_MPE` |
+| synth teaching | `SYNTH_WORKSHOP/` — lesson plans, patch architectures, testing and research notes |
 | interactive music | `ADAPTIVE_MUSIC` |
 | working with the user | `INTERACTION_MODES` |
 | quality and evidence | `QUALITY_GATE`, `RESEARCH_RULES`, `GENERALIZATION_RULES`, `RENDER_VERIFICATION` |

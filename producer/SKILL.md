@@ -77,6 +77,10 @@ reaching below the orchestral bass register) or `color` (a synth pad under an or
 still deciding sound by role, the way this section already asks. Gated the same way as the rest of
 that file: read it only where the brief's instrumentation is genuinely hybrid, never by default.
 
+## Teaching a specific synthesizer
+
+When the user asks to learn a specific synthesizer, use the applicable teaching guide under `../shared/SYNTH_WORKSHOP/` for the control-level procedure. Producer remains responsible for how the instrument serves the arrangement, layers, effects, automation, and mix. Teach transferable concepts and verify the named instrument's controls rather than reusing labels from another synth.
+
 ## Sound design workflow
 
 For a synth:

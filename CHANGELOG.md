@@ -9,6 +9,23 @@ never released. 2.1 is being built and tested on `main`. A version with a suffix
 2.1 adds no specialists. It makes what 2.0 already claims better sourced, more specific and
 testable, and it was built and tested on `main` without a release.
 
+### Vital teaching lab (new, optional)
+
+- `shared/SYNTH_WORKSHOP/` teaches patch design through short build, listen, diagnose and revise
+  lessons, with a separate patch-building path for users who want a result rather than a lesson.
+  It covers envelopes, harmonic shaping, wavetable movement, modulation routing and remapping,
+  performance controls, purposeful layering, effects, testing in context and revision.
+- `PATCH_STANDARD.md` gives a patch brief, a modulation route card, a complexity rubric and a test
+  protocol. `PATCH_RECIPES.md` has three original architectures (an evolving pad, an articulated
+  bass, a formant-like lead) and a variation challenge. `RESEARCH_NOTES.md` separates manufacturer,
+  community, educational and forum sources; `AUTOMATION_GUIDE.md` lays out a testable future preset
+  builder and marks third-party bindings as optional and unverified. No third-party code, factory
+  preset or `.vital` file is bundled.
+- `FIELD_TEST.md` records a build of the recipes, the challenge and the capstone in Vital,
+  rendered in a DAW and measured with the test protocol: the parameter units it measured (oscillator
+  level is quadratic; a route's amount is a fraction of its destination's span), what the protocol
+  caught, and traps in measuring it. The Producer points to the workshop for synth teaching.
+
 ### Structured records and research retrieval (optional)
 
 - `shared/STRUCTURED_RECORDS.md` adds two optional JSON record types, with formal schemas in
