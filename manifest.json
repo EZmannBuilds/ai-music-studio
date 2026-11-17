@@ -122,7 +122,8 @@
     "shared/SYNTH_WORKSHOP/PATCH_RECIPES.md",
     "shared/SYNTH_WORKSHOP/RESEARCH_NOTES.md",
     "shared/SYNTH_WORKSHOP/AUTOMATION_GUIDE.md",
-    "shared/SYNTH_WORKSHOP/FIELD_TEST.md"
+    "shared/SYNTH_WORKSHOP/FIELD_TEST.md",
+    "shared/SKETCH_ROUND_PROTOCOL.md"
   ],
   "research": [
     "research/PERCEPTION_AND_PRODUCTION.md",
@@ -184,7 +185,8 @@
     "examples/Lyric_Alignment_Example.txt",
     "examples/Performance_Plan_Example.yaml",
     "examples/Track_DNA_Example.yaml",
-    "examples/Project_State_Example.yaml"
+    "examples/Project_State_Example.yaml",
+    "examples/sketch_round.example.json"
   ],
   "profiles": [
     "profiles/README.md",
@@ -205,7 +207,8 @@
     "tools/eval_selftest.py",
     "tools/vocab.json",
     "tools/validate_records.py",
-    "tools/research_index.py"
+    "tools/research_index.py",
+    "tools/records_selftest.py"
   ],
   "evals": [
     "evals/README.md",

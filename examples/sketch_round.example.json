@@ -1,0 +1,20 @@
+{
+  "id": "R001",
+  "when": "2026-11-16 18:00",
+  "project": "example-instrumental",
+  "brief": "A tense night-drive instrumental, two to three minutes, no vocals",
+  "sketch_count_reason": "Default round of three for a new composition",
+  "audition_target_lufs": -18,
+  "candidates": [
+    {"label": "A", "one_line": "Four-on-the-floor drum machine, a picked bass in eighths, one bit-reduced synth lead",
+     "differs_on": ["groove", "instrumentation", "production_texture"], "render": "sketches/R001-A.wav",
+     "decision": "KEEP", "basis": "listened_by_user", "decided_by": "user", "reason": "The user picked it in a loudness-matched comparison"},
+    {"label": "B", "one_line": "Half-time live kit, a sustained cello-register drone, no lead until the second phrase",
+     "differs_on": ["groove", "density", "emotional_character"], "render": "sketches/R001-B.wav",
+     "decision": "REJECT", "basis": "listened_by_user", "decided_by": "user", "reason": "Too slow for a drive"},
+    {"label": "C", "one_line": "Arpeggiated sequence alone over a pedal, drums only as a gated snare",
+     "differs_on": ["harmony_and_melody", "density", "structure"], "render": "sketches/R001-C.wav",
+     "decision": "REJECT", "basis": "listened_by_user", "decided_by": "user", "reason": "No pulse to hold on to"}
+  ],
+  "outcome": "A"
+}

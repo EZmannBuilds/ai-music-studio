@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Sketch round: rendered alternatives and their KEEP/REVISE/RECOMBINE/REJECT decisions (shared/SKETCH_ROUND_PROTOCOL.md)",
+  "type": "object",
+  "required": ["id", "when", "project", "brief", "candidates", "outcome"],
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "when": {"type": "string", "minLength": 1},
+    "project": {"type": "string", "minLength": 1},
+    "brief": {"type": "string", "minLength": 1},
+    "sketch_count_reason": {"type": "string"},
+    "unrendered": {"type": "boolean"},
+    "audition_target_lufs": {"type": "number"},
+    "candidates": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": ["label", "one_line", "differs_on", "decision", "basis", "decided_by"],
+        "properties": {
+          "label": {"type": "string", "minLength": 1},
+          "one_line": {"type": "string", "minLength": 1},
+          "exploration_label": {"type": "string"},
+          "differs_on": {"type": "array", "minItems": 2, "items": {"enum": ["groove", "harmony_and_melody", "instrumentation", "production_texture", "density", "structure", "emotional_character"]}},
+          "instruments": {"type": "array", "items": {"type": "string"}},
+          "render": {"type": "string"},
+          "measurements": {"type": "object"},
+          "decision": {"enum": ["KEEP", "REVISE", "RECOMBINE", "REJECT", "PENDING"]},
+          "basis": {"enum": ["listened_by_user", "audio_model", "measured", "inferred", "pending"]},
+          "decided_by": {"enum": ["user", "director_provisional", "pending"]},
+          "reason": {"type": "string"},
+          "revision_plan": {"type": "string"},
+          "recombine_sources": {"type": "object"},
+          "supersedes": {"type": "string"}
+        }
+      }
+    },
+    "outcome": {"type": "string", "minLength": 1}
+  }
+}

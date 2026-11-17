@@ -9,6 +9,25 @@ never released. 2.1 is being built and tested on `main`. A version with a suffix
 2.1 adds no specialists. It makes what 2.0 already claims better sourced, more specific and
 testable, and it was built and tested on `main` without a release.
 
+### Sketch rounds: explore before committing (2026-11-16)
+- New `shared/SKETCH_ROUND_PROTOCOL.md`. For a new composition, the default is three short (30-45 s) rendered
+  sketches that differ on at least two dimensions (groove, harmony and melody, instrumentation, production
+  texture, density, structure, emotional character). They are render-verified, loudness-matched under full
+  scale, labelled A/B/C, and judged as audio with KEEP, REVISE, RECOMBINE or REJECT. Only a KEEP goes to full
+  composition; a rejected sketch is never polished further. An adjective from the user is recorded as
+  evidence, not mapped to one fix.
+- `music-director/SKILL.md`: the sketch round sits in the production order after the intent lock; production is
+  a loop ("Return to the stage that owns the cause", with a stage table); every judgment states its basis
+  (listened by the user, an audio model, measured, inferred); measurement can show a render is broken, never
+  that it is good.
+- `listener-model/SKILL.md` states that it does not hear and labels its estimates `inferred`.
+  `creative-lab/SKILL.md` hands its candidates to the sketch round.
+- New optional record `sketch_round` (`schemas/sketch_round.schema.json`, `examples/sketch_round.example.json`),
+  checked by `tools/validate_records.py sketch_round`: two or more sketches, two or more dimensions each, a
+  reason for every decision, a plan for REVISE, sources for RECOMBINE, a render behind every judged sketch,
+  one KEEP at most, and no user decision without listening. `tools/records_selftest.py` (17 cases) runs in
+  `check_all.py`.
+
 ### Vital teaching lab (new, optional)
 
 - `shared/SYNTH_WORKSHOP/` teaches patch design through short build, listen, diagnose and revise

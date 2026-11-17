@@ -222,7 +222,7 @@ other, and the user has to do the studio's job of telling them apart.
 
 | To | What it carries |
 |---|---|
-| Music Director | the candidate set and the recommendation |
+| Music Director | the candidate set and the recommendation; for a new composition, the candidates become the sketches of a sketch round (`shared/SKETCH_ROUND_PROTOCOL.md`) and are judged as rendered audio |
 | Composer | the chosen candidate's pitch, rhythm and form constraints |
 | Arranger | its form grammar and what may not repeat |
 | Producer | its production behaviour and palette constraints |

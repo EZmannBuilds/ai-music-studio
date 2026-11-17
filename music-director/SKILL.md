@@ -512,6 +512,9 @@ variables are named as open, never silently decided.
 
 ### Divergent search
 
+**For a whole new composition, run a sketch round** (`shared/SKETCH_ROUND_PROTOCOL.md`): the Creative
+Lab's candidates are rendered as short sketches and judged as audio, not chosen from descriptions.
+
 For a decision inside one dimension, request multiple genuinely different candidates here.
 
 Examples:
@@ -668,7 +671,10 @@ For work that ends in rendered audio:
 
 ```text
 intent lock, including deliverable mode
-→ composition, through Composer's melody-variety gate
+→ SKETCH ROUND, for a new composition (shared/SKETCH_ROUND_PROTOCOL.md): three short rendered
+  sketches that differ on two or more dimensions, loudness-matched, judged by the user;
+  KEEP / REVISE / RECOMBINE / REJECT. Only a KEEP goes forward
+→ composition of the kept idea, through Composer's melody-variety gate
 → lyrics, only when the deliverable or the user needs them, through Lyric Generator's
   cross-song uniqueness check
 → arrangement
@@ -693,6 +699,12 @@ intent lock, including deliverable mode
 - Calibration is offered when `plugin-auditor/SKILL.md` section 5 says so. The Director never
   runs a calibration on its own authority, and never treats silence as approval.
 - If no rendered audio exists, do not overstate confidence in mix recommendations.
+- **The sketch round is the default for any new composition.** Skip it only when the user has
+  specified one idea and asked for it to be built, and say that it was skipped. A revision of an
+  existing song re-opens a round only when the diagnosis says the idea itself is the problem.
+- **Production is a loop, not a line.** Any render can send the work back to an earlier stage
+  (`### Return to the stage that owns the cause`). Do not move to mixing while a composition,
+  arrangement, sound or performance problem is open.
 
 ### DAW execution
 
@@ -739,6 +751,32 @@ Possible upstream fixes:
 - change rhythm interaction.
 
 EQ is not automatically the first solution.
+
+### Return to the stage that owns the cause
+
+After any render, the Director may send the work back upstream. Name the stage and the reason, make
+the change there, and render again; do not compensate downstream for an upstream problem.
+
+| Diagnosis | Back to |
+|---|---|
+| the idea itself does not work; the user rejects its character | a new sketch round |
+| the hook, harmony or register reads childish, theatrical or wrong | Composer |
+| sections do not contrast, nothing enters or leaves, the arrival is weak | Arranger |
+| a sound cannot play its part (too slow, wrong range, wrong kind of real) | Producer: replace the sound before processing it |
+| a part sounds mechanical where it should be played, or played where it should be mechanical | Performance Director |
+| balance, masking, depth, dynamics | Mix Engineer, only once the above are settled |
+
+The user's adjectives ("artificial", "cartoonish", "flat") are evidence, not diagnoses: record their
+words, form hypotheses across these stages, and test them with renders
+(`shared/SKETCH_ROUND_PROTOCOL.md`, section 6).
+
+### Listening, measuring and reasoning are different things
+
+Every judgment states its basis: **listened by the user**, an **audio model** (only for what it has
+been shown to detect), **measured**, or **inferred**. A text model reasoning about notes or numbers is
+not listening, and never claims that something sounds realistic, warm or fake. Measurements can show a
+render is broken; they cannot show it is good. When no reliable listener is available, prepare
+loudness-matched, labelled files and ask the user.
 
 ### Render verification after every export
 

@@ -13,6 +13,12 @@ Estimate how a target listener may experience musical events over time.
 This is not a taste oracle.
 It is a cognitive design tool.
 
+**It does not hear.** Its estimates are reasoning from the score, the plan and any measurements, and
+it labels them `inferred` (`shared/SKETCH_ROUND_PROTOCOL.md`, section 4). It never reports that a
+render sounds realistic, warm, cheap or fake: that is the user's call, or an audio-capable model's
+within what that model has been shown to detect. Where a question can only be answered by listening,
+its output is a loudness-matched comparison and a question for the user.
+
 Use it when the task involves:
 - "catchy";
 - "boring";
