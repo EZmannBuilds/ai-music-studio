@@ -123,7 +123,16 @@
     "shared/SYNTH_WORKSHOP/RESEARCH_NOTES.md",
     "shared/SYNTH_WORKSHOP/AUTOMATION_GUIDE.md",
     "shared/SYNTH_WORKSHOP/FIELD_TEST.md",
-    "shared/SKETCH_ROUND_PROTOCOL.md"
+    "shared/SKETCH_ROUND_PROTOCOL.md",
+    "shared/MIDI_KNOWLEDGE/ARRANGEMENT_AND_REVISION.md",
+    "shared/MIDI_KNOWLEDGE/DRUMS_AND_GROOVE.md",
+    "shared/MIDI_KNOWLEDGE/GENERATION_RULES.md",
+    "shared/MIDI_KNOWLEDGE/LOW_END_808_AND_BASS.md",
+    "shared/MIDI_KNOWLEDGE/MELODY_LINES_AND_DEVELOPMENT.md",
+    "shared/MIDI_KNOWLEDGE/PROVENANCE.md",
+    "shared/MIDI_KNOWLEDGE/README.md",
+    "shared/MIDI_KNOWLEDGE/stats/classical_lines_counterpoint.json",
+    "shared/MIDI_KNOWLEDGE/stats/groove_drums_by_style.json"
   ],
   "research": [
     "research/PERCEPTION_AND_PRODUCTION.md",
@@ -208,7 +217,8 @@
     "tools/vocab.json",
     "tools/validate_records.py",
     "tools/research_index.py",
-    "tools/records_selftest.py"
+    "tools/records_selftest.py",
+    "tools/kb_search.py"
   ],
   "evals": [
     "evals/README.md",

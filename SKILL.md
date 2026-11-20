@@ -42,3 +42,12 @@ they are needed.
 
 Shared protocols and schemas live in `shared/`, DAW adapters in `daw-adapters/`, and release checks
 in `tools/`.
+
+## Companion skills (separate installs)
+
+- **Faderhand** (DAW control, the MIDI checker `midi_check`, calibrated synth units, the Music Production
+  Blueprint schema): when its tools are present, plan in a blueprint and let Faderhand execute and measure. Where
+  `daw-adapters/ABLETON_LIVE.md` mentions a sidecar Remote Script for mixer and routing work, that is Faderhand.
+- **WavRead** (audio analysis reports): measures renders. It never decides whether music is good.
+
+Neither is required. Measured MIDI knowledge lives in `shared/MIDI_KNOWLEDGE/` (retrieve with `tools/kb_search.py`).

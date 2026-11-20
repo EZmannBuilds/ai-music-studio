@@ -4,6 +4,23 @@
 never released. 2.1 is being built and tested on `main`. A version with a suffix (`-dev`, `-beta.N`,
 `-rc.N`) is not a release.
 
+
+### Measured MIDI knowledge, and Faderhand as a separate companion skill (2026-11-20)
+
+- **New: `shared/MIDI_KNOWLEDGE/`.** Guidance pages measured from a licensed MIDI corpus: the Groove MIDI Dataset for
+  human drum feel, curated Mutopia pieces and an approved public-domain PDMX subset.
+  - Pages: drums and groove, the low end and 808s, melody and counterpoint, arrangement and revision, and the
+    generation checklist.
+  - Data: aggregate stats in `stats/`, and sources, licences and attribution in `PROVENANCE.md`.
+  - No source MIDI is included. Numbers from sources pending licence clearance stay in a gitignored `local/` folder.
+- **New: `tools/kb_search.py`** retrieves only the relevant knowledge sections.
+- **Composer, Performance Director and MIDI Builder** now point to that knowledge. The MIDI Builder measures files
+  with Faderhand's `midi_check` when that skill is installed.
+- **`SKILL.md` names the companion skills: Faderhand and WavRead.** Each is optional and installed separately. The
+  Ableton adapter's "sidecar Remote Script" is Faderhand.
+- **Synced from the installed copy:** `daw-adapters/ABLETON_LIVE.md`, `daw-adapters/DAW_CAPABILITY_MATRIX.json` and
+  this changelog, which had moved ahead of the repo (2026-11-10 to 12).
+
 ## 2.1-dev — unreleased, in development and testing
 
 2.1 adds no specialists. It makes what 2.0 already claims better sourced, more specific and
@@ -27,6 +44,42 @@ testable, and it was built and tested on `main` without a release.
   reason for every decision, a plan for REVISE, sources for RECOMBINE, a render behind every judged sketch,
   one KEEP at most, and no user decision without listening. `tools/records_selftest.py` (17 cases) runs in
   `check_all.py`.
+
+### Ableton Live: export without the screen (2026-11-12)
+- `daw-adapters/ABLETON_LIVE.md`: Live's Export window can be driven in the background through Accessibility
+  (range fields by Increment/Decrement, the save panel by a unique name and Live's last-folder preference), so an
+  offline render no longer needs full-screen control. Where the bridge is installed, use its `export_audio`.
+
+### Ableton Live: no approval codes in edit bridges (2026-11-10)
+- `daw-adapters/ABLETON_LIVE.md`: the per-Set approval code is removed from the guidance. Bridges refuse unsaved
+  Sets and keep deletes to disposable Sets, and the agent asks before editing a song that matters. The setup steps
+  for approval codes are gone.
+- `daw-adapters/ABLETON_LIVE.md`: tempo-synced note values ("1/8") don't parse in display units, so write them raw
+  (Echo L/R Synced: raw -3 = 1/8, -2 = 1/4).
+
+### Ableton Live: automation, sidechain, racks, recording (2026-11-10, Phase 2)
+
+- `daw-adapters/ABLETON_LIVE.md` gains "Automation, sidechain, racks and recording", with facts measured on
+  Live 12.4.16:
+  - scripted Session envelopes, and Arrangement automation by real-time recording, with its three traps;
+  - proving automation by sampling inside Live;
+  - exposing a large plugin's parameters through the saved set's Configure slots;
+  - Intel-only plugins under native Live;
+  - sidechain proof by ear-equivalent;
+  - what racks can and can't do;
+  - exact-length resampling as a render without dialogs.
+
+### Ableton Live: mixer, returns, sends, routing and racks (2026-11-10)
+
+- `daw-adapters/ABLETON_LIVE.md` gains "Mixer, returns, sends, routing and racks: a sidecar Remote
+  Script". It covers why a second Remote Script beats editing the working one, how to load it (Live scans
+  scripts only at startup), and what it covers. It also records facts measured audibly on Live 12.4.16:
+  the three scales of a send (LOM knob, display, the saved set's linear gain), meter behaviour (a track
+  meters before its mute; solo overrides mute; sends are post-fader), the audible send check, parameter
+  paths into nested racks, and plugins that expose only Device On.
+- The AbletonMCP limits note now points to the sidecar for mixer work and warns that loading an
+  instrument with an audio track selected creates a new MIDI track.
+- `DAW_CAPABILITY_MATRIX.json`: `mixer_and_routing_control` and `measured_quirks` for Ableton Live.
 
 ### Vital teaching lab (new, optional)
 

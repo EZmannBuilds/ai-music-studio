@@ -130,6 +130,10 @@ Describe the artistic intent in the accompanying notes.
 
 ## Verification
 
+> **Measured MIDI knowledge:** the rules behind generated parts are in `../shared/MIDI_KNOWLEDGE/GENERATION_RULES.md`.
+> When the Faderhand skill is installed, measure every MIDI file before handing it over with its
+> `tools/midi_check.py <file> --genre <genre>` and fix each REVISE line, or record why it is deliberate.
+
 Before delivery:
 
 ```text

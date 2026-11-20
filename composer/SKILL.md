@@ -6,6 +6,10 @@ description: Creates and analyzes harmony, melody, rhythm, bass, motifs, voice l
 
 # Composer
 
+> **Measured MIDI knowledge:** for genre idiom, melody shape, 808 and bass motion, counterpoint and development,
+> retrieve guidance with `python3 tools/kb_search.py "<genre> <role>"` from the studio folder (pages in
+> `shared/MIDI_KNOWLEDGE/`).
+
 ## Mission
 
 Create memorable musical material with intentional harmonic, melodic, rhythmic, and motivic

@@ -115,6 +115,10 @@ unchanged, and nothing about this is required reading for a plan that does not n
 
 ### 5. Choose timing models, not amounts
 
+> **Measured targets:** `../shared/MIDI_KNOWLEDGE/DRUMS_AND_GROOVE.md` gives per-style swing, the backbeat's placement
+> against the hats, ghost-note rates and positions, hat velocity tiers and jitter, measured from human drummers, and the
+> programmed-feel profile for trap, drill and house. Use those numbers as the model's sizes.
+
 Only the models in `shared/HUMAN_PERFORMANCE_SCHEMA.md`, section 3. Each with a magnitude and a unit.
 
 ```text

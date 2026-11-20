@@ -14,3 +14,6 @@ Thumbs.db
 # evaluation runs: the replies and reports an agent run produces stay local
 evals/reports/runs/
 __pycache__/
+
+# MIDI knowledge numbers from sources pending licence clearance: local only
+shared/MIDI_KNOWLEDGE/local/
